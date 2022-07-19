@@ -27,11 +27,11 @@ body {
     padding: 40px;
 }
 #header {
-    border-top: 1px dashed #dcdcdc;
+    border-bottom: 1px dashed #dcdcdc;
     padding-bottom: 40px;
 }
 #main {
-    border-top: 1px dashed #dcdcdc;
+    border-bottom: 1px dashed #dcdcdc;
 }
 #footer {
     padding: 40px 0;
