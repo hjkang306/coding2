@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : for문</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li class="active"><a href="for.html">for문</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">for 문</h2>
+            <p class="t_desc">for문은 특정 구문을 여러번 반복하고 싶을 때 사용하는 반복문입니다.</p>
+            <p class="t_box">
+               for ( 초기값; 조건식; 증감값 ){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+               }
+            </p>
+            
+            <hr>
+
+            <h3 class="t_tit2">0부터 99까지 출력하기</h3>
+            <div class="t_code">
+<pre><code class="language-js">for( let i=0; i&lt;100; i++ ){  //0부터 99까지
+    document.write(i);
+}
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">1부터 100까지 출력하기</h3>
+            <div class="t_code">
+<pre><code class="language-js">for( let i=0; i&lt;=100; i++ ){  //1부터 100까지 출력
+    document.write(i);
+}
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">0부터 100까지 짝수 출력하기</h3>
+            <p>짝수</p>
+            <div class="t_code">
+<pre><code class="language-js">for( let i=2; i&lt;=100; i+=2 ){  //0은 짝수가 아니기 때문에 2부터 시작. i+=2는 i= i+2와 같다. 대입 연산자
+    document.write(i);
+}
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">for문을 이용해서 테이블 출력하기</h3>
+            <p class="t_desc">중첩 for문을 이용해서 테이블을 만들 수 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">//for문을 이용해서 테이블 출력하기(100칸)
+let box = 10;
+let box2 = 10;
+let table = "&lt;table&gt;";
+
+    for( let i=0; i&lt;box; i++){
+        table += "&lt;tr&gt;";
+        
+            for( let j=0; j&lt;box2; j++){
+                table += "&lt;td&gt;💖&lt;/td&gt;";
+            };
+        table += "&lt;/tr&gt;";
+    };
+
+table += "&lt;/table&gt;";
+
+document.write(table);
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인</summary>
+                    <div class="result01"></div>
+                </details>
+                <style>
+                    .testTable tr td {
+                        border: 1px solid #000;
+                    }
+                </style>
+                <script>
+                    let box = 10;
+                    let box2 = 10;
+                    let table = "<table class='testTable'>";
+            
+                        for( let i=0; i<box; i++){
+                            table += "<tr>";
+                            
+                                for( let j=0; j<box2; j++){
+                                    table += "<td>💖</td>";
+                                };
+                            table += "</tr>";
+                        };
+            
+                        table += "</table>";
+            
+                    document.querySelector(".result01").innerHTML = table;
+                </script>
+            </div>
+        </div>
+
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <script>
+    </script>
+</body>
+</html>

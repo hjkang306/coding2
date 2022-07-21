@@ -30,6 +30,7 @@
             <ul class="study">
                 <li><a href="study/basic.html">기본 규칙</a></li>
                 <li><a href="study/operator.html">연산자</a></li>
+                <li><a href="study/for.html">for문</a></li>
             </ul>
         </nav>
     </header>
@@ -75,8 +76,8 @@ let x = 100,
      y = 200,
      z = "javascript";
 
-document.write(x);
-document.write(y);
+document.write(x,"&lt;br&gt;");
+document.write(y,"&lt;br&gt;");
 document.write(z);
 </code></pre>
                 </div>
@@ -84,6 +85,7 @@ document.write(z);
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample01_result">
+                            100<br>200<br>javascript
                         </div>
                     </details>
                 </div>
@@ -98,8 +100,8 @@ document.write(z);
          y = 200,
          z = "javascript";
 
-document.write(x);
-document.write(y);
+document.write(x,"&lt;br&gt;");
+document.write(y,"&lt;br&gt;");
 document.write(z);
 </code></pre>
                 </div>
@@ -107,6 +109,7 @@ document.write(z);
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample02_result">
+                            100<br>200<br>javascript
                         </div>
                     </details>
                 </div>
@@ -119,15 +122,17 @@ document.write(z);
                 <div class="script">
 <pre><code class="language-js">const arr = [100, 200, "javascript"];
 
-document.write(arr[0]);
-document.write(arr[1]);
+document.write(arr[0],"&lt;br&gt;");
+document.write(arr[1],"&lt;br&gt;");
 document.write(arr[2]);
 </code></pre>
                 </div>
                 <div class="result">
                     <details>
                         <summary>결과보기</summary>
-                        <div class="sample03_result"></div>
+                        <div class="sample03_result">
+                            100<br>200<br>javascript
+                        </div>
                     </details>
                 </div>
             </div>
@@ -139,9 +144,9 @@ document.write(arr[2]);
                 <div class="script">
 <pre><code class="language-js">const arr = [100, 200, ["javascript", "jquary"]];       //이런 배열을 이차배열이라고 함
 
-document.write(arr[0]);
-document.write(arr[1]);
-document.write(arr[2][0]);
+document.write(arr[0],"&lt;br&gt;");
+document.write(arr[1],"&lt;br&gt;");
+document.write(arr[2][0],"&lt;br&gt;");
 document.write(arr[2][1]);
 </code></pre>
                 </div>
@@ -149,6 +154,7 @@ document.write(arr[2][1]);
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample04_result">
+                            100<br>200<br>javascript<br>jquary
                         </div>
                     </details>
                 </div>
@@ -167,7 +173,7 @@ document.write(arr.length);     //배열의 내용 수를 구하는 속성
                 <div class="result">
                     <details>
                         <summary>결과보기</summary>
-                        <div class="sample05_result"></div>
+                        <div class="sample05_result">3</div>
                     </details>
                 </div>
             </div>
@@ -183,11 +189,11 @@ document.write(arr[0]);
 document.write(arr[1]);
 document.write(arr[2]);
 document.write(arr[3]);
-document.write(arr[4]);
+document.write(arr[4],"&lt;br&gt;");
 
 //for(초기값, 조건식 증감식)
 for(let i=0; i&lt;arr.length; i++){    //i가 배열의 수(5)보다 작은동안 해당 명령을 반복
-    document.write(arr[i]);
+    document.write(arr[i],"&lt;br&gt;");
 }
 </code></pre>
                 </div>
@@ -195,7 +201,7 @@ for(let i=0; i&lt;arr.length; i++){    //i가 배열의 수(5)보다 작은동�
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample06_result">
-                            100<br>200<br>300<br>400<br>500
+                            100200300400500<br>100<br>200<br>300<br>400<br>500
                         </div>
                     </details>
                 </div>
@@ -204,7 +210,7 @@ for(let i=0; i&lt;arr.length; i++){    //i가 배열의 수(5)보다 작은동�
 
             <div id="sample07" class="sample">
                 <h3>07. 배열 : 데이터 불러오기 : forEach()</h3>
-                <p>forEach()문을 통해 배열의 요소, 자릿값, 배열 전체를 불러올 수 있다.</p>
+                <p>forEach()를 통해 배열의 요소, 자릿값, 배열 전체를 불러올 수 있다.</p>
                 <div class="script">
 <pre><code class="language-js">const num = [100, 200, 300, 400, 500];
 
@@ -219,9 +225,9 @@ num.forEach(function(el){       //el은 element의 줄임. elemen를 써도 된�
 
 //forEach()의 3가지 인자(parameter)값
 num.forEach(function(element, index, array){
-    document.write(element);        //배열의 요소를 불러옴
-    document.write(index);      //요소의 자릿값을 불러옴
-    document.write(array);      //배열
+    document.write(element,"&lt;br&gt;");        //배열의 요소를 불러옴
+    document.write(index,"&lt;br&gt;");      //요소의 자릿값을 불러옴
+    document.write(array,"&lt;br&gt;");      //배열
 });
 </code></pre>
                 </div>
@@ -252,6 +258,108 @@ num.forEach(function(element, index, array){
             </div>
             <!-- //sample07 -->
 
+            <div id="sample08" class="sample">
+                <h3>08. 배열 : 데이터 불러오기 : for of</h3>
+                <p>for of 는 배열의 요소값을 불러온다.</p>
+                <div class="script">
+<pre><code class="language-js">const arr = [100, 200, 300, 400, 500];
+
+for( let i of arr ){    //배열의 요소 값을 불러온다.
+    document.write(i);
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample08_result">
+                            100200300400500
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample08 -->
+
+            <div id="sample09" class="sample">
+                <h3>09. 배열 : 데이터 불러오기 : for in</h3>
+                <p>for in 은 배열의 자리값을 불러온다.</p>
+                <div class="script">
+<pre><code class="language-js">const arr = [100, 200, 300, 400, 500];
+
+for( let i in arr ){        //배열의 인덱스 값을 불러온다.
+    document.write(i,"&lt;br&gt;");    //01234 출력
+    document.write(arr[i],"&lt;br&gt;"); //다음과 같이 작업하면 요소 값을 출력할 수 있다.
+};
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample09_result">
+                            0<br>
+                            100<br>
+                            1<br>
+                            200<br>
+                            2<br>
+                            300<br>
+                            3<br>
+                            400<br>
+                            4<br>
+                            500
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample09 -->
+
+            <div id="sample10" class="sample">
+                <h3>10. 배열 : 데이터 불러오기 : map()</h3>
+                <p>map()은 forEach처럼 요소와 자릿값, 배열전체를 불러올 수 있다.</p>
+                <div class="script">
+<pre><code class="language-js">const arr = [100, 200, 300, 400, 500];
+
+arr.forEach(function(el){   //콜백함수는 ()안에 'function(){}'가 한 세트
+    document.write(el,"&lt;br&gt;");
+});
+
+arr.map(function(el, i, array){   //forEach처럼 map도 요소, 자리값, 배열전체를 불러올 수 있다. 거의 같다고 보면 된다. 
+    document.write(el,"&lt;br&gt;");
+    document.write(i,"&lt;br&gt;");
+    document.write(array,"&lt;br&gt;");
+});
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample10_result">
+                            100<br>
+                            200<br>
+                            300<br>
+                            400<br>
+                            500<br><br>
+                            
+                            100<br>
+                            0<br>
+                            100,200,300,400,500<br>
+                            200<br>
+                            1<br>
+                            100,200,300,400,500<br>
+                            300<br>
+                            2<br>
+                            100,200,300,400,500<br>
+                            400<br>
+                            3<br>
+                            100,200,300,400,500<br>
+                            500<br>
+                            4<br>
+                            100,200,300,400,500
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample10 -->
+
         </div>
     </main>
     <!-- //main -->
@@ -264,71 +372,7 @@ num.forEach(function(element, index, array){
         hljs.highlightAll();
     </script>
     <script>
-        //01
-        {
-            //let x = 100;
-            //let y = 200;
-            //let z = "javascript";
-
-            let x = 100,
-                y = 200,
-                z = "javascript";
-
-                //document.write(x);
-                //document.write(y);
-                //document.write(z);
-
-            document.querySelector(".sample01_result").innerHTML = x +"<br>"+ y +"<br>"+ z;
-        }
-
-        //02
-        {
-            const x = 100,
-                  y = 200,
-                  z = "javascript";
-
-                //document.write(x);
-                //document.write(y);
-                //document.write(z);
-
-            document.querySelector(".sample02_result").innerHTML = x +"<br>"+ y +"<br>"+ z;
-        }
-
-        //03
-        {
-            const arr = [100, 200, "javascript"];
-
-            //document.write(arr[0]);
-            //document.write(arr[1]);
-            //document.write(arr[2]);
-
-            document.querySelector(".sample03_result").innerHTML = arr[0] +"<br>"+ arr[1] +"<br>"+ arr[2];
-        }
-
-        //04
-        {
-            const arr = [100, 200, ["javascript", "jquary"]];       //이런 배열을 이차배열이라고 함
-
-            //document.write(arr[0]);
-            //document.write(arr[1]);
-            //document.write(arr[2][0]);
-            //document.write(arr[2][1]);
-
-            document.querySelector(".sample04_result").innerHTML = arr[0] +"<br>"+ arr[1] +"<br>"+ arr[2][0] +"<br>"+ arr[2][1];
-
-        }
-        
-        //05
-        {
-            const arr = [100, 200, "javascript"];
-
-            //document.write(arr.length);     //배열의 내용 수를 구하는 속성
-
-            document.querySelector(".sample05_result").innerHTML = arr.length;
-
-        }
-
-        //06
+        //06 for문
         {
             const arr = [100, 200, 300, 400, 500];
 
@@ -338,36 +382,63 @@ num.forEach(function(element, index, array){
             //document.write(arr[3]);
             //document.write(arr[4]);
 
-            //for(초기값, 조건식 증감식)
-            for(let i=0; i<arr.length; i++){        //i가 배열의 수(5)보다 작은동안 해당 명령을 반복
-                //document.write(arr[i]);
+            for(i=0; i<arr.length; i++){
+                //document.write(arr[i],"<br>");
             }
-
         }
 
-        //07 forEach()
+        //07 배열 데이터 블러오기 : forEach();
         {
             const num = [100, 200, 300, 400, 500];
 
-            for(let i=0; i<num.length; i++){
-                //document.write(num[i]);
-            }
-
-            //document.write("<br><br>");
-
-
-            //forEach()를 이용해서 출력
-            num.forEach(function(el){       //el은 element의 줄임. elemen를 써도 된다.
+            num.forEach(function(el, i, array){   //function()안에 아무글자(변수)나 넣으면 배열 값이 나온다. 첫번째 자리는 요소, 두번째 자리는 자릿값, 세번째 자리는 변수 전체를 출력할 수 있다.
                 //document.write(el);
-
             });
 
-            //forEach()의 3가지 인자(parameter)값
-            //document.write("<br><br>");
-            num.forEach(function(element, index, array){
-                //document.write(element, "<br>");        //배열의 요소를 불러옴
-                //document.write(index, "<br>");      //요소의 자릿값을 불러옴
-                //document.write(array, "<br>");      //배열
+            num.forEach(function(el, i, array){
+                //document.write(el, i, array);
+                //document.write(i);
+                //document.write(array);
+            });
+        }
+
+        //08. 배열 데이터 블러오기 : for of
+        {
+            const arr = [100, 200, 300, 400, 500];
+
+            for( let i of arr ){    //배열의 요소 값을 불러온다.
+                //document.write(i);  //100200300400500 출력
+            }
+        }
+
+        //document.write("<br>");
+
+        //09. 배열 데이터 블러오기 : for in
+        {
+            const arr = [100, 200, 300, 400, 500];
+
+            for( let i in arr ){        //배열의 인덱스 값을 불러온다.
+                //document.write(i,"<br>");    //01234 출력
+                //document.write(arr[i],"<br>"); //다음과 같이 작업하면 요소 값을 출력할 수 있다. 
+
+            }
+        }
+
+        //10. 배열 데이터 블러오기 : map();
+        {
+            const arr = [100, 200, 300, 400, 500];
+
+            arr.forEach(function(el){   //콜백함수는 ()안에 'function(){}'가 한 세트
+                //document.write(el,"<br>");
+            });
+
+            //document.write("<br>");
+
+
+            arr.map(function(el, i, array){   //forEach처럼 map도 요소, 자리값, 배열전체를 불러올 수 있다. 거의 같다고 보면 된다. 
+                //document.write(el,"<br>");
+                //document.write(i,"<br>");
+                //document.write(array,"<br>");
             });
         }
     </script>
