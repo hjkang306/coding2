@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            width: 100%;
+            background-color: rgb(211, 255, 240);
+        }
+
+        /* 사이드 */
+        #bg_left {
+        }
+        #bg_right {}
+        
+        #l_header {
+            width: auto;
+            height: 100px;
+            background-color: rgb(177, 241, 215);
+        }
+        #l_nav {
+            width: auto;
+            height: 100px;
+            background-color: rgb(158, 233, 203);
+        }
+        #l_section {
+            width: auto;
+            height: 580px;
+            background-color: rgb(139, 224, 190);
+        }
+        #l_footer {
+            width: auto;
+            height: 100px;
+            background-color: rgb(115, 211, 173);
+        }
+        
+        #r_header {}
+        #r_nav {}
+        #r_section {}
+        #r_footer {}
+        
+        /* 중앙 */
+        #main {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        #m_header {
+            width: 100%;
+            height: 100px;
+            background-color: rgb(167, 233, 206);
+        }
+        #m_nav {
+            width: 100%;
+            height: 300px;
+            background-color: rgb(149, 226, 195);
+        }
+        #m_section {
+            width: 100%;
+            height: 580px;
+            background-color: rgb(131, 219, 184);
+        }
+        #m_footer {
+            width: 100%;
+            height: 100px;
+            background-color: rgb(106, 204, 165);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="bg_left">
+            <div id="l_header"></div>
+            <div id="l_nav"></div>
+            <div id="l_section"></div>
+            <div id="l_footer"></div>
+        </div>
+        <div id="main">
+            <div id="m_header"></div>
+            <div id="m_nav"></div>
+            <div id="m_section"></div>
+            <div id="m_footer"></div>
+        </div>
+        <div id="bg_right">
+            <div id="r_header"></div>
+            <div id="r_nav"></div>
+            <div id="r_section"></div>
+            <div id="r_footer"></div>
+        </div>
+    </div>
+</body>
+</html>
