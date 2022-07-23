@@ -8,6 +8,7 @@
     <style>
         * {
             margin: 0;
+            padding: 0;
         }
         body {
             background-color: #E8F5E9;
@@ -16,7 +17,7 @@
             width: 1200px;
             margin: 0 auto;
         }
-        #header {
+        #heaader {
             width: 100%;
             height: 100px;
             background-color: #c8e6c9;
@@ -26,19 +27,23 @@
             height: 100px;
             background-color: #A5D6A7;
         }
-        #aside {
+        #main {
+            width: 100%;
+            overflow: hidden;
+        }
+        #main #aside{
             width: 25%;
             height: 780px;
             background-color: #81C784;
             float: left;
         }
-        #section {
+        #main #section{
             width: 50%;
             height: 780px;
             background-color: #66BB6A;
             float: left;
         }
-        #article {
+        #main #article{
             width: 25%;
             height: 780px;
             background-color: #4CAF50;
@@ -48,10 +53,9 @@
             width: 100%;
             height: 100px;
             background-color: #43A047;
-            clear: both;
         }
 
-        @media (max-width: 1220px) {
+        @media (max-width: 1300px) {
             #wrap {
                 width: 96%;
             }
@@ -60,48 +64,40 @@
             #wrap {
                 width: 100%;
             }
-            #aside {
+            #main #aside {
                 width: 30%;
                 height: 630px;
             }
-            #section {
+            #main  #section {
                 width: 70%;
                 height: 630px;
             }
-            #article {
+            #main #article {
                 width: 100%;
                 height: 150px;
-                float: none;
-                clear: both;
             }
         }
         @media (max-width: 480px) {
-            #aside {
+            #main #aside {
                 width: 100%;
                 height: 200px;
-                float: none;
             }
-            #section {
+            #main #section {
                 width: 100%;
                 height: 430px;
-                float: none;
-            }
-            #article {
-                width: 100%;
-                height: 150px;
-                float: none;
-                clear: both;
             }
         }
     </style>
 </head>
 <body>
     <div id="wrap">
-        <div id="header"></div>
+        <div id="heaader"></div>
         <div id="nav"></div>
-        <div id="aside"></div>
-        <div id="section"></div>
-        <div id="article"></div>
+        <div id="main">
+            <div id="aside"></div>
+            <div id="section"></div>
+            <div id="article"></div>
+        </div>
         <div id="footer"></div>
     </div>
 </body>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #e1f5fe;
+        }
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        #header {
+            height: 100px;
+            background-color: #b3e5fc;
+        }
+        #nav {
+            height: 100px;
+            background-color: #81d4fa;
+        }
+        #main {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            height: 780px;
+        }
+        #aside {
+            width: 25%;
+            height: 780px;
+            background-color: #4fc3f7;
+        }
+        #section1 {
+            width: 75%;
+            height: 260px;
+            background-color: #2986f6;
+        }
+        #section2_1 {
+            height: 260px;
+            background-color: #03a9f4;
+        }
+        #section2_2 {
+            height: 260px;
+            background-color: #039be5;
+        }
+        #footer {
+            height: 100px;
+            background-color: #0288d1;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header"></div>
+        <div id="nav"></div>
+        <div id="main">
+            <div id="aside"></div>
+            <div id="section1"></div>
+            <div id="section2">
+                <div id="section2_1"></div>
+                <div id="section2_2"></div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>

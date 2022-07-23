@@ -26,30 +26,28 @@
             background-color: #81d4fa;
         }
         #main {
-            display: grid;
-            grid-template-areas: 
-                "aside section1 section1"
-                "aside section2 section2"
-                "aside section3 section3"
-            ;
-            grid-template-columns: 25% 70%;
-            grid-template-rows: 260px 260px 260px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            height: 780px;
         }
         #aside {
+            width: 25%;
+            height: 780px;
             background-color: #4fc3f7;
-            grid-area: aside;
         }
         #section1 {
+            width: 75%;
+            height: 260px;
             background-color: #2986f6;
-            grid-area: section1;
         }
-        #section2 {
+        #section2_1 {
+            height: 260px;
             background-color: #03a9f4;
-            grid-area: section2;
         }
-        #section3 {
+        #section2_2 {
+            height: 260px;
             background-color: #039be5;
-            grid-area: section3;
         }
         #footer {
             height: 100px;
@@ -61,29 +59,30 @@
             #wrap {
                 width: 96%;
             }
-            #main {
-            grid-template-areas: 
-                "aside section1 section1"
-                "aside section2 section3"
-                "aside section2 section3"
-            ;
-            grid-template-columns: 25% 37.5% 37.5%;
-            grid-template-rows: 260px 520px;
+            #section2 {
+                display: flex;
+            }
+            #section2_1 {
+                width: 50%;
+                height: 520px;
+            }
+            #section2_2 {
+                width: 50%;
+                height: 520px;
             }
         }
         @media (max-width: 768px) {
             #wrap {
                 width: 100%;
             }
-            #main {
-            grid-template-areas: 
-                "aside section1"
-                "aside section2"
-            ;
-            grid-template-columns: 25% 75%;
-            grid-template-rows: 390px 390px;
+            #section1 {
+                height: 390px;
             }
-            #section3 {
+            #section2_1 {
+                width: 100%;
+                height: 390px;
+            }
+            #section2_2 {
                 display: none;
             }
         }
@@ -92,14 +91,12 @@
                 width: 100%;
                 height: 200px;
             }
-            #main {
-            grid-template-areas: 
-                "aside"
-                "section1"
-                "section2"
-            ;
-            grid-template-columns: 100%;
-            grid-template-rows: 200px 430px 150px;
+            #section1 {
+                width: 100%;
+                height: 430px;
+            }
+            #section2_1 {
+                height: 150px;
             }
         }
     </style>
@@ -111,8 +108,10 @@
         <div id="main">
             <div id="aside"></div>
             <div id="section1"></div>
-            <div id="section2"></div>
-            <div id="section3"></div>
+            <div id="section2">
+                <div id="section2_1"></div>
+                <div id="section2_2"></div>
+            </div>
         </div>
         <div id="footer"></div>
     </div>

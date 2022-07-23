@@ -8,6 +8,7 @@
     <style>
         * {
             margin: 0;
+            padding: 0;
         }
         body {
             background-color: #FFF3E0;
@@ -21,8 +22,8 @@
             "nav nav"
             "aside section"
             "footer footer";
-            grid-template-rows: 100px 100px 780px 100px;
             grid-template-columns: 30% 70%;
+            grid-template-rows: 100px 100px 780px 100px;
             
         }
         #header {
@@ -46,29 +47,6 @@
             background-color: #FF9800;
             clear: both;
         }
-
-        @media (max-width: 1220px) {
-            #wrap {
-                width: 96%;
-            }
-        }
-        @media (max-width: 768px) {
-            #wrap {
-                width: 100%;
-            }
-        }
-        @media (max-width: 480px) {
-            #wrap {
-            grid-template-areas: 
-            "header"
-            "nav"
-            "aside"
-            "section"
-            "footer";
-            grid-template-rows: 100px 100px 300px 480px 100px;
-            grid-template-columns: 100%;
-            }
-    }
     </style>
 </head>
 <body>
