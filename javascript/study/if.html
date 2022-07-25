@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 조건문</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li class="active"><a href="if.html">조건문</a></li>
+                <li><a href="datatype.html">자료형</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">제어문</h2>
+            <p class="t_desc">제어문이란 프로그램에서 필요한 결과 값을 도출하기 위해 <i>실행문의 순서를 제어하거나 반복</i>시키는 문장입니다.</p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th class="ce">분류</th>
+                        <th>제어문</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">조건문</td>
+                        <td>if, switch</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">반복문</td>
+                        <td>while, do while, for</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">중지, 건너뛰기</td>
+                        <td>break, continue</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <hr>
+
+            <h3 class="t_tit2">조건문</h3>
+            <p class="t_desc2">조건문은 제어문의 하나로, <i>조건식에 따라 {}안의 실행문을 실행</i>합니다. 조건문에는 if문과 switch문이 있습니다.</p>
+            
+
+            <h3 class="t_tit2">if문</h3>
+            <p class="t_desc">if문은 조건식에 따라 실행문을 실행합니다. <i>if, else if, else</i>등을 사용해 작성합니다. if문 안에 if문을 중첩시킬 수도 있습니다.</p>
+            <h4 class="t_tit3">1. if문의 형식</h4>
+            <p class="t_box">
+                if (조건식) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                }
+            </p>
+
+            <h4 class="t_tit3">2. if else의 형식</h4>
+            <p class="t_box">
+                if (조건식) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;실행문1;<br>
+                } else {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;실행문2;<br>
+                }
+            </p>
+
+            <h4 class="t_tit3">3. if, else if, else의 형식</h4>
+            <p class="t_box">
+                if (조건식) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;실행문1;<br>
+                } else if (조건식2) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;실행문2;<br>
+                } else {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;실행문3;<br>
+                }
+            </p>
+            
+            <h4 class="t_tit3">4. if문 중첩의 형식과 예시</h4>
+            <p class="t_box">
+                if (조건식1) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if (조건식2) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }
+            </p>
+        
+<pre><code class="language-js">var html = Number(prompt("html 점수입력", ""));
+var css = Number(prompt("css 점수입력", ""));
+var javascript = Number(prompt("javascript 점수입력", ""));
+var avg = (html + css + javascript) / 3;
+var comment;
+if (avg >= 60) {
+    if (html &lt; 40) {
+        comment = "html" = "40점 미만 불합격";
+    } else if (css &lt; 40) {
+        comment = "css" = "40점 미만 불합격";
+    } else if (javascript &lt; 40) {
+        comment = "javascript" = "40점 미만 불합격";
+    } else {
+        comment = "평균" + avg + "점 합격";
+    }
+} else {
+    comment = "평균" + avg + "점 불합격";
+}
+document.write(comment);
+</code></pre>
+
+            <h3 class="t_tit2">switch문</h3>
+            <p class="t_desc">switch문은 switch의 값과 case의 값들을 하나씩 <i>비교하여 일치하는 case를 실행</i>시켜 줍니다. switch문은 if문과 달리 특정조건에 만족해도 <i>스스로 블록{}을 빠져나가지 못하기 때문</i>에 break 명령어를 주어야 합니다. default는 switch의 값과 일치하는 값이 없을 때 실행합니다.</p>
+            <h4 class="t_tit3">switch문의 형식</h4>
+            <p class="t_box">
+                switch (값) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;case 값1 :<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;case 값2 :<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;default :<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                }
+            </p>
+            <h4 class="t_tit3">switch문의 예시</h4>
+<pre><code class="language-js">var classification = prompt("아동, 청소년, 성인 중 선택 입력","");
+switch (classification) {
+    case "아동":
+        classification += ": 입장료 무료";
+        break;
+    case "청소년":
+        classification += ": 입장료 2,000원";
+        break;
+    case "성인":
+        classification += ": 입장료 5,000원";
+        break;
+    default:
+        classification += "입력 값을 다시 확인하세요.";
+}
+document.write(classification);
+</code></pre>
+        
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <script>
+    </script>
+</body>
+</html>
