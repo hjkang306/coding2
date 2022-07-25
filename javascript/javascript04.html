@@ -7,6 +7,7 @@
     <title>자바스크립트 : 데이터 제어하기</title>
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dracula.css">
 </head>
 <body>
     <header id="header">
@@ -63,8 +64,14 @@
                     if문은 제어문의 한 종류로, 조건문에 따라 실행문을 실행하거나 실행하지 않는다.
                 </p>
                 <div class="script">
-<pre><code lang="languige-js">
+                    <div class="t_code">
+<pre><code class="languige-js">if(0){   
+    document.write("실행되었습니다(true).");
+} else {
+    document.write("실행되었습니다(false).");
+}  
 </code></pre>
+                    </div>
                 </div>
                 <div class="result">
                     <details>
@@ -83,6 +90,10 @@
     </footer>
     <!-- //footer -->
 
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
     <script>
         //(제어문 : 조건문, 반복문, 중지, 건너뛰기)
         //01. if문
