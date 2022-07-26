@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 함수</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="datatype.html">자료형</a></li>
+                <li class="active"><a href="function.html">함수</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+       <div class="document">
+            <h2 class="t_tit">함수</h2>
+            <p class="t_desc2">
+                함수는 프로그램에서 반복적으로 사용되는 기능을 만들어내기 위한 <i>코드들의 집합</i>입니다. 함수에는 선언적 함수, 익명 함수, 매개변수 함수, 리턴값 함수 등이 있습니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">01. 선언적 함수</h3>
+            <p class="t_desc">
+                선언적 함수란, 함수를 선언한 뒤 호출하여 실행문을 실행시키는 함수입니다.
+            </p>
+            <h4 class="t_tit3">1. 선언적 함수의 형식</h4>
+            <div class="t_box">
+                function 함수() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                }<br>
+                함수명();
+            </div>
+
+            <h4 class="t_tit3">2. 예제</h4>
+            <div class="t_code">
+<pre><code class="language-js">function func() {
+    document.write("함수가 실행되었습니다.");
+}
+func();     //함수는 실행문이 있어야 실행된다.
+</code></pre>
+            </div>
+
+            <hr>
+
+            <h3 class="t_tit2">02. 익명 함수</h3>
+            <p class="t_desc">익명 함수는 <i>변수에 함수 데이터를 저장</i>하여 변수를 마치 함수처럼 사용합니다. 따라서, 익명 함수는 변수를 먼저 선언한 이후에 함수를 호출해야 합니다.</p>
+            <h4 class="t_tit3">1. 익명 함수의 형식</h4>
+            <div class="t_box">
+                var <i>변수</i> = function() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                }<br>
+                <i>변수명</i>();
+            </div>
+
+            <h4 class="t_tit3">2. 예제</h4>
+            <div class="t_code">
+<pre><code class="language-js">const func = function() {   //변수는 const, let, var로 선언할 수 있다.
+    document.write("함수가 실행되었습니다.");
+}
+func();
+</code></pre>
+            </div>
+            
+            <hr>
+
+            <h3 class="t_tit2">03. 매개변수 함수</h3>
+            <p class="t_desc"><i>함수를 호출할 때 전달하는 변수를 '매개변수'</i>라고 합니다. 매개변수 함수는 매개변수를 통해 함수의 실행문을 출력합니다.</p>
+            <h4 class="t_tit3">1-1. 매개변수 함수의 형식(1)</h4>
+            <div class="t_box">
+                function 함수명(<i>매개변수1, 2, …</i>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                }<br>
+                함수명(<i>매개변수1, 2, …</i>);
+            </div>
+            <h4 class="t_tit3">1-2. 매개변수 함수의 형식(2)</h4>
+            <div class="t_box">
+                var 함수명(<i>매개변수1, 2, …</i>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                }<br>
+                함수명(<i>매개변수1, 2, …</i>);
+            </div>
+            <h4 class="t_tit3">1-3. 매개변수 함수의 형식(3)</h4>
+            <div class="t_box">
+                (function (<i>매개변수1, 2, …</i>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                }<br>
+                )(<i>매개변수1, 2, …</i>);
+            </div>
+
+            <h4 class="t_tit3">2. 예제</h4>
+            <div class="t_code">
+<pre><code class="language-js">//let str 함수를 원래 선언해야 하지만 생략이 가능함.
+function func(str){     //문자열이 들어간다는 의미에서 str을 넣어줌
+    document.write(str);
+}
+func("함수가 실행되었습니다.");
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">04. 리턴값 함수</h3>
+            <p class="t_desc">return은 함수를 통해 처리된 결과를 반환시켜주는 명령어입니다. 리턴값 함수는 <i>반환된 결과를 출력하는 함수</i>입니다.</p>
+            <h4 class="t_tit3">1. 리턴값 함수의 형식</h4>
+            <div class="t_box">
+                function 함수() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;const 변수명 = 변수 값;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>return 변수명</i>;<br>
+                }<br>
+                <i>실행문(함수)</i>;
+            </div>
+
+            <h4 class="t_tit3">2. 예제</h4>
+            <div class="t_code">
+<pre><code class="language-js">function func(){
+    const str = "함수가 실행되었습니다.";
+    return str;
+}
+document.write(func()); //return으로 반환된 결과를 출력함.
+</code></pre>
+            </div>
+
+            <hr>
+
+            <h3 class="t_tit2">05. 화살표 함수</h3>
+            <p class="t_desc">화살표 함수는 ES6에 추가된 내용으로, 함수의 <i>function을 생략</i>하고 <i>=과 =>(화살표)를 사용</i>해 함수를 간략하게 표현합니다. 실행문이 하나인 경우, 중괄호와 return을 생략할 수 있습니다.</p>
+            <h4 class="t_tit3">1. 화살표 함수의 예시 : 선언적 함수의 변환</h4>
+            <div class="t_code">
+<pre><code class="language-js">//원형
+function func() {
+    document.write("함수가 실행되었습니다.");
+}
+func();
+
+//화살표 함수
+func = () => {  //function을 없애고 =과 화살표로 형태를 바꿈.
+    document.write("함수가 실행되었습니다.");
+}
+func();
+
+//축약형 : 실행문이 하나일 경우, 중괄호도 생략하여 츅약할 수 있습니다.
+func = () => document.write("함수가 실행되었습니다.");
+func();
+</code></pre>
+            </div>
+
+            <h4 class="t_tit3">2. 화살표 함수의 예시 : 익명 함수의 변환</h4>
+            <div class="t_code">
+<pre><code class="language-js">//원형
+const func = function() {
+    document.write("함수가 실행되었습니다.");
+}
+func();
+
+//화살표 함수
+const func = () => {
+    document.write("함수가 실행되었습니다.");
+}
+func();
+
+//축약형
+const func = () => document.write("함수가 실행되었습니다.");
+func();
+</code></pre>
+            </div>
+
+            <h4 class="t_tit3">3. 화살표 함수의 예시 : 매개변수 함수의 변환</h4>
+            <div class="t_code">
+<pre><code class="language-js">//원형
+function func(str){
+    document.write(str);
+}
+func("함수가 실행되었습니다.");
+
+//화살표 함수
+func = (str) => {
+    document.write(str);
+}
+func("함수가 실행되었습니다.");
+
+//축약형
+func = (str) => document.write(str);
+func("함수가 실행되었습니다.");
+
+//축약형2 : 변수가 하나일 때에는 ()도 축약이 가능함.
+func = str => document.write(str);
+func("함수가 실행되었습니다.");
+</code></pre>
+            </div>
+
+            <h4 class="t_tit3">4. 화살표 함수의 예시 : 리턴값 함수의 변환</h4>
+            <div class="t_code">
+<pre><code class="language-js">// 원형
+function func(){
+    const str = "함수가 실행되었습니다.";
+    return str;
+}
+document.write(func());
+
+//화살표함수 (실행문이 두개 이상이기 때문에 중괄호의 생략이 불가능하다.)
+func = () => {
+    const str = "함수가 실행되었습니다.";
+    return str;
+}
+document.write(func());
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
