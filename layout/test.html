@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹디 기능사 시험 레이아웃</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+            font-size: 30px;
+        }
+        #header {
+            width: 1200px;
+            height: 100px;
+            overflow: hidden;
+            text-align: center;
+            line-height: 100px; /* 한 줄일 때에 height 값과 똑같이 쓰면 글씨가 중앙에 옴. */
+        }
+        #header .logo {
+            width: 300px;
+            height: 100px;
+            background-color: #C55858;
+            float: left;
+            color: #fff;
+        }
+        #header .menu {
+            width: 900px;
+            height: 100px;
+            background-color: #EFA6A6;
+            float: left;
+            color: #fff;
+        }
+
+        #banner {
+            width: 1200px;
+            height: 400px;
+            background-color: #E57070;
+            text-align: center;
+            line-height: 400px;
+            color: #fff;
+        }
+        #section {
+            width: 1200px;
+            height: 300px;
+            overflow: hidden;
+        }
+        #section .box1 {
+            width: 400px;
+            height: 300px;
+            background-color: #DF4B4B;
+            float: left;
+            text-align: center;
+            line-height: 300px;
+            color: #fff;
+        }
+        #section .box2 {
+            width: 400px;
+            height: 300px;
+            background-color: #CE2B2B;
+            float: left;
+            text-align: center;
+            line-height: 300px;
+            color: #fff;
+        }
+        #section .box3 {
+            width: 400px;
+            height: 300px;
+            background-color: #B52828;
+            float: left;
+            text-align: center;
+            line-height: 300px;
+            color: #fff;
+        }
+        #footer {
+            width: 1200px;
+            height: 100px;
+            overflow: hidden;
+        }
+        #footer .footer1 {
+            width: 200px;
+            height: 100px;
+            background-color: #a34f4f;
+            float: left;
+            text-align: center;
+            line-height: 100px;
+            color: #fff;
+        }
+        #footer .footer2 {
+            width: 800px;
+            height: 100px;
+            background-color: #9e3e3e;
+            float: left;
+            text-align: center;
+            line-height: 100px;
+            color: #fff;
+        }
+        #footer .footer3 {
+            width: 200px;
+            height: 100px;
+            background-color: #772323;
+            float: left;
+            text-align: center;
+            line-height: 100px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="logo">로고</div>
+            <div class="menu">메뉴</div>
+        </div>
+        <div id="banner">이미지 슬라이드</div>
+        <div id="section">
+            <div class="box1">공지사항</div>
+            <div class="box2">갤러리</div>
+            <div class="box3">팝업</div>
+        </div>
+        <div id="footer">
+            <div class="footer1">로고</div>
+            <div class="footer2">카피라이트</div>
+            <div class="footer3">소셜</div>
+        </div>
+    </div>
+</body>
+</html>
