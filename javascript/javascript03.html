@@ -369,5 +369,98 @@ document.write(func());
 
 
     </script>
+    <script>
+        //01. 선언적 함수
+        {
+            function func() {
+                document.write("함수  실행1.<br>");
+            }
+            func();
+        }
+
+        //02. 익명 함수
+        {
+            const func = function() {
+                document.write("함수 실행2.<br>");
+            }
+            func();
+        }
+
+        //03. 매개변수 함수
+        {
+            function func(str) {    //하나 이상의 매개변수를 저장할 수 있다.
+                document.write(str);
+            }
+            func("함수 실행3.<br>");
+        }
+
+        //04. 리턴값 함수
+        {
+            function func() {
+                const str = "함수 실행4.<br>";
+                return str; //결과값을 나타내기도 하지만 종료한다(종료값)는 의미도 있다.
+            }
+            document.write(func());
+        }
+        //05. 화살표 함수 : 선언적 함수
+        {
+            func = () => {
+                document.write("함수 실행5.<br>");
+            }
+            func();
+        }
+        //06. 화살표 함수 : 익명 함수
+        {
+            func = () => {
+                document.write("함수 실행6.<br>");
+            }
+            func();
+        }
+        //07. 화살표 함수 : 매개변수 함수
+        {
+            func = (str) => {
+                document.write(str);
+            }
+            func("함수 실행7.<br>");
+        }
+        //08. 화살표 함수 : 리턴값 함수
+        {
+            func = () => {
+                const str = "함수 실행8.<br>";
+                return str;
+            }
+            document.write(func());
+        }
+
+        //09. 화살표 함수 : 익명 함수 + 매개변수 + 리턴값 (제일 많이 쓰는 형태)
+        {
+            const func = (str) => { //익명함수이기 때문에 변수부터 선언함. 매개변수와 섞여있기 때문에 괄호 안에 매개변수가 들어간다.
+                return str; //결과를 의미하는 return. 리턴값 함수와 섞여있다.
+            }
+            document.write(func("함수 실행9.<br>"));    //리턴값 함수와 매개변수 함수가 섞여있다.
+        }
+
+        //10. 화살표 함수 : 악명 함수 + 매개변수 + 리턴값 + 괄호 생략
+        {
+            const func = str => {
+                return str;
+            }
+            document.write(func("함수 실행10.<br>"));
+        }
+
+        //11. 화살표 함수 : 악명 함수 + 매개변수 + 리턴값 + 괄호 생략 + 리턴 생략
+        {
+            const func = str => str;
+        
+            document.write(func("함수 실행11.<br>"));
+        }
+
+        //11. 화살표 함수 : 선언적 함수 + 매개변수 + 리턴값 + 괄호 생략 + 리턴 생략
+        {
+            func = str => str;  //선언적 함수는 변수의 선언이 필요없음
+        
+            document.write(func("함수 실행12.<br>"));
+        }
+    </script>
 </body>
 </html>

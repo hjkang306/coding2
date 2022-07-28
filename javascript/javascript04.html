@@ -65,8 +65,8 @@
                     if문은 제어문의 한 종류로, 조건문에 따라 실행문을 실행하거나 실행하지 않는다.
                 </p>
                 <div class="script">
-<pre><code lang="languige-js">//조건식에 true, 1, "0", "1", [배열], {객체}는 true가 된다.
-//false, 0, undefined, null을 쓰면 false가 된다.
+<pre><code lang="languige-js">//조건식에 true, 1, "0", "1", 0&lt;10(참인 조건식), [배열], {객체}는 true가 된다.
+//false, 0, undefined, null, ""(빈 문자열)을 쓰면 false가 된다.
 if(0){
     document.write("실행되었습니다.(true)");
 } else {
@@ -331,8 +331,8 @@ for( let i=0; i&lt;num.length; i++){
         //(제어문 : 조건문, 반복문, 중지, 건너뛰기)
         //01. if문
         {
-            //조건식에 true, 1, "0", "1", [배열], {객체}는 true가 된다.
-            //false, 0, undefined, null을 쓰면 false가 된다.
+            //조건식에 true, 1, "0", "1", 0<10(참인 조건식), [배열], {객체}는 true가 된다.
+            //false, 0, undefined, null, ""(빈 문자열)을 쓰면 false가 된다.
             // if(0){   
             //     document.write("실행되었습니다(true).");
             // } else {
@@ -461,6 +461,22 @@ for( let i=0; i&lt;num.length; i++){
             //     }
             //     document.write("<br>");
             // }
+        }
+
+        //11. break문
+        {
+            // let i = 1;
+            // while(i<=20) {  //while의 단점은 조건식이 잘못될 경우 무한으로 실행되어서 에러가 발생한다.
+            //     document.write(i);
+            //     i++;
+            // }
+
+            for( let j=1; j<=20; j++){
+                document.write(j);
+                if( j==10 ){
+                    break;
+                }
+            }
         }
     </script>
 </body>
