@@ -35,6 +35,7 @@
                 <li><a href="study/if.html">조건문</a></li>
                 <li><a href="study/datatype.html">자료형</a></li>
                 <li><a href="study/function.html">함수</a></li>
+                <li><a href="study/var.html">지역변수/전역변수</a></li>
             </ul>
         </nav>
     </header>
@@ -465,17 +466,21 @@ for( let i=0; i&lt;num.length; i++){
 
         //11. break문
         {
-            // let i = 1;
-            // while(i<=20) {  //while의 단점은 조건식이 잘못될 경우 무한으로 실행되어서 에러가 발생한다.
-            //     document.write(i);
-            //     i++;
-            // }
-
             for( let j=1; j<=20; j++){
                 document.write(j);
                 if( j==10 ){
-                    break;
+                    break;  //여기서 종료하라는 의미이다. 더이상 반복을 실행하지 않는다.
                 }
+            }
+        }
+        
+        //12. continue문
+        {
+            for( let j=1; j<=20; j++){
+                if( j==10 ){
+                    continue;  //이번엔 건너뛰고 다음순서를 실행하라는 의미이다.
+                }
+                document.write(j);
             }
         }
     </script>

@@ -34,6 +34,7 @@
                 <li><a href="study/if.html">조건문</a></li>
                 <li><a href="study/datatype.html">자료형</a></li>
                 <li><a href="study/function.html">함수</a></li>
+                <li><a href="study/var.html">지역변수/전역변수</a></li>
             </ul>
         </nav>
     </header>
@@ -375,75 +376,106 @@ arr.map(function(el, i, array){   //forEach처럼 map도 요소, 자리값, 배�
         hljs.highlightAll();
     </script>
     <script>
-        //06 for문
+        // //06 for문
+        // {
+        //     const arr = [100, 200, 300, 400, 500];
+
+        //     //document.write(arr[0]);
+        //     //document.write(arr[1]);
+        //     //document.write(arr[2]);
+        //     //document.write(arr[3]);
+        //     //document.write(arr[4]);
+
+        //     for(i=0; i<arr.length; i++){
+        //         //document.write(arr[i],"<br>");
+        //     }
+        // }
+
+        // //07 배열 데이터 블러오기 : forEach();
+        // {
+        //     const num = [100, 200, 300, 400, 500];
+
+        //     num.forEach(function(el, i, array){   //function()안에 아무글자(변수)나 넣으면 배열 값이 나온다. 첫번째 자리는 요소, 두번째 자리는 자릿값, 세번째 자리는 변수 전체를 출력할 수 있다.
+        //         //document.write(el);
+        //     });
+
+        //     num.forEach(function(el, i, array){
+        //         //document.write(el, i, array);
+        //         //document.write(i);
+        //         //document.write(array);
+        //     });
+        // }
+
+        // //08. 배열 데이터 블러오기 : for of
+        // {
+        //     const arr = [100, 200, 300, 400, 500];
+
+        //     for( let i of arr ){    //배열의 요소 값을 불러온다.
+        //         //document.write(i);  //100200300400500 출력
+        //     }
+        // }
+
+        // //document.write("<br>");
+
+        // //09. 배열 데이터 블러오기 : for in
+        // {
+        //     const arr = [100, 200, 300, 400, 500];
+
+        //     for( let i in arr ){        //배열의 인덱스 값을 불러온다.
+        //         //document.write(i,"<br>");    //01234 출력
+        //         //document.write(arr[i],"<br>"); //다음과 같이 작업하면 요소 값을 출력할 수 있다. 
+
+        //     }
+        // }
+
+        // //10. 배열 데이터 블러오기 : map();
+        // {
+        //     const arr = [100, 200, 300, 400, 500];
+
+        //     arr.forEach(function(el){   //콜백함수는 ()안에 'function(){}'가 한 세트
+        //         //document.write(el,"<br>");
+        //     });
+
+        //     //document.write("<br>");
+
+
+        //     arr.map(function(el, i, array){   //forEach처럼 map도 요소, 자리값, 배열전체를 불러올 수 있다. 거의 같다고 보면 된다. 
+        //         //document.write(el,"<br>");
+        //         //document.write(i,"<br>");
+        //         //document.write(array,"<br>");
+        //     });
+        // }
+
         {
-            const arr = [100, 200, 300, 400, 500];
+            //
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-            //document.write(arr[0]);
-            //document.write(arr[1]);
-            //document.write(arr[2]);
-            //document.write(arr[3]);
-            //document.write(arr[4]);
+            //for문을 이용해서 출력하기
+            for( let i=0;i<9;i++ ) {
+                document.write(arr[i]);
+            }
 
-            for(i=0; i<arr.length; i++){
-                //document.write(arr[i],"<br>");
+            //forEach()를 이용해서 출력
+            arr.forEach(function(el){
+                document.write(el);
+            });
+
+            //map()을 이용해서 출력
+            arr.map(function(el){
+                document.write(el);
+            });
+
+            //for in
+            for(let i in arr){
+                document.write(arr[i]);
+            }
+
+            //for of
+            for(let i of arr){
+                document.write(i);
             }
         }
-
-        //07 배열 데이터 블러오기 : forEach();
-        {
-            const num = [100, 200, 300, 400, 500];
-
-            num.forEach(function(el, i, array){   //function()안에 아무글자(변수)나 넣으면 배열 값이 나온다. 첫번째 자리는 요소, 두번째 자리는 자릿값, 세번째 자리는 변수 전체를 출력할 수 있다.
-                //document.write(el);
-            });
-
-            num.forEach(function(el, i, array){
-                //document.write(el, i, array);
-                //document.write(i);
-                //document.write(array);
-            });
-        }
-
-        //08. 배열 데이터 블러오기 : for of
-        {
-            const arr = [100, 200, 300, 400, 500];
-
-            for( let i of arr ){    //배열의 요소 값을 불러온다.
-                //document.write(i);  //100200300400500 출력
-            }
-        }
-
-        //document.write("<br>");
-
-        //09. 배열 데이터 블러오기 : for in
-        {
-            const arr = [100, 200, 300, 400, 500];
-
-            for( let i in arr ){        //배열의 인덱스 값을 불러온다.
-                //document.write(i,"<br>");    //01234 출력
-                //document.write(arr[i],"<br>"); //다음과 같이 작업하면 요소 값을 출력할 수 있다. 
-
-            }
-        }
-
-        //10. 배열 데이터 블러오기 : map();
-        {
-            const arr = [100, 200, 300, 400, 500];
-
-            arr.forEach(function(el){   //콜백함수는 ()안에 'function(){}'가 한 세트
-                //document.write(el,"<br>");
-            });
-
-            //document.write("<br>");
-
-
-            arr.map(function(el, i, array){   //forEach처럼 map도 요소, 자리값, 배열전체를 불러올 수 있다. 거의 같다고 보면 된다. 
-                //document.write(el,"<br>");
-                //document.write(i,"<br>");
-                //document.write(array,"<br>");
-            });
-        }
+        
     </script>
 </body>
 </html>
