@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //01
+        {
+            function func() {
+                document.write("함수 실행1");
+            }
+            func();
+        }
+
+        //02
+        {
+            const func = function () {
+                document.write("함수 실행2");
+            }
+            func();
+        }
+
+        //03
+        {
+            function func(str) {
+                document.write(str);
+            }
+            func("함수 실행3");
+        }
+
+        //04
+        {
+            function func() {
+                const str = "함수 실행4";
+                return str;
+            }
+            document.write(func());
+        }
+
+        //05
+        {
+            func = () => {
+                document.write("함수 실행5");
+            }
+            func();
+        }
+
+        //06
+        {
+            const func = () => {
+                document.write("함수 실행6");
+            }
+            func();
+        }
+
+        //07
+        {
+            func = (str) => {
+            document.write(str);
+            }
+            func("함수 실행7");
+        }
+
+        //08
+        {
+            func = () => {
+            const str = "함수 실행8";
+            return str;
+            }
+            document.write(func());
+        }
+    </script>
+</body>
+</html>
