@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            width: 100%;
+        }
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(0,0,0,0.3);
+        }
+
+        /* header */
+        #header {
+            width: 100%;
+            height: 100px;
+            background-color: #EEEBE9;
+        }
+        #header .container {
+            height: 100px;
+            background-color: #D5CCC9;
+        }
+
+        /* nav */
+        #nav {
+            width: 100%;
+            height: 100px;
+            background-color: #B9AAA5;
+        }
+        #nav .container {
+            height: 100px;
+            background-color: #9D8980;
+        }
+
+        /* main */
+        #main {
+            width: 100%;
+            height: 780px;
+            background-color: #886F65;
+        }
+        #main .container {
+            height: 780px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .main_box1 {
+            width: 100%;
+            height: 100px;
+            background-color: #74574A;
+        }
+        .main_box2 {
+            width: 100%;
+            height: 200px;
+            background-color: #684D43;
+        }
+        .main_box3_L {
+            width: 50%;
+            height: 480px;
+            background-color: #594139;
+        }
+        .main_box3_R {
+            width: 50%;
+            height: 480px;
+            background-color: #4A352F;
+        }
+
+        /* footer */
+        #footer {
+            width: 100%;
+            height: 100px;
+            background-color: #4E342E;
+        }
+        #footer .container {
+            height: 100px;
+            background-color: #3E2723;
+        }
+
+        @media (max-width:1220px) {
+        }
+        @media (max-width:768px) {
+        }
+        @media (max-width:480px) {
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="container"></div>
+        </header>
+        <nav id="nav">
+            <div class="container"></div>
+        </nav>
+        <main id="main">
+            <section class="container clearfix">
+                <article class="main_box1"></article>
+                <article class="main_box2"></article>
+                <article class="main_box3_L"></article>
+                <article class="main_box3_R"></article>
+            </section>
+        </main>
+        <footer id="footer">
+            <div class="container"></div>
+        </footer>
+    </div>
+</body>
+</html>
