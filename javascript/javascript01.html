@@ -827,21 +827,21 @@ obj.g();
 
         //17 객체 : 객체 속에 함수
         {
-            const obj = {
-                a : 100,
-                b : [200, 300],
-                c : {x:400, y:500},
-                d : "javascript",
-                e : function(){
-                    document.write("자바스크립트가 실행되었습니다.");
-                },
-                f : function(){
-                    document.write( obj.d + "가 실행되었습니다.");      //obj.d 의 내용을 불러와서 덧붙여 출력함.
-                },
-                g : function(){
-                    document.write( this.d + "가 실행되었습니다.");     //이 안에 있는 d라는 객체를 불러와서 덧붙여 출력함.
-                }
-            };
+            // const obj = {
+            //     a : 100,
+            //     b : [200, 300],
+            //     c : {x:400, y:500},
+            //     d : "javascript",
+            //     e : function(){
+            //         document.write("자바스크립트가 실행되었습니다.");
+            //     },
+            //     f : function(){
+            //         document.write( obj.d + "가 실행되었습니다.");      //obj.d 의 내용을 불러와서 덧붙여 출력함.
+            //     },
+            //     g : function(){
+            //         document.write( this.d + "가 실행되었습니다.");     //이 안에 있는 d라는 객체를 불러와서 덧붙여 출력함.
+            //     }
+            // };
 
             //document.write(obj.a);
             //document.write(obj.b[0]);
