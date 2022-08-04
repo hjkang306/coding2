@@ -14,22 +14,21 @@
     <main id="main">
         <div class="document">
             <h2 class="t_tit">퀴즈 이펙트</h2>
-            <p class="t_desc">
-                퀴즈를 풀 수 있는 페이지를 구성할 때에 다양한 이펙트를 사용하면
-                단조롭지 않은,생동감 넘치는 페이지를 만들 수 있습니다.
+            <p class="t_desc2">
+                퀴즈를 풀 수 있는 페이지를 구성할 때에, 퀴즈의 유형에 맞는 다양한 이펙트를 사용하면
+                단조롭지 않은 생동감 넘치는 페이지를 만들 수 있습니다.
             </p>
             <h3 class="t_tit2">01. 정답 확인하기 유형</h3>
             <p class="t_desc">
                 버튼을 누르면 정답을 보여주는 유형의 문제에 활용가능한 이펙트입니다.
             </p>
-            <div class="t_iframe">
-                <iframe src="https://codepen.io/hjkang306/embed/qBooVNL?default-tab=result&theme-id=light"
-                    frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-                    See the Pen <a href="https://codepen.io/hjkang306/pen/qBooVNL">
-                        quizEffect01</a> by hjkang306 (<a href="https://codepen.io/hjkang306">@hjkang306</a>)
-                    on <a href="https://codepen.io">CodePen</a>.
-                </iframe>
-            </div><br>
+            <div class="t_iframe" style="min-height: 980px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/quizEffect01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/javascript/effect/quizEffect01.html">원본 소스 보기</a>
+            </div>
+            <br>
             <p class="t_desc">해당 이펙트의 자바스크립트는 다음과 같습니다. 먼저 선택자를 지정한 후, 각각의 선택자로 지정한 구역에 알맞은 정보를 대입합니다.</p>
             <div class="t_code">
 <pre><code class="language-js">//선택자
@@ -47,8 +46,8 @@ const answerAsk = "인접하는 두 색의 경계 부분에 색상, 명도, 채�
 const answerResult = "연변대비";
 
 //문제 출력
-quizType.innerText = answerType;        //innerText는 자바스크립트에서 만들어 놓은 요소객체이다.
-quizNumber.innerText = answerNum + ".";
+quizType.innerText = answerType;        //innerText는 자바스크립트에서 만들어 놓은 요소객체입니다.
+quizNumber.innerText = answerNum + "."; //해당하는 구역에 텍스트를 출력합니다.
 quizAsk.innerText = answerAsk;
 quizResult.innerText = answerResult;
 
@@ -56,8 +55,8 @@ quizResult.innerText = answerResult;
 quizResult.style.display = "none";
 
 //정답 확인
-//정답 버튼을 클릭하면 확인 버튼이 안보이게, 숨겨진 정답은 보이게 한다.
-quizConfilm.addEventListener("click", function(){    //버튼을 클릭하면 실행하라는 의미
+//정답 버튼을 클릭하면 확인 버튼이 안보이게, 숨겨진 정답은 보이게 합니다.
+quizConfilm.addEventListener("click", function(){    //버튼을 클릭하면 실행하라는 의미입니다.
     quizConfilm.style.display = "none";
     quizResult.style.display = "block";
 });
@@ -68,15 +67,13 @@ quizConfilm.addEventListener("click", function(){    //버튼을 클릭하면 �
             <p class="t_desc">
                 주관식 답을 적으면 정답인지 오답인지 비교한 후, 정답/오답이라는 문구와 함께 정답을 보여주는 이펙트입니다.
             </p>
-            <div class="t_iframe">
-                <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled"
-                    src="https://codepen.io/hjkang306/embed/zYWWPPm?default-tab=result&theme-id=light" frameborder="no"
-                    loading="lazy" allowtransparency="true" allowfullscreen="true">
-                    See the Pen <a href="https://codepen.io/hjkang306/pen/zYWWPPm">
-                        Untitled</a> by hjkang306 (<a href="https://codepen.io/hjkang306">@hjkang306</a>)
-                    on <a href="https://codepen.io">CodePen</a>.
-                </iframe>
-            </div><br>
+            <div class="t_iframe" style="min-height: 980px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/quizEffect02.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/javascript/effect/quizEffect02.html">원본 소스 보기</a>
+            </div>
+            <br>
             <p class="t_desc">
                 해당 이펙트의 자바스크립트는 다음과 같습니다.
                 먼저 선택자를 지정한 후, 각각의 선택자로 지정한 구역에 알맞은 정보를 대입하는 것은 정답 확인하기 유형과 같습니다.
@@ -99,31 +96,31 @@ const answerAsk = "기업의 새로운 이념 구축에 필요한 이미지와 �
 let answerResult = "CIP";
 
 //문제 출력
-quizType.textContent = answerType;      //innerText 대신 textContent를 사용해도 같다. 호환성의 차이가 있다.
-quizNumber.textContent = answerNum;
+quizType.textContent = answerType;      //innerText 대신 textContent를 사용해도 같습니다. 둘은 비슷하나 호환성의 차이가 있습니다.
+quizNumber.textContent = answerNum; //innerText는 인터넷익스플로러 환경에는 호환되지 않습니다.
 quizAsk.textContent = answerAsk;
-quizresult.textContent = "정답은 : " + answerResult + "입니다.";    //소문자로 바꿔줌
+quizresult.textContent = "정답은 : " + answerResult + "입니다.";
 
 //정답 숨기기
 quizresult.style.display = "none";
 
 //정답 확인
-quizConfilm.addEventListener("click", () => { //정답을 클릭했을 때 함수를 실행. 함수는 화살표 함수로 쓸 수도 있음.
+quizConfilm.addEventListener("click", () => { //정답을 클릭했을 때 함수를 실행. 함수는 화살표 함수로 쓸 수도 있습니다.
     quizInput.style.display = "none";
     quizresult.style.display = "block";
     quizConfilm.style.display = "none";
 
     //사용자 정답
-    const userWord = quizInput.value.toLowerCase().trim(); //toLowerCase():소문자로 바꿔줌, trim()여백을 없애줌
-    answerResult = answerResult.toLowerCase().trim();
+    const userWord = quizInput.value.toLowerCase().trim(); //toLowerCase():소문자로 바꿔줍니다.
+    answerResult = answerResult.toLowerCase().trim();   //trim()여백을 없애줍니다.
 
     //사용자 정답 == 문제 정답
     if(userWord == answerResult) {
         //정답일 때
-        quizView.classList.add("like");
+        quizView.classList.add("like"); //클래스에 like를 추가합니다.
     } else {
         //오답일 때
-        quizView.classList.add("dislike");
+        quizView.classList.add("dislike");  //클래스에 dislike를 추가합니다.
     }
 });
 </code></pre>
