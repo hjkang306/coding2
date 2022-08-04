@@ -79,6 +79,12 @@ body {
     background-color: #000;
     color: #fff;
 }
+.header_nav .effect {
+    margin-top: 10px;
+}
+.header_nav .effect li a {
+    border-radius: 40px;
+}
 
 /* 메인 샘플 */
 .main_sample {
@@ -178,6 +184,20 @@ body {
 }
 .document .t_table .ce {
     text-align: center;
+}
+.document .t_iframe {
+    position: relative;
+    padding-top: 56%; /* 16:9비율 */
+    width: 100%;
+    height: 0;
+}
+.document .t_iframe iframe {
+    border: 1px solid rgba(0,0,0,0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 
