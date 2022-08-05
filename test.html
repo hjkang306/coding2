@@ -2,23 +2,37 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>요소를 직접 선택하는 메서드</title>
+    <script>
+        window.onload = function() {
+            var list1 = document.querySelector('#box1 > ul > li');
+            // id 속성이 box1인 요소의 자식 요소인 ul 태그의 자식 요소인 li 태그 중 첫 번째 요소를 선택
+            var list2 = document.querySelectorAll('#box2 > ul > li');
+            // id 속성이 box2인 요소의 자식 요소인 ul 태그의 자식 요소인 li 태그 요소를 선택
+            
+            console.log(list1); //box1의 '내용 3'이 적힌 li요소를 선택
+            console.log(list2); //box2의 모든 li요소를 선택
+
+            // list1.style.background = '#ff6600';
+            // list2[0].style.background = '#ccc';
+            // list2.item(1).style.background = '#ddd';
+        };
+    </script>
 </head>
 <body>
-    <script>
-        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-        for(let i=0; i<arr.length; i++){
-            document.write(arr[i]);
-        }
-
-        document.write("<br>");
-
-        arr.forEach(function(el){
-            document.write(el);
-        });
-    </script>
+    <div id="box1">
+        <ul>
+            <li>내용 1</li>
+            <li>내용 2</li>
+            <li>내용 3</li>
+        </ul>
+    </div>
+    <div id="box2">
+        <ul>
+            <li>내용 4</li>
+            <li>내용 5</li>
+            <li>내용 6</li>
+        </ul>
+    </div>    
 </body>
 </html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 지역변수/전역변수</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="datatype.html">자료형</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+       <div class="document">
+            <h2 class="t_tit">요소 선택자</h2>
+            <p class="t_desc2">
+                자바스크립트의 내장 객체에는 작성된 요소를 선택할 수 있는 선택자가 포함되어 있습니다. 
+                이것을 <i>'요소 선택자'</i>라고 합니다.
+            </p>
+            
+            <hr>
+            
+            <h3 class="t_tit2">요소 선택자의 종류</h3>
+            <p class="t_desc">
+                요소 선택자에는 모든 요소 선택자, 아이디 요소 선택자, 클래스 요소 선택자, 태그 요소 선택자 등이 있습니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th class="ce">종류</th>
+                        <th class="ce">메서드</th>
+                        <th class="ce">설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">아이디 요소 선택자</td>
+                        <td>getElementById()</td>
+                        <td>
+                            document.getElementByld('content')와 같은 형식으로 작성합니다.<br>
+                            이 경우, HTML 요소 중 id 속성이 'content'인 요소를 선택합니다
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">클래스 요소 선택자</td>
+                        <td>getElementsByClassName()</td>
+                        <td>
+                            document.getElementsByClassName('menu')와 같은 형식으로 작성합니다.<br>
+                            이 경우, HTML 요소 중 class명이 'menu'인 요소들을 선택합니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">태그 요소 선택자</td>
+                        <td>getElementsByTagName()</td>
+                        <td>
+                            document.getElementsByTagName('ul')와 같은 형식으로 작성합니다.<br>
+                            이 경우, HTML 요소 중 태그명이 'ul'인 요소들을 선택합니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">name 요소 선택자</td>
+                        <td>getElementByName()</td>
+                        <td>
+                            document.getElementByName('txt')와 같은 형식으로 작성합니다.<br>
+                            이 경우, HTML 요소 중 name명이 'txt'인 요소들을 선택합니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소 선택자</td>
+                        <td>querySelector()</td>
+                        <td>
+                            요소의 선택 방법이 css 선택 방법과 같습니다. 선택된 요소 중 첫 번째 요소만 선택합니다.<br><br>
+                            document.querySelector('.lnb') : class명이 'lnb'인 요소 중 첫 번째 요소를 선택합니다.<br>
+                            document.querySelector(div) : 태그명이 div인 요소 중 첫 번째 요소를 선택합니다.<br>
+                            document.querySelector('#gnb li') : id 속성이 gnb이며, 태그명이 li인 첫 번쨰 요소를 선택합니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">전체 요소 선택자</td>
+                        <td>querySelectorAll()</td>
+                        <td>
+                            querySelector()는 선택된 요소 중 첫 번째 요소만 선택하는 반면,<br>
+                            querySelectorAll()은 모든 요소를 선택합니다.
+                        </td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h3 class="t_tit3">[ 예제 ]</h3>
+            <div class="t_code">
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;요소를 직접 선택하는 메서드&lt;/title&gt;
+    &lt;script&gt;
+        window.onload = function() {
+            var list1 = document.querySelector('#box1 &gt; ul &gt; li');
+            // id 속성이 box1인 요소의 자식 요소인 ul 태그의 자식 요소인 li 태그 중 첫 번째 요소를 선택
+            var list2 = document.querySelectorAll('#box2 &gt; ul &gt; li');
+            // id 속성이 box2인 요소의 자식 요소인 ul 태그의 자식 요소인 li 태그 요소를 선택
+            
+            console.log(list1);
+            console.log(list2);
+
+            // list1.style.background = '#ff6600';
+            // list2[0].style.background = '#ccc';
+            // list2.item(1).style.background = '#ddd';
+        };
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="box1"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;내용 1&lt;/li&gt;
+            &lt;li&gt;내용 2&lt;/li&gt;
+            &lt;li&gt;내용 3&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div id="box2"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;내용 4&lt;/li&gt;
+            &lt;li&gt;내용 5&lt;/li&gt;
+            &lt;li&gt;내용 6&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
