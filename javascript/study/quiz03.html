@@ -19,65 +19,114 @@
                 단조롭지 않은 생동감 넘치는 페이지를 만들 수 있습니다.
             </p>
 
-            <h3 class="t_tit2">주관식 유형</h3>
+            <h3 class="t_tit2">주관식(여러문제) 유형</h3>
             <p class="t_desc">
-                주관식 답을 적으면 정답인지 오답인지 비교한 후, 정답/오답이라는 문구와 함께 정답을 보여주는 이펙트입니다.
+                주관식 답을 적으면 정답인지 오답인지 비교한 후, 정답/오답이라는 문구를 띄우고 오답이라면 정답을 보여주는 이펙트입니다.
+                주관식 유형과 비슷하지만, 이번에 작성한 코드는 주관식인 여러 문제를 페이지에 나타나게 할 때에 유용합니다.
             </p>
-            <div class="t_iframe" style="min-height: 980px; padding-top: 0;">
-                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/quizEffect02.html" frameborder="0"></iframe>
+            <div class="t_iframe" style="min-height: 1600px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/quizEffect03.html" frameborder="0"></iframe>
             </div>
             <div class="t_link">
-                <a href="https://github.com/hjkang306/coding2/blob/main/javascript/effect/quizEffect02.html">원본 소스 보기</a>
+                <a href="https://github.com/hjkang306/coding2/blob/main/javascript/effect/quizEffect03.html">원본 소스 보기</a>
             </div>
             <br>
             <p class="t_desc">
                 해당 이펙트의 자바스크립트는 다음과 같습니다.
-                먼저 선택자를 지정한 후, 각각의 선택자로 지정한 구역에 알맞은 정보를 대입하는 것은 정답 확인하기 유형과 같습니다.
-                주관식 유형은 입력받은 정보를 정답과 비교하여, 정답과 오답일 때에 각각의 상황에 맞는 실행문을 작동하도록 if문을 사용합니다.
+                먼저 선택자를 지정한 후, 각각의 선택자로 지정한 구역에 알맞은 정보를 대입하는 것은 주관식 유형과 같습니다.
+                주관식 여러문제 유형은 각 번호의 문제에서 입력받은 정보를 알맞은 정답과 비교하여, 정답과 오답일 때에 각각의 상황에 맞는 실행문을 작동하도록 if문을 사용합니다.
+                선택자를 통해 각 문제의 부분을 선택하고, 객체를 통해 문제를 출력한다는 점이 일반 주관식 유형과의 차이점입니다.
+            </p>
+            <h3 class="t_tit2">선택자</h3>
+            <p class="t_desc">
+                <i>다중선택</i>이 필요한 경우, querySelector가 아닌 <i>querySelectorAll</i>을 사용해야 조건에 해당하는 전체에서의 선택이 가능해집니다.
             </p>
             <div class="t_code">
 <pre><code class="language-js">//선택자
-const quizType = document.querySelector(".quiz__type");                  //퀴즈 종류
-const quizNumber = document.querySelector(".quiz__question .number");    //퀴즈 번호
-const quizAsk = document.querySelector(".quiz__question .ask");          //퀴즈 질문
-const quizConfilm = document.querySelector(".quiz__answer .confilm");    //정답 확인 버튼
-const quizresult = document.querySelector(".quiz__answer .result");      //정답 결과
-const quizInput = document.querySelector(".quiz__answer .input");        //사용자 정답
-const quizView = document.querySelector(".quiz__view");        //사용자 정답
-
-//문제 정보
-const answerType = "웹디자인기능사";
-const answerNum = "2.";
-const answerAsk = "기업의 새로운 이념 구축에 필요한 이미지와 커뮤니케이션 시스템을 의도적, 계획적으로 만들어내는 기업 이미지 통합 전략은 무엇인가요?";
-let answerResult = "CIP";
-
-//문제 출력
-quizType.textContent = answerType;      //innerText 대신 textContent를 사용해도 같습니다. 둘은 비슷하나 호환성의 차이가 있습니다.
-quizNumber.textContent = answerNum; //innerText는 인터넷익스플로러 환경에는 호환되지 않습니다.
-quizAsk.textContent = answerAsk;
-quizresult.textContent = "정답은 : " + answerResult + "입니다.";
-
-//정답 숨기기
-quizresult.style.display = "none";
-
-//정답 확인
-quizConfilm.addEventListener("click", () => { //정답을 클릭했을 때 함수를 실행. 함수는 화살표 함수로 쓸 수도 있습니다.
-    quizInput.style.display = "none";
-    quizresult.style.display = "block";
-    quizConfilm.style.display = "none";
-
-    //사용자 정답
-    const userWord = quizInput.value.toLowerCase().trim(); //toLowerCase():소문자로 바꿔줍니다.
-    answerResult = answerResult.toLowerCase().trim();   //trim()여백을 없애줍니다.
-
-    //사용자 정답 == 문제 정답
-    if(userWord == answerResult) {
-        //정답일 때
-        quizView.classList.add("like"); //클래스에 like를 추가합니다.
-    } else {
-        //오답일 때
-        quizView.classList.add("dislike");  //클래스에 dislike를 추가합니다.
+const quizType = document.querySelectorAll(".quiz__type");                  //퀴즈 종류
+const quizNumber = document.querySelectorAll(".quiz__question .number");    //퀴즈 번호
+const quizAsk = document.querySelectorAll(".quiz__question .ask");          //퀴즈 질문
+const quizConfilm = document.querySelectorAll(".quiz__answer .confilm");    //정답 확인 버튼
+const quizResult = document.querySelectorAll(".quiz__answer .result");      //정답 결과
+const quizInput = document.querySelectorAll(".quiz__answer .input");        //사용자 정답
+const quizView = document.querySelectorAll(".quiz__view");        //사용자 정답
+//다중선택이 필요한 경우, querySelector가 아닌 querySelectorAll을 사용해야 조건에 해당하는 전체 경우에서의 선택이 가능해진다.
+</code></pre>
+            </div>
+            <h3 class="t_tit2">문제 정보</h3>
+            <p class="t_desc">
+                문제가 여러개인 경우, 문제 정보를 배열과 <i>객체</i>에 저장하면 보다 효율적인 관리가 가능합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">//문제정보
+const quizInfo = [
+    {
+        answerType: "웹디자인 기능사 2016년 1회",
+        answerNum: "1. ",
+        answerAsk: "화면을 표현하기 위한 최소 단위이며, 화소라고 불리는 것은?",
+        answerResult: "픽셀"
+    },
+    {
+        answerType: "웹디자인 기능사 2016년 1회",
+        answerNum: "2. ",
+        answerAsk: "디자인 원리 중 동질의 부분이 조합될 때 이루어지는 것은?",
+        answerResult: "유사"
+    },
+    {
+        answerType: "웹디자인 기능사 2016년 1회",
+        answerNum: "3. ",
+        answerAsk: "색채를 과학적으로 정리하여 스펙트럼을 7색으로 분리한 사람은?",
+        answerResult: "뉴턴"
+    },
+    {
+        answerType: "웹디자인 기능사 2016년 1회",
+        answerNum: "4. ",
+        answerAsk: "원근에 의한 공간표현으로 색채와 명암을 활용하는 방법은?",
+        answerResult: "대기원근법"
     }
+]
+</code></pre>
+            </div>
+            <h3 class="t_tit2">문제 정보</h3>
+            <p class="t_desc">
+                문제가 여러개인 경우, 문제 정보를 배열과 <i>객체</i>에 저장하면 보다 효율적인 관리가 가능합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">//문제 출력
+// quizType[0].textContent = quizInfo[0].answerType;
+// quizType[1].textContent = quizInfo[1].answerType;
+// quizType[2].textContent = quizInfo[2].answerType;
+// quizType[3].textContent = quizInfo[3].answerType;
+
+// quizNumber[0].textContent = quizInfo[0].answerNum;
+// quizNumber[1].textContent = quizInfo[1].answerNum;
+// quizNumber[2].textContent = quizInfo[2].answerNum;
+// quizNumber[3].textContent = quizInfo[3].answerNum;
+
+// quizAsk[0].textContent = quizInfo[0].answerAsk;
+// quizAsk[1].textContent = quizInfo[1].answerAsk;
+// quizAsk[2].textContent = quizInfo[2].answerAsk;
+// quizAsk[3].textContent = quizInfo[3].answerAsk;
+
+// quizResult[0].textContent = quizInfo[0].answerResult;
+// quizResult[1].textContent = quizInfo[1].answerResult;
+// quizResult[2].textContent = quizInfo[2].answerResult;
+// quizResult[3].textContent = quizInfo[3].answerResult;
+
+//for문으로 간단히 표현하는 법
+// for(let i=0;i&lt;quizInfo.length;i++){
+//     quizType[i].textContent = quizInfo[i].answerType;
+//     quizNumber[i].textContent = quizInfo[i].answerNum;
+//     quizAsk[i].textContent = quizInfo[i].answerAsk;
+//     quizResult[i].textContent = quizInfo[i].answerResult;
+// }
+
+//forEach문으로 표현하는 법
+quizInfo.forEach((el, i)=>{  //forEach문은 자동으로 배열의 수만큼 작동한다. for문과의 차이점.
+    quizType[i].textContent = quizInfo[i].answerType;
+    quizNumber[i].textContent = quizInfo[i].answerNum;
+    quizAsk[i].textContent = quizInfo[i].answerAsk;
+    quizResult[i].textContent = quizInfo[i].answerResult;
 });
 </code></pre>
             </div>
