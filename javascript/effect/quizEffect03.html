@@ -286,19 +286,18 @@
                 //사용자 정답
                 const userword = quizInput[num].value;
 
+                quizConfilm[num].style.display = "none";
                 
-                quizView[num].classList.add("like");
                 //사용자 정답 == 문제 정답 확인
                 if(userword==quizInfo[num].answerResult){
                     //정답인 경우
                     alert("정답입니다!")
                     quizView[num].classList.add("like");
-                    quizConfilm[num].style.display = "none";
+                    
                 } else {
                     //오답인 경우quizView[num].classList.add("like");
                     alert("오답입니다!")
                     quizView[num].classList.add("dislike");
-                    //quizConfilm[num].style.display = "none";    //확인 버튼을 안보이게
                     quizResult[num].style.display = "block";    //정답을 보이게
                     quizInput[num].style.display = "none";      //정답 적는 박스를 안보이게
                 }
