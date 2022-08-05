@@ -44,6 +44,7 @@
                 <li><a href="study/datatype.html">자료형</a></li>
                 <li><a href="study/function.html">함수</a></li>
                 <li><a href="study/var.html">지역변수/전역변수</a></li>
+                <li><a href="study/element.html">요소 선택</a></li>
             </ul>
         </nav>
     </header>
@@ -373,6 +374,212 @@ arr.map(function(el, i, array){   //forEach처럼 map도 요소, 자리값, 배�
             </div>
             <!-- //sample10 -->
 
+            <div id="sample11" class="sample">
+                <h3>11. 배열 : 데이터 불러오기 : 펼침연산자</h3>
+                <p>펼침연산자는 배열의 요소를 쉼표 없이 전부 불러올 수 있다.</p>
+                <div class="script">
+<pre><code class="language-js">const num = [100, 200, 300, 400, 500];
+
+document.write(num);    //배열 전체를 줄러오는 기본 방법
+document.write(num[0], num[1], num[2], num[3], num[4]); //배열의 요소를 하나하나 불러오는 단순한 방법
+document.write(...num); //점(.) 세개를 사용하는 펼침연산자는 쉼표 없이 요소를 하나하나 불러온다.
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample11_result">
+                            100,200,300,400,500<br>
+                            100200300400500<br>
+                            100200300400500
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample11 -->
+
+            <div id="sample12" class="sample">
+                <h3>12. 배열 : 데이터 불러오기 : 배열구조분해할당</h3>
+                <p>배열구조분해할당은 기존의 구조를 부순 후 값을 재할당하는 방식으로 사용된다.</p>
+                <div class="script">
+<pre><code class="language-js">let a, b, c;
+
+[a,b,c] = [100, 200, "javascript"]; //변수에 각각 동일한 위치에 있는 배열의 값을 할당한다.
+
+document.write(a);  //100
+document.write(b);  //200
+document.write(c);  //javascript
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample12_result">100200javascript</div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample12 -->
+
+            <div id="sample13" class="sample">
+                <h3>13. 객체 : 데이터 불러오기 : 기본</h3>
+                <p>객체를 불러오는 기본적인 이름은 변수의 이름 뒤에 ".키값"을 붙이는 것이다.</p>
+                <div class="script">
+<pre><code class="language-js">const obj = {
+    a : 100,
+    b : 200,
+    c : "javascript"
+}
+
+document.write(obj.a);
+document.write(obj.b);
+document.write(obj.c);
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample13_result">100200javascript</div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample13 -->
+
+            <div id="sample14" class="sample">
+                <h3>14. 객체 : 데이터 불러오기 : Object</h3>
+                <p>객체의 데이터를 불러오는 방법에는 키 값을 불러오는 방법, 키 값고 객체 값을 동시에 불러오는 방법도 있다.</p>
+                <div class="script">
+<pre><code class="language-js">const obj = {
+    a : 100,
+    b : 200,
+    c : "javascript"
+}
+
+document.write(Object.keys(obj));   //키 값을 불러오는 방법
+document.write(Object.values(obj));   //객체 값을 불러오는 또다른 방법
+document.write(Object.entries(obj));   //키 값과 객체 값을 모두 불러오는 방법
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample14_result">
+                            a,b,c<br>
+                            100,200,javascript<br>
+                            a,100,b,200,c,javascript
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample14 -->
+
+            <div id="sample15" class="sample">
+                <h3>15. 객체 : 데이터 불러오기 : 변수</h3>
+                <p>객체는 변수에 객체 값을 저장한 후, 변수의 이름을 통해 불러오는 방법도 있다.</p>
+                <div class="script">
+<pre><code class="language-js">const obj = {
+    a : 100,
+    b : 200,
+    c : "javascript"
+}
+
+const name1 = obj.a;
+const name2 = obj.b;
+const name3 = obj.c;
+
+document.write(name1);  //변수에 객체값을 저장하여 불러온다.
+document.write(name2);
+document.write(name3);
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample15_result">100200javascript</div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample15 -->
+
+            <div id="sample16" class="sample">
+                <h3>16. 객체 : 데이터 불러오기 : for in</h3>
+                <p>객체는 for in문을 활용해서 불러오는 방법도 있다.</p>
+                <div class="script">
+<pre><code class="language-js">const obj = {
+    a : 100,
+    b : 200,
+    c : "javascript"
+}
+
+for( let i in obj ){    //여기서 i는 키 값이 된다.
+    document.write(obj[i]);
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample16_result">100200javascript</div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample16 -->
+
+            <div id="sample17" class="sample">
+                <h3>17. 객체 : 데이터 불러오기 : map()</h3>
+                <p>map()에서 값을 물러올 때 배열 안에 객체가 있다면, 기존의 배열 속 객체를 불러오는 방법과 동일한 방법을통해 데이터를 불러올 수 있다.</p>
+                <div class="script">
+<pre><code class="language-js">const obj = [
+    {a: 100, b: 200, c: "javascript"}
+];
+
+obj.map((el) => {
+    document.write(el.a);
+    document.write(el.b);
+    document.write(el.c);
+});
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample17_result">100200javascript</div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample17 -->
+
+            <div id="sample18" class="sample">
+                <h3>18. 객체 : 데이터 불러오기 : hasOwnProperty()</h3>
+                <p>hasOwnProperty()는 객체 속에 해당하는 키와 값의 유무를 확인해주는 메소드이다. 결과 값은 true와 false로 나타낸다.</p>
+                <div class="script">
+<pre><code class="language-js">const obj = {
+    a : 100,
+    b : 200,
+    c : "javascript"
+}
+document.write(obj.hasOwnProperty("a"));    //해당 키 값과 내용이 있는지 없는지 확인하고, 그 결과를 true/false로 알려준다.
+document.write(obj.hasOwnProperty("b"));
+document.write(obj.hasOwnProperty("c"));
+document.write(obj.hasOwnProperty("d"));    //false
+//아래는 약식 표현
+document.write("a" in obj);
+document.write("b" in obj);
+document.write("c" in obj);
+document.write("d" in obj);
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample18_result">
+                            truetruetruefalse<br>
+                            truetruetruefalse
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample18 -->
+
         </div>
     </main>
     <!-- //main -->
@@ -385,106 +592,114 @@ arr.map(function(el, i, array){   //forEach처럼 map도 요소, 자리값, 배�
         hljs.highlightAll();
     </script>
     <script>
-        // //06 for문
-        // {
-        //     const arr = [100, 200, 300, 400, 500];
-
-        //     //document.write(arr[0]);
-        //     //document.write(arr[1]);
-        //     //document.write(arr[2]);
-        //     //document.write(arr[3]);
-        //     //document.write(arr[4]);
-
-        //     for(i=0; i<arr.length; i++){
-        //         //document.write(arr[i],"<br>");
-        //     }
-        // }
-
-        // //07 배열 데이터 블러오기 : forEach();
+        //11. 펼침연산자(Spead Operator)
         // {
         //     const num = [100, 200, 300, 400, 500];
 
-        //     num.forEach(function(el, i, array){   //function()안에 아무글자(변수)나 넣으면 배열 값이 나온다. 첫번째 자리는 요소, 두번째 자리는 자릿값, 세번째 자리는 변수 전체를 출력할 수 있다.
-        //         //document.write(el);
-        //     });
-
-        //     num.forEach(function(el, i, array){
-        //         //document.write(el, i, array);
-        //         //document.write(i);
-        //         //document.write(array);
-        //     });
+        //     document.write(num, "<br>");
+        //     document.write(num[0], num[1], num[2], num[3], num[4]);
+        //     document.write(...num); //펼침연산자는 쉼표 없이 요소를 하나하나 불러온다.
         // }
 
-        // //08. 배열 데이터 블러오기 : for of
+        //12. 배열구조할당(Destructruing assignment)
         // {
-        //     const arr = [100, 200, 300, 400, 500];
+        //     let a, b, c;
 
-        //     for( let i of arr ){    //배열의 요소 값을 불러온다.
-        //         //document.write(i);  //100200300400500 출력
-        //     }
-        // }
+        //     [a,b,c] = [100, 200, "javascript"]; //변수에 각각 동일한 위치에 있는 배열의 값을 할당한다.
 
-        // //document.write("<br>");
-
-        // //09. 배열 데이터 블러오기 : for in
-        // {
-        //     const arr = [100, 200, 300, 400, 500];
-
-        //     for( let i in arr ){        //배열의 인덱스 값을 불러온다.
-        //         //document.write(i,"<br>");    //01234 출력
-        //         //document.write(arr[i],"<br>"); //다음과 같이 작업하면 요소 값을 출력할 수 있다. 
-
-        //     }
-        // }
-
-        // //10. 배열 데이터 블러오기 : map();
-        // {
-        //     const arr = [100, 200, 300, 400, 500];
-
-        //     arr.forEach(function(el){   //콜백함수는 ()안에 'function(){}'가 한 세트
-        //         //document.write(el,"<br>");
-        //     });
-
-        //     //document.write("<br>");
-
-
-        //     arr.map(function(el, i, array){   //forEach처럼 map도 요소, 자리값, 배열전체를 불러올 수 있다. 거의 같다고 보면 된다. 
-        //         //document.write(el,"<br>");
-        //         //document.write(i,"<br>");
-        //         //document.write(array,"<br>");
-        //     });
-        // }
-
-        // {
-        //     //
-        //     const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-        //     //for문을 이용해서 출력하기
-        //     for( let i=0;i<9;i++ ) {
-        //         document.write(arr[i]);
-        //     }
-
-        //     //forEach()를 이용해서 출력
-        //     arr.forEach(function(el){
-        //         document.write(el);
-        //     });
-
-        //     //map()을 이용해서 출력
-        //     arr.map(function(el){
-        //         document.write(el);
-        //     });
-
-        //     //for in
-        //     for(let i in arr){
-        //         document.write(arr[i]);
-        //     }
-
-        //     //for of
-        //     for(let i of arr){
-        //         document.write(i);
-        //     }
+        //     document.write(a);  //100
+        //     document.write(b);  //200
+        //     document.write(c);  //javascript
         // }
         
+        //13. 객체 : 데이터 불러오기 : 기본
+        // {
+        //     const obj = {
+        //         a : 100,
+        //         b : 200,
+        //         c : "javascript"
+        //     }
+
+        //     document.write(obj.a);
+        //     document.write(obj.b);
+        //     document.write(obj.c);
+        // }
+        
+        //14. 객체 : 데이터 불러오기 : Object
+        // {
+        //     const obj = {
+        //         a : 100,
+        //         b : 200,
+        //         c : "javascript"
+        //     }
+
+        //     document.write(Object.keys(obj));   //키 값을 불러오는 방법
+        //     document.write("<br>")
+        //     document.write(Object.values(obj));   //객체 값을 불러오는 또다른 방법
+        //     document.write("<br>")
+        //     document.write(Object.entries(obj));   //키 값과 객체 값을 모두 불러오는 방법
+        // }
+
+        //15. 객체 : 데이터 불러오기 : 변수
+        // {
+        //     const obj = {
+        //         a : 100,
+        //         b : 200,
+        //         c : "javascript"
+        //     }
+
+        //     const name1 = obj.a;
+        //     const name2 = obj.b;
+        //     const name3 = obj.c;
+            
+        //     document.write(name1);  //변수에 객체값을 저장하여 불러온다.
+        //     document.write(name2);
+        //     document.write(name3);
+        // }
+
+        //16. 객체 : 데이터 불러오기 : for in
+        // {
+        //     const obj = {
+        //         a : 100,
+        //         b : 200,
+        //         c : "javascript"
+        //     }
+
+        //     for( let i in obj ){    //여기서 i는 키 값이 된다.
+        //         document.write(obj[i]);
+        //     }
+        // }
+
+        //17. 객체 : 데이터 불러오기 : map()
+        // {
+        //     const obj = [
+        //         {a: 100, b: 200, c: "javascript"}
+        //     ];
+
+        //     obj.map((el) => {
+        //         document.write(el.a);
+        //         document.write(el.b);
+        //         document.write(el.c);
+        //     });
+        // }
+
+        //18. 객체 : 데이터 불러오기 : hasOwnProperty()
+        // {
+        //     const obj = {
+        //         a : 100,
+        //         b : 200,
+        //         c : "javascript"
+        //     }
+        //     document.write(obj.hasOwnProperty("a"));    //해당 키 값과 내용이 있는지 없는지 확인하고, 그 결과를 true/false로 알려준다.
+        //     document.write(obj.hasOwnProperty("b"));
+        //     document.write(obj.hasOwnProperty("c"));
+        //     document.write(obj.hasOwnProperty("d"));    //false
+        //     //아래는 약식 표현
+        //     document.write("a" in obj);
+        //     document.write("b" in obj);
+        //     document.write("c" in obj);
+        //     document.write("d" in obj);
+        // }
     </script>
 </body>
 </html>
