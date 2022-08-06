@@ -14,6 +14,20 @@
     <link href="https://webfontworld.github.io/DungGeunMo/DungGeunMo.css" rel="stylesheet">
     <link href="https://webfontworld.github.io/PyeongChang/PyeongChang.css" rel="stylesheet">
 
+    <style>
+        .check {
+            padding: 130px 70px;
+            border-radius: 50%;
+            font-size: 25px;
+            font-weight: 700;
+            margin: 50px;
+        }
+        .check:hover {
+            background-color: rgb(164, 91, 231);
+            color: #fff;
+            transition: 0.3s;
+        }
+    </style>
 </head>
 
 <body>
@@ -2229,6 +2243,8 @@
                 </div>
             </div>
             <!-- //quiz -->
+
+            <button class="check">점수 확인하기</button>
         </div>
     </main>
     <!-- main -->
@@ -2247,6 +2263,7 @@
         const quizResult = document.querySelectorAll(".quiz__answer .result");      //정답 결과
         const quizInput = document.querySelectorAll(".quiz__answer .input");        //사용자 정답
         const quizView = document.querySelectorAll(".quiz__view");        //사용자 정답
+        const quizCheck = document.querySelector(".check");        //점수 확인
 
         //문제정보
         const quizInfo = [
@@ -2647,6 +2664,9 @@
         });
 
         //정답 확인
+        let j = 0;
+        let k = quizInfo.length;
+        
         quizConfilm.forEach((btn, num)=>{
             btn.addEventListener("click", ()=>{
                 
@@ -2660,6 +2680,7 @@
                     //정답인 경우
                     //alert("정답입니다!")
                     quizView[num].classList.add("like");
+                    j++;
                     
                 } else {
                     //alert("오답입니다!")
@@ -2667,9 +2688,13 @@
                     quizResult[num].style.display = "block";
                     quizInput[num].style.display = "none";
                 }
+                
             });
         });
-
+        
+        quizCheck.addEventListener("click", ()=>{
+            alert( k + "개 중 " + j + "개 정답.");
+        });
         </script>
 </body>
 
