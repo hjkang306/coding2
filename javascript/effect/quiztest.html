@@ -223,31 +223,29 @@
         ]
 
         //문제 출력
-        for (i = 0; i < quizInfo.length; i++) {
-            quizType[i].innerText = quizInfo[i].answerType;
-            quizNumber[i].innerText = quizInfo[i].answerNum;
-            quizAsk[i].innerText = quizInfo[i].answerAsk;
-            quizResult[i].innerText = quizInfo[i].answerResult;
-        }
+        quizInfo.forEach((el, i) => {
+            quizType[i].textContent = quizInfo[i].answerType;
+            quizNumber[i].textContent = quizInfo[i].answerNum;
+            quizAsk[i].textContent = quizInfo[i].answerAsk;
+            quizResult[i].textContent = quizInfo[i].answerResult;
+        });
 
         //정답 숨기기
-        quizResult[0].style.display = "none";
-        quizResult[1].style.display = "none";
-        quizResult[2].style.display = "none";
-        quizResult[3].style.display = "none";
+        quizInfo.forEach((el, i) => {
+            quizResult[i].style.display = "none";
+        });
+        
 
         //정답
-        quizConfilm.forEach((btn, num) => {
-            btn.addEventListener("click", () => {
-                
-                const userword = quizInput[num].value;
+        quizConfilm.forEach((btn,num) => {
+            btn.addEventListener("click", ()=>{
+                const userWord = quizInput[num].value;
+
                 quizConfilm[num].style.display = "none";
 
-                if (userword == quizInfo[num].answerResult) {
-                    alert("정답");
+                if(userWord == quizInfo[num].answerResult){
                     quizView[num].classList.add("like");
                 } else {
-                    alert("오답");
                     quizView[num].classList.add("dislike");
                     quizResult[num].style.display = "block";
                     quizInput[num].style.display = "none";
