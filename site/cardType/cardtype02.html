@@ -7,7 +7,7 @@
     <title>카드 유형01</title>
     <style>
         /* fonts */
-        @import url('https://webfontworld.github.io/GmarketSans/GmarketSans.css');
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
 
         .market {
             font-family: 'GmarketSans';
@@ -30,14 +30,6 @@
         }
 
         /* common */
-        .container {
-            width: 1160px;
-            padding: 0 20px;
-            margin: 0 auto;
-        }
-        .section {
-            padding: 120px 0;
-        }
         .section > h2 {
             font-size: 50px;
             line-height: 1;
@@ -56,6 +48,11 @@
         }
 
         /* cardType */
+        .card__wrap {
+            padding: 120px 0;
+            width: 1160px;
+            margin: 0 auto;
+        }
         .card__inner {
             display: flex;
             justify-content: space-between; /* 컨텐츠의 양쪽 정렬 */
@@ -63,24 +60,32 @@
         .card {
             width: 275px;
             height: 333px;
-            background: #f5f5f5;
-            margin: 20px;
-        }
-        .card__body {
-            padding: 24px;
+            margin: 0 10px;
         }
         .card__body .tit {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            margin: 22px 0 10px 0;
+            font-weight: 500;
+            font-family: 'GmarketSans';
+            position: relative;
         }
         .card__body .desc {
             font-size: 18px;
             line-height: 1.4;
             color: #666;
-            margin-bottom: 20px;
             font-weight: 300;
+            text-align: left;
+            font-family: 'GmarketSans';
         }
-        .card__body .btn {}
+        .cardTop {
+            margin-bottom: 50px;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
     </style>
 </head>
 <body>
@@ -90,15 +95,21 @@
             우리 주변에서 흔히 볼 수 있는 감자는 그 활용법이 무궁무진 합니다.<br>
             감자의 다양한 요리법들을 소개합니다. 맛있게 즐기세요.
         </p>
-        <div class="card__inner container">
+        <div class="card__inner container cardTop">
             <article class="card">
                 <figure class="card__header">
                     <img src="img/card2_bg01.jpg" alt="바질 키우기 기초의 바질 잎 패턴 이미지">
                 </figure>
                 <div class="card__body">
-                    <h3 class="tit">바질 키우기 기초</h3>
-                    <p class="desc">바질은 초보자가 키우기 쉬운 허브인 편입니다. 과습을 잘 견디며, 햇빛은 많이 요구합니다.겨울에 실내에 들여서 키운다면 여러해 동안 키울 수도 있습니다.</p>
-                    <a class="btn" href="/">더 자세히 보기</a>
+                    <h3 class="tit">감자의 특징
+                        <span class="arrow" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#FFB763"/>
+                                <path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/>
+                            </svg>
+                        </span>
+                    </h3>
+                    <p class="desc">감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.</p>
                 </div>
             </article>
             <article class="card">
@@ -106,9 +117,15 @@
                     <img src="img/card2_bg02.jpg" alt="바질 가지치기 기초의 바질 화분 이미지">
                 </figure>
                 <div class="card__body">
-                    <h3 class="tit">바질 가지치기 기초</h3>
-                    <p class="desc">바질을 풍성하게 키워 수확량을 올리고 싶다면, 바질이 Y자 형으로 자랄 수 있도록 바질의 성장속도에 맞춰 가지치기를 해주는 것이 좋습니다.</p>
-                    <a class="btn" href="/">더 자세히 보기</a>
+                    <h3 class="tit">감자 양념구이
+                        <span class="arrow" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#FFB763"/>
+                                <path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/>
+                            </svg>
+                        </span>
+                    </h3>
+                    <p class="desc">감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.</p>
                 </div>
             </article>
             <article class="card">
@@ -116,9 +133,15 @@
                     <img src="img/card2_bg03.jpg" alt="바질 뜯어먹기 기초의 손에 들린 바질 화분 이미지">
                 </figure>
                 <div class="card__body">
-                    <h3 class="tit">바질 뜯어먹기 기초</h3>
-                    <p class="desc">바질은 향이 좋고 맛도 좋아, 다양한 요리에 사용할 수 있습니다. 샐러드로 먹기도 하고 파스타에 향신료로 뿌려먹기도, 토마토와 함께 와인 안주로 먹기도 합니다.</p>
-                    <a class="btn" href="/">더 자세히 보기</a>
+                    <h3 class="tit">감자 튀김
+                        <span class="arrow" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#FFB763"/>
+                                <path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/>
+                            </svg>
+                        </span>
+                    </h3>
+                    <p class="desc">감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.</p>
                 </div>
             </article>
             <article class="card">
@@ -126,9 +149,81 @@
                     <img src="img/card2_bg04.jpg" alt="바질 뜯어먹기 기초의 손에 들린 바질 화분 이미지">
                 </figure>
                 <div class="card__body">
-                    <h3 class="tit">바질 뜯어먹기 기초</h3>
-                    <p class="desc">바질은 향이 좋고 맛도 좋아, 다양한 요리에 사용할 수 있습니다. 샐러드로 먹기도 하고 파스타에 향신료로 뿌려먹기도, 토마토와 함께 와인 안주로 먹기도 합니다.</p>
-                    <a class="btn" href="/">더 자세히 보기</a>
+                    <h3 class="tit">웨지 감자
+                        <span class="arrow" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#FFB763"/>
+                                <path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/>
+                            </svg>
+                        </span>
+                    </h3>
+                    <p class="desc">감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.</p>
+                </div>
+            </article>
+        </div>
+        <div class="card__inner container">
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card2_bg05.jpg" alt="바질 키우기 기초의 바질 잎 패턴 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">감자전
+                        <span class="arrow" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#FFB763"/>
+                                <path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/>
+                            </svg>
+                        </span>
+                    </h3>
+                    <p class="desc">감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.</p>
+                </div>
+            </article>
+            <article class="card">
+                <figure>
+                    <img src="img/card2_bg06.jpg" alt="바질 가지치기 기초의 바질 화분 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">휴게소 감자
+                        <span class="arrow" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#FFB763"/>
+                                <path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/>
+                            </svg>
+                        </span>
+                    </h3>
+                    <p class="desc">감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.</p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card2_bg07.jpg" alt="바질 뜯어먹기 기초의 손에 들린 바질 화분 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">치즈 감자 구이
+                        <span class="arrow" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#FFB763"/>
+                                <path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/>
+                            </svg>
+                        </span>
+                    </h3>
+                    <p class="desc">감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.</p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card2_bg08.jpg" alt="바질 뜯어먹기 기초의 손에 들린 바질 화분 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">감자 샐러드
+                        <span class="arrow" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#FFB763"/>
+                                <path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/>
+                            </svg>
+                        </span>
+                    </h3>
+                    <p class="desc">감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.</p>
                 </div>
             </article>
         </div>
