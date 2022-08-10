@@ -34,145 +34,84 @@
             <p class="t_desc">
                 그 다음, 만들어 둔 디자인을 보며 시멘틱 태그를 활용해 구역에 맞는 태그와 텍스를 작성해 줍니다.
                 한번에 다 만들기 보다는 큰 요소부터 하나씩 만들면서 css를 적용해, 중간중간 확인하는 편이 좋습니다.
-                이미지는 <i>svg파일</i>을 활용하게 된다면, 웹 접근성 향상을 위해 <i>aria-hidden="true"속성</i>을 넣어줍니다. 해당 속성을 넣으면 스크린리더 프로그램이 <i>내용과 관련이 없는 svg파일을 읽지 않고 지나갑니다</i>.
             </p>
+            <h4 class="t_tit3"><i>> 웹 접근성 향상 팁!</i></h4>
+            <div class="t_desc2">
+                내용이 있는 이미지는 img태그를 사용합니다. <i>alt 태그는 꼭</i> 적어줍니다.<br>
+                내용과 관련이 없는 이미지로<br>
+                1. <i>svg파일</i>을 활용하게 된다면, 웹 접근성 향상을 위해 <i>aria-hidden="true"속성</i>을 넣어줍니다. 해당 속성을 넣으면 스크린리더 프로그램이 <i>내용과 관련이 없는 svg파일을 읽지 않고 지나갑니다</i>.<br>
+                2. <i>background-image</i>를 활용하여 css를 통해 이미지를 넣을 수도 있습니다.<br>
+                위의 두 경우엔 css에서 <i>ir효과</i>를 설정하여 alt를 대신할 이미지 대체 텍스트를 설정해 줍니다.
+            </div>
+            <h4 class="t_tit3"><i>> ir효과란?</i></h4>
+            <div class="t_desc2">
+                img태그가 아닌 방법으로 이미지를 표현할 경우, 이미지가 로딩되지 않을때 나타낼 수 있는 대체 텍스트를 표시할 수 없습니다. 때문에 웹 접근성 보장을 위해 <i>가상으로 alt태그와 같은 효과를 주는 css 작성</i> 기법입니다.
+            </div>
+            <div class="t_box">
+                <i>*css에서 ir 효과 주는 법*</i><br>
+                .ir {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;display: block;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;font-size: 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;line-height: 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;ext-indent: -9999px;
+                }
+            </div>
             <div class="t_code">
-<pre><code class="language-html">&lt;section id="cardType" class="card__wrap market section"&gt;
+<pre><code class="language-html">&lt;section id="cardType02" class="card__wrap gmarket section"&gt;
     &lt;h2&gt;감자 요리 하기 🥔&lt;/h2&gt;
     &lt;p&gt;
         우리 주변에서 흔히 볼 수 있는 감자는 그 활용법이 무궁무진 합니다.&lt;br&gt;
         감자의 다양한 요리법들을 소개합니다. 맛있게 즐기세요.
     &lt;/p&gt;
-    &lt;div class="card__inner container cardTop"&gt;
-        &lt;article class="card"&gt;
-            &lt;figure class="card__header"&gt;
-                &lt;img src="img/card2_bg01.jpg" alt="감자 여러개를 양 손에 들고있는 이미지"&gt;
-            &lt;/figure&gt;
-            &lt;div class="card__body"&gt;
-                &lt;h3 class="tit"&gt;감자의 특징
-                    &lt;span class="arrow" aria-hidden="true"&gt;
-                        &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                            &lt;rect width="24" height="24" rx="5" fill="#FFB763"/&gt;
-                            &lt;path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/&gt;
-                        &lt;/svg&gt;
-                    &lt;/span&gt;
-                &lt;/h3&gt;
-                &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/article&gt;
-        &lt;article class="card"&gt;
-            &lt;figure&gt;
-                &lt;img src="img/card2_bg02.jpg" alt="칼집을 낸 통감자를 양념해 구워낸 요리 이미지"&gt;
-            &lt;/figure&gt;
-            &lt;div class="card__body"&gt;
-                &lt;h3 class="tit"&gt;감자 양념구이
-                    &lt;span class="arrow" aria-hidden="true"&gt;
-                        &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                            &lt;rect width="24" height="24" rx="5" fill="#FFB763"/&gt;
-                            &lt;path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/&gt;
-                        &lt;/svg&gt;
-                    &lt;/span&gt;
-                &lt;/h3&gt;
-                &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/article&gt;
-        &lt;article class="card"&gt;
-            &lt;figure class="card__header"&gt;
-                &lt;img src="img/card2_bg03.jpg" alt="감자튀김이 접시에 담겨있는 이미지"&gt;
-            &lt;/figure&gt;
-            &lt;div class="card__body"&gt;
-                &lt;h3 class="tit"&gt;감자 튀김
-                    &lt;span class="arrow" aria-hidden="true"&gt;
-                        &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                            &lt;rect width="24" height="24" rx="5" fill="#FFB763"/&gt;
-                            &lt;path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/&gt;
-                        &lt;/svg&gt;
-                    &lt;/span&gt;
-                &lt;/h3&gt;
-                &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/article&gt;
-        &lt;article class="card"&gt;
-            &lt;figure class="card__header"&gt;
-                &lt;img src="img/card2_bg04.jpg" alt="감자를 반달모양으로 썰어 구워낸 웨지감자 이미지"&gt;
-            &lt;/figure&gt;
-            &lt;div class="card__body"&gt;
-                &lt;h3 class="tit"&gt;웨지 감자
-                    &lt;span class="arrow" aria-hidden="true"&gt;
-                        &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                            &lt;rect width="24" height="24" rx="5" fill="#FFB763"/&gt;
-                            &lt;path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/&gt;
-                        &lt;/svg&gt;
-                    &lt;/span&gt;
-                &lt;/h3&gt;
-                &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/article&gt;
-    &lt;/div&gt;
     &lt;div class="card__inner container"&gt;
         &lt;article class="card"&gt;
-            &lt;figure class="card__header"&gt;
-                &lt;img src="img/card2_bg05.jpg" alt="두껍게 구워낸 감자전 세장이 쌓여있는 이미지"&gt;
-            &lt;/figure&gt;
-            &lt;div class="card__body"&gt;
-                &lt;h3 class="tit"&gt;감자전
-                    &lt;span class="arrow" aria-hidden="true"&gt;
-                        &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                            &lt;rect width="24" height="24" rx="5" fill="#FFB763"/&gt;
-                            &lt;path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/&gt;
-                        &lt;/svg&gt;
-                    &lt;/span&gt;
-                &lt;/h3&gt;
-                &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.&lt;/p&gt;
-            &lt;/div&gt;
+            &lt;img src="img/card2_bg01.jpg" alt="감자 여러개를 양 손에 들고있는 이미지"&gt;
+            &lt;h3 class="tit"&gt;감자의 특징&lt;/h3&gt;
+            &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다. 감자를 맛있게 요리하여 먹어보세요.&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
         &lt;/article&gt;
         &lt;article class="card"&gt;
-            &lt;figure&gt;
-                &lt;img src="img/card2_bg06.jpg" alt="휴게소에서 볼 수 있는 찐감자 소금구이 이미지"&gt;
-            &lt;/figure&gt;
-            &lt;div class="card__body"&gt;
-                &lt;h3 class="tit"&gt;휴게소 감자
-                    &lt;span class="arrow" aria-hidden="true"&gt;
-                        &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                            &lt;rect width="24" height="24" rx="5" fill="#FFB763"/&gt;
-                            &lt;path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/&gt;
-                        &lt;/svg&gt;
-                    &lt;/span&gt;
-                &lt;/h3&gt;
-                &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.&lt;/p&gt;
-            &lt;/div&gt;
+            &lt;img src="img/card2_bg02.jpg" alt="칼집을 낸 통감자를 양념해 구워낸 요리 이미지"&gt;
+            &lt;h3 class="tit"&gt;감자 양념구이&lt;/h3&gt;
+            &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다. 감자를 맛있게 요리하여 먹어보세요.&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
         &lt;/article&gt;
         &lt;article class="card"&gt;
-            &lt;figure class="card__header"&gt;
-                &lt;img src="img/card2_bg07.jpg" alt="두껍게 편 썰은 감자 위에 치즈와 양념을 올려 구워낸 요리 이미지"&gt;
-            &lt;/figure&gt;
-            &lt;div class="card__body"&gt;
-                &lt;h3 class="tit"&gt;치즈 감자 구이
-                    &lt;span class="arrow" aria-hidden="true"&gt;
-                        &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                            &lt;rect width="24" height="24" rx="5" fill="#FFB763"/&gt;
-                            &lt;path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/&gt;
-                        &lt;/svg&gt;
-                    &lt;/span&gt;
-                &lt;/h3&gt;
-                &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.&lt;/p&gt;
-            &lt;/div&gt;
+            &lt;img src="img/card2_bg03.jpg" alt="감자튀김이 접시에 담겨있는 이미지"&gt;
+            &lt;h3 class="tit"&gt;감자 튀김&lt;/h3&gt;
+            &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다. 감자를 맛있게 요리하여 먹어보세요.&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
         &lt;/article&gt;
         &lt;article class="card"&gt;
-            &lt;figure class="card__header"&gt;
-                &lt;img src="img/card2_bg08.jpg" alt="감자를 으깨 만든 샐러드가 그릇에 담긴 이미지"&gt;
-            &lt;/figure&gt;
-            &lt;div class="card__body"&gt;
-                &lt;h3 class="tit"&gt;감자 샐러드
-                    &lt;span class="arrow" aria-hidden="true"&gt;
-                        &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                            &lt;rect width="24" height="24" rx="5" fill="#FFB763"/&gt;
-                            &lt;path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13V11ZM18.7071 12.7071C19.0976 12.3166 19.0976 11.6834 18.7071 11.2929L12.3431 4.92893C11.9526 4.53841 11.3195 4.53841 10.9289 4.92893C10.5384 5.31946 10.5384 5.95262 10.9289 6.34315L16.5858 12L10.9289 17.6569C10.5384 18.0474 10.5384 18.6805 10.9289 19.0711C11.3195 19.4616 11.9526 19.4616 12.3431 19.0711L18.7071 12.7071ZM6 13L18 13V11L6 11V13Z" fill="white"/&gt;
-                        &lt;/svg&gt;
-                    &lt;/span&gt;
-                &lt;/h3&gt;
-                &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다.&lt;/p&gt;
-            &lt;/div&gt;
+            &lt;img src="img/card2_bg04.jpg" alt="감자를 반달모양으로 썰어 구워낸 웨지감자 이미지"&gt;
+            &lt;h3 class="tit"&gt;웨지 감자&lt;/h3&gt;
+            &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다. 감자를 맛있게 요리하여 먹어보세요.&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card2_bg05.jpg" alt="두껍게 구워낸 감자전 세장이 쌓여있는 이미지"&gt;
+            &lt;h3 class="tit"&gt;감자전&lt;/h3&gt;
+            &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다. 감자를 맛있게 요리하여 먹어보세요.&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card2_bg06.jpg" alt="휴게소에서 볼 수 있는 찐감자 소금구이 이미지"&gt;
+            &lt;h3 class="tit"&gt;휴게소 감자&lt;/h3&gt;
+            &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다. 감자를 맛있게 요리하여 먹어보세요.&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card2_bg07.jpg" alt="두껍게 편 썰은 감자 위에 치즈와 양념을 올려 구워낸 요리 이미지"&gt;
+            &lt;h3 class="tit"&gt;치즈 감자 구이&lt;/h3&gt;
+            &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다. 감자를 맛있게 요리하여 먹어보세요.&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card2_bg08.jpg" alt="감자를 으깨 만든 샐러드가 그릇에 담긴 이미지"&gt;
+            &lt;h3 class="tit"&gt;감자 샐러드&lt;/h3&gt;
+            &lt;p class="desc"&gt;감자는 전분이 많고 익히면 부슬부슬해 집니다. 껍질 채로 먹을 수 있고 익힌 감자는 단 맛이 납니다. 감자를 맛있게 요리하여 먹어보세요.&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
         &lt;/article&gt;
     &lt;/div&gt;
 &lt;/section&gt;
@@ -184,8 +123,12 @@
                 요소를 배치하면서 제대로 css가 적용되는지 확인하고 싶다면, 해당 요소에 배경색을 지정해 확인하도록 합니다.
             </p>
             <div class="t_code">
-<pre><code class="language-css">.market {
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+.gmarket {
     font-family: 'GmarketSans';
+    font-weight: 500;
 }
 
 /* reset */
@@ -193,73 +136,109 @@
     margin: 0;
     padding: 0;
 }
+
 a {
     text-decoration: none;
     color: #000;
 }
+
 img {
     width: 100%;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: normal;
 }
 
 /* common */
-.section > h2 {
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+
+.section {
+    padding: 120px 0;
+}
+
+.section>h2 {
     font-size: 50px;
     line-height: 1;
     text-align: center;
     margin-bottom: 20px;
-    font-weight: 500;
-    
 }
-.section > p {
+
+.section>p {
     font-size: 22px;
     font-weight: 300;
     color: #666;
     text-align: center;
     margin-bottom: 70px;
-    line-height: 1.4;
+}
+.gray {
+    background-color: #f5f5f5f5;
 }
 
-/* cardType */
-.card__wrap {
-    padding: 120px 0;
-    width: 1160px;
-    margin: 0 auto;
+/* ir 효과(이미지 대체 효과 == alt) */
+.ir {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
 }
+
+/* cardType02 */
 .card__inner {
     display: flex;
-    justify-content: space-between; /* 컨텐츠의 양쪽 정렬 */
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-.card {
-    width: 275px;
-    height: 333px;
-    margin: 0 10px;
-}
-.card__body .tit {
-    font-size: 28px;
-    margin: 22px 0 10px 0;
-    font-weight: 500;
-    font-family: 'GmarketSans';
+.card__inner .card {
+    width: 24%;
     position: relative;
 }
-.card__body .desc {
-    font-size: 18px;
-    line-height: 1.4;
-    color: #666;
-    font-weight: 300;
-    text-align: left;
-    font-family: 'GmarketSans';
-}
-.cardTop {
+.card__inner .card:first-child{ /* 첫번째걸 선택하게 된다면 nth-child(1)보다 first-child가 호환성이 좋다. */
     margin-bottom: 50px;
 }
-
-.arrow {
+.card__inner .card img {
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.card__inner .card .tit {
+    font-size: 28px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+.card__inner .card .desc {
+    font-size: 18px;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+.card__inner .card .more {
+    width: 24px;
+    height: 24px;
+    background-image: url(img/arrow.svg);
+    display: block;
     position: absolute;
-    top: 0;
     right: 0;
+    top: 230px;
+    border-radius: 5px;
 }
 </code></pre>
             </div>
