@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>카드 유형02</title>
+    <title>카드 유형03</title>
     <style>
         /* fonts */
         @import url('https://webfontworld.github.io/score/SCoreDream.css');
 
         .score {
             font-family: 'SCoreDream';
-            font-weight: 500;
+            font-weight: 300;
         }
 
         /* reset */
@@ -20,207 +19,183 @@
             margin: 0;
             padding: 0;
         }
-
         a {
             text-decoration: none;
             color: #000;
         }
-
         img {
             width: 100%;
         }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        h1, h2, h3, h4, h5, h6 {
             font-weight: normal;
         }
 
         /* common */
         .container {
             width: 1160px;
+            padding: 0 20px;
             margin: 0 auto;
             min-width: 1160px;
         }
-
         .section {
             padding: 120px 0;
         }
-
-        .section>h2 {
+        .section > h2 {
             font-size: 50px;
             line-height: 1;
             text-align: center;
             margin-bottom: 20px;
         }
-
-        .section>p {
+        .section > p {
             font-size: 22px;
             font-weight: 300;
             color: #666;
             text-align: center;
             margin-bottom: 70px;
         }
-        .blue {
+        /* blind */
+        /* blind 효과는 웹 접근성을 높이기 위해, 제목 등 콘텐츠에 대해 알 수 있는 정보를 스크린리더가 읽을 수 있도록 작성한 뒤 사용자의 눈에는 보이지 않도록 하는 css작성법입니다. */
+        .blind {
+            position:absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+
+        /* cardType03 */
+        body {
             background-color: #2254c3;
         }
-
-        /* ir 효과(이미지 대체 효과 == alt) */
-        .ir {
-            display: block;
-            overflow: hidden;
-            font-size: 0;
-            line-height: 0;
-            text-indent: -9999px;
-        }
-
-        /* card */
         .card__inner {
-            width: 1160px;
-            height: 517px;
-            padding: 26px 0 0 0;
-            background-color: #fff;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .card__inner img {
-            border-radius: 10px;
-            background-color: #d9d9d9;
-            box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
         }
         .card__inner .card {
-            width: 386px;
-            height: 517px;
-            padding: 0 25.5px 0 26px;
-            box-sizing: border-box;
-            position: relative;
+            padding: 26px;
+            width: 33.3333%;
+            background-color: #fff;
         }
         .card__inner .card:nth-child(2) {
             border-right: 1px solid #eee;
             border-left: 1px solid #eee;
         }
-        .card__inner .card .tit {
-            width: 333.5px;
-            height: 56px;
-            margin: 19px 0 10px 0;
-            font-size: 20px;
-            font-weight: 300;
-            line-height: 1.4;
-            letter-spacing: normal;
-            text-align: left;
+        .card__header {
+            position: relative;
         }
-        .card__inner .card .desc {
-            width: 333.5px;
-            height: 81px;
-            margin: 10px 0 30px 0;
-            font-size: 16px;
-            font-weight: normal;
-            line-height: 1.7;
-            text-align: left;
+        .card__header img {
+            border-radius: 10px;
+            box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+        .card__header figcaption {
+            position: absolute;
+            right: 10px; 
+            top: 10px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background-color: #FFD217;
+            text-align: center;
+            font-size: 14px;
+            color: #000;
+        }
+        .card__contents h3 {
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            /* 텍스트의 두 줄 효과*/
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; 
+            -webkit-box-orient: vertical;
+        }
+        .card__contents p {
             color: #666;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            /* 텍스트의 세 줄 효과*/
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-line-clamp: 3; 
             -webkit-box-orient: vertical;
         }
-        .card__inner .card .Rectangle {
-            width: 100.8px;
-            height: 28px;
-            border-radius: 50px;
-            background-color: #FFD217;
-            position: absolute;
-            top: 10px;
-            right: 36.1px;
-            font-weight: normal;
-            font-size: 14px;
-            text-align: center;
-            line-height: 28px;
+
+        .card__footer {
+            display: flex;
+            justify-content: flex-end;  /* 콘텐츠가 끝에서부터 정렬 */
         }
-        .card__inner .card .people .Rectangle2 {
-            width: 37.6px;
-            height: 40px;
-            margin: 30px 0 0 12.3px;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
-            background-color: #d9d9d9;
-            position: absolute;
-            bottom: 25px;
-            right: 26px;
-            overflow: hidden;
-        }
-        .card__inner .card .people .desc_name {
-            width: 122.2px;
-            height: 40px;
-            font-size: 16px;
-            font-weight: normal;
-            line-height: 1.17;
+        .card__footer h4 {
             text-align: right;
-            color: #666;
-            position: absolute;
-            bottom: 25px;
-            right: 75.9px;
-        }
-        .card__inner .card .people .desc_name .text-style-1 {
             color: #dd2a2a;
+        }
+        .card__footer em {
+            display: block; /* 줄바꿈을 일으키기 위해 inline구조인 em태그를 block구조로 바꿔줌 */
+            color: #666;
+            font-style: normal;
+        }
+        .card__footer span {
+            width: 40px;
+            height: 40px;
+            background: #000;
+            border-radius: 50%;
+            overflow: hidden;       /* 빠져나가는 이미지를 숨기기 위해 작성 */
+            display: block;     /* display: flex;는 블록을 정렬해주는 기능이며 span태그는 inline구조이기 때문에, span태그를 block으로 바꿔준다. */
+            margin-left: 10px;
+            margin-top: 3px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
         }
     </style>
 </head>
-
-<body class="blue">
-    <section id="cardType02" class="card__wrap score section">
+<body>
+    <section id="cardType03" class="card__wrap score section">
+        <h2 class="blind">샐러드의 세계</h2>
         <div class="card__inner container">
             <article class="card">
-                <img src="img/card3_bg01.jpg" alt="두부 구이 샐러드 사진">
-                <h3 class="tit">맛있는 샐러드란 무엇인가?<br>두부 구이 샐러드</h3>
-                <p class="desc">두부 구이 샐러드는 단백질과 식이섬유를 동시에 섭취할 있는 샐러드이다. 식물성 단백질을 섭취함으로 부담스럽지 않은 담백한 식사를 즐길 수 있다.</p>
-                <div class="Rectangle">Tofu salad</div>
-                <div class="people">
-                    <div class="Rectangle2">
-                        <img src="img/card3_people01.jpg" alt="식품연구가 조니씨의 사진">
-                    </div>
-                    <div class="desc_name">
-                        <span class="text-style-1">식품연구가</span><br>
-                        조니
-                    </div>
+                <figure class="card__header">
+                    <img src="img/card3_bg01.jpg" alt="두부 구이 샐러드 사진">
+                    <figcaption>Tofu salad</figcaption>
+                </figure>
+                <div class="card__contents">
+                    <h3>맛있는 샐러드란 무엇인가?<br>두부 구이 샐러드</h3>
+                    <p>두부 구이 샐러드는 단백질과 식이섬유를 동시에 섭취할 있는 샐러드이다. 식물성 단백질을 섭취함으로 부담스럽지 않은 담백한 식사를 즐길 수 있다.</p>
+                </div>
+                <div class="card__footer">
+                    <h4>식품연구가<em>조니</em></h4>
+                    <span><img src="img/card3_people01.jpg" alt="식품연구가 조니씨의 사진"></span>
                 </div>
             </article>
             <article class="card">
-                <img src="img/card3_bg02.jpg" alt="올리브 찹 샐러드 사진">
-                <h3 class="tit">맛있는 샐러드란 무엇인가?<br>올리브 찹 샐러드</h3>
-                <p class="desc">올리브 찹 샐러드는 다진 치커리와 양파, 당근에 먹기 좋게 썬 올리브를 올려 마무리한 샐러드이다. 특유의 감칠맛이 있는 올리브 덕분에 물리지 않고 많은 채소를 해치울 수 있다.</p>
-                <div class="Rectangle">Olive salad</div>
-                <div class="people">
-                    <div class="Rectangle2">
-                        <img src="img/card3_people02.jpg" alt="시식 평론가 제니씨의 사진">
-                    </div>
-                    <div class="desc_name">
-                        <span class="text-style-1">시식 평론가</span><br>
-                        제니
-                    </div>
+                <figure class="card__header">
+                    <img src="img/card3_bg02.jpg" alt="올리브 찹 샐러드 사진">
+                    <figcaption>Olive salad</figcaption>
+                </figure>
+                <div class="card__contents">
+                    <h3>맛있는 샐러드란 무엇인가?<br>올리브 찹 샐러드</h3>
+                    <p>올리브 찹 샐러드는 다진 치커리와 양파, 당근에 먹기 좋게 썬 올리브를 올려 마무리한 샐러드이다. 특유의 감칠맛이 있는 올리브 덕분에 물리지 않고 많은 채소를 해치울 수 있다.</p>
+                </div>
+                <div class="card__footer">
+                    <h4>시식 평론가<em>제니</em></h4>
+                    <span><img src="img/card3_people02.jpg" alt="시식 평론가 제니씨의 사진"></span>
                 </div>
             </article>
             <article class="card">
-                <img src="img/card3_bg03.jpg" alt="계란 시금치 샐러드 사진">
-                <h3 class="tit">맛있는 샐러드란 무엇인가?<br>계란 시금치 샐러드</h3>
-                <p class="desc">시금치는 비타민c가 많이 함유되어 있어, 요즘같이 면역력이 중요한 시기에 섭취하면 좋은 채소이다. 시금치를 건강하게 섭취하기 위해 계란을 곁들여 샐러드로 먹어보자.</p>
-                <div class="Rectangle">Egg salad</div>
-                <div class="people">
-                    <div class="Rectangle2">
-                        <img src="img/card3_people03.jpg" alt="베스트셀러 작가 셀리씨의 사진">
-                    </div>
-                    <div class="desc_name">
-                        <span class="text-style-1">베스트셀러 작가</span><br>
-                        셀리
-                    </div>
+                <figure class="card__header">
+                    <img src="img/card3_bg03.jpg" alt="계란 시금치 샐러드 사진">
+                    <figcaption>Egg salad</figcaption>
+                </figure>
+                <div class="card__contents">
+                    <h3>맛있는 샐러드란 무엇인가?<br>계란 시금치 샐러드</h3>
+                    <p>시금치는 비타민c가 많이 함유되어 있어, 요즘같이 면역력이 중요한 시기에 섭취하면 좋은 채소이다. 시금치를 건강하게 섭취하기 위해 계란을 곁들여 샐러드로 먹어보자.</p>
+                </div>
+                <div class="card__footer">
+                    <h4>베스트셀러 작가<em>셀리</em></h4>
+                    <span><img src="img/card3_people03.jpg" alt="베스트셀러 작가 셀리씨의 사진"></span>
                 </div>
             </article>
         </div>
     </section>
 </body>
-
 </html>

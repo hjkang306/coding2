@@ -12,7 +12,7 @@
 
         .score {
             font-family: 'SCoreDream';
-            font-weight: 300;
+            font-weight: 500;
         }
 
         /* reset */
@@ -68,21 +68,16 @@
             background-color: #2254c3;
         }
 
-        /* blind : 접근성 향상을 위해 스크린리더가 읽어야 할 제목과 같은 내용을 작성하고 눈에 보이지 않게 처리한 css작성법 */
-        /* 네이버에서 사용하는 blind효과 */
-        .blind {
-            position:absolute;
-            clip:rect(0 0 0 0);
-            width:1px;
-            height:1px;
-            margin:-1px;
-            overflow:hidden
+        /* ir 효과(이미지 대체 효과 == alt) */
+        .ir {
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;
         }
 
         /* card */
-        .card__wrap {
-           
-        }
         .card__inner {
             width: 1160px;
             height: 517px;
@@ -93,7 +88,7 @@
             justify-content: space-between;
         }
         .card__inner img {
-            border-radius: 20px;
+            border-radius: 10px;
             background-color: #d9d9d9;
             box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
         }
