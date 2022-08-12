@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 유형03</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/sunn/SUIT.css');
+
+        .suit {
+            font-family: 'SUIT';
+            font-weight: 300;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;   
+            color: #000;
+        }
+        img { 
+            width: 100%;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+        .section {
+            padding: 120px 0;
+        }
+        .section > h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section > p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        /* blind */
+        .blind {
+            position:absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+
+        .main {
+            border-top: 2px solid #000;
+            border-bottom: 1px solid #666;
+            padding: 45px 0 20px;
+            display: flex;
+        }
+        .main figure {
+            margin-right: 20px;
+        }
+        .main figure img {
+            width: 767px;
+            height: 440px;
+        }
+        .main__txt {
+            height: 440px;
+        }
+        .main .main__txt h4 {
+            font-size: 14px;
+            font-weight: 500;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        .main .main__txt h3 {
+            font-size: 40px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+            line-height: 1.05;
+        }
+        .main .main__txt p {
+            font-size: 14px;
+            color: #000;
+            margin-bottom: 244px;
+        }
+        .main__desc {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #666;
+        }
+        .card__inner {
+            display: flex;
+        }
+        .card {
+            width: 25%;
+            height: 68px;
+            margin: 0 10px;
+            margin-top: 20px;
+            display: flex;
+        }
+        .card:nth-child(1) {
+            margin-left: 0;
+        }
+        .card:nth-child(4) {
+            margin-right: 0;
+        }
+        .card .card__txt h4 {
+            font-size: 14px;
+            color: #666;
+        }
+        .card .card__txt p {
+            margin-top: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .card img {
+            width: 68px;
+            height: 68px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section id="cardType04" class="card__wrap suit section">
+       <div class="container section">
+            <div class="main">
+                <figure>
+                    <img src="img/card4_bg01.jpg" alt="바다 거북이 사진">
+                </figure>
+                <div class="main__txt">
+                    <h4>전혀 느리지 않은 거북이</h4>
+                    <h3>거북이는 느리지 않고<br>아주 빠릅니다.</h3>
+                    <p>느리지만 빠른 거북이를 알아보다.</p>
+                    <p class="main__desc">육지 거북이, 반수생 거북이, 수생 거북이 중 누가 가장 빠를까요? 각자가 활동하는 주 영역에 따라 차이 나겠지만, 저는 반수생 거북이가 가장 빠르다고 생각합니다!</p>
+                </div>
+            </div>
+            <div class="card__inner">
+                <div class="card">
+                    <div class="card__txt">
+                        <h4>육지 거북이</h4>
+                        <p>토끼와의 대결에서 이긴 80세 거북이를 아십니까?</p>
+                    </div>
+                    <span>
+                        <img src="img/card4_bg02.jpg" alt="육지 거북이 사진">
+                    </span>
+                </div>
+                <div class="card">
+                    <div class="card__txt">
+                        <h4>반수생 거북이</h4>
+                        <p>반수생 거북이는 일광욕을 위해 해를 쬐며 삽니다.</p>
+                    </div>
+                    <span>
+                        <img src="img/card4_bg03.jpg" alt="육지 거북이 사진">
+                    </span>
+                </div>
+                <div class="card">
+                    <div class="card__txt">
+                        <h4>바다 거북이</h4>
+                        <p>나쁜 인간들에게 고통받는 바다거북이를 구해주세요!</p>
+                    </div>
+                    <span>
+                        <img src="img/card4_bg04.jpg" alt="육지 거북이 사진">
+                    </span>
+                </div>
+                <div class="card">
+                    <div class="card__txt">
+                        <h4>토끼와 거북이</h4>
+                        <p>토끼와 거북이는 과연 앙숙일까요?</p>
+                    </div>
+                    <span>
+                        <img src="img/card4_bg05.jpg" alt="육지 거북이 사진">
+                    </span>
+                </div>
+            </div>
+       </div>
+    </section>
+</body>
+</html>
