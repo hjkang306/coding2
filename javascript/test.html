@@ -1,78 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>구조 요소</title>
+    <style>
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* main */
+        header {
+            width: 1160px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #bca;
+            display: flex;
+        }
+        header h1 {
+            padding: 55px 30px 41px;
+            margin-right: 67px;
+            background-color: #ebebeb;
+        }
+        header h1 a {
+            font-size: 12px;
+            text-align: center;
+        }
+        header nav ul {
+            list-style: none;
+            background-color: #ebebeb;
+            margin-top: 60px;
+            padding: 28px 196px;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 20px;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
-    <script>
-        //01
-        {
-            function func() {
-                document.write("함수 실행1");
-            }
-            func();
-        }
-
-        //02
-        {
-            const func = function () {
-                document.write("함수 실행2");
-            }
-            func();
-        }
-
-        //03
-        {
-            function func(str) {
-                document.write(str);
-            }
-            func("함수 실행3");
-        }
-
-        //04
-        {
-            function func() {
-                const str = "함수 실행4";
-                return str;
-            }
-            document.write(func());
-        }
-
-        //05
-        {
-            func = () => {
-                document.write("함수 실행5");
-            }
-            func();
-        }
-
-        //06
-        {
-            const func = () => {
-                document.write("함수 실행6");
-            }
-            func();
-        }
-
-        //07
-        {
-            func = (str) => {
-            document.write(str);
-            }
-            func("함수 실행7");
-        }
-
-        //08
-        {
-            func = () => {
-            const str = "함수 실행8";
-            return str;
-            }
-            document.write(func());
-        }
-    </script>
+    <header>
+        <h1><a href="#">반응형 웹</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#"></a>메뉴01</li>
+                <li><a href="#"></a>메뉴02</li>
+                <li><a href="#"></a>메뉴03</li>
+                <li><a href="#"></a>메뉴04</li>
+                <li><a href="#"></a>메뉴05</li>
+            </ul>
+        </nav>
+    </header>
+    <div id="container">
+        <section>
+            <h2>콘텐츠 그룹01</h2>
+        </section>
+        <section>
+            <h2>콘텐츠 그룹02</h2>
+        </section>
+        <article>
+            <h2>주요 기사</h2>
+        </article>
+        <aside>광고</aside>
+    </div>
+    <footer>
+        <address>경기도 XXX XXXX 031)000-0000 honggildong@naver.com</address>
+        <p>COPYRIGHT © All rights reserved.</p>
+    </footer>
 </body>
 </html>
