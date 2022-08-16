@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 이펙트</title>
+
+    <link rel="stylesheet" href="../assets/css/search.css">
+
+    <!-- web fonts -->
+    <link href="https://webfontworld.github.io/tmon/Tmon.css" rel="stylesheet">
+    <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
+
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <ul>
+                <li class="active"><a href="searchEffect01.html">1</a>
+                    <ul class="sub">
+                        <li class="active"><a href="searchEffect01.html">HTML</a></li>
+                        <li><a href="searchEffect01_css.html">CSS</a></li>
+                        <li><a href="searchEffect01_javascript.html">JAVASCRIPT</a></li>
+                    </ul>
+                </li>
+                <li><a href="searchEffect02.html">2</a></li>
+                <li><a href="searchEffect03.html">3</a></li>
+                <li><a href="searchEffect04.html">4</a></li>
+                <li><a href="searchEffect05.html">5</a></li>
+                <li><a href="searchEffect06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <div class="search__wrap">
+            <span>indexOf()를 이용하여 CSS 속성 검색하기</span>
+            <h1>HTML 태그 검색하기</h1>
+            <div class="search__box">
+                <label for="search">검색하기</label>
+                <input type="text" id="search" placeholder="HTML 태그를 입력해주세요!">
+            </div>
+            <div class="search__list">
+                <ul>
+                    <div class="html">
+                        <li data-name="a"><strong>a</strong> : a 태그는 다른 페이지 이동을 설정합니다.</li>
+                        <li data-name="abbr"><strong>abbr</strong> : abbr 태그는 줄임말이나 머리글자를 표현하는데 사용합니다.</li>
+                        <li data-name="acronym"><strong>acronym</strong> : acronym 태그는 줄임말이나 머리글자를 표현하는 데에 사용합니다.</li>
+                        <li data-name="address"><strong>address</strong> : address 태그는 가까운 HTML 요소의 사람, 단체, 조직 등에 대한 연락처 정보를 나타냅니다.</li>
+                        <li data-name="applet"><strong>applet</strong> : applet 태그는 자바 애플릿을 보이게 하는 곳에 사용됩니다.</li>
+                        <li data-name="area"><strong>area</strong> : area 태그는 이미지의 핫스팟 영역을 정의하고, 하이퍼링크를 추가할 수 있습니다. map 태그 안에서만 사용할 수 있습니다.</li>
+                        <li data-name="article"><strong>article</strong> : article 태그는 문서, 페이지, 애플리케이션, 사이트 안에서 독립적인 구획을 만들 때 사용합니다.</li>
+                        <li data-name="aside"><strong>aside</strong> : aside 태그는 문서의 주요 콘텐츠와 연관성을 가지고 있지만, 해당 콘텐츠와 분리시킨 영역을 만들고 싶을 때 사용합니다.</li>
+                        <li data-name="audio"><strong>audio</strong> : audio 태그는 사용됩니다.</li>
+                        <li data-name="b"><strong>b</strong> : b 태그는 사용됩니다.</li>
+                        <li data-name="base"><strong>base</strong> : base 태그는 사용됩니다.</li>
+                        <li data-name="bdi"><strong>bdi</strong> : bdi 태그는 사용됩니다.</li>
+                        <li data-name="bdo"><strong>bdo</strong> : bdo 태그는 사용됩니다.</li>
+                        <li data-name="bgsound"><strong>bgsound</strong> : bgsound 태그는 사용됩니다.</li>
+                        <li data-name="big"><strong>big</strong> : big 태그는 사용됩니다.</li>
+                        <li data-name="blink"><strong>blink</strong> : blink 태그는 사용됩니다.</li>
+                        <li data-name="blockquoto"><strong>blockquoto</strong> : blockquoto 태그는 사용됩니다.</li>
+                        <li data-name="body"><strong>body</strong> : body 태그는 문서의 콘텐츠 영역을 정의합니다.</li>
+                        <li data-name="br"><strong>br</strong> : br 행을 바꾸고 싶을 때 사용합니다.(줄바꿈 기능)</li>
+                        <li data-name="button"><strong>button</strong> : button 태그는 클릭이 가능한 버튼을 만듭니다.</li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <!-- main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- footer -->
+
+    <script>
+        //선택자
+        const searchBox = document.querySelector(".search__box input"); //검색 영역
+        const searchList = document.querySelectorAll(".search__list ul li"); //목록 리스트
+
+        searchBox.addEventListener("keyup", () => {
+            const searchWord = searchBox.value;  //사용자가 입력한 키워드
+            
+            searchList.forEach(el => {
+                const cssName = el.dataset.name;
+                if(cssName.indexOf(searchWord)){
+                    el.classList.add("hide");
+                } else {
+                    el.classList.remove("hide");    //보임  //indexOf() 값이 0(false)인 경우 실행
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
