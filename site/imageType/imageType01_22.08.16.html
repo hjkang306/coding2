@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img type</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* main */
+        .imgType {}
+        .img__box {
+            display: flex;
+            justify-content: space-between;
+        }
+        .img__box .img {
+            width: 49%;
+            height: 370px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        .img__box .img:nth-child(1){
+            background: url(img/imageType01_01.jpg);
+        }
+        .img__box .img:nth-child(2){
+            background: url(img/imageType01_02.jpg);
+        }
+        .img__box .img .imgTit {
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 10px;
+            margin-top: 163px;
+        }
+        .img__box .img .imgDesc {
+            font-size: 16px;
+            line-height: 150%;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .img__box .img .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            font-size: 16px;
+            background-color: #8F6363;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container imgType section">
+        <h2 class="tit">바질 키우는 법🌱</h2>
+        <p class="subtit">바질 키우기 초보자를 위한 바질 키우기 강의입니다.</p>
+        <div class="img__box">
+            <article class="img">
+                    <h3 class="imgTit">바질 키우는 법</h3>
+                    <p class="imgDesc">바질 키우기 초보자를 위한 바질 키우기 강의입니다. 바질은 직광을 받으면 쑥쑥 자랍니다. 물과 햇빛을 듬뿍 주도록 합시다.</p>
+                    <a class="btn" href="#">자세히 보기</a>
+            </article>
+            <article class="img">
+                    <h3 class="imgTit">바질 키우는 법</h3>
+                    <p class="imgDesc">바질 키우기 초보자를 위한 바질 키우기 강의입니다. 바질은 직광을 받으면 쑥쑥 자랍니다. 물과 햇빛을 듬뿍 주도록 합시다.</p>
+                    <a class="btn" href="#">자세히 보기</a>
+            </article>
+        </div>
+    </div>
+</body>
+</html>

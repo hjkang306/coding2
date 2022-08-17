@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img type</title>
+
+    <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .font {
+            font-family: 'GmarketSans';
+        }
+        /* main */
+        .img__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+        .image {
+            width: 373px;
+            background-color: #ccc;
+            position: relative;
+            overflow: hidden;
+        }
+        .image__box {}
+        .image__box img {
+            vertical-align: top;
+        }
+        .image__desc {
+            position: absolute;
+            left: 0;
+            bottom: -100px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            padding: 23px 20px;
+            box-sizing: border-box;
+            transition: all 0.3s ease-in-out;
+        }
+        .image:hover .image__desc {
+            bottom: 0;
+        }
+        .image:hover .image__box img {
+            transition: all 0.6s ease-in-out;
+            transform: scale(1.03);
+        }
+
+        .img1 .image__desc{background: rgba(156, 101, 115, 0.3);}
+        .img2 .image__desc{background: rgba(187, 179, 181, 0.3);}
+        .img3 .image__desc{ background: rgba(83, 135, 154, 0.3);}
+        .image__desc h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        .image__desc .more {
+            font-size: 16px;
+            color: #fff;
+        }
+        .image__desc .more:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+    </style>
+</head>
+<body>
+    <section id="imageType01" class="image__wrap font section">
+        <h2>바다 구경하기 🌊</h2>
+        <p>바다는 정말 멋지네요. 아름다운 바다 사진을 구경해 봅시다.</p>
+        <div class="img__inner container">
+            <article class="image img1">
+                <figure class="image__box">
+                    <img src="img/imageType02_01.jpg" alt="바다 이미지">
+                </figure>
+                <div class="image__desc">
+                    <h3>하늘 아래의 바다</h3>
+                    <a href="/" class="more" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+            <article class="image img2">
+                <figure class="image__box">
+                    <img src="img/imageType02_02.jpg" alt="바다 이미지">
+                </figure>
+                <div class="image__desc">
+                    <h3>수면 아래의 바다</h3>
+                    <a href="/" class="more" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+            <article class="image img3">
+                <figure class="image__box">
+                    <img src="img/imageType02_03.jpg" alt="바다 이미지">
+                </figure>
+                <div class="image__desc">
+                    <h3>파도치는 바다</h3>
+                    <a href="/" class="more" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

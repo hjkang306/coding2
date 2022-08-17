@@ -31,6 +31,9 @@
         }
         .section {
             padding: 120px 0;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
         }
         .section > h2 {
             font-size: 50px;
@@ -48,59 +51,108 @@
 
         /* main */
         .header {
-            width: 1160px;
+            width: 100%;
             height: 150px;
-            background-color: #bca;
-            margin-top: 120px;
             padding: 20px;
+            background-color: #BBCCAA;
+            display: flex;
+            box-sizing: border-box;
         }
         .header h1 {
-            width: 110px;
-            height: 110px;
-            font-size: 14px;
+            font-size: 12px;
+            font-weight: 700;
             text-align: center;
-            line-height: 110px;
+            padding: 55px 31px 41px;
             background-color: #ebebeb;
             margin-right: 67px;
         }
-        .header nav{
-            padding: 196px 28px;
+        .header nav {
+            width: 865px;
+            height: 70px;
+            padding: 28px 196px;
             background-color: #ebebeb;
+            box-sizing: border-box;
+            margin-top: 40px;
+        }
+        .header nav ul {
+            list-style: none;
         }
         .header nav ul li {
-            font-size: 12px;
-            margin: 0 20px;
             display: inline;
+            margin: 0 20px;
+        }
+        .contents__wrap {
+            height: 400px;
+            margin: 30px 0 30px;
+            padding: 20px;
+            background-color: #bca;
+            display: flex;
+            box-sizing: border-box;
+        }
+        .contents__wrap .content {
+            width: 353px;
+            height: 360px;
+            padding: 15px;
+            margin-right: 40px;
+            background-color: #ebebeb;
+            box-sizing: border-box;
+        }
+        .contents__wrap .content h2 {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 360px;
+            text-align: center;
+        }
+        .side {
+            width: 332px;
+        }
+        .side .news {
+            height: 160px;
+            background-color: #ebebeb;
+            margin-bottom: 40px;
+        }
+        .side .news h2 {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 160px;
+            text-align: center;
+        }
+        .side .ad {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 160px;
+            text-align: center;
+            background-color: #ebebeb;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <header>
-                <h1><a href="#">반응형 웹</a></h1>
-                <nav>
-                    <ul>
-                        <li><a href="#"></a>메뉴01</li>
-                        <li><a href="#"></a>메뉴02</li>
-                        <li><a href="#"></a>메뉴03</li>
-                        <li><a href="#"></a>메뉴04</li>
-                        <li><a href="#"></a>메뉴05</li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-        <div class="content">
-            <section>
+    <div class="container section">
+        <header class="header">
+            <h1><a href="#">반응형 웹</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="#">메뉴01</a></li>
+                    <li><a href="#">메뉴02</a></li>
+                    <li><a href="#">메뉴03</a></li>
+                    <li><a href="#">메뉴04</a></li>
+                    <li><a href="#">메뉴05</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="contents__wrap">
+            <section class="content">
                 <h2>콘텐츠 그룹01</h2>
             </section>
-            <section>
+            <section class="content">
                 <h2>콘텐츠 그룹02</h2>
             </section>
-            <article>
-                <h2>주요 기사</h2>
-            </article>
-            <aside>광고</aside>
+            <div class="side">
+                <article class="news">
+                    <h2>주요 기사</h2>
+                </article>
+                <aside class="ad">광고</aside>
+            </div>
         </div>
         <footer class="footer">
             <address>경기도 XXX XXXX 031)000-0000 honggildong@naver.com</address>

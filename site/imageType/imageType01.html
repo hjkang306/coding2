@@ -56,60 +56,63 @@
         }
 
         /* main */
-        .imgType {}
-        .img__box {
+        .img__inner {
             display: flex;
             justify-content: space-between;
         }
-        .img__box .img {
+        .image {
             width: 49%;
             height: 370px;
-            padding: 30px;
+            color: #fff;
+            padding: 200px 30px 30px;
             box-sizing: border-box;
         }
-        .img__box .img:nth-child(1){
-            background: url(img/imageType01_01.jpg);
+        .image.img1 {
+            background: url(img/imageType01_01.jpg) no-repeat center;
         }
-        .img__box .img:nth-child(2){
-            background: url(img/imageType01_02.jpg);
+        .image.img2 {
+            background: url(img/imageType01_02.jpg) no-repeat center;
         }
-        .img__box .img .imgTit {
+        .image__tit {
             font-size: 32px;
-            color: #fff;
-            margin-bottom: 10px;
-            margin-top: 163px;
-        }
-        .img__box .img .imgDesc {
-            font-size: 16px;
-            line-height: 150%;
-            color: #fff;
             margin-bottom: 10px;
         }
-        .img__box .img .btn {
-            display: inline-block;
-            padding: 8px 20px;
+        .image__desc {
             font-size: 16px;
+            font-weight: 300;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+        }
+        .image__btn {
+            font-size: 16px;
+            color: #fff;
             background-color: #8F6363;
-            color: #fff;
+            padding: 10px 20px;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
-    <div class="container imgType section">
-        <h2 class="tit">바질 키우는 법🌱</h2>
-        <p class="subtit">바질 키우기 초보자를 위한 바질 키우기 강의입니다.</p>
-        <div class="img__box">
-            <article class="img">
-                    <h3 class="imgTit">바질 키우는 법</h3>
-                    <p class="imgDesc">바질 키우기 초보자를 위한 바질 키우기 강의입니다. 바질은 직광을 받으면 쑥쑥 자랍니다. 물과 햇빛을 듬뿍 주도록 합시다.</p>
-                    <a class="btn" href="#">자세히 보기</a>
+    <section id="imageType01" class="image__wrap font section">
+        <h2>바질 키우는 법🌱</h2>
+        <p>바질 키우기 초보자를 위한 바질 키우기 강의입니다.</p>
+        <div class="img__inner container">
+            <article class="image img1">
+                    <h3 class="image__tit">바질 키우는 법</h3>
+                    <p class="image__desc">바질 키우기 초보자를 위한 바질 키우기 강의입니다. 바질은 직광을 받으면 쑥쑥 자랍니다. 물과 햇빛을 듬뿍 주도록 합시다.</p>
+                    <a class="image__btn" href="/">자세히 보기</a>
             </article>
-            <article class="img">
-                    <h3 class="imgTit">바질 키우는 법</h3>
-                    <p class="imgDesc">바질 키우기 초보자를 위한 바질 키우기 강의입니다. 바질은 직광을 받으면 쑥쑥 자랍니다. 물과 햇빛을 듬뿍 주도록 합시다.</p>
-                    <a class="btn" href="#">자세히 보기</a>
+            <article class="image img2">
+                    <h3 class="image__tit">바질 키우는 법</h3>
+                    <p class="image__desc">바질 키우기 초보자를 위한 바질 키우기 강의입니다. 바질은 직광을 받으면 쑥쑥 자랍니다. 물과 햇빛을 듬뿍 주도록 합시다.</p>
+                    <a class="image__btn" href="/">자세히 보기</a>
             </article>
         </div>
-    </div>
+    </section>
 </body>
 </html>
