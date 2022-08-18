@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 이펙트</title>
+    
+    <!-- css -->
+    <link rel="stylesheet" href="../assets/css/quiz.css">
+
+    <!-- 웹폰트 -->
+    <link href="https://webfontworld.github.io/DungGeunMo/DungGeunMo.css" rel="stylesheet">
+    <link href="https://webfontworld.github.io/PyeongChang/PyeongChang.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../javascript01.html">Quiz <em>객관식(한문제) 유형</em></a></h1>
+        <nav>
+            <ul>
+                <li><a href="quizEffect01.html">1</a></li>
+                <li><a href="quizEffect02.html">2</a></li>
+                <li><a href="quizEffect03.html">3</a></li>
+                <li><a href="quizEffect04.html">4</a></li>
+                <li class="active"><a href="quizEffect05.html">5</a></li>
+                <li><a href="quizEffect06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <div class="quiz__wrap">
+        </div>
+    </main>
+    <!-- main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- footer -->
+
+    <script>
+        const quizInfo = [
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 9,
+                answerAsk: "색채조화의 공통원리에 관한 설명으로 틀린 것은?",
+                answerChoice: {
+                    1 : "질서의 원리는 효과적인 반응을 일으키는 질서 있는 계획에 따라 선택된 색채들에서 생긴다.",
+                    2 : "비모호성의 원리는 두 색 이상의 배색에 있어서 모호함이 없는 명료한 배색에서만 얻어진다.",
+                    3 : "동류의 원리는 가장 가까운 색채끼리의 배색은 보는 사람에게 친근감을 주며 조화를 느끼게 한다.",
+                    4 : "친근성의 원리는 배색된 색채들이 서로 공통되는 상태와 속성을 가질 때 그 색채는 조화된다.",
+                },
+                answerResult: "4",
+                answerEx: "친근성이란 관찰자에게 친숙해있는 배색이 잘 조화를 이룬다.",
+            },
+            // 09
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 10,
+                answerAsk: "모든 사물은 구, 원기둥 및 원뿔 형태와 같은 기하학적 형태로 구성되어 있다고 주장한 사람은?",
+                answerChoice: {
+                    1 : "파파넥",
+                    2 : "고흐",
+                    3 : "세잔",
+                    4 : "오장팡",
+                },
+                answerResult: "3",
+                answerEx: "세잔이 그랬습니다. 세잔은 큐비즘(입체파) 대표적인 인물이죠",
+            },
+            // 10
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 11,
+                answerAsk: "스파트(spot) 광고에 대한 설명이 옳은 것은?",
+                answerChoice: {
+                    1 : "전국 방송망으로 방송국에서 전국에 실시하는 광고",
+                    2 : "일정시간을 정해 30초 CM 10개를 계속 방송하는 형태",
+                    3 : "지역 방송국에 제한되어 방송하는 것",
+                    4 : "프로그램과 프로그램 사이에 광고를 삽입하는 것",
+                },
+                answerResult: "4",
+                answerEx: "기억해주세요 spot 광고란 '라디오나 텔레비전 방송에서, 프로그램 사이 또는 프로그램 진행 중에 아주 짧게 나가는 광고' 입니다.",
+            },
+            // 11
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 15,
+                answerAsk: "다음 중 굿 디자인(Good Design)의 조건이 아닌 것은?",
+                answerChoice: {
+                    1 : "심미성",
+                    2 : "독창성",
+                    3 : "대중성",
+                    4 : "경제성",
+                },
+                answerResult: "3",
+                answerEx: "굿디자인 4가지 외우세요 : 심미성, 독창성, 합목적성, 경제성 입니다.",
+            },
+            // 15
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 19,
+                answerAsk: "신문광고의 구성요소 중 조형적 요소가 아닌 것은?",
+                answerChoice: {
+                    1 : "헤드라인",
+                    2 : "일러스트레이션",
+                    3 : "심볼 마크",
+                    4 : "보더 라인",
+                },
+                answerResult: "1",
+                answerEx: "?",
+            },
+            // 19
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 22,
+                answerAsk: "웹서버의 일반적인 동작 과정으로 옳은 것은?",
+                answerChoice: {
+                    1 : "연결설정→클라이언트가 정보요청→서버의 응답→연결종료",
+                    2 : "연결설정→서버의 응답→클라이언트가 정보요청→연결종료",
+                    3 : "클라이언트가 정보요청→연결설정→서버의 응답→연결종료",
+                    4 : "클라이언트가 정보요청→서버의 응답→연결설정→연결종료",
+                },
+                answerResult: "1",
+                answerEx: "연결을 설정해야 연결이 되겠죠? 정보를 요청해야 응답을 할 수 가 있겠습니다.",
+            },
+            // 22
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 23,
+                answerAsk: "하나의 회선을 다수의 아주 짧은 시간 간격으로 분할하여 다중화 하는 전송 방식은?",
+                answerChoice: {
+                    1 : "FCM",
+                    2 : "TDM",
+                    3 : "CSM",
+                    4 : "FDD",
+                },
+                answerResult: "2",
+                answerEx: "시분할 다중화 (Time-division multiplexing), 시분할 다중화란 전송로를 점유하는 시간을 분할하여 한 개의 전송로에 여러 개의 가상 경로를 구성하는 통신 방식이다.",
+            },
+            // 23
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 25,
+                answerAsk: "자바스크립트의 함수 중 사용자로부터 임의의 문자를 입력받기 위한 창을 화면에 띄워 입력한 문자열을 사용할 수 있도록 하는 것은?",
+                answerChoice: {
+                    1 : "prompt()",
+                    2 : "escape()",
+                    3 : "confirm()",
+                    4 : "alert()",
+                },
+                answerResult: "1",
+                answerEx: "prompt() 쓰면 입력창이 나옵니다. confirm()은 예 아니오 느낌의 메서드 입니다.",
+            },
+            // 25
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 27,
+                answerAsk: "인터넷 익스플로러 6.0에서 [도구]-[인터넷 옵션]-[내용] 탭에서 설정할 수 있는 것은?",
+                answerChoice: {
+                    1 : "쿠키 편집",
+                    2 : "언어 추가",
+                    3 : "게시자",
+                    4 : "HTML 편집",
+                },
+                answerResult: "3",
+                answerEx: "?",
+            },
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 30,
+                answerAsk: "가인터넷에서 사용되는 서비스 중 파일 전송 프로토콜로서 원격 호스트에 대해 파일을 송수신하는 것은?나다",
+                answerChoice: {
+                    1 : "PPP(Point to Point Protocol)",
+                    2 : "FTP(File Transfer Protocol)",
+                    3 : "DNS(Domain Name System)",
+                    4 : "MIME(Multipurpose Internet Mail Extensions)",
+                },
+                answerResult: "2",
+                answerEx: "영어를 해석하면 답이 나옵니다. 파일을 전송하는 프로토콜이요.",
+            },
+            // 30
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 31,
+                answerAsk: "인터넷 익스플로러 6.0에서 웹페이지의 글자가 깨져 보이는 경우에는 [보기]-[인코딩] 메뉴에서 무엇을 선택해야 하는가",
+                answerChoice: {
+                    1 : "자동선택",
+                    2 : "자동복구",
+                    3 : "오류복구",
+                    4 : "오류보기",
+                },
+                answerResult: "1",
+                answerEx: "?",
+            },
+            // 31
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 33,
+                answerAsk: "인터넷의 시조이며, 미 국방성이 군사목적으로 UCLA, 스탠포드 대학 등이 보유한 컴퓨터 네트워크로 연결한 것은 무엇일까?",
+                answerChoice: {
+                    1 : "USENET",
+                    2 : "FTP",
+                    3 : "WAIS",
+                    4 : "ARPANET",
+                },
+                answerResult: "4",
+                answerEx: "인터넷의 시조 = 알파넷.",
+            },
+            // 33
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 34,
+                answerAsk: "다음과 관련 있는 TCP/IP 프로토콜 계층으로 옳은 것은? SMTP, FTP, Telnet, HTTP",
+                answerChoice: {
+                    1 : "물리 계층",
+                    2 : "네트워크 계층",
+                    3 : "전송 계층",
+                    4 : "응용 계층",
+                },
+                answerResult: "4",
+                answerEx: "여러가지 프로토콜들이 나오면 응용계층을 생각해주세요.",
+            },
+            // 34
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 35,
+                answerAsk: "인터넷 익스플로러 6.0에서 [파일] 메뉴에 해당되지 않는 것은?",
+                answerChoice: {
+                    1 : "새로 만들기",
+                    2 : "열기",
+                    3 : "새로 고침",
+                    4 : "페이지 설정",
+                },
+                answerResult: "3",
+                answerEx: "ie는 안쓰기 때문에 크게 주의하지 않아도 될 것 같습니다. 답은3번",
+            },
+            // 35
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 36,
+                answerAsk: "자바스크립트의 일반적인 장점으로 틀린 것은?",
+                answerChoice: {
+                    1 : "운영체제의 제한을 받지 않는다.",
+                    2 : "문법이 간단해 손쉽게 프로그램을 만들 수 있다.",
+                    3 : "HTML 문서 내에 직접 코드를 삽입하므로 신속하게 작성할 수 있다.",
+                    4 : "게임, 메신저, 채팅방 등을 개발하는데 적합하다.",
+                },
+                answerResult: "2",
+                answerEx: "메신저나 채팅방은 서버 프로그램이 필요하겠죠? 일반적인 장점으로 적합하진 않은 것 같아요.",
+            },
+            // 36
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 39,
+                answerAsk: "위지웍(WYSIWYG) 기반의 웹 에디터가 아닌 것은?",
+                answerChoice: {
+                    1 : "Namo Web Editor",
+                    2 : "FrontPage",
+                    3 : "Edit Plus",
+                    4 : "Netscape Composer",
+                },
+                answerResult: "3",
+                answerEx: "에딧플러스는 메모장 같은 형식으로 하드코딩에 특화되어있죠, 위지위그란\
+                이미지 같은걸 드래그앤 드롭같은 사용자 편의기능을 제공하는 방식의 에디터를 말합니다.",
+            },
+            // 39
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 40,
+                answerAsk: "HTML에서 사용되는 글자 모양에 관련된 태그 설명으로 옳지 않은 것은? (문제오류입니다. 모두 정답 처리래요)",
+                answerChoice: {
+                    1 : ".",
+                    2 : ".",
+                    3 : ".",
+                    4 : ".",
+                },
+                answerResult: "0",
+                answerEx: "문제 오류로 인한 모두 정답 처리라고 합니다.",
+            },
+            // 40
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 43,
+                answerAsk: "웹페이지를 작성할 때 배경이미지와 메뉴에 관한 설명으로 틀린 것은?",
+                answerChoice: {
+                    1 : "스타일 시트를 이용하여 배경 이미지의 반복 횟수를 증가시킨다.",
+                    2 : "배경 이미지가 클 경우 용량 증가로 로딩이 늦어진다.",
+                    3 : "메뉴는 메타포를 이용하여 디자인한다.",
+                    4 : "배경의 색상을 분할시켜 사용하면 프레임이 사용된 것처럼 보인다.",
+                },
+                answerResult: "1",
+                answerEx: "배경이미지의 반복 횟수를 증가시키면 그만큼 로딩시간이 길어지겠죠?",
+            },
+            // 43
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 44,
+                answerAsk: "웹 페이지 저작에 필요한 S/W 중 웹에디터가 아닌 것은?",
+                answerChoice: {
+                    1 : "Internet Space Builder",
+                    2 : "EditPlus",
+                    3 : "Hotdog Professional",
+                    4 : "Dramweaver",
+                },
+                answerResult: "1",
+                answerEx: "Internet Space Builder은 3D 기술을 제작하는 쪽이라고 하네요.",
+            },
+            // 44
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 48,
+                answerAsk: "컴퓨터 그래픽스의 단위 중 1인치당 몇 개의 픽셀이 들어가 있는지를 표현하는 것은?",
+                answerChoice: {
+                    1 : "LPI",
+                    2 : "EPI",
+                    3 : "PPI",
+                    4 : "DPI",
+                },
+                answerResult: "3",
+                answerEx: "PPI = pixel per inch",
+            },
+            // 48
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 52,
+                answerAsk: "웹디자인 프로세스에 대한 설명으로 틀린 것은?",
+                answerChoice: {
+                    1 : "프로젝트 기획 - 목표설정, 시장조사, 개발전략수립",
+                    2 : "웹 사이트 기획 - 사이트 콘셉트 정의, 자료수집. 분석",
+                    3 : "웹 사이트 디자인 - 콘텐츠 제작 및 배치",
+                    4 : "웹 사이트 구축 - 테스트 및 디버깅",
+                },
+                answerResult: "4",
+                answerEx: "테스트 및 디버깅 단계는 다 개발하고 유지보수 단계에서 실행하는 것 입니다.",
+            },
+            // 52
+        ];
+
+        //선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+
+        function updateQuiz(){
+            const exam = [];    //빈 배열을 만들어 여기에 문제를 추가할 것
+
+            quizInfo.forEach((question, number)=>{
+                exam.push(`
+                    <div class="quiz">
+                    <span class="quiz__type">${question.answerType}</span>
+                    <h2 class="quiz__question">
+                        <span class="number">${question.answerNum}</span>
+                        <div class="ask">${question.answerAsk}</div>
+                    </h2>
+                    <div class="quiz__view">
+                        <div class="true">정답입니다!</div>
+                        <div class="false">틀렸습니다!</div>
+                        <div class="dog">
+                            <div class="head">
+                                <div class="ears"></div>
+                                <div class="face"></div>
+                                <div class="eyes">
+                                    <div class="teardrop"></div>
+                                </div>
+                                <div class="nose"></div>
+                                <div class="mouth">
+                                    <div class="tongue"></div>
+                                </div>
+                                <div class="chin"></div>
+                            </div>
+                            <div class="body">
+                                <div class="tail"></div>
+                                <div class="legs"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz__answer">
+                        <div class="quiz__selects">
+                            <label for="select1${number}">
+                                <input type="radio" id="select1${number}" class="select" name="select${number}" value="1">
+                                <span class="choice">${question.answerChoice[1]}</span>
+                            </label>
+                            <label for="select2${number}">
+                                <input type="radio" id="select2${number}" class="select" name="select${number}" value="2">
+                                <span class="choice">${question.answerChoice[2]}</span>
+                            </label>
+                            <label for="select3${number}">
+                                <input type="radio" id="select3${number}" class="select" name="select${number}" value="3">
+                                <span class="choice">${question.answerChoice[3]}</span>
+                            </label>
+                            <label for="select4${number}">
+                                <input type="radio" id="select4${number}" class="select" name="select${number}" value="4">
+                                <span class="choice">${question.answerChoice[4]}</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                `);
+            }); //push를 통해 빈 배열에 문제 수만큼 문제를 만드는 html태그를 추가함.
+            
+            exam.push(`
+                <div class="quiz__confirm">
+                    <button class="check">정답 확인하기</button>
+                    <div class="ex"></div>    
+                </div>
+            `);
+
+            quizWrap.innerHTML = exam.join(''); //만들어진 문제를 결합하여 해당 부분에 넣어줌. 태그를 텍스트가 아닌 태그로 인식시키기 위해 textContent가 아닌 innerHTML을 사용함
+        }
+        updateQuiz();
+
+        //정답 확인
+        function answerQuiz(){
+            const quizSelects = document.querySelectorAll(".quiz__selects");    //보기
+            const quizView = document.querySelectorAll(".quiz__view");          //강아지
+            //사용자가 체크한 라디오 박스  == 문제 정답
+            quizInfo.forEach((question, number) => {
+                const quizSelectsWrap = quizSelects[number];                    //전체 보기 박스
+                const userSelector = `input[name=select${number}]:checked`;         //사용자가 클린한 라디오 박스
+                const userAnswer = (quizSelectsWrap.querySelector(userSelector) || {}).value
+                const quizView = document.querySelectorAll(".quiz__view");
+                console.log(quizSelects)
+                if(userAnswer == question.answerResult){
+                    console.log("정답")
+                    quizView[number].classList.add("like");
+                } else {
+                    console.log("오답")
+                    quizView[number].classList.add("dislike");
+                    const div = document.createElement("div");
+                    quizSelectsWrap.appendChild(div).innerHTML = `<p class="resultex">${question.answerEx}</p>`;
+                }
+            });
+        }
+        document.querySelector(".quiz__confirm .check").addEventListener("click", answerQuiz);
+
+    </script>
+</body>
+
+</html>
