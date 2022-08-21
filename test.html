@@ -6,28 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div{
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: lightyellow;
             font-size: 50px;
-            text-align: center;
-            height:90vh;
-            line-height: 90vh;
-            color: #fcedd8;
-            background: #ffffff;
-            font-family: 'Niconne', cursive;
-            font-weight: 700;
-            text-shadow: 3px 3px 0px #ecfbff, 
-                        5px 5px 0px #c6f4ff, 
-                        7px 7px 0px #a1ecff, 
-                        9px 9px 0px #6ae1ff, 
-                        11px 11px 0px #4fdcff, 
-                        13px 13px 0px #24b5da, 
-                        15px 15px 0px #1aa0c1, 
-                        17px 17px 0px #bbbbbb, 
-                        19px 19px 0px #cfcfcf;
+        }
+        .block {
+            background-color: pink;
+            margin-top: 20px;
+        }
+        .inline {
+            background-color: lightgreen;
+            margin-top: 50px;
+        }
+        .inline__block {
+            display: inline-block;
+            background-color: skyblue;
+        }
+        .inline__block2 {
+            display: inline-block;
+            background-color: skyblue;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
-    <div>Web</div>
+    <div class="block">블록 구조</div>
+    <span class="inline">인라인 구조</span>
+    <div class="inline__block">인라인블록 구조</div><br>
+    <div class="inline__block2">인라인블록 구조</div>
 </body>
 </html>
