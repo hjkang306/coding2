@@ -503,6 +503,8 @@
                         el.classList.add("hide");
                     }
                 });
+                const hideNum = document.querySelectorAll(".search__list ul li.hide");
+                searchInfo.textContent = searchList.length - hideNum.length;;
             });
         });
     </script>
