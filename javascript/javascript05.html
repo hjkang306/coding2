@@ -74,18 +74,21 @@
                 <li><a href="#sample7">7. 문자열 메서드 : 변경 : concat() : 문자열 결합 : 반환(문자열)</a></li>
                 <li><a href="#sample8">8. 문자열 메서드 : 변경 : repeat() : 문자열 반복 : 반환(문자열)</a></li>
                 
-                <li><a href="#sample15">9. 문자열 메서드 : 변경 : padStart() : 앞에서부터 문자열 추가 : 반환(문자열)</a></li>
-                <li><a href="#sample16">9. 문자열 메서드 : 변경 : padEnd() : 뒤에서부터 문자열 추가 : 반환(문자열)</a></li>
+                <li><a href="#sample9">9. 문자열 메서드 : 변경 : padStart() : 앞에서부터 문자열 추가 : 반환(문자열)</a></li>
+                <li><a href="#sample9">9. 문자열 메서드 : 변경 : padEnd() : 뒤에서부터 문자열 추가 : 반환(문자열)</a></li>
 
                 <li><a href="#sample10">10. 문자열 메서드 : 검색 : indexOf() : 문자열에서 특정 문자의 위치를 찾음 : 반환(숫자)</a></li>
                 <li><a href="#sample10">10. 문자열 메서드 : 검색 : lastIndexOf() : 문자열 특정 문자의 위치를 뒤에서부터 찾음 : 반환(숫자)</a></li>
-                <li><a href="#sample19">19. 문자열 메서드 : 검색 : search() : 문자열을 검색(정규식) : 반환(숫자) ⭐</a></li>
-                <li><a href="#sample20">20. 문자열 메서드 : 검색 : match() : 문자열을 검색(정규식) : 반환(배열)</a></li>
-                <li><a href="#sample21">21. 문자열 메서드 : 검색 : includes : 문자열 포함 여부 검색 : 반환(불린) ⭐</a></li>
-                <li><a href="#sample22">22. 문자열 메서드 : 검색 : charAt() : 지정한 인덱스의 문자를 추출 : 반환(문자열)</a></li>
-                <li><a href="#sample23">23. 문자열 메서드 : 검색 : charCodeAt() : 지정한 인덱스의 문자를 추출 : 반환(숫자)</a></li>
-                <li><a href="#sample24">24. 문자열 메서드 : 검색 : startsWidth : 문자열 포함 여부 앞에서부터 검색 : 반환(불린)</a></li>
-                <li><a href="#sample25">25. 문자열 메서드 : 검색 : endsWidth : 문자열 포함 여부 뒤에서부터 검색 : 반환(불린)</a></li>
+                <li><a href="#sample11">11. 문자열 메서드 : 검색 : includes : 문자열 포함 여부 검색 : 반환(불린) ⭐</a></li>
+                
+                <li><a href="#sample12">12. 문자열 메서드 : 검색 : search() : 문자열을 검색(정규식) : 반환(숫자) ⭐</a></li>
+                <li><a href="#sample13">13. 문자열 메서드 : 검색 : match() : 문자열을 검색(정규식) : 반환(배열)</a></li>
+                
+                <li><a href="#sample14">14. 문자열 메서드 : 검색 : charAt() : 지정한 인덱스의 문자를 추출 : 반환(문자열)</a></li>
+                <li><a href="#sample14">14. 문자열 메서드 : 검색 : charCodeAt() : 지정한 인덱스의 문자를 추출 : 반환(숫자)</a></li>
+                
+                <li><a href="#sample15">15. 문자열 메서드 : 검색 : startsWidth : 문자열 포함 여부 앞에서부터 검색 : 반환(불린)</a></li>
+                <li><a href="#sample15">15. 문자열 메서드 : 검색 : endsWidth : 문자열 포함 여부 뒤에서부터 검색 : 반환(불린)</a></li>
             </ul>
         </div>
         <!-- mein menu -->
@@ -564,6 +567,71 @@ const currentStr7 = str1.includes("reference", 12);    //false
             </div>
             <!-- //sample11  -->
 
+            <div id="sample12" class="sample">
+                <h3>12. search()</h3>
+                <p>
+                    search() 메서드는 문자열(정규식)을 검색하고 위치값(숫자)을 반환합니다.
+                    indexOf() 메서드와 비슷하지만, 정규식까지 포함한다는 점이 차이점입니다.
+                </p>
+                <div class="box">
+                    "문자열".search("검색값");<br>
+                    "문자열".search("정규식 표현");
+                </div>
+                <div class="script">
+<pre><code lang="languige-js">const str1 = "javascript reference";
+const currentStr1 = str1.search("javascript");  //0
+const currentStr2 = str1.search("reference");   // 11
+const currentStr3 = str1.search("j");           // 0
+const currentStr4 = str1.search("a");           // 1 : 중복일 땐 가장 처음의 자릿값
+const currentStr5 = str1.search("v");           // 2
+const currentStr6 = str1.search("jquery");      // -1 : 데이터가 없을 땐 -1
+const currentStr7 = str1.search("b");           // -1 : 데이터가 없을 땐 -1
+const currentStr8 = str1.search(/[a-z]/g);      //0
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample12  -->
+
+            <div id="sample13" class="sample">
+                <h3>13. match()</h3>
+                <p>match() 메서드는 문자열(정규식)을 검색하고 문자열(배열)을 반환합니다.</p>
+                <div class="box">
+                    "문자열".match("검색값");<br>
+                    "문자열".match("정규식 표현");
+                </div>
+                <div class="script">
+<pre><code lang="languige-js">const str1 = "javascript reference";
+const currentStr1 = str1.match("javascript");       //javascript
+const currentStr2 = str1.match("reference");        //reference
+const currentStr3 = str1.match("r");                //r
+const currentStr4 = str1.match(/reference/);        //reference
+const currentStr5 = str1.match(/Reference/);        //null
+const currentStr6 = str1.match(/Reference/i);       //reference
+const currentStr7 = str1.match(/r/g);               //['r', 'r', 'r']
+const currentStr8 = str1.match(/e/g);               //['e', 'e', 'e', 'e']
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample13  -->
+
+            <div id="sample14" class="sample">
+                <h3>14. charAt()</h3>
+                <p>charAt() 위치값 이후 첫 글자를 검색하고 문자열(문자)을 반환합니다.</p>
+                <div class="box">
+                    "문자열".charAt(숫자);
+                </div>
+                <div class="script">
+<pre><code lang="languige-js">const str1 = "javascript reference";
+const currentStr1 = str1.charAt();  //j
+const currentStr2 = str1.charAt("0");  //j
+const currentStr3 = str1.charAt("1");  //a
+const currentStr4 = str1.charAt("2");  //v
+const currentStr5 = str1.charAt(2);  //v
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample14  -->
+
         </div>
         <!-- main sample -->
 
@@ -850,12 +918,49 @@ const currentStr7 = str1.includes("reference", 12);    //false
         {
             const str1 = "javascript reference";
             const currentStr1 = str1.includes("javascript");    //true
-            const currentStr2 = str1.includes("j");    //true
-            const currentStr3 = str1.includes("b");    //false
-            const currentStr4 = str1.includes("reference");    //true
-            const currentStr5 = str1.includes("reference", 1);    //true
-            const currentStr6 = str1.includes("reference", 11);    //true
-            const currentStr7 = str1.includes("reference", 12);    //false
+            const currentStr2 = str1.includes("j");             //true
+            const currentStr3 = str1.includes("b");             //false
+            const currentStr4 = str1.includes("reference");     //true
+            const currentStr5 = str1.includes("reference", 1);  //true
+            const currentStr6 = str1.includes("reference", 11); //true
+            const currentStr7 = str1.includes("reference", 12); //false
+        }
+
+        //12 search : 반환(숫자)
+        {
+            const str1 = "javascript reference";
+            const currentStr1 = str1.search("javascript");  //0
+            const currentStr2 = str1.search("reference");   // 11
+            const currentStr3 = str1.search("j");           // 0
+            const currentStr4 = str1.search("a");           // 1 : 중복일 땐 가장 처음의 자릿값
+            const currentStr5 = str1.search("v");           // 2
+            const currentStr6 = str1.search("jquery");      // -1 : 데이터가 없을 땐 -1
+            const currentStr7 = str1.search("b");           // -1 : 데이터가 없을 땐 -1
+            const currentStr8 = str1.search(/[a-z]/g);      //0
+        }
+        
+        //13 match : 반환(배열)
+        {
+            const str1 = "javascript reference";
+            const currentStr1 = str1.match("javascript");       //javascript
+            const currentStr2 = str1.match("reference");        //reference
+            const currentStr3 = str1.match("r");                //r
+            const currentStr4 = str1.match(/reference/);        //reference
+            const currentStr5 = str1.match(/Reference/);        //null
+            const currentStr6 = str1.match(/Reference/i);       //reference
+            const currentStr7 = str1.match(/r/g);               //['r', 'r', 'r']
+            const currentStr8 = str1.match(/e/g);               //['e', 'e', 'e', 'e']
+        }
+        
+        //14. charAt
+        {
+            //"문자열".charAt(숫자);
+            const str1 = "javascript reference";
+            const currentStr1 = str1.charAt();  //j
+            const currentStr2 = str1.charAt("0");  //j
+            const currentStr3 = str1.charAt("1");  //a
+            const currentStr4 = str1.charAt("2");  //v
+            const currentStr5 = str1.charAt(2);  //v
         }
     </script>
     <script src="assets/js/highlight.min.js"></script>
