@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드 이펙트01</title>
+
+    <link rel="stylesheet" href="../assets/css/slider.css">
+    <link rel="stylesheet" href="../assets/css/android.css">
+</head>
+<body class="img05">
+    <header id="header">
+        <h1>Javascript Slider Effect01</h1>
+        <p>슬라이드 이펙트 - 트랜지션 효과</p>
+        <ul>
+            <li class="active"><a href="sliderEffect01.html">1</a></li>
+            <li><a href="sliderEffect02.html">2</a></li>
+            <li><a href="sliderEffect03.html">3</a></li>
+            <li><a href="sliderEffect04.html">4</a></li>
+            <li><a href="sliderEffect05.html">5</a></li>
+            <li><a href="sliderEffect06.html">6</a></li>
+        </ul>
+    </header>
+    <!-- header -->
+
+    <main id="main"></main>
+    <!-- main -->
+
+    <footer id="footer">
+        <div class="modal__wrap">
+            <div class="modal__btn">
+                <label for="modal-btn">소스 보기</label> 		
+                <input class="btn" type="checkbox" id="btn" name="btn"/>
+            </div>
+        </div>
+        <div class="modal__cont">
+            <div class="modal__box">
+                <div class="title">
+                    <span class="dot" aria-label="true"></span>
+                    <div class="tabs">
+                        <div class="active">
+                            <span class="favicon" aria-label="true">
+                                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
+                                    <circle cx="9" cy="9" r="9" fill="red"></circle>
+                                    <path d="M18 9C18 13.9706 15.4688 3.09375 9 10.125C2.53125 17.1562 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z" fill="orange"></path>
+                                    <path d="M18 9C18 13.9706 14.9062 0.84375 8.29688 6.1875C1.6875 11.5312 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z" fill="yellow"></path>
+                                </svg>
+                            </span>
+                            <em>Javascript</em>
+                            <span class="close" aria-label="true">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                                    <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>                        
+                            </span>
+                        </div>
+                        <div>
+                            <span class="favicon" aria-label="true">
+                                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
+                                    <circle cx="9" cy="9" r="9" fill="red"></circle>
+                                    <path d="M18 9C18 13.9706 15.4688 3.09375 9 10.125C2.53125 17.1562 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z" fill="orange"></path>
+                                    <path d="M18 9C18 13.9706 14.9062 0.84375 8.29688 6.1875C1.6875 11.5312 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z" fill="yellow"></path>
+                                </svg>
+                            </span>
+                            <em>HTML</em>
+                            <span class="close" aria-label="true">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                                    <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>                        
+                            </span>
+                        </div>
+                        <div>
+                            <span class="favicon" aria-label="true">
+                                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
+                                    <circle cx="9" cy="9" r="9" fill="red"></circle>
+                                    <path d="M18 9C18 13.9706 15.4688 3.09375 9 10.125C2.53125 17.1562 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z" fill="orange"></path>
+                                    <path d="M18 9C18 13.9706 14.9062 0.84375 8.29688 6.1875C1.6875 11.5312 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z" fill="yellow"></path>
+                                </svg>
+                            </span>
+                            <em>CSS</em>
+                            <span class="close" aria-label="true">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                                    <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>                        
+                            </span>
+                        </div>
+                    </div>
+                    <div class="plus">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                            <path d="M2.5 8H13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 2.5V13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="cont">
+                    <div class="active">
+<pre><code class="languige-js">const str1 = "javascript reference";
+const currentStr1 = str1.includes("javascript");    //true
+const currentStr2 = str1.includes("j");    //true
+const currentStr3 = str1.includes("b");    //false
+const currentStr4 = str1.includes("reference");    //true
+const currentStr5 = str1.includes("reference", 1);    //true
+const currentStr6 = str1.includes("reference", 11);    //true
+const currentStr7 = str1.includes("reference", 12);    //false
+</code></pre>
+                    </div>
+                    <div>
+<pre><code class="languige-html">&lt;section id="cardType" class="card__wrap nexon section"&gt;
+    &lt;h2&gt;바질 키우는 법 🌱&lt;/h2&gt;
+    &lt;p&gt;바질 키우기 초보자를 위한 바질 키우기 강의입니다.&lt;/p&gt;
+    &lt;div class="card__inner container"&gt;
+        &lt;article class="card"&gt; //article 태그를 이용해, 컨텐츠가 들어갈 박스를 만들었습니다.
+            &lt;figure class="card__header"&gt; //figure는 새로 나온 태그, img 태그를 작성할 경우 figure태그 안에 넣어준다.
+                &lt;img src="img/card_bg01.jpg" alt="바질 키우기 기초의 바질 잎 패턴 이미지"&gt; //alt를 작성하면, 웹 접근성을 높일 수 있으며 웹 표준에도 부합한다. 작성하도록 하자.
+            &lt;/figure&gt;
+            &lt;div class="card__body"&gt;
+                &lt;h3 class="tit"&gt;바질 키우기 기초&lt;/h3&gt;
+                &lt;p class="desc"&gt;바질은 초보자가 키우기 쉬운 허브인 편입니다. 과습을 잘 견디며, 햇빛은 많이 요구합니다.겨울에 실내에 들여서 키운다면 여러해 동안 키울 수도 있습니다.&lt;/p&gt;
+                &lt;a class="btn" href="/"&gt;더 자세히 보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure&gt;
+                &lt;img src="img/card_bg02.jpg" alt="바질 가지치기 기초의 바질 화분 이미지"&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__body"&gt;
+                &lt;h3 class="tit"&gt;바질 가지치기 기초&lt;/h3&gt;
+                &lt;p class="desc"&gt;바질을 풍성하게 키워 수확량을 올리고 싶다면, 바질이 Y자 형으로 자랄 수 있도록 바질의 성장속도에 맞춰 가지치기를 해주는 것이 좋습니다.&lt;/p&gt;
+                &lt;a class="btn" href="/"&gt;더 자세히 보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg03.jpg" alt="바질 뜯어먹기 기초의 손에 들린 바질 화분 이미지"&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__body"&gt;
+                &lt;h3 class="tit"&gt;바질 뜯어먹기 기초&lt;/h3&gt;
+                &lt;p class="desc"&gt;바질은 향이 좋고 맛도 좋아, 다양한 요리에 사용할 수 있습니다. 샐러드로 먹기도 하고 파스타에 향신료로 뿌려먹기도, 토마토와 함께 와인 안주로 먹기도 합니다.&lt;/p&gt;
+                &lt;a class="btn" href="/"&gt;더 자세히 보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+                    </div>
+                    <div>
+<pre><code class="languige-css">/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+img {
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        //탭메뉴
+        const tabBtn = document.querySelectorAll(".modal__box .tabs > div");
+        const tabCont = document.querySelectorAll(".modal__box .cont > div");
+        
+        tabBtn.forEach( (el, i) => {
+            el.addEventListener("click", (event) => {
+                event.preventDefault();
+                
+                tabBtn.forEach((li)=>{
+                    li.classList.remove('active');
+                });
+                el.classList.add("active");
+                
+                tabCont.forEach((div) => {
+                    div.style.display = "none";
+                });
+
+                tabCont[i].style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>

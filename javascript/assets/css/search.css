@@ -1,31 +1,31 @@
 :root {
-    --htmlColor: #223547;
-    --cssColor: #472222;
-    --javascriptColor: #224736;
+    --htmlColor : #223547;
+    --cssColor : #472222;
+    --javascriptColor : #224736;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'NexonLv1Gothic';
+    color: var(--htmlColor);
 }
-*, *::before, *::after {
-    box-sizing: border-box;
+*, *:before, *:after {
+    box-sizing:border-box;
 }
 a {
-    color: #000;
+    color: var(--htmlColor);
     text-decoration: none;
 }
 li {
     list-style: none;
 }
 
-/* font-family: 'NexonLv1Gothic';
-font-family: 'Tmon'; */
-
 /* header */
 #header {
     display: flex;
+    justify-content: space-between;
 }
 #header nav {
     margin: 10px;
@@ -86,15 +86,15 @@ font-family: 'Tmon'; */
 }
 .search__wrap > h1 {
     font-family: 'Tmon';
-    color: #223547;
-    font-size: 6vw;
+    color: var(--htmlColor);
+    font-size: 5vw;
     margin-bottom: 10px;
 }
 .search__box {
     margin-bottom: 20px;
 }
 .search__box label {
-    position:absolute;
+    position: absolute;
     clip: rect(0 0 0 0);
     width: 1px;
     height: 1px;
@@ -108,21 +108,20 @@ font-family: 'Tmon'; */
     border-radius: 50px;
     font-size: 20px;
 }
-.search__list {}
 .search__list li {
     text-align: left;
     line-height: 1.7;
 }
-.search__list li.hide {
-    display: none;
-}
 .search__list li.show {
     display: block;
+}
+.search__list li.hide {
+    display: none;
 }
 .search__info {
     text-align: right;
     margin-bottom: 30px;
-    padding: 10px;
+    padding-bottom: 10px;
     border-bottom: 2px dashed var(--htmlColor);
 }
 .search__info .type {
@@ -135,7 +134,7 @@ font-family: 'Tmon'; */
 }
 .search__info .keyword span {
     border: 2px solid var(--htmlColor);
-    border-radius: 60px;
+    border-radius: 50px;
     padding: 10px;
     display: inline-block;
     margin-bottom: 4px;
@@ -145,7 +144,8 @@ font-family: 'Tmon'; */
     color: #fff;
     cursor: pointer;
 }
-@media (max-width: 600px) {
+
+@media (max-width: 600px){
     .search__wrap {
         padding: 20px;
     }
@@ -156,23 +156,22 @@ font-family: 'Tmon'; */
     .search__wrap > h1 {
         font-size: 44px;
     }
-    .search__wrap > input {
+    .search__box input {
         font-size: 16px;
         padding: 12px 30px;
     }
 }
 
+
 /* footer */
 #footer {
     text-align: center;
 }
-
 #footer a {
     color: #000;
     font-family: 'NexonLv1Gothic';
     padding-bottom: 50px;
 }
-
 #footer a:hover {
     text-decoration: underline;
 }
