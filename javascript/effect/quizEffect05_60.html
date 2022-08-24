@@ -18,7 +18,7 @@
 
 <body>
     <header id="header">
-        <h1><a href="../javascript01.html">Quiz <em>객관식(여러문제) 확인하기 : 점수</em></a></h1>
+        <h1><a href="../javascript01.html">Quiz <em>객관식(한문제) 유형</em></a></h1>
         <nav>
             <ul>
                 <li><a href="quizEffect01.html">1</a></li>
@@ -97,6 +97,13 @@
     <!-- footer -->
 
     <script>
+        // const num = [100, 200, 300, 400, 500];
+
+        // num.forEach((el) => {
+        //     console.log(el);
+        //     document.querySelector(".quiz__wrap").innerHTML += el;
+        // });
+
         //문제 정보
         const quizInfo = [
             {
@@ -880,20 +887,20 @@
                 answerEx : "플래시: 벡터 도형 처리 기반의 애니메이션 제작용 소프트웨어"
             }
         ];
-        
+
+        //선택자
         const quizWrap = document.querySelector(".quiz__wrap");
-        let quizScore = 0;
 
-        const updateQuiz = () => {
-            const exam = [];
+        function updateQuiz(){
+            const exam = [];    //빈 배열을 만들어 여기에 문제를 추가할 것
 
-            quizInfo.forEach((question, number) => {
+            quizInfo.forEach((question, number)=>{
                 exam.push(`
                     <div class="quiz">
-                    <span class="quiz__type">${quizInfo[number].answerType}</span>
+                    <span class="quiz__type">${question.answerType}</span>
                     <h2 class="quiz__question">
-                        <span class="number">${quizInfo[number].answerNum}</span>
-                        <div class="ask">${quizInfo[number].answerAsk}</div>
+                        <span class="number">${question.answerNum}</span>
+                        <div class="ask">${question.answerAsk}</div>
                     </h2>
                     <div class="quiz__view">
                         <div class="true">정답입니다!</div>
@@ -921,80 +928,60 @@
                         <div class="quiz__selects">
                             <label for="select1${number}">
                                 <input type="radio" id="select1${number}" class="select" name="select${number}" value="1">
-                                <span class="choice">${quizInfo[number].answerChoice[1]}</span>
+                                <span class="choice">${question.answerChoice[1]}</span>
                             </label>
                             <label for="select2${number}">
                                 <input type="radio" id="select2${number}" class="select" name="select${number}" value="2">
-                                <span class="choice">${quizInfo[number].answerChoice[2]}</span>
+                                <span class="choice">${question.answerChoice[2]}</span>
                             </label>
                             <label for="select3${number}">
                                 <input type="radio" id="select3${number}" class="select" name="select${number}" value="3">
-                                <span class="choice">${quizInfo[number].answerChoice[3]}</span>
+                                <span class="choice">${question.answerChoice[3]}</span>
                             </label>
                             <label for="select4${number}">
                                 <input type="radio" id="select4${number}" class="select" name="select${number}" value="4">
-                                <span class="choice">${quizInfo[number].answerChoice[4]}</span>
+                                <span class="choice">${question.answerChoice[4]}</span>
                             </label>
                         </div>
                     </div>
                 </div>
                 `);
-                
-            });
+            }); //push를 통해 빈 배열에 문제 수만큼 문제를 만드는 html태그를 추가함.
             
             exam.push(`
                 <div class="quiz__confirm">
                     <button class="check">정답 확인하기</button>
-                    <div class="ex"></div>
+                    <div class="ex"></div>    
                 </div>
             `);
 
-            quizWrap.innerHTML = exam.join('');
+            quizWrap.innerHTML = exam.join(''); //만들어진 문제를 결합하여 해당 부분에 넣어줌. 태그를 텍스트가 아닌 태그로 인식시키기 위해 textContent가 아닌 innerHTML을 사용함
         }
         updateQuiz();
 
         //정답 확인
-        const answerQuiz = () => {
-            const quizSelects = document.querySelectorAll(".quiz__selects");    //객관식 보기
-
-            //사용자가 체크한 보기 == 문제 정답
+        function answerQuiz(){
+            const quizSelects = document.querySelectorAll(".quiz__selects");    //보기
+            const quizView = document.querySelectorAll(".quiz__view");          //강아지
+            //사용자가 체크한 라디오 박스  == 문제 정답
             quizInfo.forEach((question, number) => {
-                const userSelector = `input[name=select${number}]:checked`; //사용자가 체크한 것
-                const quizSelectsWrap = quizSelects[number];
-                const userAnswer = (quizSelectsWrap.querySelector(userSelector) || {}).value;
-                const quizView = document.querySelectorAll(".quiz__view");  //강아지
-
-                //console.log(userAnswer);
-
+                const quizSelectsWrap = quizSelects[number];                    //전체 보기 박스
+                const userSelector = `input[name=select${number}]:checked`;         //사용자가 클린한 라디오 박스
+                const userAnswer = (quizSelectsWrap.querySelector(userSelector) || {}).value
+                const quizView = document.querySelectorAll(".quiz__view");
+                console.log(quizSelects)
                 if(userAnswer == question.answerResult){
-                    //console.log("정답");
+                    console.log("정답")
                     quizView[number].classList.add("like");
-                    quizScore++;
                 } else {
-                    //console.log("오답");
+                    console.log("오답")
                     quizView[number].classList.add("dislike");
-                    const divBox = document.createElement("div");
-                    quizSelectsWrap.appendChild(divBox).innerHTML = `<p class="result">${question.answerEx}</p>`;
+                    const div = document.createElement("div");
+                    quizSelectsWrap.appendChild(div).innerHTML = `<p class="resultex">${question.answerEx}</p>`;
                 }
             });
-
-            //전체 문제 수
-            //console.log(quizInfo.length);
-
-            //내가 맞힌 수
-            //console.log(quizScore);
-
-            if (36 <= quizScore){
-                document.querySelector(".ex").textContent = "전체" + quizInfo.length + "개 중 " + quizScore + "개 정답으로, 합격입니다."
-            } else {
-                document.querySelector(".ex").textContent = "전체" + quizInfo.length + "개 중 " + quizScore + "개 정답으로, 불합격입니다."
-            }
         }
-        
-        //정답 클릭
         document.querySelector(".quiz__confirm .check").addEventListener("click", answerQuiz);
-
-        
 
     </script>
 </body>
