@@ -1,4 +1,8 @@
+pre {
+    height: 100%;
+}
 pre code.hljs {
+    height: 100%;
     display: block;
     overflow-x: auto;
     padding: 1em
@@ -29,7 +33,7 @@ code.hljs {
 .hljs-link,
 .hljs-template-variable,
 .hljs-variable {
-    color: #629755
+    color: #bb6a78
 }
 
 .hljs-comment,

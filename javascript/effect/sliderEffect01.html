@@ -8,6 +8,44 @@
 
     <link rel="stylesheet" href="../assets/css/slider.css">
     <link rel="stylesheet" href="../assets/css/android.css">
+    <style>
+        /* slider */
+        .slider__wrap {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider__img {
+            position: relative;
+            width: 800px;
+            height: 50vh;
+        }
+        .slider {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .slider::before {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            background: rgba(0,0,0,0.4);
+            color: #fff;
+            padding: 5px 10px;
+        }
+        .slider::before:nth-child(1) {content: '이미지';}
+        .slider::before:nth-child(2) {content: '이미지';}
+        .slider::before:nth-child(3) {content: '이미지';}
+        .slider::before:nth-child(4) {content: '이미지';}
+        .slider::before:nth-child(5) {content: '이미지';}
+        .slider:nth-child(1) {z-index: 5;}
+        .slider:nth-child(2) {z-index: 4;}
+        .slider:nth-child(3) {z-index: 3;}
+        .slider:nth-child(4) {z-index: 2;}
+        .slider:nth-child(5) {z-index: 1;}
+    </style>
 </head>
 <body class="img05">
     <header id="header">
@@ -24,22 +62,30 @@
     </header>
     <!-- header -->
 
-    <main id="main"></main>
+    <main id="main">
+        <section id="sliderType01">
+            <div class="slider__wrap">
+                <div class="slider__img">
+                    <div class="slider"><img src="../assets/img/effect_bg01-min.jpg" alt="이미지1"></div>
+                    <div class="slider"><img src="../assets/img/effect_bg02-min.jpg" alt="이미지2"></div>
+                    <div class="slider"><img src="../assets/img/effect_bg03-min.jpg" alt="이미지3"></div>
+                    <div class="slider"><img src="../assets/img/effect_bg04-min.jpg" alt="이미지4"></div>
+                    <div class="slider"><img src="../assets/img/effect_bg05-min.jpg" alt="이미지5"></div>
+                </div>
+            </div>
+        </section>
+    </main>
     <!-- main -->
 
     <footer id="footer">
         <div class="modal__wrap">
-            <div class="modal__btn">
-                <label for="modal-btn">소스 보기</label> 		
-                <input class="btn" type="checkbox" id="btn" name="btn"/>
-            </div>
-        </div>
-        <div class="modal__cont">
-            <div class="modal__box">
+            <div class="modal__btn">소스 보기</div>
+            <div class="modal__cont">
+                <div class="modal__box">
                 <div class="title">
                     <span class="dot" aria-label="true"></span>
                     <div class="tabs">
-                        <div class="active">
+                        <div>
                             <span class="favicon" aria-label="true">
                                 <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
                                     <circle cx="9" cy="9" r="9" fill="red"></circle>
@@ -165,35 +211,42 @@ h1, h2, h3, h4, h5, h6 {
 </code></pre>
                     </div>
                 </div>
+            
+                </div>
+                <div class="modal__close">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                        <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
             </div>
         </div>
     </footer>
     <!-- footer -->
 
     <script src="../assets/js/highlight.min.js"></script>
+    <script src="../assets/js/common.js"></script>
     <script>
         hljs.highlightAll();
 
-        //탭메뉴
-        const tabBtn = document.querySelectorAll(".modal__box .tabs > div");
-        const tabCont = document.querySelectorAll(".modal__box .cont > div");
-        
-        tabBtn.forEach( (el, i) => {
-            el.addEventListener("click", (event) => {
-                event.preventDefault();
-                
-                tabBtn.forEach((li)=>{
-                    li.classList.remove('active');
-                });
-                el.classList.add("active");
-                
-                tabCont.forEach((div) => {
-                    div.style.display = "none";
-                });
+        const sliderWrap = document.querySelector(".slider__wrap");
+        const sliderImg = sliderWrap.querySelector(".slider__img");
+        const slider = sliderWrap.querySelectorAll(".slider");
 
-                tabCont[i].style.display = "block";
-            });
-        });
+        let currentIndex = 0;   //현재 보이는 이미지
+        let sliderCount = sliderImg.length;    //이미지 갯수
+        
+        //n초에 한번씩 실행문을 실행시켜줌
+        setInterval(() => { 
+            let nextIndex = (currentIndex + 1) % 5;   //다음 이미지
+            
+            slider[currentIndex].style.opacity = "0"; //첫번째 이미지를 안보이게
+            slider[nextIndex].style.opacity = "1";  //두번째 이미지를 보이게
+            console.log(nextIndex);
+            currentIndex++;
+
+            currentIndex = nextIndex;
+        }, 3000);
     </script>
 </body>
 </html>

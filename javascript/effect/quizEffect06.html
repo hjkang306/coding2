@@ -100,71 +100,749 @@
     <script>
         //문제 정보
         const quizInfo = [
+        {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 9,
+                answerAsk: "색채조화의 공통원리에 관한 설명으로 틀린 것은?",
+                answerChoice: {
+                    1 : "질서의 원리는 효과적인 반응을 일으키는 질서 있는 계획에 따라 선택된 색채들에서 생긴다.",
+                    2 : "비모호성의 원리는 두 색 이상의 배색에 있어서 모호함이 없는 명료한 배색에서만 얻어진다.",
+                    3 : "동류의 원리는 가장 가까운 색채끼리의 배색은 보는 사람에게 친근감을 주며 조화를 느끼게 한다.",
+                    4 : "친근성의 원리는 배색된 색채들이 서로 공통되는 상태와 속성을 가질 때 그 색채는 조화된다.",
+                },
+                answerResult: "친근성의 원리는 배색된 색채들이 서로 공통되는 상태와 속성을 가질 때 그 색채는 조화된다.",
+                answerEx: "친근성이란 관찰자에게 친숙해있는 배색이 잘 조화를 이룬다.",
+            },
+            // 09
+
             {
-                answerType : "웹디자인기능사 2012년 5회",
-                answerNum : "1",
-                answerAsk : "제품 디자인 과정 중 「완성 예상도」라고도 하며 실물처럼 충실하고 정확히 표현하는 것을 무엇이라고 하는가?",
-                answerChoice : [
-                    "렌더링(RENDERING)",
-                    "드로잉(DRAWING)",
-                    "스케치(SKETCH)",
-                    "모델링(MODELING)"
-                ],
-                answerResult : "렌더링(RENDERING)",
-                answerEx : "드로잉 : 연필·펜·크레용 등으로 대상물의 윤곽만을 그리는 그 자체로서 독립된 그림<br><br>스케치 : 대상을 세부적으로 묘사하지 않고 빨리 그리는 것<br><br>모델링 : 모형을 만드는 일을 의미" 
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 10,
+                answerAsk: "모든 사물은 구, 원기둥 및 원뿔 형태와 같은 기하학적 형태로 구성되어 있다고 주장한 사람은?",
+                answerChoice: {
+                    1 : "파파넥",
+                    2 : "고흐",
+                    3 : "세잔",
+                    4 : "오장팡",
+                },
+                answerResult: "세잔",
+                answerEx: "세잔이 그랬습니다. 세잔은 큐비즘(입체파) 대표적인 인물이죠",
+            },
+            // 10
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 11,
+                answerAsk: "스파트(spot) 광고에 대한 설명이 옳은 것은?",
+                answerChoice: {
+                    1 : "전국 방송망으로 방송국에서 전국에 실시하는 광고",
+                    2 : "일정시간을 정해 30초 CM 10개를 계속 방송하는 형태",
+                    3 : "지역 방송국에 제한되어 방송하는 것",
+                    4 : "프로그램과 프로그램 사이에 광고를 삽입하는 것",
+                },
+                answerResult: "프로그램과 프로그램 사이에 광고를 삽입하는 것",
+                answerEx: "기억해주세요 spot 광고란 '라디오나 텔레비전 방송에서, 프로그램 사이 또는 프로그램 진행 중에 아주 짧게 나가는 광고' 입니다.",
+            },
+            // 11
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 15,
+                answerAsk: "다음 중 굿 디자인(Good Design)의 조건이 아닌 것은?",
+                answerChoice: {
+                    1 : "심미성",
+                    2 : "독창성",
+                    3 : "대중성",
+                    4 : "경제성",
+                },
+                answerResult: "대중성",
+                answerEx: "굿디자인 4가지 외우세요 : 심미성, 독창성, 합목적성, 경제성 입니다.",
+            },
+            // 15
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 19,
+                answerAsk: "신문광고의 구성요소 중 조형적 요소가 아닌 것은?",
+                answerChoice: {
+                    1 : "헤드라인",
+                    2 : "일러스트레이션",
+                    3 : "심볼 마크",
+                    4 : "보더 라인",
+                },
+                answerResult: "헤드라인",
+                answerEx: "?",
+            },
+            // 19
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 22,
+                answerAsk: "웹서버의 일반적인 동작 과정으로 옳은 것은?",
+                answerChoice: {
+                    1 : "연결설정→클라이언트가 정보요청→서버의 응답→연결종료",
+                    2 : "연결설정→서버의 응답→클라이언트가 정보요청→연결종료",
+                    3 : "클라이언트가 정보요청→연결설정→서버의 응답→연결종료",
+                    4 : "클라이언트가 정보요청→서버의 응답→연결설정→연결종료",
+                },
+                answerResult: "연결설정→클라이언트가 정보요청→서버의 응답→연결종료",
+                answerEx: "연결을 설정해야 연결이 되겠죠? 정보를 요청해야 응답을 할 수 가 있겠습니다.",
+            },
+            // 22
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 23,
+                answerAsk: "하나의 회선을 다수의 아주 짧은 시간 간격으로 분할하여 다중화 하는 전송 방식은?",
+                answerChoice: {
+                    1 : "FCM",
+                    2 : "TDM",
+                    3 : "CSM",
+                    4 : "FDD",
+                },
+                answerResult: "TDM",
+                answerEx: "시분할 다중화 (Time-division multiplexing), 시분할 다중화란 전송로를 점유하는 시간을 분할하여 한 개의 전송로에 여러 개의 가상 경로를 구성하는 통신 방식이다.",
+            },
+            // 23
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 25,
+                answerAsk: "자바스크립트의 함수 중 사용자로부터 임의의 문자를 입력받기 위한 창을 화면에 띄워 입력한 문자열을 사용할 수 있도록 하는 것은?",
+                answerChoice: {
+                    1 : "prompt()",
+                    2 : "escape()",
+                    3 : "confirm()",
+                    4 : "alert()",
+                },
+                answerResult: "prompt()",
+                answerEx: "prompt() 쓰면 입력창이 나옵니다. confirm()은 예 아니오 느낌의 메서드 입니다.",
+            },
+            // 25
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 27,
+                answerAsk: "인터넷 익스플로러 6.0에서 [도구]-[인터넷 옵션]-[내용] 탭에서 설정할 수 있는 것은?",
+                answerChoice: {
+                    1 : "쿠키 편집",
+                    2 : "언어 추가",
+                    3 : "게시자",
+                    4 : "HTML 편집",
+                },
+                answerResult: "게시자",
+                answerEx: "?",
             },
             {
-                answerType : "웹디자인기능사 2012년 5회",
-                answerNum : "2",
-                answerAsk : "다음 중 주위색의 영향으로 오히려 인접색에 가깝게 느껴지는 현상을 의미하는 것은?",
-                answerChoice : [
-                    "대비 현상",
-                    "동화 현상",
-                    "색의 수축성",
-                    "중량 현상"
-                ],
-                answerResult : "동화 현상",
-                answerEx : "대비현상 : 어떤 색이 다른 색의 영향으로 인하 여 실제와는 다른 색으로 변해 보이는 현상<br><br>색의 수축성 : 색의 면적이 실제 면적보다 작게 또는 크게 느껴지는 심리현상을 의미" 
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 30,
+                answerAsk: "가인터넷에서 사용되는 서비스 중 파일 전송 프로토콜로서 원격 호스트에 대해 파일을 송수신하는 것은?",
+                answerChoice: {
+                    1 : "PPP(Point to Point Protocol)",
+                    2 : "FTP(File Transfer Protocol)",
+                    3 : "DNS(Domain Name System)",
+                    4 : "MIME(Multipurpose Internet Mail Extensions)",
+                },
+                answerResult: "FTP(File Transfer Protocol)",
+                answerEx: "영어를 해석하면 답이 나옵니다. 파일을 전송하는 프로토콜이요.",
+            },
+            // 30
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 31,
+                answerAsk: "인터넷 익스플로러 6.0에서 웹페이지의 글자가 깨져 보이는 경우에는 [보기]-[인코딩] 메뉴에서 무엇을 선택해야 하는가",
+                answerChoice: {
+                    1 : "자동선택",
+                    2 : "자동복구",
+                    3 : "오류복구",
+                    4 : "오류보기",
+                },
+                answerResult: "자동선택",
+                answerEx: "?",
+            },
+            // 31
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 33,
+                answerAsk: "인터넷의 시조이며, 미 국방성이 군사목적으로 UCLA, 스탠포드 대학 등이 보유한 컴퓨터 네트워크로 연결한 것은 무엇일까?",
+                answerChoice: {
+                    1 : "USENET",
+                    2 : "FTP",
+                    3 : "WAIS",
+                    4 : "ARPANET",
+                },
+                answerResult: "ARPANET",
+                answerEx: "인터넷의 시조 = 알파넷.",
+            },
+            // 33
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 34,
+                answerAsk: "다음과 관련 있는 TCP/IP 프로토콜 계층으로 옳은 것은? SMTP, FTP, Telnet, HTTP",
+                answerChoice: {
+                    1 : "물리 계층",
+                    2 : "네트워크 계층",
+                    3 : "전송 계층",
+                    4 : "응용 계층",
+                },
+                answerResult: "응용 계층",
+                answerEx: "여러가지 프로토콜들이 나오면 응용계층을 생각해주세요.",
+            },
+            // 34
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 35,
+                answerAsk: "인터넷 익스플로러 6.0에서 [파일] 메뉴에 해당되지 않는 것은?",
+                answerChoice: {
+                    1 : "새로 만들기",
+                    2 : "열기",
+                    3 : "새로 고침",
+                    4 : "페이지 설정",
+                },
+                answerResult: "새로 고침",
+                answerEx: "ie는 안쓰기 때문에 크게 주의하지 않아도 될 것 같습니다. 답은3번",
+            },
+            // 35
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 36,
+                answerAsk: "자바스크립트의 일반적인 장점으로 틀린 것은?",
+                answerChoice: {
+                    1 : "운영체제의 제한을 받지 않는다.",
+                    2 : "문법이 간단해 손쉽게 프로그램을 만들 수 있다.",
+                    3 : "HTML 문서 내에 직접 코드를 삽입하므로 신속하게 작성할 수 있다.",
+                    4 : "게임, 메신저, 채팅방 등을 개발하는데 적합하다.",
+                },
+                answerResult: "문법이 간단해 손쉽게 프로그램을 만들 수 있다.",
+                answerEx: "메신저나 채팅방은 서버 프로그램이 필요하겠죠? 일반적인 장점으로 적합하진 않은 것 같아요.",
+            },
+            // 36
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 39,
+                answerAsk: "위지웍(WYSIWYG) 기반의 웹 에디터가 아닌 것은?",
+                answerChoice: {
+                    1 : "Namo Web Editor",
+                    2 : "FrontPage",
+                    3 : "Edit Plus",
+                    4 : "Netscape Composer",
+                },
+                answerResult: "Edit Plus",
+                answerEx: "에딧플러스는 메모장 같은 형식으로 하드코딩에 특화되어있죠, 위지위그란\
+                이미지 같은걸 드래그앤 드롭같은 사용자 편의기능을 제공하는 방식의 에디터를 말합니다.",
+            },
+            // 40
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 43,
+                answerAsk: "웹페이지를 작성할 때 배경이미지와 메뉴에 관한 설명으로 틀린 것은?",
+                answerChoice: {
+                    1 : "스타일 시트를 이용하여 배경 이미지의 반복 횟수를 증가시킨다.",
+                    2 : "배경 이미지가 클 경우 용량 증가로 로딩이 늦어진다.",
+                    3 : "메뉴는 메타포를 이용하여 디자인한다.",
+                    4 : "배경의 색상을 분할시켜 사용하면 프레임이 사용된 것처럼 보인다.",
+                },
+                answerResult: "스타일 시트를 이용하여 배경 이미지의 반복 횟수를 증가시킨다.",
+                answerEx: "배경이미지의 반복 횟수를 증가시키면 그만큼 로딩시간이 길어지겠죠?",
+            },
+            // 43
+
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 44,
+                answerAsk: "웹 페이지 저작에 필요한 S/W 중 웹에디터가 아닌 것은?",
+                answerChoice: {
+                    1 : "Internet Space Builder",
+                    2 : "EditPlus",
+                    3 : "Hotdog Professional",
+                    4 : "Dramweaver",
+                },
+                answerResult: "Internet Space Builder",
+                answerEx: "Internet Space Builder은 3D 기술을 제작하는 쪽이라고 하네요.",
+            },
+            // 44
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 48,
+                answerAsk: "컴퓨터 그래픽스의 단위 중 1인치당 몇 개의 픽셀이 들어가 있는지를 표현하는 것은?",
+                answerChoice: {
+                    1 : "LPI",
+                    2 : "EPI",
+                    3 : "PPI",
+                    4 : "DPI",
+                },
+                answerResult: "PPI",
+                answerEx: "PPI = pixel per inch",
+            },
+            // 48
+            {
+                answerType: "웹디자인 기능사 2013년 01회",
+                answerNum: 52,
+                answerAsk: "웹디자인 프로세스에 대한 설명으로 틀린 것은?",
+                answerChoice: {
+                    1 : "프로젝트 기획 - 목표설정, 시장조사, 개발전략수립",
+                    2 : "웹 사이트 기획 - 사이트 콘셉트 정의, 자료수집. 분석",
+                    3 : "웹 사이트 디자인 - 콘텐츠 제작 및 배치",
+                    4 : "웹 사이트 구축 - 테스트 및 디버깅",
+                },
+                answerResult: "웹 사이트 구축 - 테스트 및 디버깅",
+                answerEx: "테스트 및 디버깅 단계는 다 개발하고 유지보수 단계에서 실행하는 것 입니다.",
+            },
+            // 52
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "5",
+                answerAsk: "색입체를 단순화한 각 부분의 명칭이 맞는 것은? (단, A는 입체의 상하, /B는 입체의 가로방향, C는 입체의 둘레를 의미한다.)",
+                answerChoice: {
+                    1: "A-색상, B-채도, C-명도",
+                    2: "A-채도, B-명도, C-색상",
+                    3: "A-명도, B-색상, C-채도",
+                    4: "A-명도, B-채도, C-색상"
+                },
+                answerResult: "A-명도, B-채도, C-색상",
+                answerEx: "입체의 상하(A)는 명도, 입체의 가로방향(B)는 채도, 입체의 둘레(C)는 색상입니다."
             },
             {
-                answerType : "웹디자인기능사 2012년 5회",
-                answerNum : "3",
-                answerAsk : "한 선분을 둘로 나눌 때 두 선분의 길이 비율이 1: 1.618이 되며, 안정감과 아름다움의 상징으로 여겨지는 것은 무엇인가?",
-                answerChoice : [
-                    "심메트리",
-                    "황금분할",
-                    "루트구형",
-                    "아심메트리"
-                ],
-                answerResult : "황금분할",
-                answerEx : "심메트리 : 기준으로 채택한 부분의 기준 치수에 따른 전체의 모양과 다른 부분 사이의 관련성을 지칭하는 것"
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "9",
+                answerAsk: "다음에 해당하는 디자인의 기본조건은? → 창조는 기존의 디자인을 바탕으로 보다 나은 디자인을 만드는 것이다.",
+                answerChoice: {
+                    1: "합목적성",
+                    2: "심미성",
+                    3: "경제성",
+                    4: "독창성"
+                },
+                answerResult: "독창성",
+                answerEx: "디자인의 기본조건에는 합목적성, 심미성, 독창성, 경제성, 질서성이 있으며 독창성의 주요 키워드는 디자인의 핵심, 아이디어 독창적, 이미지, 인상적인, 독특함, 개성, 차별성, 문제점 개선 등이 있습니다."
             },
             {
-                answerType : "웹디자인기능사 2012년 5회",
-                answerNum : "4",
-                answerAsk : "다음 중 실내 공간을 목적별로 분류한 대상이 아닌 것은?",
-                answerChoice : [
-                    "생활 공간 (living space)",
-                    "가구 공간 (furniture space)",
-                    "공공 공간 (public space)",
-                    "작업 공간 (work space)"
-                ],
-                answerResult : "가구 공간 (furniture space)",
-                answerEx : "가구를 두는 공간은 목적별로 구분하여 분류할 필요가 없습니다." 
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "21",
+                answerAsk: "인터넷 검색엔진에 속하지 않는 것은?",
+                answerChoice: {
+                    1: "오페라(Opera)",
+                    2: "심마니(Simmani)",
+                    3: "알타비스타(Altavista)",
+                    4: "구글(Google)"
+                },
+                answerResult: "오페라(Opera)",
+                answerEx: "오페라(Opera)는 웹 브라우저 입니다."
             },
             {
-                answerType : "웹디자인기능사 2012년 5회",
-                answerNum : "5",
-                answerAsk : "망막에 다른 색광이 혼합되는 현상으로 색 점이 서로 가깝게 있어 명도와 채도가 떨어지지 않는 혼합방식은?",
-                answerChoice : [
-                    "보색혼합",
-                    "병치혼합",
-                    "가산혼합",
-                    "감산혼합"
-                ],
-                answerResult : "병치혼합",
-                answerEx : "보색혼합 : 색상환에서 서로 대응하는 위치의 두색을 혼합하는 것<br><br>가산혼합 : 빛의 3원색을 혼합하며, 혼합한 색이 원래의 색보다 밝아지는 것<br><br>감산혼합 : 색의 3원색을 혼합하며, 원래의 색보다 어두워지는 것"
-            }
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "22",
+                answerAsk: "자바스크립트의 함수 중 사용자로부터 임의의 문자를 입력받기 위한 창을 화면에 띄워 입력한 문자열을 사용할 수 있도록 하는 것은?",
+                answerChoice: {
+                    1: "prompt()",
+                    2: "eval()",
+                    3: "confirm()",
+                    4: "alert()"
+                },
+                answerResult: "prompt()",
+                answerEx: "자바스크립트의 함수 중 사용자로부터 임의의 문자를 입력받기 위한 창을 화면에 띄워 입력한 문자열을 사용할 수 있도록 하는 것은 'promt()'입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "23",
+                answerAsk: "다음 중 국내 인터넷 역사에서 가장 나중에 이루어진 것은?",
+                answerChoice: {
+                    1: "KT(한국통신)에서 본격적인 상용 접속 서비스 제공",
+                    2: "연구망에서 인터넷 연결(HANA/SDN : 56kbps)",
+                    3: "서울대-KIET간 TCP/IP로 SDN구축",
+                    4: "교육연구망 구성(ARPANet, BITNet과 연결)"
+                },
+                answerResult: "KT(한국통신)에서 본격적인 상용 접속 서비스 제공",
+                answerEx: "서울대-KIET간 TCP/IP로 SDN구축(1982년),교육연구망 구성(ARPANet, BITNet과 연결)(1987년), 연구망에서 인터넷 연결(HANA/SDN : 56kbps)(1990년), KT(한국통신)에서 본격적인 상용 접속 서비스 제공(1994년)"
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "24",
+                answerAsk: "개방형 시스템의 상호접속을 위한 참조모델로 ISO에서 제정한 것은?",
+                answerChoice: {
+                    1: "OSI 7 Layer",
+                    2: "Kermit",
+                    3: "Proxy",
+                    4: "Archie"
+                },
+                answerResult: "OSI 7 Layer",
+                answerEx: "개방형 시스템의 상호접속을 위한 참조모델로 ISO에서 제정한 것은 'OSI 7 Layer'입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "30",
+                answerAsk: "다음이 설명하고 있는 웹 페이지 저작도구는? → 멀티미디어와 애니메이션 제작을 위한 드로잉 전문프로그램. 벡터 방식의 그래픽 처리를 통해 그래픽 파일의 크기를 최적화할 수 있고 웹상에서 실시간 전송 및 재생되는 스트리밍 기법을 통한 빠른 속도를 제공. 다른 멀티미디어 저작도구와 달리 Plug-in 없이도 Active X, Java 기술을 이용하여 실행 가능한 특징을 가지고 있음",
+                answerChoice: {
+                    1: "드림위버",
+                    2: "자바스크립트",
+                    3: "플래시",
+                    4: "포토샵"
+                },
+                answerResult: "플래시",
+                answerEx: "위의 설명은 '플래시' 관련 설명입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "32",
+                answerAsk: "DHTML의 구성요소를 옳게 나열한 것은?",
+                answerChoice: {
+                    1: "HTML, CSS, JavaScript",
+                    2: "HTML, JSS, JavaScript",
+                    3: "HTML, CSS, JSS, JavaScript",
+                    4: "HTML, CSS, JSS, JavaScript, VBScript"
+                },
+                answerResult: "HTML, CSS, JavaScript",
+                answerEx: "DHTML의 구성요소를 옳게 나열한 것은 'HTML, CSS, JavaScript'입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "34",
+                answerAsk: "TCP/IP 프로토콜에 대한 설명으로 옳은 것은?",
+                answerChoice: {
+                    1: "IP는 에러를 검사하여 에러가 있을 때 송신측으로 재전송을 요구한다.",
+                    2: "TCP는 통신 경로를 담당한다.",
+                    3: "TCP/IP 프로토콜이 설치된 컴퓨터에서 인터넷을 이용할 수 있다.",
+                    4: "TCP/IP는 파일전송 프로토콜로써 재전송 기능이 없다."
+                },
+                answerResult: "TCP/IP 프로토콜이 설치된 컴퓨터에서 인터넷을 이용할 수 있다.",
+                answerEx: "TCP/IP 프로토콜은 애플리케이션 계층, 전송 계층, 네트워크 계층, 네트워크 인터페이스 계층, 하드웨어입니다. TCP/IP 프로토콜이 설치된 컴퓨터에서 인터넷을 사용할 수 있습니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "35",
+                answerAsk: "HTML 태그 종류와 그 기능에 대한 설명으로 옳은 것은?",
+                answerChoice: {
+                    1: "<CENTER></CENTER> : 왼쪽 정렬을 한다.",
+                    2: "<I></I> : 글자를 이탤릭(Italic)체로 지정한다.",
+                    3: "<PRE></PRE> : 기본 폰트의 크기를 지정한다.",
+                    4: "<HN></HN> : 그림을 삽입한다."
+                },
+                answerResult: "<I></I> : 글자를 이탤릭(Italic)체로 지정한다.",
+                answerEx: "center태그 안의 요소는 가운데 정렬입니다. pre태그는 미리 서식을 지정한 텍스트를 나타냅니다. hn태그는 주로 본문에 큰 글씨로 제목을 나타낼때에 사용이되는 태그입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "36",
+                answerAsk: "검색엔진 ‘네이버’에 대한 설명으로 틀린 것은?(오류 신고가 접수된 문제입니다.)",
+                answerChoice: {
+                    1: "키워드 검색 방식을 사용하고 있다.",
+                    2: "검색 탭 기능을 지원한다.",
+                    3: "검색어 배제(exclude) 연산자로 ‘-’를 사용한다.",
+                    4: "웹 문서와 사이트뿐만 아니라 뉴스, 이미지 검색도 지원한다."
+                },
+                answerResult: "검색어 배제(exclude) 연산자로 ‘-’를 사용한다.",
+                answerEx: "네이버는 검색어 배제 연산자로 '!'를 사용합니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "37",
+                answerAsk: "VRML(Virtual Reality Modeling Language)에 대한 설명으로 틀린 것은?",
+                answerChoice: {
+                    1: "VRML은 그래픽 기능뿐만 아니라 텍스트, 이미지, 애니메이션, 사운드 등 각종 멀티미디어 데이터를 2차원적 공간에 통합하여 서로상호작용 할 수 있다.",
+                    2: "VRML 은 상당한 인력과 고급 컴퓨터를 이용한 오랜 시간의 그래픽 렌더링이 필요한 프로그램 언어이다.",
+                    3: "VRML은 웹 상에 가상공간을 구축할 수 있게 함으로써 원격지의 사용자와 함께 가상공간을 공유할 수 있다.",
+                    4: "VRML은 HTML과의 결합뿐만 아니라, 기존의 실시간 멀티미디어 전송 기술과 자바 등의 새로운 언어 체계도 수용 할 수 있다."
+                },
+                answerResult: "VRML은 그래픽 기능뿐만 아니라 텍스트, 이미지, 애니메이션, 사운드 등 각종 멀티미디어 데이터를 2차원적 공간에 통합하여 서로상호작용 할 수 있다.",
+                answerEx: "VRML은 3차원 인터렉티브 벡터 그래픽을 표현하는 표준 파일 형식으로, 월드 와이드 웹을 염두에 두고 만들어 졌습니다. 현재는 X3D로 대체되었습니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "38",
+                answerAsk: "자바스크립트에서 사용자의 특정한 행동에 대해 어떤 처리를 해줄 것인가를 정의하는 것은?",
+                answerChoice: {
+                    1: "event",
+                    2: "object",
+                    3: "event handler",
+                    4: "event provider"
+                },
+                answerResult: "event handler",
+                answerEx: "자바스크립트에서 사용자의 특정한 행동에 대해 어떤 처리를 해줄 것인가를 정의하는 것은 'event handler'입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "39",
+                answerAsk: "검색엔진의 유형 중 다른 검색엔진들과 연계하여 검색어를 찾는 방식은?",
+                answerChoice: {
+                    1: "통합형 검색엔진 방식",
+                    2: "웹 인덱스 검색엔진 방식",
+                    3: "웹 디렉터리 검색엔진 방식",
+                    4: "메뉴 검색엔진 방식"
+                },
+                answerResult: "통합형 검색엔진 방식",
+                answerEx: "검색엔진의 유형 중 다른 검색엔진들과 연계하여 검색어를 찾는 방식은 '통합형 검색엔진 방식' 입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "41",
+                answerAsk: "웹 컬러 디자인의 목적과 거리가 가장 먼 것은?",
+                answerChoice: {
+                    1: "정보전달의 목적",
+                    2: "레이아웃의 목적",
+                    3: "심미적인 목적",
+                    4: "상징적인 목적"
+                },
+                answerResult: "레이아웃의 목적",
+                answerEx: "웹 컬러 디자인의 목적으로는 정보전달, 심미적, 상징적 등이 있습니다. 레이아웃의 목적은 해당하지 않습니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "44",
+                answerAsk: "1인치당 픽셀의 수를 나타내는 단위는?",
+                answerChoice: {
+                    1: "LPI",
+                    2: "EPI",
+                    3: "PPI",
+                    4: "DPI"
+                },
+                answerResult: "PPI",
+                answerEx: "1인치당 픽셀의 수를 나타내는 단위는 'PPI'입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "50",
+                answerAsk: "명령어를 일일이 입력하는 번거로움을 없애주며, 사용자들로 하여금 아이콘을 선택하여 원하는 프로그램을 실행할 수 있게 사용되는 컴퓨터 조작기법이 아닌 것은?",
+                answerChoice: {
+                    1: "드래깅",
+                    2: "포인팅",
+                    3: "클릭킹",
+                    4: "더블 클릭킹"
+                },
+                answerResult: "드래깅",
+                answerEx: "드래깅이란 그래픽 사용자 인터페이스를 제공하는 컴퓨터의 화면상에 있는 아이콘이나 기타의 이미지 등을 움직이는 것과 관련되는 용어이며, 마우스가 움직이고 있는 동안 마우스 단추를 누르는 동작을 가리키는데 사용되기도 합니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "53",
+                answerAsk: "동영상 관련 포맷 방식이 아닌 것은?",
+                answerChoice: {
+                    1: "*.wav",
+                    2: "*.asf",
+                    3: "*.avi",
+                    4: "*.rm"
+                },
+                answerResult: "*.wav",
+                answerEx: "*.wav는 비압축 오디오 포맷입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "57",
+                answerAsk: "바람직한 웹사이트 초기화면구성이라고 볼 수 있는 것은?",
+                answerChoice: {
+                    1: "자료를 테이블화 시켜서 제시하였다.",
+                    2: "JAVA applet을 많이 사용한다.",
+                    3: "웹사이트를 홍보할 수 있는 동영상을 게시한다.",
+                    4: "ActiveX를 많이 사용한다."
+                },
+                answerResult: "자료를 테이블화 시켜서 제시하였다.",
+                answerEx: "바람직한 웹사이트 초기화면구성이라고 볼 수 있는 것은 자료를 테이블화 시켜서 제시하는 것입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "58",
+                answerAsk: "랜덤 스캔 방식의 화면표시 장치의 특징으로 틀린 것은?",
+                answerChoice: {
+                    1: "그래픽스 명령어를 반복 실행하여 화면에 디스플레이 한다.",
+                    2: "화상을 이루고 있는 선분을 따라 전자빔을 쏘아 그린다.",
+                    3: "프레임 버퍼의 크기가 클수록 고화질의 디스플레이가 가능하다.",
+                    4: "앨리어싱이 발생하지 않으므로 안티앨리어싱 처리가 불필요하다."
+                },
+                answerResult: "프레임 버퍼의 크기가 클수록 고화질의 디스플레이가 가능하다.",
+                answerEx: "랜덤스캔은 화면의 임의의 점에서 임의의 점까지에 이르는 직선상으로만 전자빔을 움직이는 방식으로 시작점부터 끝점까지 선을 긋는 것이기 때문에 벡터 스캔이라고도 합니다. 하지만 프레임 버퍼는 화면에 나타날 영상 정보를 일시적으로 저장하는 기억 장치로 면 각 점의 온(on)/오프(off)나 색깔을 비트맵으로 기억하고 있습니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "7",
+                answerAsk: "지루함을 잊게 해 줄 수 있는 대기실이나 병원 실내의 벽에 대한 배색 계통으로 가장 적당한 것은?",
+                answerChoice: {
+                    1: "난색",
+                    2: "한색",
+                    3: "중성색",
+                    4: "무채색"
+                },
+                answerResult: "한색",
+                answerEx: "난색은 따뜻하고 여유로운 느낌을 주고, 한색은 시원한 느낌과 긴장감을 줍니다. 지루함을 잊게 해주기 위해서는 한색이 적합합니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "14",
+                answerAsk: "다음 중 디자인 시각요소에 대한 분류로 틀린 것은?",
+                answerChoice: {
+                    1: "질감(texture)",
+                    2: "색(color)",
+                    3: "형(shape)",
+                    4: "기술(technology)"
+                },
+                answerResult: "기술(technology)",
+                answerEx: "디자인의 시각요소에는 형, 색, 질감이 있습니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "24",
+                answerAsk: "인터넷 익스플로러 6.0 에서 인터넷 옵션의 '내용관리자' 부분에 대한 설명으로 틀린 것은?",
+                answerChoice: {
+                    1: "인증서 : 범주에 따른 등급을 조정할 수 있으며 그 등급에 해당하는 홈페이지로 이동할 수 있도록 추가 정보를 제공한다.",
+                    2: "승인된 사이트 : 등급 지정에 관계없이 항상 볼 수 있거나 볼 수 없는 사이트를 지정할 수 있다.",
+                    3: "일반 : 사용자 옵션과 감독자 암호를 지정할 수 있는 곳으로, 기본적으로 사용자가 제한된 내용만 보도록 표시되어 있다.",
+                    4: "고급 : 사용자가 다른 등급 시스템을 적용하려고 할 때 이용한다."
+                },
+                answerResult: "인증서 : 범주에 따른 등급을 조정할 수 있으며 그 등급에 해당하는 홈페이지로 이동할 수 있도록 추가 정보를 제공한다.",
+                answerEx: "인증서는 인증서 사용을 여부를 선택함으로써 웹 사이트 보안과 전자메일 보안을 설정하는 것으로, '내용관리자'가 아닌 인터넷옵션에서 바로 설정할 수 있습니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "25",
+                answerAsk: "CGI에 대한 설명으로 틀린 것은?",
+                answerChoice: {
+                    1: "사용자의 프로그램 수행요구에 대한 표준 인터페이스이다.",
+                    2: "Computer Graphic Interface 의 약자이다.",
+                    3: "CGI 프로그래밍 언어로 PHP, JSP, ASP 등이 있다.",
+                    4: "클라이언트와 서버 중간에서 정보 전달을 한다."
+                },
+                answerResult: "Computer Graphic Interface 의 약자이다.",
+                answerEx: "CGI 의 약자는 'Common Gateway Interface'입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "29",
+                answerAsk: "인터넷을 통해 주고 받는 내용을 캐시에 저장해 놓았다가 동일한 자료의 송수신이 발생할 경우 이를 되풀이 하지 않게 함으로써 속도를 향상시킬 수 있는 서버는?",
+                answerChoice: {
+                    1: "DNS 서버",
+                    2: "Proxy 서버",
+                    3: "HTTP 서버",
+                    4: "Gateway 서버"
+                },
+                answerResult: "Proxy 서버",
+                answerEx: "Proxy서버는 LAN과 외부 네트워크 사이에서 방화벽 및 캐시역할을 수행합니다. 한 번 읽은 내용은 중간에 경유한 프락시 서버가 받아두었던 내용을 읽어들여, 시간을 단축시켜 줌으로써 속도를 향상시킬 수 있습니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "37",
+                answerAsk: "하이퍼링크를 클릭하였을 때 나타나는 문서의 위치를 지정할 수 있는 TARGET 속성의 설명으로 틀린 것은?",
+                answerChoice: {
+                    1: "TARGET='_blank' : 새로운 창에 링크된 문서가 나타난다.",
+                    2: "TARGET='_self' : 현재 창에 링크된 문서가 나타난다.",
+                    3: "TARGET='_parent' : 현재 창의 부모 프레임(현재의 프레임 구조로 들어오기 이전의 한 단계 상위 페이지)에 링크된 문서가 나타난다.",
+                    4: "TARGET='_top' : 현재 여러 프레임 가운데 가장 위의 프레임에 링크된 문서가 나타난다."
+                },
+                answerResult: "TARGET='_top' : 현재 여러 프레임 가운데 가장 위의 프레임에 링크된 문서가 나타난다.",
+                answerEx: "Target에서 '_top' 의 속성은 현재 프레임의 최상위 프레임을 링크하는 것입니다. 문제에서는 '현재 여러 프레임'이라고 서술되어 있기 때문에 틀린 설명이 됩니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "38",
+                answerAsk: "IPv4에서 멀티캐스트를 위해 예약되어 있는 클래스는?",
+                answerChoice: {
+                    1: "클래스 A",
+                    2: "클래스 B",
+                    3: "클래스 C",
+                    4: "클래스 D"
+                },
+                answerResult: "클래스 D",
+                answerEx: "IPv4에서 클래스별로 사용하는 용도는 다음과 같습니다.<br>A클래스 - 국가나 대형 통신망<br>B클래스 - 중대형 통신망<br>C클래스 - 소규모 통신망<br>D클래스 - 멀티태스킹용으로 예약<br>E클래스 - 실험용으로 예약"
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "43",
+                answerAsk: "벽돌이나 자갈처럼 울퉁불퉁한 표현을 할 때 사용하여 흰색 부분은 돌출되어 보이고 검은색에 가까울수록 들어가 보이게 만드는 것으로, 3차원 컴퓨터그래픽스에서 다각형으로 표현된 물체 표면에 요철 정보를 첨부하는 기법은?",
+                answerChoice: {
+                    1: "리플렉션 매핑(Reflection Mapping)",
+                    2: "이미지 매핑(Image Mapping)",
+                    3: "범프 매핑(Bump Mapping)",
+                    4: "솔리드 텍스쳐 매핑(Solid Texture Mapping)"
+                },
+                answerResult: "범프 매핑(Bump Mapping)",
+                answerEx: "범프 매핑은 3차원 컴퓨터 그래픽에서 물체 표면에 요철을 나타내는 기법입니다. 범프 매핑에 의해 빛에 대한 음영 등을 섬세하게 나타낼수 있습니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "44",
+                answerAsk: "물체의 색과 바탕색의 중간 값을 정하여 표시하는 방법으로, 계단 모양의 부자연스러움을 없앨 수 있는 것은?",
+                answerChoice: {
+                    1: "패턴(Pattern)",
+                    2: "안티-앨리어싱(Anti-aliasing)",
+                    3: "그라디언트 맵(Gradient Map)",
+                    4: "레이어(Layer)"
+                },
+                answerResult: "안티-앨리어싱(Anti-aliasing)",
+                answerEx: "안티-앨리어싱은 비트맵 이미지의 곡선이나 사선 부분의 계단 현상을 완화시킬 수 있습니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "47",
+                answerAsk: "픽셀(pixel)에 대한 설명으로 틀린 것은?",
+                answerChoice: {
+                    1: "더 이상 나눌 수 없는 최소단위이다.",
+                    2: "1:1 정사각형의 픽셀을 기본으로 한다.",
+                    3: "픽셀의 좌표는 X, Y, Z 축의 좌표계이다.",
+                    4: "픽셀의 좌표계를 비트맵이라 한다."
+                },
+                answerResult: "픽셀의 좌표는 X, Y, Z 축의 좌표계이다.",
+                answerEx: "픽셀의 위치정보는 직교좌표계의 x, y좌표값으로 표시합니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "49",
+                answerAsk: "웹 디자인 프로세스 도입의 장점이 아닌 것은?",
+                answerChoice: {
+                    1: "인력분배를 효율적으로 해준다.",
+                    2: "피드백 및 실행착오를 최소화해준다.",
+                    3: "각 팀 간의 의사소통을 원활히 해준다.",
+                    4: "전체 디자인 기간이 길어진다."
+                },
+                answerResult: "전체 디자인 기간이 길어진다.",
+                answerEx: "디자인 프로세스는 오류를 줄이고, 시간과 비용의 낭비를 최소화하는 등 효율적인 작업을 돕습니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "50",
+                answerAsk: "랜덤 스캔 방식의 화면표시 장치의 특징으로 틀린 것은?",
+                answerChoice: {
+                    1: "그래픽스 명령어를 반복 실행하여 화면에 디스플레이 한다.",
+                    2: "화상을 이루고 있는 선분을 따라 전자빔을 쏘아 그린다.",
+                    3: "프레임 버퍼의 크기가 클수록 고화질의 디스플레이가 가능하다.",
+                    4: "앨리어싱이 발생하지 않으므로 안티앨리어싱 처리가 불필요하다."
+                },
+                answerResult: "프레임 버퍼의 크기가 클수록 고화질의 디스플레이가 가능하다.",
+                answerEx: "프레임 버퍼 크기가 클수록 고화질 디스플레이가 가능한 것은 래스터 스캔 방식에 속하는 설명입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "55",
+                answerAsk: "다음은 제 2세대의 컴퓨터 그래픽에 관한 설명이다. ( ) 안에 공통으로 들어갈 알맞은 용어는? <br>[1960년 CRT를 이용한 미국의 보잉 737 제트여객기 설계로 1965년에 ( ) 소프트웨어 개발이 활성화되었는데, 이것은 오늘날 ( )의 기반을 구축하였다.]",
+                answerChoice: {
+                    1: "Computer Aided Design",
+                    2: "Computer Graphics",
+                    3: "MicroSoft",
+                    4: "Macro Media"
+                },
+                answerResult: "Computer Aided Design",
+                answerEx: "컴퓨터 지원 디자인 CAD(computer aided design)에 대한 설명입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "58",
+                answerAsk: "다음의 특성을 가진 파일의 확장자는? <br>① 웹에서 스캔 이미지에 비해 파일 용량이 작다.<br>② 사용자와 상호작용이 가능하며, 확장성과 호환성이 뛰어나다.<br>③ 다운로드와 동시에 실시간 플레이가 가능하다. <br>④ 확대나 축소 시 이미지 손상 없이 재생이 가능하다.",
+                answerChoice: {
+                    1: "PNG",
+                    2: "SWF",
+                    3: "PSD",
+                    4: "ASP"
+                },
+                answerResult: "SWF",
+                answerEx: "파일 용량이 적고 이미지 손상이 없는 파일은 벡터 방식이며, 플래시로 실시간 플레이가 가능한 포맷은 SWF파일입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2015년 2회",
+                answerNum: "59",
+                answerAsk: "명도단계를 검은색에서 흰색까지, 0에서 255까지 256단계로 구분하여 이미지의 명도 분포를 막대그래프로 표시한 것은?",
+                answerChoice: {
+                    1: "모델링",
+                    2: "쉐도우",
+                    3: "다이어그램",
+                    4: "히스토그램"
+                },
+                answerResult: "히스토그램",
+                answerEx: "히스토그램(Histogram)이란 이미지의 명암 갑 프로필을 보여주는 도구로 X축은 0-255까지의 픽셀의 밝기, Y축은 픽셀의 빈도수를 나타냅니다."
+            },
         ];
 
         const quizType = document.querySelector(".quiz__type"); //타입
@@ -187,19 +865,19 @@
             const choiceTag = `
                 <label for="select1">
                     <input type="radio" id="select1" class="select" name="select" value="1">
-                    <span class="choice">${quizInfo[index].answerChoice[0]}</span>
+                    <span class="choice">${quizInfo[index].answerChoice[1]}</span>
                 </label>
                 <label for="select2">
                     <input type="radio" id="select2" class="select" name="select" value="2">
-                    <span class="choice">${quizInfo[index].answerChoice[1]}</span>
+                    <span class="choice">${quizInfo[index].answerChoice[2]}</span>
                 </label>
                 <label for="select3">
                     <input type="radio" id="select3" class="select" name="select" value="3">
-                    <span class="choice">${quizInfo[index].answerChoice[2]}</span>
+                    <span class="choice">${quizInfo[index].answerChoice[3]}</span>
                 </label>
                 <label for="select4">
                     <input type="radio" id="select4" class="select" name="select" value="4">
-                    <span class="choice">${quizInfo[index].answerChoice[3]}</span>
+                    <span class="choice">${quizInfo[index].answerChoice[4]}</span>
                 </label>
             `;
 
