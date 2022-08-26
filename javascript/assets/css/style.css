@@ -1,5 +1,7 @@
 /* 웹폰트 */
 @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+@import url('https://webfontworld.github.io/PyeongChang/PyeongChangPeace.css');
 
 /* 리셋 */
 
@@ -47,27 +49,41 @@ body {
 #footer a:hover {
     text-decoration: underline;
 }
-
+/* container */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 /* 헤더영역 */
+#header {
+    text-align: center;
+}
 #header h1 a{
     font-size: 60px;
     font-weight: 700;
-}
-.header_nav ul li.active a {
-    background-color: #000;
-    color: #fff;
+    color: #0243f1;
+    font-family: 'PyeongChangPeace';
 }
 .header_nav ul li {
     display: inline;
 }
 .header_nav ul li a {
-    border: 1px solid #222;
+    border-radius: 5px;
+    color: #0243f1;
+    border: 1px solid #0243f1;
     padding: 8px 25px;
     display: inline-block;
     margin-bottom: 7px;
+    font-family: 'GmarketSans';
+}
+.header_nav ul li.active a {
+    background-color: #0243f1;
+    color: #fff;
+    font-family: 'GmarketSans';
 }
 .header_nav ul li a:hover {
-    background-color: #000;
+    background-color: #0243f1;
     color: #fff;
 }
 .header_nav .study {
@@ -102,6 +118,53 @@ body {
 }
 .main_sample .result {
     margin-bottom: 80px;
+    margin-top: 10px;
+    background: #0242f111;
+    padding: 10px;
+    border-radius: 5px;
+}
+/* intro_menu */
+.intro_menu {
+    width: 60vw;
+    max-width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.2);
+    padding: 3vw;
+    border-radius: 1vw;
+}
+.intro_menu ul li {
+    margin: 5px;
+    position: relative;
+}
+.intro_menu ul li a {
+    color: rgb(154, 0, 201);
+    font-weight: 600;
+    display: inline-block;
+    padding: 3px 10px 0;
+    background: rgba(255, 255, 255, 0.842);
+    border-radius: 50px;
+    position: absolute;
+    right: 0;
+}
+.intro_menu ul li a:hover {
+    background: rgb(154, 0, 201);
+    color: #fff;
+}
+@media (max-width: 600px){
+    .intro_menu {
+        width: 90%;
+        padding: 14px;
+    }
+    .intro_menu ul li {
+        font-size: 16px;
+    }
+    .intro_menu ul li a {
+        font-size: 16px;
+    }
 }
 
 /* sample */
@@ -146,6 +209,27 @@ body {
     .sample .table table tr td[class*="_P"] {
         color: #000;
     }
+}
+/* scrollbar */
+::-webkit-scrollbar-track {
+    background-color: #282936;
+}
+
+::-webkit-scrollbar
+{
+    width: 10px;
+    height: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background-color: #414358;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover
+{
+    background-color: #0243f1;
 }
 
 /* 티스토리용 문서 */
