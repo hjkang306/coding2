@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="../assets/css/quiz.css">
     <link rel="stylesheet" href="../assets/css/source.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
 
     <!-- 웹폰트 -->
     <link href="https://webfontworld.github.io/DungGeunMo/DungGeunMo.css" rel="stylesheet">
@@ -76,23 +77,83 @@
                 <div class="source__box">
                     <div class="title">
                         <div class="tabs">
-                            <div>Javascript</div>
+                            <div class="active">Javascript</div>
                             <div>HTML</div>
                             <div>CSS</div>
                         </div>
                     </div>
                     <div class="cont">
                         <div class="active">
-    <pre><code class="languige-js">
-    </code></pre>
+<pre><code class="languige-js">//선택자
+const quizType = document.querySelector(".quiz__type");                  //퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");    //퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");          //퀴즈 질문
+const quizConfilm = document.querySelector(".quiz__answer .confilm");    //정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");      //정답 결과
+const quizDog = document.querySelector(".quiz__view .dog");              //강아지
+
+//문제 정보
+const answerType = "웹디자인기능사";
+const answerNum = 1;
+const answerAsk = "인접하는 두 색의 경계 부분에 색상, 명도, 채도의 대비가 더욱 강하게 일어나는 현상을 무엇이라고 하는가?";
+const answerResult = "연변대비";
+
+//문제 출력
+quizType.innerText = answerType;        //innerText는 자바스크립트에서 만들어 놓은 요소객체이다.
+quizNumber.innerText = answerNum + ".";
+quizAsk.innerText = answerAsk;
+quizResult.innerText = answerResult;
+
+//정답 숨기기
+quizResult.style.display = "none";
+
+//정답 확인
+//정답 버튼을 클릭하면 확인 버튼이 안보이게, 숨겨진 정답은 보이게
+quizConfilm.addEventListener("click", function(){    //버튼을 클릭하면 실행해라~ 이런 뜻
+    quizConfilm.style.display = "none";
+    quizResult.style.display = "block";
+});
+</code></pre>
                         </div>
                         <div>
-    <pre><code class="languige-html">
-    </code></pre>
+<pre><code class="languige-html">&lt;div class="quiz__wrap">
+    &lt;div class="quiz">
+        &lt;span class="quiz__type">&lt;/span>
+        &lt;h2 class="quiz__question">
+            &lt;span class="number">&lt;/span>
+            &lt;div class="ask">&lt;/div>
+        &lt;/h2>
+        &lt;div class="quiz__view">
+            &lt;div class="dog">
+                &lt;div class="head">
+                    &lt;div class="ears">&lt;/div>
+                    &lt;div class="face">&lt;/div>
+                    &lt;div class="eyes">
+                        &lt;div class="teardrop">&lt;/div>
+                    &lt;/div>
+                    &lt;div class="nose">&lt;/div>
+                    &lt;div class="mouth">
+                        &lt;div class="tongue">&lt;/div>
+                    &lt;/div>
+                    &lt;div class="chin">&lt;/div>
+                &lt;/div>
+                &lt;div class="body">
+                    &lt;div class="tail">&lt;/div>
+                    &lt;div class="legs">&lt;/div>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="quiz__answer">
+            &lt;button class="confilm">정답 확인하기&lt;/button>
+            &lt;div class="result">&lt;/div>
+        &lt;/div>
+    &lt;/div>
+&lt;/div>
+</code></pre>
                         </div>
                         <div>
-    <pre><code class="languige-css">
-    </code></pre>
+<pre><code class="languige-css">
+</code></pre>
                         </div>
                     </div>
                     <div class="source__close">
@@ -108,7 +169,9 @@
     <!-- footer -->
 
     <script src="../assets/js/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <script>
+        hljs.highlightAll();
+    </script>
     <script>
         //source
         const sourceBtn = document.querySelector(".source__btn");

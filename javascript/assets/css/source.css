@@ -44,26 +44,25 @@
     transform: scale(0);
 }
 .source__box {
-    width: 80%;
+    width: 70%;
     height: 70vh;
     border-radius: 0.5rem;
     box-shadow: 0 10px 20px -5px hsl(180deg 2% 10%);
     transform: scale(0);
 }
 .source__box .title {
-    padding-top: 0.5rem;
     padding-inline: 1rem;
     background-color: rgb(100, 100, 255);
     display: flex;
     align-items: center;
     color: #fff;
-    height: 50px;
+    height: 60px;
     border-top-left-radius: 0.4rem;
     border-top-right-radius: 0.4rem;
 }
 .source__box .title .tabs {
     display: flex;
-    margin-left: 50px;
+    margin-left: 5px;
 }
 .source__box .title .tabs > div {
     font-family: 'DungGeunMo';
@@ -88,6 +87,7 @@
     margin-left: 4rem;
 }
 .source__box .cont {
+    text-align: left;
     background-color: rgb(40, 43, 46);
     height: 100%;
     overflow-y: auto;
@@ -104,17 +104,19 @@
 }
 .source__close {
     position: absolute;
-    right: 20px;
-    top: 20px;
-    background-color: rgb(40, 43, 46);
-    padding: 0.5rem 0.5rem;
+    right: 15px;
+    top: 10px;
+    background-color: red;
+    border: 3px outset;
+    padding: 0.5rem 0.5rem 0.3rem;
     border-radius: 5px;
     box-shadow: 0 5px 7px -5px hsl(180 2% 10%);
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.2s;
 }
 .source__close:hover {
-    background-color: rgb(100, 100, 200);
+    background-color: darkred;
+    border: 3px inset;
 }
 .source__close svg {
     color: #fff;
