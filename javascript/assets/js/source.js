@@ -1,4 +1,4 @@
-//모달
+//source
 const sourceBtn = document.querySelector(".source__btn");
 const sourceClose = document.querySelector(".source__close");
 const sourceCont = document.querySelector(".source__cont");
