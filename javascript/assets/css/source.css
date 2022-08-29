@@ -1,0 +1,178 @@
+/* footer */
+#footer {}
+
+/* source___wrap */
+/* .source__wrap {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    padding: 10px 30px;
+    font-size: 14px;
+} */
+.source__btn {
+    font-weight: 500;
+    background: #333;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    display: inline-block;
+    padding: 10px 20px;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+.source__btn:hover {
+    background-color: rgb(164, 91, 231);
+    color: #fff;
+}
+.source__cont {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+}
+.source__box {
+    width: 80%;
+    height: 70vh;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 20px -5px hsl(180deg 2% 10%);
+    transform: scale(0);
+}
+.source__box .title {
+    padding-inline: 1rem;
+    background-color: hsl(180 2% 10%);
+    display: flex;
+    align-items: center;
+    color: #fff;
+    height: 50px;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+}
+.source__box .title .tabs {
+    display: flex;
+    margin-left: 50px;
+}
+.source__box .title .tabs > div {
+    color: hsl(39 33% 66%);
+    background-color: rgb(56, 56, 56);
+    padding: 0.35rem 0.8rem 0.25rem;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.4rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.source__box .title .tabs > div.active {
+    background-color: rgb(37, 37, 37);
+}
+.source__box .title .tabs > div .close {
+    margin-left: 4rem;
+}
+.source__box .cont {
+    background-color: rgb(40, 43, 46);
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+.source__box .cont > div {
+    display: none;
+}
+.source__box .cont > div.active {
+    display: block;
+    height: 100%;
+}
+.source__close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: rgb(40, 43, 46);
+    padding: 1rem 1rem 0.8rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 7px -5px hsl(180 2% 10%);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.source__close:hover {
+    background-color: #33377d;
+}
+.source__close svg {
+    color: #fff;
+}
+
+/* source 애니메이션 */
+.source__cont.show {
+    animation: foldOut 1s ease forwards;
+}
+.source__cont.show.hide {
+    animation: foldIn 0.3s 0.5s ease backwards;
+}
+.source__cont.show .source__box {
+    animation: zoomOut 0.5s 1s ease forwards;
+    transform: scale(0);
+}
+.source__cont.show.hide .source__box {
+    animation: zoomIn 0.5s ease forwards;
+}
+.source__cont.show .source__close {
+    animation: clsShow 0.5s 1.5s ease forwards;
+    transform: scale(0);
+}
+.source__cont.show.hide .source__close {
+    animation: clsHide 0.5s ease forwards;
+}
+
+@keyframes foldOut {
+    0%      {transform: scaleX(0) scaleY(0.003);}
+    50%     {transform: scaleX(1) scaleY(0.003);}
+    100%    {transform: scaleX(1) scaleY(1);}
+}
+@keyframes foldIn {
+    0%      {transform: scaleX(1) scaleY(1);}
+    50%     {transform: scaleX(1) scaleY(0.003);}
+    100%    {transform: scaleX(0) scaleY(0.003);}
+}
+@keyframes zoomOut {
+    0%      {transform: scale(0);}
+    100%    {transform: scale(1);}
+}
+@keyframes zoomIn {
+    0%      {transform: scale(1);}
+    100%    {transform: scale(0);}
+}
+@keyframes clsShow {
+    0%      {transform: scale(0);}
+    100%    {transform: scale(1);}
+}
+@keyframes clsHide {
+    0%      {transform: scale(1);}
+    100%    {transform: scale(0);}
+}
+
+@media (max-width: 1100px){
+    .source__box .title {
+        overflow: hidden;
+    }
+    .source__box .title .dot {
+        display: none;
+    }
+    .source__box .title .tabs {
+        margin-left: 0;
+    }
+    .source__box .title .tabs > div .close {
+        display: none;
+    }
+}
