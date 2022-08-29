@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>슬라이드 이펙트01</title>
+    <title>슬라이드 이펙트03</title>
 
     <link rel="stylesheet" href="../assets/css/slider.css">
     <link rel="stylesheet" href="../assets/css/android.css">
@@ -17,15 +17,21 @@
             align-items: center;
             justify-content: center;
         }
-        .slider__img {
+        .slider__img {      /* 이미지 보이는 영역 */
             position: relative;
             width: 800px;
             height: 450px;
+            overflow: hidden;
         }
-        .slider {
-            position: absolute;
-            left: 0;
-            top: 0;
+        .slider__inner {     /* 이미지를 감싸고 있는 부모 : 움직이는 부분 */
+            display: flex;
+            flex-wrap: wrap;
+            width: 4000px;
+        }
+        .slider {           /* 개별적인 이미지 */
+            position: relative;
+            width: 800px;
+            height: 450px;
         }
         .slider::before {
             position: absolute;
@@ -34,6 +40,7 @@
             background: rgba(0,0,0,0.4);
             color: #fff;
             padding: 5px 10px;
+            border-radius: 5px;
         }
         .slider:nth-child(1)::before {content: '이미지1';}
         .slider:nth-child(2)::before {content: '이미지2';}
@@ -54,14 +61,14 @@
         }
     </style>
 </head>
-<body class="img05">
+<body class="img01">
     <header id="header">
-        <h1>Javascript Slider Effect01</h1>
-        <p>슬라이드 이펙트 - 트랜지션 효과</p>
+        <h1>Javascript Slider Effect03</h1>
+        <p>슬라이드 이펙트 - 좌로 움직이기(연속적으로)</p>
         <ul>
-            <li class="active"><a href="sliderEffect01.html">1</a></li>
+            <li><a href="sliderEffect01.html">1</a></li>
             <li><a href="sliderEffect02.html">2</a></li>
-            <li><a href="sliderEffect03.html">3</a></li>
+            <li class="active"><a href="sliderEffect03.html">3</a></li>
             <li><a href="sliderEffect04.html">4</a></li>
             <li><a href="sliderEffect05.html">5</a></li>
             <li><a href="sliderEffect06.html">6</a></li>
@@ -73,11 +80,13 @@
         <section id="sliderType01">
             <div class="slider__wrap">
                 <div class="slider__img">
-                    <div class="slider"><img src="../assets/img/effect_bg01-min.jpg" alt="이미지1"></div>
-                    <div class="slider"><img src="../assets/img/effect_bg02-min.jpg" alt="이미지2"></div>
-                    <div class="slider"><img src="../assets/img/effect_bg03-min.jpg" alt="이미지3"></div>
-                    <div class="slider"><img src="../assets/img/effect_bg04-min.jpg" alt="이미지4"></div>
-                    <div class="slider"><img src="../assets/img/effect_bg05-min.jpg" alt="이미지5"></div>
+                    <div class="slider__inner">
+                        <div class="slider"><img src="../assets/img/effect_bg06-min.jpg" alt="이미지6"></div>
+                        <div class="slider"><img src="../assets/img/effect_bg07-min.jpg" alt="이미지7"></div>
+                        <div class="slider"><img src="../assets/img/effect_bg08-min.jpg" alt="이미지8"></div>
+                        <div class="slider"><img src="../assets/img/effect_bg09-min.jpg" alt="이미지9"></div>
+                        <div class="slider"><img src="../assets/img/effect_bg10-min.jpg" alt="이미지10"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -150,52 +159,15 @@
                 </div>
                 <div class="cont">
                     <div class="active">
-<pre><code class="languige-js">const sliderWrap = document.querySelector(".slider__wrap");
-const sliderImg = sliderWrap.querySelector(".slider__img");
-const slider = sliderWrap.querySelectorAll(".slider");
-
-let currentIndex = 0;   //현재 보이는 이미지
-let sliderCount = sliderImg.length;    //이미지 갯수
-
-//n초에 한번씩 실행문을 실행시켜줌
-setInterval(() => { 
-    let nextIndex = (currentIndex + 1) % sliderCount;   //다음 이미지
-    
-    slider[currentIndex].style.opacity = "0"; //첫번째 이미지를 안보이게
-    slider[nextIndex].style.opacity = "1";  //두번째 이미지를 보이게
-
-    currentIndex = nextIndex;
-}, 3000);
+<pre><code class="languige-js">
 </code></pre>
                     </div>
                     <div>
-<pre><code class="languige-html">&lt;div class="slider__wrap"&gt;
-    &lt;div class="slider__img"&gt;
-        &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg01-min.jpg" alt="이미지1"&gt;&lt;/div&gt;
-        &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg02-min.jpg" alt="이미지2"&gt;&lt;/div&gt;
-        &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg03-min.jpg" alt="이미지3"&gt;&lt;/div&gt;
-        &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg04-min.jpg" alt="이미지4"&gt;&lt;/div&gt;
-        &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg05-min.jpg" alt="이미지5"&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div>
+<pre><code class="languige-html">
 </code></pre>
                     </div>
                     <div>
-<pre><code class="languige-css">/* reset */
-* {
-    margin: 0;
-    padding: 0;
-}
-a {
-    text-decoration: none;
-    color: #000;
-}
-img {
-    width: 100%;
-}
-h1, h2, h3, h4, h5, h6 {
-    font-weight: normal;
-}
+<pre><code class="languige-css">
 </code></pre>
                     </div>
                 </div>
@@ -216,23 +188,49 @@ h1, h2, h3, h4, h5, h6 {
     <script src="../assets/js/common.js"></script>
     <script>
         hljs.highlightAll();
-
-        const sliderWrap = document.querySelector(".slider__wrap");
-        const sliderImg = sliderWrap.querySelector(".slider__img");
-        const slider = sliderWrap.querySelectorAll(".slider");
-
-        let currentIndex = 0;   //현재 보이는 이미지
-        let sliderCount = sliderImg.length;    //이미지 갯수
-        
-        //n초에 한번씩 실행문을 실행시켜줌
-        setInterval(() => { 
-            let nextIndex = (currentIndex + 1) % sliderCount;   //다음 이미지
-            
-            slider[currentIndex].style.opacity = "0"; //첫번째 이미지를 안보이게
-            slider[nextIndex].style.opacity = "1";  //두번째 이미지를 보이게
-
-            currentIndex = nextIndex;
-        }, 3000);
     </script>
+
+    <!-- javascript -->
+    <script>
+        const sliderInner = document.querySelector(".slider__inner");
+        const slider = document.querySelectorAll(".slider");
+        let currentIndex = 0;
+        
+        sliderInner.style.transition = "all 0.6s"
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slider.length;
+
+            sliderInner.style.transform = "translateX("+ -800  * currentIndex + "px)";
+        },2000);
+    </script>
+    
+    <!-- GSAP를 이용한 애니메이션 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script>
+        const slider = document.querySelectorAll(".slider");
+        let currentIndex = 0;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slider.length;
+
+            gsap.to(".slider__inner", {
+                duration : 0.6,
+                x : -800 * currentIndex
+            });
+        },2000);
+    </script> -->
+
+    <!-- jQuery를 이용한 애니메이션 -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        let currentIndex = 0;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % $(".slider").length;
+            
+            $(".slider__inner").css("position", "relative");
+            $(".slider__inner").animate({left : -800 * currentIndex}, 600)
+        },2000);
+    </script> -->
 </body>
 </html>
