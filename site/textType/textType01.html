@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text type</title>
+
+    <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+        .font {
+            font-family: 'NexonLv1Gothic';
+            font-weight: 400;
+        }
+
+        /* ir 효과(이미지 대체 효과 == alt) */
+        .ir {
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section>p {
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 10px;
+            text-decoration-line: underline;
+        }
+
+        /* main */
+        .text__box {}
+        .top {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .top .text:nth-child(2) {
+            margin: 0 20px;
+        }
+        .bottom {
+            display: flex;
+        }
+        .bottom .text:nth-child(2) {
+            margin: 0 20px;
+        }
+        .text {
+            width: 373px;
+            height: 260px;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+        .text:hover {
+            background: #f5f5f5;
+        }
+        .text .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: url(img/iconsplite.svg) no-repeat;
+            margin-bottom: 10px;
+        }
+        .top .text:nth-child(1) .icon {
+            background-color: rgba(55, 197, 129, 0.5);
+            background-position: 16px 16px;
+        }
+        .top .text:nth-child(2) .icon {
+            background-color: rgba(55, 197, 129, 0.5);
+            background-position: -33px 15px;
+        }
+        .top .text:nth-child(3) .icon {
+            background-color: rgba(55, 197, 129, 0.5);
+            background-position: -80px 16px;
+        }
+        .bottom .text:nth-child(1) .icon {
+            background-color: rgba(55, 197, 129, 0.5);
+            background-position: -133px 16px;
+        }
+        .bottom .text:nth-child(2) .icon {
+            background-color: rgba(55, 197, 129, 0.5);
+            background-position: -183px 18px;
+        }
+        .bottom .text:nth-child(3) .icon {
+            background-color: rgba(55, 197, 129, 0.5);
+            background-position: -234px 16px;
+        }
+        .text .textTit {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .text .textDesc {
+            font-size: 18px;
+            line-height: 140%;
+            font-weight: 300;
+            color: #666;
+            margin-bottom: 16px;
+        }
+        .text .more {
+            font-size: 18px;
+            font-weight: 300;
+            color: #666;
+            text-decoration-line: underline;
+            text-underline-offset: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container textType section font">
+        <p class="subtit">텍스트 유형01</p>
+        <h2 class="tit">스크립트를 익히는 방법 🛸</h2>
+        <div class="text__box">
+            <div class="top">
+                <article class="text">
+                        <div class="icon ir">아이콘</div>
+                        <h3 class="textTit">검색 이펙트</h3>
+                        <p class="textDesc">자바스크립트의 기본 메서드를 통해 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 검색을 만들 수 있습니다.</p>
+                        <a class="more" href="#">더보기</a>
+                </article>
+                <article class="text">
+                        <div class="icon ir">아이콘</div>
+                        <h3 class="textTit">게임 이펙트</h3>
+                        <p class="textDesc">자바스크립트의 기본 메서드를 통해 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 게임을 만들 수 있습니다.</p>
+                        <a class="more" href="#">더보기</a>
+                </article>
+                <article class="text">
+                        <div class="icon ir">아이콘</div>
+                        <h3 class="textTit">슬라이드 이펙트</h3>
+                        <p class="textDesc">자바스크립트의 기본 메서드를 통해 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 슬라이드를 만들 수 있습니다.</p>
+                        <a class="more" href="#">더보기</a>
+                </article>
+            </div>
+            <div class="bottom">
+                <article class="text">
+                        <div class="icon ir">아이콘</div>
+                        <h3 class="textTit">퀴즈 이펙트</h3>
+                        <p class="textDesc">자바스크립트의 기본 메서드를 통해 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 퀴즈를 만들 수 있습니다.</p>
+                        <a class="more" href="#">더보기</a>
+                </article>
+                <article class="text">
+                        <div class="icon ir">아이콘</div>
+                        <h3 class="textTit">제이쿼리</h3>
+                        <p class="textDesc">자바스크립트 애니메이션 라이브러리인 제이쿼리를 이용하여 더욱 쉽게 자바스크립트 애니메이션을 만들 수 있습니다.</p>
+                        <a class="more" href="#">더보기</a>
+                </article>
+                <article class="text">
+                        <div class="icon ir">아이콘</div>
+                        <h3 class="textTit">GSAP</h3>
+                        <p class="textDesc">자바스크립트 애니메이션 라이브러리인 GSAP를 이용하여 더욱 쉽게 자바스크립트 애니메이션을 만들 수 있습니다.</p>
+                        <a class="more" href="#">더보기</a>
+                </article>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

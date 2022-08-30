@@ -9,6 +9,8 @@
     
     <!-- css -->
     <link rel="stylesheet" href="../assets/css/quiz.css">
+    <link rel="stylesheet" href="../assets/css/source.css">
+    <link rel="stylesheet" href="../assets/css/monoblue.css">
 
     <!-- 웹폰트 -->
     <link href="https://webfontworld.github.io/DungGeunMo/DungGeunMo.css" rel="stylesheet">
@@ -74,8 +76,82 @@
 
     <footer id="footer">
         <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+        <div class="source__wrap">
+            <div class="source__btn">소스 보기</div>
+            <div class="source__cont">
+                <div class="source__box">
+                    <div class="title">
+                        <div class="tabs">
+                            <div class="active">Javascript</div>
+                            <div>HTML</div>
+                            <div>CSS</div>
+                        </div>
+                    </div>
+                    <div class="cont">
+                        <div class="active">
+        <pre><code class="languige-js">
+        </code></pre>
+                        </div>
+                        <div>
+        <pre><code class="languige-html">
+        </code></pre>
+                        </div>
+                        <div>
+        <pre><code class="languige-css">
+        </code></pre>
+                        </div>
+                    </div>
+                    <div class="source__close">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                            <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
     <!-- footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    
+    <!-- 소스보기 버튼 -->
+    <script>
+        //source
+        const sourceBtn = document.querySelector(".source__btn");
+        const sourceClose = document.querySelector(".source__close");
+        const sourceCont = document.querySelector(".source__cont");
+
+        sourceBtn.addEventListener("click", () => {
+            sourceCont.classList.add("show");
+            sourceCont.classList.remove("hide");
+        });
+        sourceClose.addEventListener("click", () => {
+            sourceCont.classList.add("hide");
+        });
+
+
+        //탭메뉴
+        const tabBtn = document.querySelectorAll(".source__box .tabs > div");
+        const tabCont = document.querySelectorAll(".source__box .cont > div");
+
+        tabBtn.forEach( (el, i) => {
+            el.addEventListener("click", (event) => {
+                event.preventDefault();
+                
+                tabBtn.forEach((li)=>{
+                    li.classList.remove('active');
+                });
+                el.classList.add("active");
+                
+                tabCont.forEach((div) => {
+                    div.style.display = "none";
+                });
+
+                tabCont[i].style.display = "block";
+            });
+        });
+    </script>
 
     <script>
         //선택자
