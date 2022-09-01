@@ -154,15 +154,16 @@
 const sliderImg = sliderWrap.querySelector(".slider__img");
 const slider = sliderWrap.querySelectorAll(".slider");
 
-let currentIndex = 0;   //현재 보이는 이미지
-let sliderCount = sliderImg.length;    //이미지 갯수
+let currentIndex = 0;                       //현재 보이는 이미지
+let sliderCount = slider.length;            //이미지 갯수
 
-//n초에 한번씩 실행문을 실행시켜줌
-setInterval(() => { 
-    let nextIndex = (currentIndex + 1) % sliderCount;   //다음 이미지
-    
-    slider[currentIndex].style.opacity = "0"; //첫번째 이미지를 안보이게
-    slider[nextIndex].style.opacity = "1";  //두번째 이미지를 보이게
+setInterval(() => {
+    let nextIndex = (currentIndex + 1) % sliderCount;       //다음 이미지 
+    //1, 2, 3, 4, 5, 6, 7, 8, 9,......
+    //1, 2, 3, 4, 0, 1, 2, 3, 4, 0 ......
+
+    slider[currentIndex].style.opacity = "0";    //첫번째 이미지를 안보이게
+    slider[nextIndex].style.opacity = "1";       //두번째 이미지를 보이게
 
     currentIndex = nextIndex;
 }, 3000);
@@ -249,18 +250,34 @@ setInterval(() => {
         const sliderImg = sliderWrap.querySelector(".slider__img");
         const slider = sliderWrap.querySelectorAll(".slider");
 
-        let currentIndex = 0;   //현재 보이는 이미지
-        let sliderCount = sliderImg.length;    //이미지 갯수
-        
-        //n초에 한번씩 실행문을 실행시켜줌
-        setInterval(() => { 
-            let nextIndex = (currentIndex + 1) % sliderCount;   //다음 이미지
-            
-            slider[currentIndex].style.opacity = "0"; //첫번째 이미지를 안보이게
-            slider[nextIndex].style.opacity = "1";  //두번째 이미지를 보이게
+        let currentIndex = 0;                       //현재 보이는 이미지
+        let sliderCount = slider.length;            //이미지 갯수
+
+        setInterval(() => {
+            let nextIndex = (currentIndex + 1) % sliderCount;       //다음 이미지 
+            //1, 2, 3, 4, 5, 6, 7, 8, 9,......
+            //1, 2, 3, 4, 0, 1, 2, 3, 4, 0 ......
+
+            slider[currentIndex].style.opacity = "0";    //첫번째 이미지를 안보이게
+            slider[nextIndex].style.opacity = "1";       //두번째 이미지를 보이게
 
             currentIndex = nextIndex;
         }, 3000);
+
+        // slider[0].style.opacity = "0";  //첫번째 이미지를 안보이게
+        // slider[1].style.opacity = "1";  //두번째 이미지를 보이게
+
+        // slider[1].style.opacity = "0";  //두번째 이미지를 안보이게
+        // slider[2].style.opacity = "1";  //세번째 이미지를 보이게
+
+        // slider[2].style.opacity = "0";  //세번째 이미지를 안보이게
+        // slider[3].style.opacity = "1";  //네번째 이미지를 보이게
+
+        // slider[3].style.opacity = "0";  //네번째 이미지를 안보이게
+        // slider[4].style.opacity = "1";  //다섯번째 이미지를 보이게
+
+        // slider[4].style.opacity = "0";  //다섯번째 이미지를 안보이게
+        // slider[0].style.opacity = "1";  //첫번째 이미지를 보이게
     </script>
 </body>
 </html>
