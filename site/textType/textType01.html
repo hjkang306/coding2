@@ -31,7 +31,7 @@
         h6 {
             font-weight: normal;
         }
-        .font {
+        .nexon {
             font-family: 'NexonLv1Gothic';
             font-weight: 400;
         }
@@ -56,143 +56,140 @@
             padding: 120px 0;
         }
 
-        .section>h2 {
+        .section > h2 {
             font-size: 50px;
             line-height: 1;
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: 20px;
         }
 
-        .section>p {
+        .section > p {
             font-size: 16px;
             color: #666;
             text-align: center;
             margin-bottom: 10px;
             text-decoration-line: underline;
         }
-
-        /* main */
-        .text__box {}
-        .top {
+        .section > span {
+            display: block;
+            text-align: center;
+            font-size: 16px;
+            text-decoration: underline;
+            margin-bottom: 16px;
+        }
+        .mb70 {
+            margin-bottom: 70px;
+        }
+        /* textType */
+        .text__inner {
             display: flex;
-            margin-bottom: 20px;
-        }
-        .top .text:nth-child(2) {
-            margin: 0 20px;
-        }
-        .bottom {
-            display: flex;
-        }
-        .bottom .text:nth-child(2) {
-            margin: 0 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
         .text {
-            width: 373px;
-            height: 260px;
+            width: 32%;
+            margin-bottom: 2%;
             padding: 20px;
             box-sizing: border-box;
             border-radius: 10px;
+            transition: background 0.4s;
         }
         .text:hover {
             background: #f5f5f5;
         }
-        .text .icon {
+        .text__title {
+            font-size: 24px;
+            line-height: 1;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            position: relative;
+            padding-top: 75px;
+        }
+        .text__title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
             width: 60px;
             height: 60px;
-            border-radius: 50%;
-            background: url(img/iconsplite.svg) no-repeat;
-            margin-bottom: 10px;
+            background: url(img/text_icon.svg);
         }
-        .top .text:nth-child(1) .icon {
-            background-color: rgba(55, 197, 129, 0.5);
-            background-position: 16px 16px;
+        .text.t1 .text__title::before {
+            background-position: 0 0;
         }
-        .top .text:nth-child(2) .icon {
-            background-color: rgba(55, 197, 129, 0.5);
-            background-position: -33px 15px;
+        .text.t2 .text__title::before {
+            background-position: -60px 0;
         }
-        .top .text:nth-child(3) .icon {
-            background-color: rgba(55, 197, 129, 0.5);
-            background-position: -80px 16px;
+        .text.t3 .text__title::before {
+            background-position: -120px 0;
         }
-        .bottom .text:nth-child(1) .icon {
-            background-color: rgba(55, 197, 129, 0.5);
-            background-position: -133px 16px;
+        .text.t4 .text__title::before {
+            background-position: -180px 0;
         }
-        .bottom .text:nth-child(2) .icon {
-            background-color: rgba(55, 197, 129, 0.5);
-            background-position: -183px 18px;
+        .text.t5 .text__title::before {
+            background-position: -240px 0;
         }
-        .bottom .text:nth-child(3) .icon {
-            background-color: rgba(55, 197, 129, 0.5);
-            background-position: -234px 16px;
+        .text.t6 .text__title::before {
+            background-position: -360px 0;
         }
-        .text .textTit {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .text .textDesc {
-            font-size: 18px;
-            line-height: 140%;
-            font-weight: 300;
-            color: #666;
-            margin-bottom: 16px;
-        }
-        .text .more {
+        .text__desc {
             font-size: 18px;
             font-weight: 300;
+            line-height: 1.4;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
             color: #666;
-            text-decoration-line: underline;
-            text-underline-offset: 5px;
+            margin-bottom: 20px;
+        }
+        .text__btn {
+            font-size: 16px;
+            line-height: 1;
+            text-decoration: underline;
+            text-underline-position: under;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <div class="container textType section font">
-        <p class="subtit">텍스트 유형01</p>
-        <h2 class="tit">스크립트를 익히는 방법 🛸</h2>
-        <div class="text__box">
-            <div class="top">
-                <article class="text">
-                        <div class="icon ir">아이콘</div>
-                        <h3 class="textTit">검색 이펙트</h3>
-                        <p class="textDesc">자바스크립트의 기본 메서드를 통해 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 검색을 만들 수 있습니다.</p>
-                        <a class="more" href="#">더보기</a>
-                </article>
-                <article class="text">
-                        <div class="icon ir">아이콘</div>
-                        <h3 class="textTit">게임 이펙트</h3>
-                        <p class="textDesc">자바스크립트의 기본 메서드를 통해 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 게임을 만들 수 있습니다.</p>
-                        <a class="more" href="#">더보기</a>
-                </article>
-                <article class="text">
-                        <div class="icon ir">아이콘</div>
-                        <h3 class="textTit">슬라이드 이펙트</h3>
-                        <p class="textDesc">자바스크립트의 기본 메서드를 통해 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 슬라이드를 만들 수 있습니다.</p>
-                        <a class="more" href="#">더보기</a>
-                </article>
+    <section id="textType" class="text__wrap nexon section">
+        <span>텍스트 유형01</span>
+        <h2 class="mb70">스크립트를 익히는 방법 🛸</h2>
+        <div class="text__inner container">
+            <div class="text t1">
+                <h3 class="text__title">검색 이펙트</h3>
+                <p class="text__desc">자바스크립트의 기본 메서드를 통해 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 검색을 만들 수 있습니다.</p>
+                <a class="text__btn" href="#">더보기</a>
             </div>
-            <div class="bottom">
-                <article class="text">
-                        <div class="icon ir">아이콘</div>
-                        <h3 class="textTit">퀴즈 이펙트</h3>
-                        <p class="textDesc">자바스크립트의 기본 메서드를 통해 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 퀴즈를 만들 수 있습니다.</p>
-                        <a class="more" href="#">더보기</a>
-                </article>
-                <article class="text">
-                        <div class="icon ir">아이콘</div>
-                        <h3 class="textTit">제이쿼리</h3>
-                        <p class="textDesc">자바스크립트 애니메이션 라이브러리인 제이쿼리를 이용하여 더욱 쉽게 자바스크립트 애니메이션을 만들 수 있습니다.</p>
-                        <a class="more" href="#">더보기</a>
-                </article>
-                <article class="text">
-                        <div class="icon ir">아이콘</div>
-                        <h3 class="textTit">GSAP</h3>
-                        <p class="textDesc">자바스크립트 애니메이션 라이브러리인 GSAP를 이용하여 더욱 쉽게 자바스크립트 애니메이션을 만들 수 있습니다.</p>
-                        <a class="more" href="#">더보기</a>
-                </article>
+            <div class="text t2">
+                <h3 class="text__title">게임 이펙트</h3>
+                <p class="text__desc">자바스크립트의 기본 메서드를 통해 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 게임을 만들 수 있습니다.</p>
+                <a class="text__btn" href="#">더보기</a>
+            </div>
+            <div class="text t3">
+                <h3 class="text__title">슬라이드 이펙트</h3>
+                <p class="text__desc">자바스크립트의 기본 메서드를 통해 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 슬라이드를 만들 수 있습니다.</p>
+                <a class="text__btn" href="#">더보기</a>
+            </div>
+            <div class="text t4">
+                <h3 class="text__title">퀴즈 이펙트</h3>
+                <p class="text__desc">자바스크립트의 기본 메서드를 통해 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 퀴즈를 만들 수 있습니다.</p>
+                <a class="text__btn" href="#">더보기</a>
+            </div>
+            <div class="text t5">
+                <h3 class="text__title">제이쿼리</h3>
+                <p class="text__desc">자바스크립트 애니메이션 라이브러리인 제이쿼리를 이용하여 더욱 쉽게 자바스크립트 애니메이션을 만들 수 있습니다.</p>
+                <a class="text__btn" href="#">더보기</a>
+            </div>
+            <div class="text t6">
+                <h3 class="text__title">GSAP</h3>
+                <p class="text__desc">자바스크립트 애니메이션 라이브러리인 GSAP를 이용하여 더욱 쉽게 자바스크립트 애니메이션을 만들 수 있습니다.</p>
+                <a class="text__btn" href="#">더보기</a>
             </div>
         </div>
-    </div>
+    </section>
 </body>
 </html>

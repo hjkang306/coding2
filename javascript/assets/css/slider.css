@@ -45,6 +45,21 @@
  body.img10 {
     background: #000 Url(../img/effect_bg10@2x-min.jpg) no-repeat center / cover;
  }
+ body.bg1 {
+    background: #000 Url(../img/effect_img01@2x-min.jpg) no-repeat center / cover;
+ }
+ body.bg2 {
+    background: #000 Url(../img/effect_img02-min.jpg) no-repeat center / cover;
+ }
+ body.bg3 {
+    background: #000 Url(../img/effect_img03-min.jpg) no-repeat center / cover;
+ }
+ body.bg4 {
+    background: #000 Url(../img/effect_img04-min.jpg) no-repeat center / cover;
+ }
+ body.bg5 {
+    background: #000 Url(../img/effect_img05-min.jpg) no-repeat center / cover;
+ }
  body::after {
     content: '';
     position: absolute;

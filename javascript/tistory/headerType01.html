@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기</h2>
+            <p class="t_desc2">
+                사이트를 구성하는 방법에는 다양한 유형이 있습니다. 다양한 유형들을 익혀놓으면, 사이트를 만들 때 디자인적인 요소도 챙길 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">헤더 유형01</h3>
+            <p class="t_desc">
+                헤더는 사이트의 제일 위에 위치한 부분입니다. 헤더를 어떻게 디자인하느냐에 따라 사이트의 분위기가 달라지기도 합니다.
+                또한, 헤더를 잘 디자인하면 사용자가 사이트를 더 편리하게 이용할 수 있으니, 신경써서 작업하도록 합시다!
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpakv3MmuDJszSsl4w0gU3Z%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1509%253A1717" allowfullscreen></iframe>
+            </div>
+            <h3 class="t_tit2">디자인 하기</h3>
+            <p class="t_desc">
+                헤더는 로고가 위치한 구역, 다른 페이지로 이동할 수 있는 네비게이션(또는 메뉴)가 위치한 구역, 
+                추가적으로 로그인을 할 수 있는 버튼이 위치한 구역 세가지로 나눌 수 있습니다. 각 메뉴가 조화롭게 위치하도록 간격과 글자 크기를 조정합니다.
+            </p>
+            <h3 class="t_tit2">HTML 작성하기</h3>
+            <p class="t_desc">
+                그 다음, 만들어 둔 디자인을 보며 시멘틱 태그를 활용해 구역에 맞는 태그와 텍스트를 작성해 줍니다.
+                헤더 영역은 <i>header 태그를 사용</i>하면 좋습니다.
+                한번에 다 만들기 보다는 큰 요소부터 하나씩 만들면서 css를 적용해, 중간중간 확인하는 편이 좋습니다.
+            </p>
+            <details>
+                <summary>HTML 코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-html">&lt;header id="headerType" class="header__wrap nexon">
+    &lt;div class="header__inner">
+        &lt;div class="header__logo">
+            &lt;a href="#">web &lt;em>site&lt;/em>&lt;/a>
+        &lt;/div>
+        &lt;nav class="header__menu">
+            &lt;li>&lt;a href="#">헤더 영역&lt;/a>&lt;/li>
+            &lt;li>&lt;a href="#">슬라이드 영역&lt;/a>&lt;/li>
+            &lt;li>&lt;a href="#">배너 영역&lt;/a>&lt;/li>
+            &lt;li>&lt;a href="#">컨텐츠 영역&lt;/a>&lt;/li>
+            &lt;li>&lt;a href="#">푸터 영역&lt;/a>&lt;/li>
+        &lt;/nav>
+        &lt;div class="header__member">
+            &lt;a href="#">로그인&lt;/a>
+        &lt;/div>
+    &lt;/div>
+&lt;/header>
+</code></pre>
+                </div>
+            </details>
+
+            <h3 class="t_tit2">CSS 작성하기</h3>
+            <p class="t_desc">
+                만들어 둔 디자인을 보며, 각 요소의 CSS를 설정해줍니다. 최종 완성 후 디자인과 비교하며 다른 점을 수정해줍니다.
+                메뉴는 중앙에 온 것처럼 보여도 메뉴가 늘어나면 위치가 틀어질 수 있으니, <i>text-align을 이용해 중앙에 위치</i>를 잡아줍니다.
+                요소를 배치하면서 제대로 css가 적용되는지 확인하고 싶다면, 해당 요소에 배경색을 지정해 확인하도록 합니다.
+            </p>
+            <details>
+                <summary>CSS 코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+img {
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+em, i, address {
+            font-style: normal;
+        }
+
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+
+/* headerType */
+.header__inner {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+}
+.header__logo {
+    width: 20%;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.header__logo em {
+    font-size: 18px;
+    font-weight: 400;
+}
+.header__menu {
+    width: 60%;
+    text-align: center;
+}
+.header__menu li {
+    display: inline;
+}
+.header__menu li a {
+    padding: 13px 30px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+.header__menu li a:hover {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+.header__member {
+    width: 20%;
+    text-align: right;
+}
+.header__member a {
+    font-size: 16px;
+    border: 1px solid #000;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+.header__member a:hover {
+    background-color: #000;
+    color: #fff;
+}
+</code></pre>
+                </div>
+            </details>
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/site/headerType/headerType01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/site/headerType/headerType01.html">원본 소스 보기</a>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/site/headerType/headerType01.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
