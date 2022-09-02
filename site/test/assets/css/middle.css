@@ -1,0 +1,73 @@
+.middle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+/* news__wrap */
+.news__wrap {
+    width: 470px;
+    height: 210px;
+    border: 1px solid #999;
+    padding: 30px;
+    box-sizing: border-box;
+    position: relative;
+}
+.title {
+    margin-bottom: 20px;
+}
+.news__wrap h2 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    color: #999;
+}
+.news__wrap h2.active {
+    color: #000;
+}
+.news__wrap h2:hover {
+    cursor: pointer;
+}
+.news {
+    padding-right: 20px;
+    border-right: 4px solid #000;
+}
+.notice {
+    margin-left: 15px;
+}
+.text li {
+    font-size: 16px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.text li em {
+    color: #666;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+.more {
+    position: absolute;
+    top: 30px;
+    right: 55px;
+}
+.more::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: url(../img/plusIcon.jpg) no-repeat center /cover;
+    position: absolute;
+    top: -1px;
+    right: -25px;
+}
+
+/* ad__wrap */
+.ad__wrap {
+    width: 470px;
+    height: 210px;
+}
+.ad__wrap:hover {
+    cursor: pointer;
+}

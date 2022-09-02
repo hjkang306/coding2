@@ -1,0 +1,21 @@
+.ex__wrap {
+    padding-bottom: 70px;
+    border-bottom: 1px solid #999;
+}
+.ex__wrap h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.image__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.image__wrap .image {
+    width: 24%;
+}
+.image__wrap h3 {
+    font-size: 16px;
+    margin-top: 20px;
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>롯데월드</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+
+    <!-- 섹션별 css -->
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/banner.css">
+    <link rel="stylesheet" href="assets/css/middle.css">
+    <link rel="stylesheet" href="assets/css/ex.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+</head>
+<body>
+    <div class="container font">
+        <header id="header">
+            <h2 class="logo">
+                <img src="assets/img/logo.jpg" alt="로고">
+            </h2>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#">즐길거리</a></li>
+                    <li><a href="#">요금/우대혜택</a></li>
+                    <li><a href="#">참여프로그램</a></li>
+                    <li><a href="#">이용가이드</a></li>
+                    <li><a href="#">소통서비스</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- //header -->
+    
+        <main id="main">
+            <section class="banner__wrap">
+                <div class="banner">
+                    <div class="slide__img">
+                        <div class="slide"><img src="assets/img/banner01.jpg" alt="배너 이미지1"></div>
+                        <div class="slide"><img src="assets/img/banner02.jpg" alt="배너 이미지2"></div>
+                        <div class="slide"><img src="assets/img/banner03.jpg" alt="배너 이미지3"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- //banner__wrap -->
+
+            <div class="middle">
+                <section class="news__wrap">
+                    <div class="title">
+                        <h2 class="news active">롯데월드 소식</h2>
+                        <h2 class="notice">뉴스•공지</h2>
+                    </div>
+                    <ul class="text">
+                        <li><a href="#">그럴싸진관 미라클</a><em>2018.11.19</em></li>
+                        <li><a href="#">드림스테이지 "힘내 소중한 너"</a><em>2018.11.20</em></li>
+                        <li><a href="#">"힘내 소중한 너" 음원 발매</a><em>2018.11.13</em></li>
+                        <li><a href="#">이용 요금 조정 안내</a><em>2018.11.12</em></li>
+                    </ul>
+                    <a class="more" href="#">더보기</a>
+                </section>
+                <!-- //news__wrap -->
+    
+                <section class="ad__wrap">
+                    <img src="assets/img/ad.jpg" alt="광고 이미지">
+                </section>
+                <!-- //ad__wrap -->
+            </div>
+
+            <section class="ex__wrap">
+                <h2>특별한 경험</h2>
+                <div class="image__wrap">
+                    <div class="image">
+                        <img src="assets/img/sub01.jpg" alt="놀이공원 이미지1">
+                        <h3><a href="#">연간회원안내</a></h3>
+                    </div>
+                    <div class="image">
+                        <img src="assets/img/sub02.jpg" alt="놀이공원 이미지2">
+                        <h3><a href="#">프리미엄투어</a></h3>
+                    </div>
+                    <div class="image">
+                        <img src="assets/img/sub03.jpg" alt="놀이공원 이미지3">
+                        <h3><a href="#">공연참여 프로그램</a></h3>
+                    </div>
+                    <div class="image">
+                        <img src="assets/img/sub04.jpg" alt="놀이공원 이미지4">
+                        <h3><a href="#">단체프로그램</a></h3>
+                    </div>
+                </div>
+            </section>
+            <!-- //ex__wrap -->
+        </main>
+        <!-- //main -->
+        
+        <footer id="footer">
+            <p>
+                서울특별시 송파구 올림픽로240 호텔롯데 롯데월드 | 대표자 : 박동기<br>
+                사업자 등록번호 : 209-85-00014 | 통신판매업신고번호 : 송파 제5513호 | 전화 : 1661-2000<br><br>
+
+                COPYRIGHT 2018 LOTTEWORLD.ALL RIGHTS RESERVED
+            </p>
+        </footer>
+        <!-- //footer -->
+
+        <!-- 배너 슬라이드 스크립트 -->
+        <script>
+            const bannerWrap = document.querySelector(".banner__wrap");
+            const banner = document.querySelector(".banner");
+            const slideImg = document.querySelector(".slide__img");
+            const slide = document.querySelectorAll(".slide");
+        
+            let currentIndex = 0;          
+            let slideCount = slide.length;              
+            let slideWidth = banner.offsetWidth;        
+            let slideclone = slideImg.firstElementChild.cloneNode(true);
+            slideImg.appendChild(slideclone);               
+        
+            function sliderEffect(){
+                currentIndex++;
+                slideImg.style.transition = "all 0.6s"
+
+                slideImg.style.transform = "translateX(-"+ slideWidth * currentIndex +"px)";
+
+                //마지막 사진에 위치 했을 때
+                if(currentIndex == slideCount){
+                    setTimeout(()=>{
+                        slideImg.style.transition = "0s";
+                        slideImg.style.transform = "translateX(0px)";
+                    },700);
+                    currentIndex = 0;
+                }
+            }
+            setInterval(sliderEffect, 2000);
+        </script>
+
+        <!-- 온종일 혜택 -->
+        <script>
+            const title = document.querySelectorAll(".news__wrap .title h2");
+
+            title.forEach( (el, i) => {
+                el.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    
+                    title.forEach((li)=>{
+                        li.classList.remove('active');
+                    });
+                    el.classList.add("active");
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

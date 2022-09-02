@@ -1,0 +1,10 @@
+.font {
+    font-family: 'NexonLv1Gothic';
+    font-weight: 400;
+}
+.container {
+    width: 960px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 960px;
+}

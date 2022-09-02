@@ -1,0 +1,19 @@
+.banner__wrap {
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.banner {
+    position: relative;
+    overflow: hidden;
+}
+.slide__img {
+    display: flex;
+    flex-wrap: wrap;
+    width: 3840px;
+}
+.slide {
+    width: 960px;
+    height: 361.54px;
+}
