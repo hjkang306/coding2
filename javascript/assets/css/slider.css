@@ -145,7 +145,7 @@
     line-height: 30px;
     font-size: 14px;
 }
-#header li:active a {
+#header li.active a {
     background-color: #fff;
     color: #13142e;
 }

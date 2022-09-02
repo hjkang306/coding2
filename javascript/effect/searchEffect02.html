@@ -456,6 +456,8 @@
                     el.classList.add("hide");
                 }
             });
+            const searcHide = document.querySelectorAll(".search__list ul li.hide");
+            searchInfo.textContent = searchList.length-searcHide.length;
         });
 
     </script>
