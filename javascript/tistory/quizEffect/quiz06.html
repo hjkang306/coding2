@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">퀴즈 이펙트</h2>
+            <p class="t_desc2">
+                퀴즈를 풀 수 있는 페이지를 구성할 때에, 퀴즈의 유형에 맞는 다양한 이펙트를 사용하면
+                단조롭지 않은 생동감 넘치는 페이지를 만들 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">객관식(여러문제) 유형 : 슬라이드</h3>
+            <p class="t_desc">
+                객관식 여러문제를 나타내는 효과입니다.
+                객관식 문제의 보기를 고르면, 보기가 체크되어 있는지 확인한 후 보기와 정답이 같은지 확인합니다.
+                정답이라면 "정답" 알림을, 오답이라면 "오답" 알림을 띄웁니다. 또한, 정답 갯수를 확인하여 합격, 불합격 여부를 나타냅니다.
+            </p>
+            <div class="t_iframe" style="min-height: 1050px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/quizEffect06.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/javascript/effect/quizEffect06.html">원본 소스 보기</a>
+            </div>
+            <br>
+            <p class="t_desc">
+                해당 이펙트의 자바스크립트는 아래에 이어지는 내용과 같습니다.<br>
+                -객관식 문제의 정보를 배열 속 객체를 활용하여 저장하였습니다.<br>
+                -문제를 나타내는 html코드를 자바스크립트를 이용해 넣었습니다.<br>
+                -자바스크립트를 이용해 문제의 각 정보를 요소에 넣었습니다.<br>
+                -한 문제를 푼 후 정답과 해설을 확인한 후 다음 문제로 넘어가도록 했습니다.
+            </p>
+            <h3 class="t_tit2">문제 정보</h3>
+            <p class="t_desc">
+                문제가 여러개인 경우, 문제 정보를 배열과 <i>객체</i>에 저장하면 보다 효율적인 관리가 가능합니다.
+                객관식 보기에 대한 정보는 객체 속에 배열 혹은 객체로 작성하면 효율적입니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">const quizInfo = [
+{
+    answerType : "웹디자인기능사 2012년 5회",
+    answerNum : "1",
+    answerAsk : "제품 디자인 과정 중 「완성 예상도」라고도 하며 실물처럼 충실하고 정확히 표현하는 것을 무엇이라고 하는가?",
+    answerChoice : [
+        "렌더링(RENDERING)",
+        "드로잉(DRAWING)",
+        "스케치(SKETCH)",
+        "모델링(MODELING)"
+    ],
+    answerResult : "렌더링(RENDERING)",
+    answerEx : "드로잉 : 연필·펜·크레용 등으로 대상물의 윤곽만을 그리는 그 자체로서 독립된 그림<br><br>스케치 : 대상을 세부적으로 묘사하지 않고 빨리 그리는 것<br><br>모델링 : 모형을 만드는 일을 의미" 
+},
+{
+    answerType : "웹디자인기능사 2012년 5회",
+    answerNum : "2",
+    answerAsk : "다음 중 주위색의 영향으로 오히려 인접색에 가깝게 느껴지는 현상을 의미하는 것은?",
+    answerChoice : [
+        "대비 현상",
+        "동화 현상",
+        "색의 수축성",
+        "중량 현상"
+    ],
+    answerResult : "동화 현상",
+    answerEx : "대비현상 : 어떤 색이 다른 색의 영향으로 인하 여 실제와는 다른 색으로 변해 보이는 현상<br><br>색의 수축성 : 색의 면적이 실제 면적보다 작게 또는 크게 느껴지는 심리현상을 의미" 
+},
+.
+.
+.
+{
+    answerType : "웹디자인기능사 2012년 5회",
+    answerNum : "5",
+    answerAsk : "망막에 다른 색광이 혼합되는 현상으로 색 점이 서로 가깝게 있어 명도와 채도가 떨어지지 않는 혼합방식은?",
+    answerChoice : [
+        "보색혼합",
+        "병치혼합",
+        "가산혼합",
+        "감산혼합"
+    ],
+    answerResult : "병치혼합",
+    answerEx : "보색혼합 : 색상환에서 서로 대응하는 위치의 두색을 혼합하는 것<br><br>가산혼합 : 빛의 3원색을 혼합하며, 혼합한 색이 원래의 색보다 밝아지는 것<br><br>감산혼합 : 색의 3원색을 혼합하며, 원래의 색보다 어두워지는 것"
+}
+</code></pre>
+                </div>
+            </details>
+            <h3 class="t_tit2">선택자 작성하기</h3>
+            <p class="t_desc">
+                html의 각 요소를 선택하는 선택자를 작성합니다. 또한, 정답을 카운트하기 위한 변수도 선언해줍니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">const quizType = document.querySelector(".quiz__type"); //타입
+const quizQuestion = document.querySelector(".quiz__question"); //문제 번호, 질문
+const quizSelects = document.querySelector(".quiz__selects"); //객관식 보기
+const quizResert = document.querySelector(".quiz__answer .result"); //해설
+const quizConfirm = document.querySelector(".quiz__answer .confilm"); //정답 확인버튼
+const quizView = document.querySelector(".quiz__view"); //정답 확인버튼
+
+let quizCount = 0;  //문제의 갯수를 세기 위한 변수
+let quizRight = 0;  //정답인 문제의 갯수를 세기 위한 변수.
+</code></pre>
+                </div>
+            </details>
+
+            <h3 class="t_tit2">퀴즈 HTML 요소 삽입하기</h3>
+            <p class="t_desc">
+                문제가 여러개이면 문제를 넣어야 하는 HTML요소도 반복해서 계속 적어야 합니다.<br>
+                자바스크립트를 사용해서 넣으면 같은 내용을 직접 반복해서 적지 않아도 HTML요소를 삽입할 수 있습니다.<br>
+                또한 매개변수를 이용하면 더 효율적인 작성이 가능합니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">//문제 출력 : 매개변수를 이용 => 편리!
+const updateQuiz = (index) => { //매개변수를 이용해 문제의 번호를 지정합니다.
+    const questionTag = `   //문제 번호와 질문을 삽입합니다.
+        &lt;span class="number">${quizInfo[index].answerNum  + ". "}&lt;/span>
+        &lt;div class="ask">${quizInfo[index].answerAsk}&lt;/div>
+    `;
+
+    const choiceTag = ` //문제의 보기를 삽입합니다.
+        &lt;label for="select1">
+            &lt;input type="radio" id="select1" class="select" name="select" value="1">
+            &lt;span class="choice">${quizInfo[index].answerChoice[0]}&lt;/span>
+        &lt;/label>
+        &lt;label for="select2">
+            &lt;input type="radio" id="select2" class="select" name="select" value="2">
+            &lt;span class="choice">${quizInfo[index].answerChoice[1]}&lt;/span>
+        &lt;/label>
+        &lt;label for="select3">
+            &lt;input type="radio" id="select3" class="select" name="select" value="3">
+            &lt;span class="choice">${quizInfo[index].answerChoice[2]}&lt;/span>
+        &lt;/label>
+        &lt;label for="select4">
+            &lt;input type="radio" id="select4" class="select" name="select" value="4">
+            &lt;span class="choice">${quizInfo[index].answerChoice[3]}&lt;/span>
+        &lt;/label>
+    `;
+
+    //문제 출력
+    quizType.innerHTML = quizInfo[index].answerType;   //문제 타입을 삽입합니다.
+    quizQuestion.innerHTML = questionTag;   //번호, 질문 삽입합니다.
+    quizSelects.innerHTML = choiceTag;   //객관식 보기를 삽입합니다.
+    quizResert.innerHTML = quizInfo[index].answerEx;   //해설을 삽입합니다.
+
+    const quizChoice = quizSelects.querySelectorAll(".choice"); //보기를 선택하는 선택자를 만듭니다.
+    
+
+    for(let i=0; i&lt;quizChoice.length; i++){  //보기가 클릭되는 경우를 설정합니다. 4개의 보기에 모두 적용되도록 반복문으로 작성합니다.
+        quizChoice[i].setAttribute("onclick", "choiceSelected(this)");  //보기가 클릭되면 해당 문제의 값으로 choiceSelected 함수를 실행합니다.
+    }
+
+    //정답 확인 버튼, 해설 숨기기 : 보기를 선택하면 정답을 확인하도록 하기 위해 숨겨줍니다.
+    quizResert.style.display = "none";  //해설을 숨깁니다.
+    quizConfirm.style.display = "none"; //정답 확인 버튼을 숨깁니다.
+};
+updateQuiz(quizCount);  //함수에 문제 번호를 넣어 실행합니다. 해당 값이 매개변수에 저장되어 실행됩니다.
+</code></pre>
+                </div>
+            </details>
+
+            <h3 class="t_tit2">정답 확인하기</h3>
+            <p class="t_desc">
+                다음 문제 보기 버튼을 누르면 다음 문제로 넘어가도록 하고,
+                사용자가 선택한 보기와 정답을 비교해 정답인 경우 정답을, 오답인 경우 오답을 표시합니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">const choiceSelected = (answer) => { //보기가 클릭됐을 때 실행되는 함수
+    let userAnswer = answer.textContent;        //사용자가 체크한 정답
+    let currentAnswer = quizInfo[quizCount].answerResult;   //문제의 정답
+
+    if(userAnswer == currentAnswer){    //사용자가 체크한 정답과 문제의 정답이 같은 경우
+        console.log("정답");
+        quizView.classList.add("like");
+        quizRight++;    // 정답 갯수를 확인하기 위한 변수에 1을 더해줍니다.
+    } else {
+        console.log("오답");
+        quizView.classList.add("dislike");
+        quizResert.style.display = "block"; //해설이 보이도록 합니다.
+    }
+    
+    //정답 확인 버튼
+    quizConfirm.style.display = "block";    //다음 문제 보기 버튼이 보이도록 합니다.
+}
+</code></pre>
+                </div>
+            </details>
+            <h3 class="t_tit2">마지막 문제 풀면 문구 출력하기</h3>
+            <p class="t_desc">
+                마지막 문제를 풀고 버튼을 누르면 총 몇문제를 맞췃는지 알려주는 문구를 출력합니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">const answerQuiz = () => {
+    //마지막 문제
+    if(quizInfo.length -1 == quizCount ){   //마지막 문제인 경우를 특정합니다. 문제 번호의 카운트는 0부터 시작하기 때문에 문제 정보 길이에서 1을 뺀 값과 비교합니다.
+        quizConfirm.textContent = `총 ${quizCount+1}문제 중에 ${quizRight}문제를 맞추었습니다.`
+    }
+    quizCount++;    //다음 문제가 출력될 수 있도록 문제가 저장된 배열의 번호를 더하여 줍니다.
+    updateQuiz(quizCount);  //updateQuiz 함수에 quizCount의 값을 넣어 실행합니다.
+    quizView.classList.remove("like", "dislike");   //다음 문제로 넘어갔을 때, 정답 혹은 오답의 효과가 사라지도록 클래스를 삭제해 줍니다.
+    
+}
+quizConfirm.addEventListener("click", answerQuiz);  //다음 문제 보기 버튼을 클릭하면 answerQuiz 함수를 실행합니다.
+</code></pre>
+                </div>
+            </details>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

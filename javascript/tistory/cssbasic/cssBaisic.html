@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+       <div class="document">
+            <h2 class="t_tit">CSS 기본 문법</h2>
+            <p class="t_desc">
+                CSS를 정의하는 방법으로는 <i>내부 스타일시트, 외부 스타일시트, 인라인 스타일시트</i> 등이 있습니다.
+                실제로는 외부 스타일시트를 많이 사용하는 편이지만, 간단한 스타일은 내부 스타일시트로 작성하기도 합니다.
+                인라인 스타일시트는 거의 사용하지 않지만, 우선순위가 가장 높아서 꼭 필요한 경우엔 편리하게 사용할 수 있습니다.
+                추가로, CSS에서의 주석 처리법은 <i>/* */</i> 입니다.
+            </p>
+            <h3 class="t_tit2">▶ 내부 스타일시트</h3>
+            <p class="t_desc2">
+                내부 스타일시트는 CSS를 HTML 문서 안에 <i>&lt;style&gt;</i> 태그로 작성하여, <i>HTML 문서 안에 CSS가 함께 저장</i>되도록 하는 방법입니다.
+            </p>
+            <h3 class="t_tit3">[ 예제 ]</h3>
+            <div class="t_box">
+                &lt;head&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="utf-8"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;내부 스타일시트&lt;/title&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>&lt;style&gt;</i><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p { color: red; }<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* p요소의 텍스트 색을 red로 변경하는 css */<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>&lt;/style&gt;</i><br>
+                &lt;/head&gt;
+            </div>
+
+            <hr>
+
+            <h3 class="t_tit2">▶ 외부 스타일시트</h3>
+            <p class="t_desc2">
+                외부 스타일시트는 <i>스타일 속성들을 따로 저장</i>하여 HTML 문서에 <i>파일명으로 CSS파일을 연결</i>하는 방법입니다.
+                이때 스타일은 <i>*.css 확장자</i>를 가진 별도의 파일로 저장하고, HTML 문서에서는 <i>&lt;link&gt;</i> 태그를 이용하여 불러옵니다.
+            </p>
+            <h3 class="t_tit3">[ 예제 ]</h3>
+            <div class="t_box">
+                &lt;head&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="utf-8"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;외부 스타일시트&lt;/title&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>&lt;link rel="stylesheet" type="text/css" href="style.css"&gt;</i><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- style이라는 이름의 css파일을 연결함 --&gt;<br>
+                &lt;/head&gt;
+            </div><br>
+            <div class="t_box">
+                /* css 파일의 상단에는 HTML 문서의 문자셋과 동일한 문자셋을 지정해 줍니다. */<br>
+                @charset "utf-8";<br>
+                p { color: red; }
+            </div>
+
+            <hr>
+
+            <h3 class="t_tit2">▶ @import</h3>
+            <p class="t_desc2">
+                @import는  <i>CSS 안으로 다른 CSS 파일을 불러들일 경우</i> 사용합니다. CSS의 맨 윗줄에 작성합니다.
+                또한 @import는 어떤 css 파일 안에 공통 css를 불러들일 경우에도 사용할 수 있습니다.
+                그러나, CSS 파일을 <i>너무 여러개로 분리할 경우 유지보수가 어려울</i> 수 있으니 용량이 적다면 하나의 파일로 사용하는 것이 좋습니다.
+            </p>
+            <h3 class="t_tit3">[ 예제 ]</h3>
+            <div class="t_box">
+                &lt;head&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="utf-8"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;스타일시트 포함&lt;/title&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;style type="text/css"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>@import url("style.css");</i><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* style.css라는 css를 불러들임 */<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/style&gt;<br>
+                &lt;/head&gt;
+            </div>
+            
+            <hr>
+
+            <h3 class="t_tit2">▶ 인라인 스타일</h3>
+            <p class="t_desc2">
+                인라인 스타일은 <i>태그에 직접 CSS를 정의해주는 기법</i>으로, 해당 요소에 <i>style=" " 형식</i>으로 작성합니다.
+                인라인 스타일은 내부 스타일이나 외부 스타일에서 기술된 속성보다 우선으로 적용되므로, <i>우선순위가 절대적으로 높아야 할 경우에 사용</i>할 수 있습니다.
+                그러나, 스타일을 공용 CSS로 수정할 수 없고 일일이 HTML을 열어 폅집해야 하므로 <i>수정이 번거로워</i> 자주 사용하지는 않습니다.
+            </p>
+            <h3 class="t_tit3">[ 예제 ]</h3>
+            <div class="t_box">
+                &lt;body&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p <i>style="color: red;</i>"&gt;우리를 기쁘게 하는 것들.&lt;/p&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- p 요소의 텍스트 색을 red로 변경함 --&gt;<br>
+                &lt;/body&gt;
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

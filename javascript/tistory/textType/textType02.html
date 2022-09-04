@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기</h2>
+            <p class="t_desc2">
+                사이트를 구성하는 방법에는 다양한 유형이 있습니다. 다양한 유형들을 익혀놓으면, 사이트를 만들 때 디자인적인 요소도 챙길 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">텍스트 유형02</h3>
+            <p class="t_desc">
+                텍스트 유형의 사이트는 텍스트를 주요 콘텐츠로 배치하고, 콘텐츠는 제목과 본문으로 구성해 이미지 없이 내용을 전달하는 유형입니다.
+                같은 텍스트 유형도 다양한 디자인으로 사이트를 구성할 수 있습니다. 그 중 두번째 디자인입니다.
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpakv3MmuDJszSsl4w0gU3Z%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1296%253A1691" allowfullscreen></iframe>
+            </div>
+            <h3 class="t_tit2">디자인 하기</h3>
+            <p class="t_desc">
+                먼저, 그리드를 나누어 각 구역과 텍스트를 배치하여 전체적인 모습을 만들어 봅니다.
+            </p>
+            <h3 class="t_tit2">HTML 작성하기</h3>
+            <p class="t_desc">
+                그 다음, 만들어 둔 디자인을 보며 시멘틱 태그를 활용해 구역에 맞는 태그와 텍스트를 작성해 줍니다.
+                한번에 다 만들기 보다는 큰 요소부터 하나씩 만들면서 css를 적용해, 중간중간 확인하는 편이 좋습니다.
+                내용이 없는 div박스라도, 웹 표준을 준수하기 위해 간단한 설명을 적어주는 것이 좋습니다.
+            </p>
+            <details>
+                <summary>HTML 코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-html">&lt;div class="container textType section font">
+    &lt;div class="title__desc">
+        &lt;p class="subtit">4 seasons&lt;/p>
+        &lt;h2 class="tit">우리나라의&lt;br>사계절&lt;/h2>
+        &lt;p class="tit_desc">
+            꽃 피는 봄부터 쪄죽는 여름을 지나 가을과 겨울에 이르기까지!&lt;br>
+            우리나라의 사계절을 만나봅시다~
+        &lt;/p>
+    &lt;/div>
+    &lt;div class="text__box left">
+        &lt;article class="text">
+                &lt;div class="icon ir">아이콘&lt;/div>
+                &lt;h3 class="textTit">꽃 피는 봄&lt;/h3>
+                &lt;p class="textDesc">꽃이 피고 얼음과 눈이 녹고 새싹이 돋아나는 봄은 꽃가루 알러지의 계절이기도 합니다. 알러지가 있으신 분들은 조심하도록 합시다~&lt;/p>
+        &lt;/article>
+        &lt;article class="text">
+                &lt;div class="icon ir">아이콘&lt;/div>
+                &lt;h3 class="textTit">낙엽 지는 가을&lt;/h3>
+                &lt;p class="textDesc">단군이 사기당한 바로 그 계절! 선선한 바람이 불고 화창하고 맑은 하늘, 놀러가기 딱 좋은 날씨가 이어지는 가을입니다. 평생 가을이면 좋겠어~&lt;/p>
+        &lt;/article>
+    &lt;/div>
+    &lt;div class="text__box right">
+        &lt;article class="text">
+                &lt;div class="icon ir">아이콘&lt;/div>
+                &lt;h3 class="textTit">쪄 죽는 여름&lt;/h3>
+                &lt;p class="textDesc">비가 내리고… 음악이 흐르면… 아무래도 여름하면 푹푹 찌는 더위와 습한 날씨, 그리고 비가 억수로 내리는 장마철이 떠오르네요.&lt;/p>
+        &lt;/article>
+        &lt;article class="text">
+                &lt;div class="icon ir">아이콘&lt;/div>
+                &lt;h3 class="textTit">얼어 죽는 겨울&lt;/h3>
+                &lt;p class="textDesc">여름에 그렇게 덥더니 겨울엔 또 얼마나 추운지 두툼한 옷을 껴입고 김밥이 되어 돌아다녀도 찬바람이 쌩쌩 부는 계절입니다. 그래도 겨울 좋아.&lt;/p>
+        &lt;/article>
+    &lt;/div>
+&lt;/div>
+</code></pre>
+                </div>
+            </details>
+
+            <h3 class="t_tit2">CSS 작성하기</h3>
+            <p class="t_desc">
+                만들어 둔 디자인을 보며, 각 요소의 CSS를 설정해줍니다. 최종 완성 후 디자인과 비교하며 다른 점을 수정해줍니다.
+                요소를 배치하면서 제대로 css가 적용되는지 확인하고 싶다면, 해당 요소에 배경색을 지정해 확인하도록 합니다.
+                아이콘은 이미지 스트라이프 기법으로 넣었습니다.
+            </p>
+            <details>
+                <summary>CSS 코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+.font {
+    font-family: 'GmarketSans';
+    font-weight: 500;
+}
+
+/* ir 효과(이미지 대체 효과 == alt) */
+.ir {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+/* common */
+.container {
+    width: 1160px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+
+.section {
+    padding: 120px 0;
+    display: flex;
+}
+
+.section>h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section>p {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration-line: underline;
+}
+
+/* main */
+.title__desc {
+    width: 374px;
+}
+.subtit {
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 3px 22px;
+    border-radius: 50px;
+    background: #FF4949;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.tit {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.tit_desc {
+    width: 275px;
+    font-size: 18px;
+    line-height: 140%;
+    color: #333;
+}
+.text__box {
+    width: 374px;
+}
+.text__box.left {
+    margin: 0 20px;
+}
+.text {
+    box-sizing: border-box;
+    padding: 20px;
+}
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    background: url(img/iconsplite2.svg) no-repeat;
+}
+.text:nth-child(1) {
+    margin-bottom: 20px;
+}
+.left .text:nth-child(1) .icon {
+    background-color: #DAFBEB;
+    background-position: 13px 8px;
+}
+.left .text:nth-child(2) .icon {
+    background-color: #FDE2E2;
+    background-position: -86px 9px;
+}
+.right .text:nth-child(1) .icon {
+    background-color: #E8FFD6;
+    background-position: -39px 8px;
+}
+.right .text:nth-child(2) .icon {
+    background-color: #DADDFB;
+    background-position: -137px 10px;
+}
+.textTit {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.textDesc {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 140%;
+}
+</code></pre>
+                </div>
+            </details>
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/site/textType/textType02.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/site/textType/textType02.html">원본 소스 보기</a>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/site/textType/textType02.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

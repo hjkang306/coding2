@@ -27,13 +27,11 @@
             <div class="test_box">
                 <h3 class="title">1. while문을 이용해서 1부터 100까지 출력하시오!</h3>
                 <div class="code">
-<pre><code class="line-numbers language-js">{
-    let num1 = 1;
+<pre><code class="line-numbers language-js">let num1 = 1;
 
-    while(num &lt;= 100){
-        document.write(num);
-        num++;
-    }
+while(num &lt;= 100){
+    document.write(num);
+    num++;
 }
 </code></pre>
                 </div>
@@ -51,15 +49,16 @@
             <div class="test_box">
                 <h3 class="title">2. for문을 이용해서 1부터 100까지 출력하시오!</h3>
                 <div class="code">
-<pre><code class="line-numbers language-js">
-
+<pre><code class="line-numbers language-js">for(let i=1; i&lt;=100; i++){
+    document.write(i);
+}
 </code></pre>
                 </div>
                 <div class="result">
                     <details>
                         <summary>결과 보기</summary>
                         <div class="sample01_result">
-                            123456789
+                            123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100
                         </div>
                     </details>
                 </div>
@@ -69,15 +68,27 @@
             <div class="test_box">
                 <h3 class="title">3. for문을 이용해서 1부터 100까지 출력하시오!(짝수, 홀수)</h3>
                 <div class="code">
-<pre><code class="line-numbers language-js">
+<pre><code class="line-numbers language-js">//홀수
+for(let i=1; i&lt;=100; i++){
+    if(i % 2 == 1){
+        document.write(i);
+    }
+}
 
+//짝수
+for(let j=1; j&lt;=100; j++){
+    if(j % 2 == 0){
+        document.write(j);
+    }
+}
 </code></pre>
                 </div>
                 <div class="result">
                     <details>
                         <summary>결과 보기</summary>
                         <div class="sample01_result">
-                            123456789
+                            13579111315171921232527293133353739414345474951535557596163656769717375777981838587899193959799<br>
+                            2468101214161820222426283032343638404244464850525456586062646668707274767880828486889092949698100
                         </div>
                     </details>
                 </div>
@@ -87,15 +98,19 @@
             <div class="test_box">
                 <h3 class="title">4. for문을 이용해서 1부터 100까지 합을 출력하시오!</h3>
                 <div class="code">
-<pre><code class="line-numbers language-js">
+<pre><code class="line-numbers language-js">let sum = 0;
 
+for(let i=1; i&lt;=100; i++){
+    sum += i;
+}
+document.write(sum);
 </code></pre>
                 </div>
                 <div class="result">
                     <details>
                         <summary>결과 보기</summary>
                         <div class="sample01_result">
-                            123456789
+                            5050
                         </div>
                     </details>
                 </div>
@@ -113,7 +128,31 @@
             for(let i=1; i<=100; i++){
                 sum += i;
             }
-            document.write(sum);
+            //document.write(sum);
+        }
+
+        //1~100
+        {
+            for(let i=1; i<=100; i++){
+                //document.write(i);
+            }
+        }
+
+        //1~100 홀/짝
+        {
+            //홀수
+            for(let i=1; i<=100; i++){
+                if(i % 2 == 1){
+                    //document.write(i);
+                }
+            }
+
+            //짝수
+            for(let j=1; j<=100; j++){
+                if(j % 2 == 0){
+                    document.write(j);
+                }
+            }
         }
     </script>
 </body>

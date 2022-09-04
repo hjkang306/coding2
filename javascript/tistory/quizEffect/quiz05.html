@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">퀴즈 이펙트</h2>
+            <p class="t_desc2">
+                퀴즈를 풀 수 있는 페이지를 구성할 때에, 퀴즈의 유형에 맞는 다양한 이펙트를 사용하면
+                단조롭지 않은 생동감 넘치는 페이지를 만들 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">객관식(여러문제) 유형 : 점수</h3>
+            <p class="t_desc">
+                객관식 여러문제를 나타내는 효과입니다.
+                객관식 문제의 보기를 고르면, 보기가 체크되어 있는지 확인한 후 보기와 정답이 같은지 확인합니다.
+                정답이라면 "정답" 알림을, 오답이라면 "오답" 알림을 띄웁니다. 또한, 정답 갯수를 확인하여 합격, 불합격 여부를 나타냅니다.
+            </p>
+            <div class="t_iframe" style="min-height: 1050px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/quizEffect05.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/javascript/effect/quizEffect05.html">원본 소스 보기</a>
+            </div>
+            <br>
+            <p class="t_desc">
+                해당 이펙트의 자바스크립트는 아래에 이어지는 내용과 같습니다.<br>
+                -객관식 문제의 정보를 배열 속 객체를 활용하여 저장하였습니다.<br>
+                -문제를 나타내는 html코드를 자바스크립트를 이용해 넣었습니다.<br>
+                -자바스크립트를 이용해 문제의 각 정보를 요소에 넣었습니다.
+            </p>
+            <h3 class="t_tit2">문제 정보</h3>
+            <p class="t_desc">
+                문제가 여러개인 경우, 문제 정보를 배열과 <i>객체</i>에 저장하면 보다 효율적인 관리가 가능합니다.
+                객관식 보기에 대한 정보는 객체 속에 배열 혹은 객체로 작성하면 효율적입니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">const quizInfo = [
+{
+    answerType : "웹디자인기능사 2012년 5회",
+    answerNum : "1",
+    answerAsk : "제품 디자인 과정 중 「완성 예상도」라고도 하며 실물처럼 충실하고 정확히 표현하는 것을 무엇이라고 하는가?",
+    answerChoice : {
+        1: "렌더링(RENDERING)",
+        2: "드로잉(DRAWING)",
+        3: "스케치(SKETCH)",
+        4: "모델링(MODELING)"
+    },
+    answerResult : "1",
+    answerEx : "드로잉 : 연필·펜·크레용 등으로 대상물의 윤곽만을 그리는 그 자체로서 독립된 그림<br><br>스케치 : 대상을 세부적으로 묘사하지 않고 빨리 그리는 것<br><br>모델링 : 모형을 만드는 일을 의미" 
+},
+{
+    answerType : "웹디자인기능사 2012년 5회",
+    answerNum : "2",
+    answerAsk : "다음 중 주위색의 영향으로 오히려 인접색에 가깝게 느껴지는 현상을 의미하는 것은?",
+    answerChoice : {
+        1: "대비 현상",
+        2: "동화 현상",
+        3: "색의 수축성",
+        4: "중량 현상"
+    },
+    answerResult : "2",
+    answerEx : "대비현상 : 어떤 색이 다른 색의 영향으로 인하 여 실제와는 다른 색으로 변해 보이는 현상<br><br>색의 수축성 : 색의 면적이 실제 면적보다 작게 또는 크게 느껴지는 심리현상을 의미" 
+},
+.
+.
+.
+{
+    answerType : "웹디자인기능사 2012년 5회",
+    answerNum : "60",
+    answerAsk : "디자인 구체화 단계에서 구상되어진 디자인을 구현하기 위해서 사용되는 프로그램과 그 역할이 잘못 설명된 것은?",
+    answerChoice : {
+        1: "VScode : HTML 코딩할 때 사용",
+        2: "포토샵 : 이미지의 변형 및 아이콘 제작에 사용",
+        3: "플래시 : 동영상 및 사운드 편집에만 사용",
+        4: "케이크워크 : 사운드 편집 및 변환에 사용"
+    },
+    answerResult : "3",
+    answerEx : "플래시: 벡터 도형 처리 기반의 애니메이션 제작용 소프트웨어"
+}
+</code></pre>
+                </div>
+            </details>
+            <h3 class="t_tit2">퀴즈 HTML 요소 삽입하기</h3>
+            <p class="t_desc">
+                문제가 여러개이면 문제를 넣어야 하는 HTML요소도 반복해서 계속 적어야 합니다.<br>
+                자바스크립트를 사용해서 넣으면 같은 내용을 직접 반복해서 적지 않아도 HTML요소를 삽입할 수 있습니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">const quizWrap = document.querySelector(".quiz__wrap");  //html요소를 삽입할 위치를 선택자로 만들어줍니다.
+let quizScore = 0;  //맞은 갯수를 계산하기 위한 변수를 선언
+
+const updateQuiz = () => {  //실행문들을 효과적으로 관리하기 위해 함수로 만들어 줍니다.
+    const exam = [];    //push() 메소드를 이용해 html요소를 삽입하기 위해서는, 변수에 빈 배열을 만들어 선언해주어야 합니다.
+
+    quizInfo.forEach((question, number) => {
+        exam.push(` //push() 메소드를 이용해 빈 배열에 문제의 갯수만큼 html요소를 추가해줍니다. `(억음부호)를 사용하면 태그를 html요소로 인식하며, 사이에 변수를 삽입하기 쉬워집니다.
+            &lt;div class="quiz">
+            &lt;span class="quiz__type">${quizInfo[number].answerType}&lt;/span>    //`(억음부호)안에서의 변수 삽입은 ${변수}의 형식으로 합니다.
+            &lt;h2 class="quiz__question">
+                &lt;span class="number">${quizInfo[number].answerNum}&lt;/span>
+                &lt;div class="ask">${quizInfo[number].answerAsk}&lt;/div>
+            &lt;/h2>
+            &lt;div class="quiz__view">
+                &lt;div class="true">정답입니다!&lt;/div>
+                &lt;div class="false">틀렸습니다!&lt;/div>
+                &lt;div class="dog">
+                    &lt;div class="head">
+                        &lt;div class="ears">&lt;/div>
+                        &lt;div class="face">&lt;/div>
+                        &lt;div class="eyes">
+                            &lt;div class="teardrop">&lt;/div>
+                        &lt;/div>
+                        &lt;div class="nose">&lt;/div>
+                        &lt;div class="mouth">
+                            &lt;div class="tongue">&lt;/div>
+                        &lt;/div>
+                        &lt;div class="chin">&lt;/div>
+                    &lt;/div>
+                    &lt;div class="body">
+                        &lt;div class="tail">&lt;/div>
+                        &lt;div class="legs">&lt;/div>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="quiz__answer">
+                &lt;div class="quiz__selects">
+                    &lt;label for="select1${number}">
+                        &lt;input type="radio" id="select1${number}" class="select" name="select${number}" value="1">
+                        &lt;span class="choice">${quizInfo[number].answerChoice[1]}&lt;/span>
+                    &lt;/label>
+                    &lt;label for="select2${number}">
+                        &lt;input type="radio" id="select2${number}" class="select" name="select${number}" value="2">
+                        &lt;span class="choice">${quizInfo[number].answerChoice[2]}&lt;/span>
+                    &lt;/label>
+                    &lt;label for="select3${number}">
+                        &lt;input type="radio" id="select3${number}" class="select" name="select${number}" value="3">
+                        &lt;span class="choice">${quizInfo[number].answerChoice[3]}&lt;/span>
+                    &lt;/label>
+                    &lt;label for="select4${number}">
+                        &lt;input type="radio" id="select4${number}" class="select" name="select${number}" value="4">
+                        &lt;span class="choice">${quizInfo[number].answerChoice[4]}&lt;/span>
+                    &lt;/label>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+        `);
+        
+    });
+    
+    exam.push(` //정답 확인하기 버튼은 1개만 만들 것이기 때문에  forEach문 바깥에서 메소드를 작성합니다.
+        &lt;div class="quiz__confirm">
+            &lt;button class="check">정답 확인하기&lt;/button>
+            &lt;div class="ex">&lt;/div>
+        &lt;/div>
+    `);
+
+    quizWrap.innerHTML = exam.join(''); // 문서에 join() 메소드를 이용해 배열에 추가된 각 요소들을 쉼표(,)없이 통합하여 넣어줍니다.
+}
+updateQuiz();   //함수를 작성하였으면 실행문을 꼭 작성해 줍니다.
+</code></pre>
+                </div>
+            </details>
+            <h3 class="t_tit2">정답 확인</h3>
+            <p class="t_desc">
+                정답 확인하기 버튼을 누르면 실행문이 작성된 함수가 실행되도록 합니다.
+                함수는 사용자가 선택한 보기와 정답이 일치하는지 확인하고, 정답일 경우 정답을, 오답인 경우 오답을 표시하도록 합니다.
+                또한, 맞은 갯수를 세어 36개보다 적으면 불합격, 그 외엔 합격했다는 문구를 나타내도록 합니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">//정답 확인
+const answerQuiz = () => {
+    const quizSelects = document.querySelectorAll(".quiz__selects");    //객관식 보기
+
+    //사용자가 체크한 보기 == 문제 정답 인지 확인
+    quizInfo.forEach((question, number) => {
+        const userSelector = `input[name=select${number}]:checked`; //사용자가 체크한 보기
+        const quizSelectsWrap = quizSelects[number];    //전체 문제 중에서 number번째의 보기 4개
+        const userAnswer = (quizSelectsWrap.querySelector(userSelector) || {}).value;   //보기 4개 중 사용자가 체크한 보기와 같은 보기의 값을 가져옴
+        const quizView = document.querySelectorAll(".quiz__view");  //강아지
+
+        if(userAnswer == question.answerResult){    //사용자가 선택한 보기와 정답의 보기가 같은지 확인(같은 경우)
+            //console.log("정답");
+            quizView[number].classList.add("like");
+            quizScore++;
+        } else {    //다른 경우
+            //console.log("오답");
+            quizView[number].classList.add("dislike");
+            const divBox = document.createElement("div");
+            quizSelectsWrap.appendChild(divBox).innerHTML = `&lt;p class="result">${question.answerEx}&lt;/p>`;
+        }
+    });
+
+    //전체 문제 수
+    //console.log(quizInfo.length);
+
+    //사용자가 맞힌 수
+    //console.log(quizScore);
+
+    //정답 수 / 합격여부 출력
+    if (36 &lt;= quizScore){
+        document.querySelector(".ex").textContent = "전체" + quizInfo.length + "개 중 " + quizScore + "개 정답으로, 합격입니다."
+    } else {
+        document.querySelector(".ex").textContent = "전체" + quizInfo.length + "개 중 " + quizScore + "개 정답으로, 불합격입니다."
+    }
+}
+
+//정답 확인하기 버튼을 클릭한 경우 함수 실행
+document.querySelector(".quiz__confirm .check").addEventListener("click", answerQuiz);
+</code></pre>
+                </div>
+            </details>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

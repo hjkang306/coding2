@@ -1,6 +1,6 @@
 /*!
-  Theme: Atelier Forest Light
-  Author: Bram de Haan (http://atelierbramdehaan.nl)
+  Theme: vulcan
+  Author: Andrey Varfolomeev
   License: ~ MIT (or more permissive) [via base16-schemes-source]
   Maintainer: @highlightjs/core-team
   Version: 2021.09.0
@@ -17,28 +17,28 @@ code.hljs {
     padding: 3px 5px
 }
 .hljs {
-    color: #68615e;
-    background: #f1efee
+    color: #73828d;
+    background: #041523
 }
 
 .hljs ::selection,
 .hljs::selection {
-    background-color: #a8a19f;
-    color: #68615e
+    background-color: #003552;
+    color: #75828d
 }
 
 .hljs-comment {
-    color: #9c9491
+    color: #7c6f6f
 }
 
 .hljs-tag {
-    color: #766e6b
+    color: #6b6977
 }
 
 .hljs-operator,
 .hljs-punctuation,
 .hljs-subst {
-    color: #68615e
+    color: #a6aeb4
 }
 
 .hljs-operator {
@@ -51,7 +51,7 @@ code.hljs {
 .hljs-selector-tag,
 .hljs-template-variable,
 .hljs-variable {
-    color: #f22c40
+    color: #9397a1
 }
 
 .hljs-attr,
@@ -60,62 +60,62 @@ code.hljs {
 .hljs-number,
 .hljs-symbol,
 .hljs-variable.constant_ {
-    color: #df5320
+    color: #d0d3da
 }
 
 .hljs-class .hljs-title,
 .hljs-title,
 .hljs-title.class_ {
-    color: #c38418
+    color: #adb4b9
 }
 
 .hljs-strong {
     font-weight: 700;
-    color: #c38418
+    color: #adb4b9
 }
 
 .hljs-addition,
-.hljs-code,
-.hljs-string,
-.hljs-title.class_.inherited__ {
-    color: #7b9726
-}
-
+.hljs-attribute,
 .hljs-built_in,
+.hljs-code,
 .hljs-doctag,
+.hljs-function .hljs-title,
 .hljs-keyword.hljs-atrule,
 .hljs-quote,
-.hljs-regexp {
-    color: #3d97b8
-}
-
-.hljs-attribute,
-.hljs-function .hljs-title,
+.hljs-regexp,
 .hljs-section,
+.hljs-string,
+.hljs-title.class_.inherited__,
 .hljs-title.function_,
 .ruby .hljs-property {
-    color: #407ee7
+    color: #977d7c
 }
 
 .diff .hljs-meta,
 .hljs-keyword,
 .hljs-template-tag,
 .hljs-type {
-    color: #6666ea
+    color: #c8cbd1
 }
 
 .hljs-emphasis {
-    color: #6666ea;
+    color: #9198a3;
     font-style: italic
 }
 
 .hljs-meta,
 .hljs-meta .hljs-keyword,
 .hljs-meta .hljs-string {
-    color: #c33ff3
+    color: #977d7c
 }
 
 .hljs-meta .hljs-keyword,
 .hljs-meta-keyword {
     font-weight: 700
+}
+.hljs-property {
+    color: #bbb;
+}
+.hljs span.language-xml {
+    color: #555;
 }

@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>검색 이펙트</title>
+
     <link rel="stylesheet" href="../assets/css/search.css">
+    <link rel="stylesheet" href="../assets/css/sourceSearch.css">
+    <link rel="stylesheet" href="../assets/css/vulcan.css">
+    
     <!-- web fonts -->
     <link href="https://webfontworld.github.io/tmon/Tmon.css" rel="stylesheet">
     <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
@@ -24,6 +28,84 @@
                 <li><a href="searchEffect06.html">6</a></li>
             </ul>
         </nav>
+
+        <!-- 소스보기 버튼 -->
+        <div class="source__wrap">
+            <div class="source__btn">소스 보기</div>
+            <div class="source__cont">
+                <div class="source__box">
+                    <div class="title">
+                        <div class="tabs">
+                            <div class="active">Javascript</div>
+                            <div>HTML</div>
+                        </div>
+                    </div>
+                    <div class="cont">
+                        <div class="active">
+        <pre><code class="languige-js">//선택자
+const searchBox = document.querySelector(".search__box input");         //검색 영역
+const searchList = document.querySelectorAll(".search__list ul li");    //목록 리스트
+const searchInfo = document.querySelector(".search__info .num");        //전체 갯수
+
+//전체 갯수 구하기
+searchInfo.textContent = searchList.length;
+
+//검색 영역
+searchBox.addEventListener("keyup", () => {
+    const searchWord = searchBox.value;     //사용자가 입력한 키워드
+
+    searchList.forEach(el => {
+        const cssType = el.dataset.type;                         //CSS 유형 모든 값
+        const cssName = el.querySelector("strong").innerText;    //CSS 속성 모든 값
+
+        if (cssName.includes(searchWord) || cssType.includes(searchWord)) {
+            el.classList.remove("hide");
+        } else {
+            el.classList.add("hide");
+        }
+    });
+    const searcHide = document.querySelectorAll(".search__list ul li.hide");
+    searchInfo.textContent = searchList.length-searcHide.length;
+});
+        </code></pre>
+                        </div>
+                        <div>
+        <pre><code class="languige-html">&lt;div class="search__wrap">
+    &lt;span>includes()를 이용하여 CSS 속성 검색하기&lt;/span>
+    &lt;h1>CSS 속성 검색하기&lt;/h1>
+    &lt;div class="search__box">
+        &lt;label for="search">검색하기&lt;/label>
+        &lt;input type="text" id="search" placeholder="CSS 속성 및 유형을 입력해주세요!">
+    &lt;/div>
+    &lt;div class="search__info">
+        &lt;div class="type">플렉스, 애니메이션, 백그라운드, 기타 등등 유형 별로 검색해 보세요!&lt;/div>
+        &lt;div>전체 속성 갯수 : &lt;span class="num">0&lt;/span>&lt;/div>
+    &lt;/div>
+    &lt;div class="search__list">
+        &lt;ul>
+            &lt;div class="css">
+                &lt;li data-type="기타">&lt;strong>accent-color&lt;/strong> : 요소의 강조 색상을 지정합니다. &lt;/li>
+                &lt;li data-type="플렉스">&lt;strong>align-content&lt;/strong> : 콘텐츠 사이와 콘텐츠 주위 빈 공간을 플렉스 박스'의 교차축 또는 그리드의 블록 축을 따라 배치하는 방식을 결정합니다.&lt;/li>
+                &lt;li data-type="플렉스">&lt;strong>align-items&lt;/strong> : 교차축에서 아이템 정렬 하는 속성입니다. 주로 flex에서 item들을 정렬할 때 사용됩니다.&lt;/li>
+                …
+                &lt;li data-type="기타">&lt;strong>writing-mode&lt;/strong> : 텍스트의 선이 수평 또는 수직으로 배치 여부 속성 집합뿐만 아니라 블록이 진행되는 방향.&lt;/li>
+                &lt;li data-type="기타">&lt;strong>z-index&lt;/strong> : 엘리먼트의 겹쳐지는 순서를 지정한다.&lt;/li>
+            &lt;/div>
+        &lt;/ul>
+    &lt;/div>
+&lt;/div>
+        </code></pre>
+                        </div>
+                    </div>
+                    <div class="source__close">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                            <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <!-- header -->
     <main id="main">
@@ -459,7 +541,47 @@
             const searcHide = document.querySelectorAll(".search__list ul li.hide");
             searchInfo.textContent = searchList.length-searcHide.length;
         });
+    </script>
 
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <script>
+        //source
+        const sourceBtn = document.querySelector(".source__btn");
+        const sourceClose = document.querySelector(".source__close");
+        const sourceCont = document.querySelector(".source__cont");
+
+        sourceBtn.addEventListener("click", () => {
+            sourceCont.classList.add("show");
+            sourceCont.classList.remove("hide");
+        });
+        sourceClose.addEventListener("click", () => {
+            sourceCont.classList.add("hide");
+        });
+
+
+        //탭메뉴
+        const tabBtn = document.querySelectorAll(".source__box .tabs > div");
+        const tabCont = document.querySelectorAll(".source__box .cont > div");
+
+        tabBtn.forEach( (el, i) => {
+            el.addEventListener("click", (event) => {
+                event.preventDefault();
+                
+                tabBtn.forEach((li)=>{
+                    li.classList.remove('active');
+                });
+                el.classList.add("active");
+                
+                tabCont.forEach((div) => {
+                    div.style.display = "none";
+                });
+
+                tabCont[i].style.display = "block";
+            });
+        });
     </script>
 </body>
 

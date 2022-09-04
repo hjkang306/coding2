@@ -104,20 +104,179 @@
                         <div class="tabs">
                             <div class="active">Javascript</div>
                             <div>HTML</div>
-                            <div>CSS</div>
                         </div>
                     </div>
                     <div class="cont">
                         <div class="active">
-        <pre><code class="languige-js">
+        <pre><code class="languige-js">//문제 정보
+const quizInfo = [
+{
+        answerType: "웹디자인 기능사 2013년 01회",
+        answerNum: 9,
+        answerAsk: "색채조화의 공통원리에 관한 설명으로 틀린 것은?",
+        answerChoice: {
+            1 : "질서의 원리는 효과적인 반응을 일으키는 질서 있는 계획에 따라 선택된 색채들에서 생긴다.",
+            2 : "비모호성의 원리는 두 색 이상의 배색에 있어서 모호함이 없는 명료한 배색에서만 얻어진다.",
+            3 : "동류의 원리는 가장 가까운 색채끼리의 배색은 보는 사람에게 친근감을 주며 조화를 느끼게 한다.",
+            4 : "친근성의 원리는 배색된 색채들이 서로 공통되는 상태와 속성을 가질 때 그 색채는 조화된다.",
+        },
+        answerResult: "친근성의 원리는 배색된 색채들이 서로 공통되는 상태와 속성을 가질 때 그 색채는 조화된다.",
+        answerEx: "친근성이란 관찰자에게 친숙해있는 배색이 잘 조화를 이룬다.",
+    },
+    {
+        answerType: "웹디자인 기능사 2013년 01회",
+        answerNum: 10,
+        answerAsk: "모든 사물은 구, 원기둥 및 원뿔 형태와 같은 기하학적 형태로 구성되어 있다고 주장한 사람은?",
+        answerChoice: {
+            1 : "파파넥",
+            2 : "고흐",
+            3 : "세잔",
+            4 : "오장팡",
+        },
+        answerResult: "세잔",
+        answerEx: "세잔이 그랬습니다. 세잔은 큐비즘(입체파) 대표적인 인물이죠",
+    },
+    .
+    .
+    .
+    {
+        answerType: "웹디자인기능사 2011년 1회",
+        answerNum: "50",
+        answerAsk: "컴퓨터그래픽스 시스템에 사용되는 입력 장치로 적합하지 않은 것은?",
+        answerChoice: {
+            1: "마우스",
+            2: "플로터",
+            3: "스캐너",
+            4: "터치스크린",
+        },
+        answerResult: "플로터",
+        answerEx: "플로터 : 설계도면 등을 출력하는 대형 출력장치 입니다."
+    },
+];
+
+const quizType = document.querySelector(".quiz__type"); //타입
+const quizQuestion = document.querySelector(".quiz__question"); //문제 번호, 질문
+const quizSelects = document.querySelector(".quiz__selects"); //객관식 보기
+const quizResert = document.querySelector(".quiz__answer .result"); //해설
+const quizConfirm = document.querySelector(".quiz__answer .confilm"); //정답 확인버튼
+const quizView = document.querySelector(".quiz__view"); //정답 확인버튼
+
+let quizCount = 0;
+let quizRight = 0;
+
+//문제 출력 : 매개변수를 이용 => 편리!
+const updateQuiz = (index) => {
+    const questionTag = `
+        &lt;span class="number">${index + 1 + ". "}&lt;/span>
+        &lt;div class="ask">${quizInfo[index].answerAsk}&lt;/div>
+    `;
+
+    const choiceTag = `
+        &lt;label for="select1">
+            &lt;input type="radio" id="select1" class="select" name="select" value="1">
+            &lt;span class="choice">${quizInfo[index].answerChoice[1]}&lt;/span>
+        &lt;/label>
+        &lt;label for="select2">
+            &lt;input type="radio" id="select2" class="select" name="select" value="2">
+            &lt;span class="choice">${quizInfo[index].answerChoice[2]}&lt;/span>
+        &lt;/label>
+        &lt;label for="select3">
+            &lt;input type="radio" id="select3" class="select" name="select" value="3">
+            &lt;span class="choice">${quizInfo[index].answerChoice[3]}&lt;/span>
+        &lt;/label>
+        &lt;label for="select4">
+            &lt;input type="radio" id="select4" class="select" name="select" value="4">
+            &lt;span class="choice">${quizInfo[index].answerChoice[4]}&lt;/span>
+        &lt;/label>
+    `;
+
+    //문제 출력
+    quizType.innerHTML = quizInfo[index].answerType;   //타입
+    quizQuestion.innerHTML = questionTag;   //번호, 질문 넣어줌
+    quizSelects.innerHTML = choiceTag;   //객관식 보기
+    quizResert.innerHTML = quizInfo[index].answerEx;   //해설
+
+    const quizChoice = quizSelects.querySelectorAll(".choice");
+    
+
+    for(let i=0; i&lt;quizChoice.length; i++){
+        quizChoice[i].setAttribute("onclick", "choiceSelected(this)");
+    }
+
+    //정답 확인 버튼, 해설 숨기기
+    quizResert.style.display = "none";
+    quizConfirm.style.display = "none";
+};
+updateQuiz(quizCount);
+
+const choiceSelected = (answer) => {
+    let userAnswer = answer.textContent;                          //사용자가 체크한 정답
+    let currentAnswer = quizInfo[quizCount].answerResult;   //문제의 정답
+
+    if(userAnswer == currentAnswer){
+        console.log("정답");
+        quizView.classList.add("like");
+        quizRight++;
+        console.log(quizRight);
+    } else {
+        console.log("오답");
+        quizView.classList.add("dislike");
+        quizResert.style.display = "block";
+    }
+    
+    //정답 확인 버튼
+    quizConfirm.style.display = "block";
+}
+
+const answerQuiz = () => {
+    //마지막 문제
+    if(quizInfo.length -1 == quizCount ){
+        quizConfirm.textContent = `총 ${quizCount+1}문제 중에 ${quizRight}문제를 맞추었습니다.`
+    }
+
+    quizCount++;
+    updateQuiz(quizCount);
+    quizView.classList.remove("like", "dislike");
+    
+}
+quizConfirm.addEventListener("click", answerQuiz);
         </code></pre>
                         </div>
                         <div>
-        <pre><code class="languige-html">
-        </code></pre>
-                        </div>
-                        <div>
-        <pre><code class="languige-css">
+        <pre><code class="languige-html">&lt;div class="quiz__wrap">
+    &lt;div class="quiz">
+        &lt;span class="quiz__type">&lt;/span>
+        &lt;h2 class="quiz__question">&lt;/h2>
+        &lt;div class="quiz__view">
+            &lt;div class="true">정답입니다!&lt;/div>
+            &lt;div class="false">틀렸습니다!&lt;/div>
+            &lt;div class="dog">
+                &lt;div class="head">
+                    &lt;div class="ears">&lt;/div>
+                    &lt;div class="face">&lt;/div>
+                    &lt;div class="eyes">
+                        &lt;div class="teardrop">&lt;/div>
+                    &lt;/div>
+                    &lt;div class="nose">&lt;/div>
+                    &lt;div class="mouth">
+                        &lt;div class="tongue">&lt;/div>
+                    &lt;/div>
+                    &lt;div class="chin">&lt;/div>
+                &lt;/div>
+                &lt;div class="body">
+                    &lt;div class="tail">&lt;/div>
+                    &lt;div class="legs">&lt;/div>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="quiz__answer">
+            &lt;div class="quiz__selects">&lt;/div>
+            &lt;div class="result">&lt;/div>
+            &lt;button class="confilm">다음 문제 보기⇒&lt;/button>
+        &lt;/div>
+    &lt;/div>
+    &lt;!-- //quiz1 -->
+&lt;/div>
         </code></pre>
                         </div>
                     </div>

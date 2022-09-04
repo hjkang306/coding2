@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">GSAP 알아보기</h2>
+            <p class="t_desc2">
+                CSS 애니메이션을 쉽게 작성할 수 있는 GSAP에 대해 알아봅시다!
+            </p>
+
+            <h3 class="t_tit2">GSAP란?</h3>
+            <div class="t_desc2">
+                GSAP는 GreenSock에서 만든 <i>자바스크립트 애니메이션 라이브러리</i>입니다.
+                복잡한 애니메이션을 구현하려면, CSS나 일반적인 자바스크립트로 작성으로는 너무 복잡하고 한계가 느껴지기 마련입니다.
+                이런 상황에서 <i>보다 쉽게 애니메이션을 만들 수 있도록 만들어주는 도구</i>가 바로 GSAP입니다.
+            </div>
+            <div class="t_link">
+                <a href="https://greensock.com/">GSAP 공식 사이트 방문하기</a>
+            </div>
+            <h3 class="t_tit2">GSAP 사용하기</h3>
+            <div class="t_box">
+                * 1. gsap <i>cdn 연결하기</i> *<br>
+                &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js">&lt;/script><br><br>
+
+                * 2. <i>gsap.to() 작성하기</i> *<br>
+                gsap.to(<i>"대상"</i>, <i>{ 속성1, 속성2, 속성3, … }</i>);<br><br>
+
+                * gsap.to의 주요 <i>속성</i>과 예시 *<br>
+                x : x축으로 해당 값만큼 이동 ( x: 200 )<br>
+                y : y축으로 해당 값만큼 이동 ( y: 200 )<br>
+                rotate : 대상을 회전(°) ( rotate: 720 )<br>
+                opacity : 대상의 투명도를 설정 ( opacity: 0.2 )<br>
+                scale : 대상의 크기를 설정(배) ( scale: 1.3 )<br>
+                duration : 애니메이션의 작동 시간(초)을 설정 ( duration: 3 )<br>
+                delay : 애니메이션의 지연 시간(초)을 설정 ( delay: 2 )<br><br>
+                
+                등… css의 transform 속성과 비슷한 속성들이 있습니다.
+            </div>
+            <div class="t_link">
+                <a href="https://greensock.com/docs/v3/GSAP">GSAP의 더 자세한 사용법</a>
+            </div>
+            <h3 class="t_tit2">GSAP의 장점과 단점</h3>
+            <div class="t_box">
+                * <i>장점</i> *<br>
+                1. 컴퓨터의 메모리를 사용 ⇒ 빠르다<br>
+                2. CSS 애니메이션을 쉽게 구현 가능<br>
+                3. 가볍다<br><br>
+
+                * <i>단점</i> *<br>
+                부분유료화가 되어있어, 다양한 기능을 사용하기 위해선 결제가 필요함
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

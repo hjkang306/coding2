@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">검색 이펙트</h2>
+            <p class="t_desc2">
+                페이지에 리스트를 만들고, input박스를 만들어 사용자가 리스트의 내용을 검색할 수 있게 한 효과입니다.
+            </p>
+
+            <h3 class="t_tit2">> 사이트 미리보기</h3>
+            <div class="t_iframe" style="min-height: 700px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/searchEffect01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/javascript/effect/searchEffect01.html">원본 소스 보기</a>
+            </div>
+            <br>
+            <h3 class="t_tit2">자바스크립트</h3>
+            <p class="t_desc">
+                해당 이펙트의 자바스크립트는 아래에 이어지는 내용과 같습니다.
+                먼저 검색영역(사용자가 검색하고 싶은 내용을 입력하는 곳)과, 목록리스트를 선택하는 선택자를 지정합니다.
+                이후 사용자가 입력한 키워드를 변수에 저장한 후, 리스트의 데이터 값에 사용자 키워드가 포함되는지 확인하며 리스트를 숨기고 보이게 합니다.
+                이를 위해 각 리스트에 <i>data-name=""</i> 속성을 부여하여 데이터 값을 비교할 수 있도록 합니다.
+                리스트의 테이터 값에 사용자 키워드가 포함되는지는, 문자열 메서드의 하나인 <i>indexOf()</i> 메서드를 사용합니다.
+            </p>
+            <h3 class="t_tit3">> 선택자</h3>
+            <p class="t_desc">
+                <i>다중선택</i>이 필요한 경우, querySelector가 아닌 <i>querySelectorAll</i>을 사용해야 조건에 해당하는 전체에서의 선택이 가능해집니다.
+                목록의 리스트는 여러개이므로 querySelectorAll을 사용합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">//선택자
+const searchBox = document.querySelector(".search__box input"); //검색 영역
+const searchList = document.querySelectorAll(".search__list ul li"); //목록 리스트
+
+searchBox.addEventListener("keyup", () => {
+    const searchWord = searchBox.value;  //사용자가 입력한 키워드
+
+    searchList.forEach(el => {
+        const cssName = el.dataset.name;
+        
+        if(cssName.indexOf(searchWord)){    //키워드가 미포함된 경우 indexOf() 값(자릿값)으로 -1이 반환됨 => true
+            el.classList.add("hide");   //숨기기
+        } else {
+            el.classList.remove("hide");    //보이기 //키워드가 포함된 경우 indexOf() 값(자릿값)으로 0이 반환됨 => false => else 실행
+        }
+        
+        //console.log(searchWord);
+    });
+
+});
+</code></pre>
+            </div>
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_desc">
+                키워드와 리스트의 데이터를 비교하기 위해, 각 리스트에 <i>data-name=""</i> 속성을 부여합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;li data-name="a"&gt;&lt;strong&gt;a&lt;/strong&gt; : a 태그는 다른 페이지 이동을 설정합니다.&lt;/li&gt;
+&lt;li data-name="abbr"&gt;&lt;strong&gt;abbr&lt;/strong&gt; : abbr 태그는 줄임말이나 머리글자를 표현하는데 사용합니다.&lt;/li&gt;
+&lt;li data-name="acronym"&gt;&lt;strong&gt;acronym&lt;/strong&gt; : acronym 태그는 줄임말이나 머리글자를 표현하는 데에 사용합니다.&lt;/li&gt;
+&lt;li data-name="address"&gt;&lt;strong&gt;address&lt;/strong&gt; : address 태그는 가까운 HTML 요소의 사람, 단체, 조직 등에 대한 연락처 정보를 나타냅니다.&lt;/li&gt;
+&lt;li data-name="applet"&gt;&lt;strong&gt;applet&lt;/strong&gt; : applet 태그는 자바 애플릿을 보이게 하는 곳에 사용됩니다.&lt;/li&gt;
+&lt;li data-name="area"&gt;&lt;strong&gt;area&lt;/strong&gt; : area 태그는 이미지의 핫스팟 영역을 정의하고, 하이퍼링크를 추가할 수 있습니다. map 태그 안에서만 사용할 수 있습니다.&lt;/li&gt;
+&lt;li data-name="article"&gt;&lt;strong&gt;article&lt;/strong&gt; : article 태그는 문서, 페이지, 애플리케이션, 사이트 안에서 독립적인 구획을 만들 때 사용합니다.&lt;/li&gt;
+&lt;li data-name="aside"&gt;&lt;strong&gt;aside&lt;/strong&gt; : aside 태그는 문서의 주요 콘텐츠와 연관성을 가지고 있지만, 해당 콘텐츠와 분리시킨 영역을 만들고 싶을 때 사용합니다.&lt;/li&gt;
+&lt;li data-name="audio"&gt;&lt;strong&gt;audio&lt;/strong&gt; : audio 태그는 사용됩니다.&lt;/li&gt;
+&lt;li data-name="b"&gt;&lt;strong&gt;b&lt;/strong&gt; : b 태그는 사용됩니다.&lt;/li&gt;
+&lt;li data-name="base"&gt;&lt;strong&gt;base&lt;/strong&gt; : base 태그는 사용됩니다.&lt;/li&gt;
+&lt;li data-name="bdi"&gt;&lt;strong&gt;bdi&lt;/strong&gt; : bdi 태그는 사용됩니다.&lt;/li&gt;
+&lt;li data-name="bdo"&gt;&lt;strong&gt;bdo&lt;/strong&gt; : bdo 태그는 사용됩니다.&lt;/li&gt;
+&lt;li data-name="bgsound"&gt;&lt;strong&gt;bgsound&lt;/strong&gt; : bgsound 태그는 사용됩니다.&lt;/li&gt;
+&lt;li data-name="big"&gt;&lt;strong&gt;big&lt;/strong&gt; : big 태그는 사용됩니다.&lt;/li&gt;
+&lt;li data-name="blink"&gt;&lt;strong&gt;blink&lt;/strong&gt; : blink 태그는 사용됩니다.&lt;/li&gt;
+&lt;li data-name="blockquoto"&gt;&lt;strong&gt;blockquoto&lt;/strong&gt; : blockquoto 태그는 사용됩니다.&lt;/li&gt;
+&lt;li data-name="body"&gt;&lt;strong&gt;body&lt;/strong&gt; : body 태그는 문서의 콘텐츠 영역을 정의합니다.&lt;/li&gt;
+&lt;li data-name="br"&gt;&lt;strong&gt;br&lt;/strong&gt; : br 행을 바꾸고 싶을 때 사용합니다.(줄바꿈 기능)&lt;/li&gt;
+&lt;li data-name="button"&gt;&lt;strong&gt;button&lt;/strong&gt; : button 태그는 클릭이 가능한 버튼을 만듭니다.&lt;/li&gt;
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

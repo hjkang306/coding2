@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">jQuery 알아보기</h2>
+            <p class="t_desc2">
+                자바스크립트 애니메이션을 쉽게 작성할 수 있는 jQuery에 대해 알아봅시다!
+            </p>
+
+            <h3 class="t_tit2">jQuery란?</h3>
+            <div class="t_desc2">
+                jQuery는 자바스크립트 언어를 간편하게 사용할 수 있도록 단순화시킨 <i>오픈 소스 기반의 자바스크립트 애니메이션 라이브러리</i>입니다.
+                제이쿼리를 이용하면 문서 객체 모델과 이벤트에 관한 처리를 쉽게 구현할 수 있으며,
+                Ajax 응용 프로그램 및 플러그인도 빠르게 개발할 수 있습니다.
+            </div>
+            <div class="t_link">
+                <a href="https://jquery.com/">jQuery 공식 사이트<br>방문하기</a>
+            </div>
+            <h3 class="t_tit2">jQuery의 장점과 단점</h3>
+            <div class="t_box">
+                * <i>장점</i> *<br>
+                1. 대부분의 브라우저에서 지원<br>
+                2. HTML 문서 객체 모델(DOM)을 쉽게 조작 가능<br>
+                3. CSS 스타일을 간단히 적용 가능<br>
+                4. 다양한 플러그인과 많은 참고 문서<br>
+                5. 보다 짧고 간단한 코드<br>
+                6. 오픈라이선스<br><br>
+
+                * <i>단점</i> *<br>
+                점점 사용하지 않는 추세…
+            </div>
+            <h3 class="t_tit2">jQuery 사용하기</h3>
+            <div class="t_box">
+                **<i>호환성에 신경써서 jQuery버전을 선택</i>하도록 합니다.<br>
+                -버전1 : 익스플로러 6, 7, 8까지 모두 지원<br>
+                -버전2 : 익스플로러 6, 7, 8 지원 중단<br>
+                -버전3 : 익스플로러 지원은 버전2와 같으나 더 가볍게 개선됨<br><br>
+                
+                * <i>다운로드 방식</i> *<br>
+                1. 공식 홈페이지에서 제이쿼리 라이브러리를 다운로드 받습니다.<br>
+                2. html 문서를 제이쿼리 라이브러리와 같은 경로에 저장합니다<br>
+                3. 제이쿼리 라이브러리를 연결합니다.<br>
+                &lt;script src="jquery-3.3.1.min.js">&lt;/script><br><br>
+                
+                * <i>cdn 연결 방식</i> *<br>
+                1. 공식 홈페이지에서 제이쿼리 버전을 선택 후, cdn을 복사하여 연결합니다.<br>
+                &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">&lt;/script><br><br>
+            </div>
+
+            <h3 class="t_tit2">jQuery 기본 형식</h3>
+            <div class="t_box">
+                * 기본 형식 01 *<br>
+                $<i>(document).ready(function()</i> {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>실행문;</i><br>
+                });<br><br>
+
+                * 기본 형식 02 *<br>
+                <i>$(function()</i> {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>실행문;</i><br>
+                });
+            </div>
+            <div class="t_link">
+                <a href="https://oscarotero.com/jquery/">jQuery의 다양한 실행문</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

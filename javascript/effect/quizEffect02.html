@@ -84,20 +84,92 @@
                         <div class="tabs">
                             <div class="active">Javascript</div>
                             <div>HTML</div>
-                            <div>CSS</div>
                         </div>
                     </div>
                     <div class="cont">
                         <div class="active">
-        <pre><code class="languige-js">
+        <pre><code class="languige-js">//선택자
+const quizType = document.querySelector(".quiz__type");                  //퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");    //퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");          //퀴즈 질문
+const quizConfilm = document.querySelector(".quiz__answer .confilm");    //정답 확인 버튼
+const quizresult = document.querySelector(".quiz__answer .result");      //정답 결과
+const quizInput = document.querySelector(".quiz__answer .input");        //사용자 정답
+const quizView = document.querySelector(".quiz__view");        //사용자 정답
+
+//문제 정보
+const answerType = "웹디자인기능사";
+const answerNum = "2.";
+const answerAsk = "기업의 새로운 이념 구축에 필요한 이미지와 커뮤니케이션 시스템을 의도적, 계획적으로 만들어내는 기업 이미지 통합 전략은 무엇인가요?";
+let answerResult = "CIP";
+
+//문제 출력
+quizType.textContent = answerType;      //innerText 대신 textContent를 사용해도 같다. 호환성의 차이가 있다.
+quizNumber.textContent = answerNum;
+quizAsk.textContent = answerAsk;
+quizresult.textContent = "정답은 : " + answerResult + "입니다.";    //소문자로 바꿔줌
+
+//정답 숨기기
+quizresult.style.display = "none";
+
+//정답 확인
+quizConfilm.addEventListener("click", () => { //정답을 클릭했을 때 함수를 실행. 함수는 화살표 함수로 쓸 수도 있음.
+    quizInput.style.display = "none";
+    quizresult.style.display = "block";
+    quizConfilm.style.display = "none";
+
+    //사용자 정답
+    const userWord = quizInput.value.toLowerCase().trim(); //toLowerCase():소문자로 바꿔줌, trim()여백을 없애줌
+    answerResult = answerResult.toLowerCase().trim();
+
+    //사용자 정답 == 문제 정답
+    if(userWord == answerResult) {
+        //정답일 때
+        quizView.classList.add("like");
+    } else {
+        //오답일 때
+        quizView.classList.add("dislike");
+    }
+});
         </code></pre>
                         </div>
                         <div>
-        <pre><code class="languige-html">
-        </code></pre>
-                        </div>
-                        <div>
-        <pre><code class="languige-css">
+        <pre><code class="languige-html">&lt;div class="quiz__wrap">
+    &lt;div class="quiz">
+        &lt;span class="quiz__type">&lt;/span>
+        &lt;h2 class="quiz__question">
+            &lt;span class="number">&lt;/span>
+            &lt;div class="ask">&lt;/div>
+        &lt;/h2>
+        &lt;div class="quiz__view">
+            &lt;div class="true">정답입니다!&lt;/div>
+            &lt;div class="false">틀렸습니다!&lt;/div>
+            &lt;div class="dog">
+                &lt;div class="head">
+                    &lt;div class="ears">&lt;/div>
+                    &lt;div class="face">&lt;/div>
+                    &lt;div class="eyes">
+                        &lt;div class="teardrop">&lt;/div>
+                    &lt;/div>
+                    &lt;div class="nose">&lt;/div>
+                    &lt;div class="mouth">
+                        &lt;div class="tongue">&lt;/div>
+                    &lt;/div>
+                    &lt;div class="chin">&lt;/div>
+                &lt;/div>
+                &lt;div class="body">
+                    &lt;div class="tail">&lt;/div>
+                    &lt;div class="legs">&lt;/div>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="quiz__answer">
+            &lt;input type="text" class="input" placeholder="정답을 적어주세요!">
+            &lt;button class="confilm">정답 확인하기&lt;/button>
+            &lt;div class="result">&lt;/div>
+        &lt;/div>
+    &lt;/div>
+&lt;/div>
         </code></pre>
                         </div>
                     </div>

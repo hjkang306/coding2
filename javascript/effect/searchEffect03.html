@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>검색 이펙트</title>
     <link rel="stylesheet" href="../assets/css/search.css">
+    <link rel="stylesheet" href="../assets/css/sourceSearch.css">
+    <link rel="stylesheet" href="../assets/css/vulcan.css">
+
     <!-- web fonts -->
     <link href="https://webfontworld.github.io/tmon/Tmon.css" rel="stylesheet">
     <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
@@ -24,6 +27,111 @@
                 <li><a href="searchEffect06.html">6</a></li>
             </ul>
         </nav>
+
+        <!-- 소스보기 버튼 -->
+        <div class="source__wrap">
+            <div class="source__btn">소스 보기</div>
+            <div class="source__cont">
+                <div class="source__box">
+                    <div class="title">
+                        <div class="tabs">
+                            <div class="active">Javascript</div>
+                            <div>HTML</div>
+                        </div>
+                    </div>
+                    <div class="cont">
+                        <div class="active">
+        <pre><code class="languige-js">//선택자
+const searchKeyword = document.querySelectorAll(".search__info .keyword span");    //알파벳
+const searchList = document.querySelectorAll(".search__list ul li");            //목록 리스트
+const searchInfo = document.querySelector(".search__info .num");            //목록 리스트
+
+//전체 갯수 구하기
+searchInfo.textContent = searchList.length;
+
+searchKeyword.forEach(el => {
+    el.addEventListener("click", () => {
+        const searchWord = el.innerText;    //사용자가 클릭한 알파벳
+
+        //console.log(searchWord)
+
+        searchList.forEach(el => {
+            const cssName = el.querySelector("strong").innerHTML;   //속성 텍스트
+            //console.log(searchWord)
+
+            //알파벳 첫글자 == CSS 속성의 첫글자
+            if (searchWord.charAt(0) === cssName.charAt(0)) {
+                el.classList.remove("hide");
+            } else {
+                el.classList.add("hide");
+            }
+        });
+        const hideNum = document.querySelectorAll(".search__list ul li.hide");
+        searchInfo.textContent = searchList.length - hideNum.length;;
+    });
+});
+        </code></pre>
+                        </div>
+                        <div>
+        <pre><code class="languige-html">&lt;div class="search__wrap">
+    &lt;span>charAt()을 이용하여 CSS 속성 키워드별 검색하기&lt;/span>
+    &lt;h1>CSS 속성 검색하기&lt;/h1>
+    &lt;div class="search__info">
+        &lt;div class="keyword">
+            &lt;span>a&lt;/span>
+            &lt;span>b&lt;/span>
+            &lt;span>c&lt;/span>
+            &lt;span>d&lt;/span>
+            &lt;span>e&lt;/span>
+            &lt;span>f&lt;/span>
+            &lt;span>g&lt;/span>
+            &lt;span>h&lt;/span>
+            &lt;span>i&lt;/span>
+            &lt;span>j&lt;/span>
+            &lt;span>k&lt;/span>
+            &lt;span>l&lt;/span>
+            &lt;span>m&lt;/span>
+            &lt;span>n&lt;/span>
+            &lt;span>o&lt;/span>
+            &lt;span>p&lt;/span>
+            &lt;span>q&lt;/span>
+            &lt;span>r&lt;/span>
+            &lt;span>s&lt;/span>
+            &lt;span>t&lt;/span>
+            &lt;span>u&lt;/span>
+            &lt;span>v&lt;/span>
+            &lt;span>w&lt;/span>
+            &lt;span>x&lt;/span>
+            &lt;span>y&lt;/span>
+            &lt;span>z&lt;/span>
+        &lt;/div>
+        &lt;div>전체 속성 갯수 : &lt;span class="num">0&lt;/span>&lt;/div>
+    &lt;/div>
+    &lt;div class="search__list">
+        &lt;ul>
+            &lt;div class="css">
+                &lt;li>&lt;strong>accent-color&lt;/strong> : 요소의 강조 색상을 지정합니다. &lt;/li>
+                &lt;li>&lt;strong>align-content&lt;/strong> : 콘텐츠 사이와 콘텐츠 주위 빈 공간을 플렉스 박스'의 교차축 또는 그리드의 블록 축을 따라 배치하는 방식을 결정합니다.&lt;/li>
+                &lt;li>&lt;strong>align-items&lt;/strong> : 교차축에서 아이템 정렬 하는 속성입니다. 주로 flex에서 item들을 정렬할 때 사용됩니다.&lt;/li>
+                …
+                &lt;li>&lt;strong>writing-mode&lt;/strong> : 텍스트의 선이 수평 또는 수직으로 배치 여부 속성 집합뿐만 아니라 블록이 진행되는 방향.&lt;/li>
+                &lt;li>&lt;strong>z-index&lt;/strong> : 엘리먼트의 겹쳐지는 순서를 지정한다.&lt;/li>
+            &lt;/div>
+        &lt;/ul>
+    &lt;/div>
+&lt;/div>
+        </code></pre>
+                        </div>
+                    </div>
+                    <div class="source__close">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                            <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <!-- header -->
     <main id="main">
@@ -484,6 +592,47 @@
                 });
                 const hideNum = document.querySelectorAll(".search__list ul li.hide");
                 searchInfo.textContent = searchList.length - hideNum.length;;
+            });
+        });
+    </script>
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <script>
+        //source
+        const sourceBtn = document.querySelector(".source__btn");
+        const sourceClose = document.querySelector(".source__close");
+        const sourceCont = document.querySelector(".source__cont");
+
+        sourceBtn.addEventListener("click", () => {
+            sourceCont.classList.add("show");
+            sourceCont.classList.remove("hide");
+        });
+        sourceClose.addEventListener("click", () => {
+            sourceCont.classList.add("hide");
+        });
+
+
+        //탭메뉴
+        const tabBtn = document.querySelectorAll(".source__box .tabs > div");
+        const tabCont = document.querySelectorAll(".source__box .cont > div");
+
+        tabBtn.forEach( (el, i) => {
+            el.addEventListener("click", (event) => {
+                event.preventDefault();
+                
+                tabBtn.forEach((li)=>{
+                    li.classList.remove('active');
+                });
+                el.classList.add("active");
+                
+                tabCont.forEach((div) => {
+                    div.style.display = "none";
+                });
+
+                tabCont[i].style.display = "block";
             });
         });
     </script>

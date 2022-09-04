@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+       <div class="document">
+            <h2 class="t_tit">이미지 스프라이트 (image sprite)</h2>
+            <p class="t_desc">
+                이미지 스프라이트란 웹사이트의 로딩 시간을 줄이기 위해, 하나의 이미지 파일에 여러개의 이미지가 포함되어 있는 것을 말합니다.
+            </p>
+            <h3 class="t_tit2">> 이미지 스프라이트 만드는 법</h3>
+            <p class="t_desc2">
+                1. 사용하고자 하는 이미지를 일정한 간격, 또는 특정한 간격으로 이미지끼리 겹치지 않도록 배치합니다.<br>
+                2. 배치한 이미지를 하나의 이미지 파일로 저장합니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">> 이미지 스프라이프 사용법</h3>
+            <p class="t_desc2">
+                1. 이미지를 삽입할 때, css의 background 속성을 이용합니다.<br>
+                2. background-position 속성을 이용해, 원하는 이미지가 위치할 수 있도록 조정합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">.image__sns a {
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 5px;
+    background: url(img/image_bg03_icon.svg) no-repeat;
+    /* background 속성으로 스프라이트 이미지를 삽입 */
+}
+.image__sns a:nth-child(2) {
+    background-position: -50px 0;
+    /* 원하는 이미지가 자리하도록 위치 조정 */
+}
+.image__sns a:nth-child(3) {
+    background-position: -100px 0;
+}
+.image__sns a:nth-child(4) {
+    background-position: -150px 0;
+}
+.image__sns a:nth-child(5) {
+    background-position: -200px 0;
+}
+</code></pre>
+            </div>
+
+            <hr>
+
+            <h3 class="t_tit2">> 결과 확인하기</h3>
+
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

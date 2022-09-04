@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+       <div class="document">
+            <h2 class="t_tit">SCSS의 기본 문법</h2>
+            <p class="t_desc">
+                SCSS는 CSS를 좀 더 편하게 작성하기 위한 언어입니다. CSS와 문법이 비슷하지만 분명한 차이점이 존재합니다.
+                SCSS의 문법을 알아두었다가 활용해봅시다.
+            </p>
+
+            <h3 class="t_tit2">1. 변수</h3>
+            <p class="t_desc2">
+                SCSS는 <i>변수를 지정할 때, $를 사용</i>합니다. 변수는 선언한 블록{} 안에서만 유효합니다.
+            </p><br>
+            <div class="t_box">
+                $boolean: true;<br>
+                $string: hello;<br>
+                $color: red;<br>
+                $number: 720;<br>
+                $list: red, orange, yellow, green, blue;<br>
+                $map: (<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;l: light,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;d: dark,<br>
+                );
+            </div>
+                
+            <hr>
+
+            <h3 class="t_tit2">2. 중첩</h3>
+            <p class="t_desc2">
+                SCSS는 속성을 적용하는 부모 요소가 같을 때, <i>자식요소는</i> 블록{} 바깥에 따로 작성하지 않고 <i>블록{} 안에 중첩하여 작성</i>할 수 있습니다. 
+            </p><br>
+            <div class="t_box">
+                /* SCSS */<br><br>
+
+                .section {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;width: 100%;<br><br>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;.list {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding: 20px;<br><br>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;li {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float: left;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }<br><br>
+                
+                
+                /* Compile to CSS */<br><br>
+                
+                .section {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;width: 100%;<br>
+                }<br><br>
+                
+                .section .list {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;padding: 20px;<br>
+                }<br><br>
+                
+                .section .list li {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;float: left;<br>
+                }
+            </div>
+
+            <hr>
+
+            <h3 class="t_tit2">3. &</h3>
+            <p class="t_desc2">
+                SCSS는 블록{} 안에서 중첩을 사용하여 작성할 때, <i>&를 통해 상위요소를 선택</i>할 수 있습니다.
+            </p>
+            <div class="t_box">
+                /* SCSS */<br><br>
+
+                .btn {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;<br><br>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&.active {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: red;<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }<br><br>
+
+                .list {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;li {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&:last-child {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-right: 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }<br><br>
+
+
+                /* Compile to CSS */<br><br>
+
+                .btn {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;<br>
+                }<br>
+
+                .btn.active {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;color: red;<br>
+                }<br>
+
+                .list li:last-child {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;margin-right: 0;<br>
+                }
+            </div><br>
+
+            <h3 class="t_tit2">4. 가상 클래스 선택자</h3>
+            <p class="t_desc2">
+                SCSS는 <i>가상 클래스 선택자를 CSS와 동일</i>하게 사용 가능합니다.
+            </p>
+            <div class="t_box">
+                :first-child<br>
+                :last-child<br>
+                :nth-child()
+            </div>
+            
+            <br>
+
+            <h3 class="t_tit2">5. 연산자</h3>
+            <p class="t_desc2">
+                SCSS는 <i>연산자를 CSS와 동일하게</i> 사용 가능합니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th class="ce">연산자</th>
+                        <th class="ce">설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">+</td>
+                        <td>더하기</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">-</td>
+                        <td>빼기</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">*</td>
+                        <td>곱하기. 하나 이상의 값이 반드시 숫자(Number)여야 함.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">/</td>
+                        <td>나누기. 오른쪽 값이 반드시 숫자(Number)여야 함.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">%</td>
+                        <td>나머지. 왼쪽 값을 오른쪽 값으로 나눈 나머지를 구합니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

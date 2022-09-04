@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <style>
+                pre code.hljs {
+                    margin-bottom: 0;
+                    margin: -9px;
+                }
+            </style>
+            <h2 class="t_tit">jQuery 스타일 관련 메서드 알아보기</h2>
+            <p class="t_desc2">
+                제이쿼리의 메서드 중에서 스타일과 관련된 메서드들을 알아봅니다.<br>
+                스타일 관련 메서드에는 <i>css()</i> 메서드가 있으며,
+                width/height 관련 메서드와 위치 관련 메서드도 알아보겠습니다.
+            </p>
+            <h3 class="t_tit2">> css() 메서드</h3>
+            <p class="t_desc">
+                css() 메서드는 요소의 css 속성을 취득, 생성, 변경할 수 있습니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th class="ce">실행 분류</th>
+                        <th class="ce">형식</th>
+                        <th class="ce">예시</th>
+                        <th class="ce">예제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">취득</td>
+                        <td>$("<i>요소</i>").css("<i>css 속성</i>");</td>
+                        <td class="t_code">
+<pre><code class="language-js">$("div").css("width");
+</code></pre>
+                        </td>
+                        <td class="ce" rowspan="4"><a href="https://codepen.io/hjkang306/pen/mdLdgPj">보러<br>가기</a></td>
+                    </tr>
+                    <tr>
+                        <td class="ce">생성</td>
+                        <td>$("<i>요소</i>").css("<i>css 속성</i>", "<i>값</i>");</td>
+                        <td class="t_code">
+<pre><code class="language-js">$("div").css("color", "white").css("padding", "10px");
+</code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">변경</td>
+                        <td>$("<i>요소</i>").css({<i>기존 css 속성: "값", 바꿀 css 속성: "값"</i>});</td>
+                        <td class="t_code">
+<pre><code class="language-js">$("div").css({color: "white", padding: "10px"});
+</code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>
+                            $("<i>요소</i>").css("css 속성", function(<i>index, cssV</i>) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;return <i>"속성 값"</i>;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;⇒ 각 '요소'의 css 속성을 변경합니다.<br>
+                            });<br><br>
+                            ⇒ index는 각 '요소'의 index 0, 1, 2<br>
+                            ⇒ cssV 각 '요소'의 css 속성 값
+                        </td>
+                        <td class="t_code">
+<pre><code class="language-js">$("div").css("width", function(index, w) {
+return 100;
+});
+//…
+&lt;div>내용1&lt;/div>
+&lt;div>내용2&lt;/div>
+&lt;div>내용3&lt;/div>
+</code></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="t_tit2">> width, height 메서드</h3>
+            <p class="t_desc">
+                css의 width와 height에 관련된 메서드를 알아봅니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th class="ce">메서드 종류</th>
+                        <th class="ce">설명</th>
+                        <th class="ce">예제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">width()</td>
+                        <td>요소의 가로 길이를 취득, 변경할 수 있습니다.</td>
+                        <td class="ce" rowspan="6"><a href="https://codepen.io/hjkang306/pen/oNdNOWE">보러<br>가기</a></td>
+                    </tr>
+                    <tr>
+                        <td class="ce">innerWidth()</td>
+                        <td>padding이 적용된 요소의 가로 길이를 취득, 변경할 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">outerWidth()</td>
+                        <td>
+                            border와 margin이 적용된 요소의 가로 길이를 취득, 변경할 수 있습니다.<br>
+                            <i>outerWidth()</i>는 요소의 width값 + 좌/우의 border값<br>
+                            <i>outerWidth(true)</i>는 요소의 width값 + 좌/우의 border값 + 좌/우의 margin값
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">height()</td>
+                        <td>요소의 높이를 취득, 변경할 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">innerheight()</td>
+                        <td>padding이 적용된 요소의 높이를 취득, 변경할 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">outerHeight()</td>
+                        <td>
+                            border와 margin이 적용된 요소의 높이를 취득, 변경할 수 있습니다.<br>
+                            <i>outerHeight()</i>는 요소의 height값 + 상/하의 border값<br>
+                            <i>outerHeight(true)</i>는 요소의 height값 + 상/하의 border값 + 상/하의 margin값
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="t_tit2">> 위치 관련 메서드</h3>
+            <p class="t_desc">
+                요소의 위치와 관련된 메서드를 알아봅니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th class="ce">메서드 종류</th>
+                        <th class="ce">예시</th>
+                        <th class="ce">설명</th>
+                        <th class="ce">예제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce" rowspan="3">offset()</td>
+                        <td>$("요소").offset().left</td>
+                        <td>html 기준으로 left 값을 취득할 수 있습니다.</td>
+                        <td class="ce" rowspan="5"><a href="https://codepen.io/hjkang306/pen/bGMGJMb">보러<br>가기</a></td>
+                    </tr>
+                    <tr>
+                        <td>$("요소").offset().top</td>
+                        <td>html 기준으로 top 값을 취득할 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td>$("요소").offset({left: 10, top: 10})</td>
+                        <td>html 기준으로 left, top 값을 변경할 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce" rowspan="2">position()</td>
+                        <td>$("요소").position().left</td>
+                        <td>부모 요소 기준으로 left 값을 취득할 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td>$("요소").position().top</td>
+                        <td>부모 요소 기준으로 top 값을 취득할 수 있습니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

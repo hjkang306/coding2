@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">IR 효과 주기</h2>
+            <p class="t_desc2">
+                웹 접근성을 향상시킬 수 있는 IR효과에 대해 알아봅시다. IR효과란 무엇인지, css로 IR효과를 작성하는 방법을 알아봅니다.
+            </p>
+
+            <h3 class="t_tit2">IR 효과(기법)란?</h3>
+            <div class="t_desc2">
+                img태그가 아닌 방법으로 이미지를 표현할 경우, 이미지가 로딩되지 않을때 나타낼 수 있는 대체 텍스트를 표시할 수 없습니다.
+                때문에 웹 접근성 향상을 위해 숨김 텍스트를 만들어<i>가상으로 alt태그와 같은 효과를 주는 css 작성</i> 기법입니다.
+                IR 효과를 사용하게 되면, 웹 접근성을 떨어트리지 않으면서도 <i>검색 엔진 최적화로부터 좋은 효과</i>를 볼 수 있습니다.
+            </div>
+            <div class="t_box">
+                <i>*css에서 ir 효과 주는 법*</i><br>
+                .ir {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;display: block;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;font-size: 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;line-height: 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;text-indent: -9999px;<br>
+                }<br><br>
+                /* 이미지가 없어도 대체 텍스트를 보여주고자 할 때 */<br>
+                .ir {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;display: block;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;position: relative;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;z-index: -1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;width: 100%;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;height: 100%;<br>
+                }<br><br>
+                /* 대체 텍스트가 아닌 접근성 향상을 위해 숨김 텍스트를 제공할 때 */<br>
+                .ir {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;width: 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;height: 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;line-height: 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;text-indent: -9999px;<br>
+                }
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

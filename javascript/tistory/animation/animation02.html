@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">애니메이션 만들기</h2>
+            <p class="t_desc2">
+                css 애니메이션을 만들어 봅니다!
+            </p>
+
+            <h3 class="t_tit2">애니메이션 : 로딩 동그라미</h3>
+            <p class="t_desc">
+                빙글빙글 돌아가는 로딩화면 동그라미 애니메이션을 만들어 봅니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">body {
+  height: 100vh;
+  background-image: linear-gradient(-60deg, orange 0%, pink 100%);
+}
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 150px;
+  animation: loading 1s ease infinite;
+}
+.loading .circle1 {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+}
+.loading .circle2 {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  margin-top: 110px;
+}
+@keyframes loading {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg)
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg)
+  }
+}
+</code></pre>
+            </div>
+            <p class="codepen" data-height="300" data-theme-id="light" data-default-tab="result" data-slug-hash="RwMzqmO" data-user="hjkang306" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/hjkang306/pen/RwMzqmO">
+            로딩 동그라미</a> by hjkang306 (<a href="https://codepen.io/hjkang306">@hjkang306</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

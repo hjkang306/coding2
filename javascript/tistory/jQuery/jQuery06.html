@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <style>
+                pre code.hljs {
+                    margin-bottom: 0;
+                    margin: -9px;
+                }
+            </style>
+            <h2 class="t_tit">jQuery 클래스 관련 메서드 알아보기</h2>
+            <p class="t_desc2">
+                제이쿼리의 메서드 중에서 클래스(Class)와 관련된 메서드 들을 알아봅니다.<br>
+                클래스 관련 메서드에는 <i>addClass(), removeClass(), toggleClass(), hasClass()</i> 메서드가 있습니다.
+            </p>
+            <h3 class="t_tit2">> addClass() 메서드</h3>
+            <p class="t_desc">
+                addClass() 메서드는 요소에 class 속성을 추가합니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th class="ce">실행 분류</th>
+                        <th class="ce">형식</th>
+                        <th class="ce">예시</th>
+                        <th class="ce">예제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">추가</td>
+                        <td>$("<i>요소</i>").addClass("<i>클래스명</i>");</td>
+                        <td class="t_code">
+<pre><code class="language-js">$("div").addClass("text");
+</code></pre>
+                        </td>
+                        <td class="ce" rowspan="2"><a href="https://codepen.io/hjkang306/pen/NWMWOxR?editors=0110">보러<br>가기</a></td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>
+                            $("<i>요소</i>").addClass(function(<i>index, className</i>) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;return <i>"class 속성"</i>;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;⇒ 각 '요소'에 class 속성을 추가합니다.<br>
+                            });<br><br>
+                            ⇒ index는 각 '요소'의 index 0, 1, 2<br>
+                            ⇒ className은 각 '요소'의 class 속성
+                        </td>
+                        <td class="t_code">
+<pre><code class="language-js">$("div").addClass(function(index) {
+return "text";
+});
+//…
+&lt;div>내용1&lt;/div>
+&lt;div>내용2&lt;/div>
+&lt;div>내용3&lt;/div>
+</code></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="t_tit2">> removeClass() 메서드</h3>
+            <p class="t_desc">
+                removeClass() 메서드는 요소에 class 속성을 제거합니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th class="ce">실행 분류</th>
+                        <th class="ce">형식</th>
+                        <th class="ce">예제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">추가</td>
+                        <td>$("<i>요소</i>").removeClass("<i>클래스명</i>");</td>
+                        <td class="ce" rowspan="2"><a href="https://codepen.io/hjkang306/pen/GRdRYNg">보러<br>가기</a></td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>
+                            $("<i>요소</i>").removeClass(function(<i>index, className</i>) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;return <i>"class 속성"</i>;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;⇒ 각 '요소'에 class 속성을 제거합니다.<br>
+                            });<br><br>
+                            ⇒ index는 각 '요소'의 index 0, 1, 2<br>
+                            ⇒ className은 각 '요소'의 class 속성
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="t_tit2">> toggleClass() 메서드</h3>
+            <p class="t_desc">
+                toggleClass() 메서드는 요소에 <i>class 속성이 없으면 addClass()</i>가 적용되고,
+                <i>class 속성이 있으면 removeClass()</i>가 적용됩니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th class="ce">실행 분류</th>
+                        <th class="ce">형식</th>
+                        <th class="ce">예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">추가, 제거</td>
+                        <td>$("<i>요소</i>").toggleClass("<i>클래스명</i>");</td>
+                        <td class="t_code"><pre><code class="language-js">$("div").toggleClass("active");</code></pre></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="t_tit2">> hasClass() 메서드</h3>
+            <p class="t_desc">
+                hasClass() 메서드는 if문의 조건식으로 사용됩니다. 
+                선택한 요소에 <i>클래스가 있으면 true, 없으면 false를 반환</i>합니다.
+            </p>
+            <div class="t_box">
+                if($("#box").hasClass("m")){<br>
+                    console.log("클래스 있음"); //클래스 있음<br>
+                } else {<br>
+                    console.log("클래스 없음");<br>
+                }<br>
+                .<br>
+                .<br>
+                .<br>
+                &lt;div id="box" class="m">내용&lt;/div>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

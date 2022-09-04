@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기</h2>
+            <p class="t_desc2">
+                사이트를 구성하는 방법에는 다양한 유형이 있습니다. 다양한 유형들을 익혀놓으면, 사이트를 만들 때 디자인적인 요소도 챙길 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">이미지 유형01</h3>
+            <p class="t_desc">
+                이미지 유형의 사이트는 이미지를 주요 콘텐츠로 배치하고, 콘텐츠에 대한 설명은 조금만 곁들인 형태의 페이지 디자인입니다.
+                같은 이미지 유형도 다양한 디자인으로 사이트를 구성할 수 있습니다. 그 중 첫번째 디자인입니다.
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpakv3MmuDJszSsl4w0gU3Z%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1046%253A106" allowfullscreen></iframe>
+            </div>
+            <h3 class="t_tit2">디자인 하기</h3>
+            <p class="t_desc">
+                먼저, 그리드를 나누어 각 구역과 이미지를 배치하여 전체적인 모습을 만들어 봅니다.
+            </p>
+            <h3 class="t_tit2">HTML 작성하기</h3>
+            <p class="t_desc">
+                그 다음, 만들어 둔 디자인을 보며 시멘틱 태그를 활용해 구역에 맞는 태그와 텍스트를 작성해 줍니다.
+                한번에 다 만들기 보다는 큰 요소부터 하나씩 만들면서 css를 적용해, 중간중간 확인하는 편이 좋습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="imageType01" class="image__wrap font section"&gt;
+    &lt;h2&gt;바질 키우는 법🌱&lt;/h2&gt;
+    &lt;p&gt;바질 키우기 초보자를 위한 바질 키우기 강의입니다.&lt;/p&gt;
+    &lt;div class="img__inner container"&gt;
+        &lt;article class="image img1"&gt;
+                &lt;h3 class="image__tit"&gt;바질 키우는 법&lt;/h3&gt;
+                &lt;p class="image__desc"&gt;바질 키우기 초보자를 위한 바질 키우기 강의입니다. 바질은 직광을 받으면 쑥쑥 자랍니다. 물과 햇빛을 듬뿍 주도록 합시다.&lt;/p&gt;
+                &lt;a class="image__btn" href="/"&gt;자세히 보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="image img2"&gt;
+                &lt;h3 class="image__tit"&gt;바질 키우는 법&lt;/h3&gt;
+                &lt;p class="image__desc"&gt;바질 키우기 초보자를 위한 바질 키우기 강의입니다. 바질은 직광을 받으면 쑥쑥 자랍니다. 물과 햇빛을 듬뿍 주도록 합시다.&lt;/p&gt;
+                &lt;a class="image__btn" href="/"&gt;자세히 보기&lt;/a&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">CSS 작성하기</h3>
+            <p class="t_desc">
+                만들어 둔 디자인을 보며, 각 요소의 CSS를 설정해줍니다. 최종 완성 후 디자인과 비교하며 다른 점을 수정해줍니다.
+                요소를 배치하면서 제대로 css가 적용되는지 확인하고 싶다면, 해당 요소에 배경색을 지정해 확인하도록 합니다.
+                이미지를 넣는 방법에는 img태그를 활용하는 방법과 CSS의 background 속성을 이용하는 방법이 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+/* common */
+.container {
+    width: 1160px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+
+.section {
+    padding: 120px 0;
+}
+
+.section>h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section>p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+/* main */
+.img__inner {
+    display: flex;
+    justify-content: space-between;
+}
+.image {
+    width: 49%;
+    height: 370px;
+    color: #fff;
+    padding: 200px 30px 30px;
+    box-sizing: border-box;
+}
+.image.img1 {
+    background: url(img/imageType01_01.jpg) no-repeat center;
+}
+.image.img2 {
+    background: url(img/imageType01_02.jpg) no-repeat center;
+}
+.image__tit {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.image__desc {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+.image__btn {
+    font-size: 16px;
+    color: #fff;
+    background-color: #8F6363;
+    padding: 10px 20px;
+    display: inline-block;
+}
+</code></pre>
+            </div>
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/site/imageType/imageType01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/site/imageType/imageType01.html">원본 소스 보기</a>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/site/imageType/imageType01.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

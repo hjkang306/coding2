@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+       <div class="document">
+            <h2 class="t_tit">문자열 : 문자열 결합 / 템플릿 문자열</h2>
+            <p class="t_desc">
+                문자열 결합과 템플릿 문자열에 대해 알아봅니다. 기본적인 문자열 결합 방법은 매우 간단합니다!
+            </p>
+            <h3 class="t_tit2">> 템플릿 문자열과 결합</h3>
+            <p class="t_desc2">
+                템플릿 문자열은 내장된 표현식을 허용하는 문자열입니다.
+                내장된 표현식을 허용한다는 것은 변수에 저장된 내용을 문자열에 작업할 수 있다는 뜻입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">//01
+const str1 = "자바스크립트";
+const str2 = "제이쿼리";
+
+document.querySelector(".sample01_N1").innerHTML = "1";
+document.querySelector(".sample01_Q1").innerHTML = "자바스크립트, 제이쿼리";
+document.querySelector(".sample01_M1").innerHTML = "문자열(string) 결합";
+document.querySelector(".sample01_P1").innerHTML = str1 + str2;     //자바스크립트케이쿼리
+
+//02
+const num1 = 100;
+const num2 = 200;
+
+document.querySelector(".sample01_N2").innerHTML = "2";
+document.querySelector(".sample01_Q2").innerHTML = "100, 200";
+document.querySelector(".sample01_M2").innerHTML = "숫자(number) 결합";
+document.querySelector(".sample01_P2").innerHTML = num1 + num2;     //300
+
+//03 : 나는 모던(modern) 자바스크립트(javascript) 핵심을 배우고 싶다.
+const text1 = "모던";
+const text2 = "자바스크립트";
+const text3 = "핵심";
+
+document.querySelector(".sample01_N3").innerHTML = "3";
+document.querySelector(".sample01_Q3").innerHTML = "모던, 자바스크립트, 핵심";
+document.querySelector(".sample01_M3").innerHTML = "문자열(string) 결합";
+document.querySelector(".sample01_P3").innerHTML = "나는 " + text1 + "(modern) " + text2 + "(javascript) " + text3 + "을 배우고 싶다.";
+
+//04 : 나는 모던(modern) 자바스크립트(javascript) 핵심을 배우고 싶다.
+document.querySelector(".sample01_N4").innerHTML = "3";
+document.querySelector(".sample01_Q4").innerHTML = "모던, 자바스크립트, 핵심";
+document.querySelector(".sample01_M4").innerHTML = "템플릿 문자열";
+document.querySelector(".sample01_P4").innerHTML = `나는 ${text1}(modern) ${text2}(javascript) ${text3}을 배우고 싶다`;
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

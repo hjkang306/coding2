@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">퀴즈 이펙트</h2>
+            <p class="t_desc2">
+                퀴즈를 풀 수 있는 페이지를 구성할 때에, 퀴즈의 유형에 맞는 다양한 이펙트를 사용하면
+                단조롭지 않은 생동감 넘치는 페이지를 만들 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">객관식(한문제) 유형</h3>
+            <p class="t_desc">
+                객관식 문제의 보기를 고르면, 보기가 체크되어 있는지 확인한 후 보기와 정답이 같은지 확인합니다.
+                정답이라면 "정답" 알림을, 오답이라면 "오답" 알림을 띄웁니다.
+            </p>
+            <div class="t_iframe" style="min-height: 1050px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/quizEffect04.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/javascript/effect/quizEffect04.html">원본 소스 보기</a>
+            </div>
+            <br>
+            <p class="t_desc">
+                해당 이펙트의 자바스크립트는 아래에 이어지는 내용과 같습니다.
+                먼저 선택자를 지정한 후, 각각의 선택자로 지정한 구역에 알맞은 정보를 대입하는 것과 if문을 사용하는 것은 이전에 한 유형과 같습니다.
+                그러나, 한문제 객관식 유형은 문제의 보기가 여러개 주어지고, 보기 내용 작성에 더 복잡한 구조가 사용된다는 점이 주관식과의 차이점 입니다.
+            </p>
+            <h3 class="t_tit2">보기 항목의 html</h3>
+            <p class="t_desc">
+                객관식의 보기는 input태그의 radio속성을 이용하여 만듭니다.
+                그리고 여기에 <i>id</i>를 지정하여 label과의 연관성을 부여하여 접근성을 높일 수 있습니다.
+                <i>class</i>는 자바스크립트의 선택자가 해당 요소를 선택할 수 있도록 합니다.
+                <i>value</i>는 해당 선택지에 값을 부여해서 정답과 값을 비교할 수 있도록 합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">
+&lt;div class="quiz__selects"&gt;
+    &lt;label for="select1"&gt;
+        &lt;input type="radio" id="select1" class="select" name="select" value="1"&gt;
+        &lt;span class="choice"&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label for="select2"&gt;
+        &lt;input type="radio" id="select2" class="select" name="select" value="2"&gt;
+        &lt;span class="choice"&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label for="select3"&gt;
+        &lt;input type="radio" id="select3" class="select" name="select" value="3"&gt;
+        &lt;span class="choice"&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label for="select4"&gt;
+        &lt;input type="radio" id="select4" class="select" name="select" value="4"&gt;
+        &lt;span class="choice"&gt;&lt;/span&gt;
+    &lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">선택자</h3>
+            <p class="t_desc">
+                찾아야 하는 요소가 많을 경우, 검색해야 하는 <i>범위를 좁혀주면</i> 검색의 효율성을 높일 수 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">//선택자
+const quizType = document.querySelector(".quiz__type");                  //퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");    //퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");          //퀴즈 질문
+const quizConfilm = document.querySelector(".quiz__answer .confilm");    //정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");      //정답 결과
+const quizView = document.querySelector(".quiz__view");                  //강아지
+const quizSelects = document.querySelector(".quiz__selects");            //객관식 보기들
+const quizChoice = quizSelects.querySelectorAll(".choice");             //객관식 보기
+const quizSelect = quizSelects.querySelectorAll(".select");             //객관식 보기 선택란
+//문서(document)가 아닌 quizSelects 안에서 찾도록 하여 더 효율적으로 작동하도록 함.
+</code></pre>
+            </div>
+            <h3 class="t_tit2">문제 정보</h3>
+            <p class="t_desc">
+                문제가 여러개인 경우, 문제 정보를 배열과 <i>객체</i>에 저장하면 보다 효율적인 관리가 가능합니다.
+                객관식 보기에 대한 정보는 보기로 할당된 객체 속에 배열로 작성하면 효율적입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">//문제정보
+const quizInfo = [
+    {
+        answerType : "웹디자인기능사 2022년 1회",
+        answerNum : "1",
+        answerAsk : "다음의 HTML 태그 중 종료 태그가 없는 것은?",
+        answerChoice : ["&lt;HTML&gt;", "&lt;BODY&gt;", "&lt;HR&gt;", "&lt;DIV&gt;"],
+        answerResult : "3",
+        answerEx : "&lt;HR&gt; 태그는 종료 태그가 없습니다." 
+    }
+]
+</code></pre>
+            </div>
+            <h3 class="t_tit2">문제 출력</h3>
+            <p class="t_desc">
+                객관식 문제는 문제가 하나더라도 보기가 여러개이므로, for문이나 forEach문을 적극적으로 활용해줍니다. 보기를 출력하는 데에 필요한 코드도 <i>for문과 forEach</i>문을 사용하면 간단하게 표현할 수 있습니다.
+                그 중 <i>forEach</i>문은 조건을 작성하지 않아도 <i>자동으로 배열의 수만큼 반복해서 작동</i>하기 때문에, for문보다 효율적으로 작성할 수 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">function updateQuiz(){
+    //실행문을 함수로 묶어 관리하면, 충돌 날 확률을 줄일 수 있으며 효율적인 관리가 가능합니다.
+    //문제 출력
+    quizType.textContent = quizInfo[0].answerType;
+    quizNumber.textContent = quizInfo[0].answerNum + ". ";
+    quizAsk.textContent = quizInfo[0].answerAsk;
+    quizResult.textContent = quizInfo[0].answerEx;
+
+    //보기 출력(반복)
+    // quizChoice[0].textContent = quizInfo[0].answerChoice[0];
+    // quizChoice[1].textContent = quizInfo[0].answerChoice[1];
+    // quizChoice[2].textContent = quizInfo[0].answerChoice[2];
+    // quizChoice[3].textContent = quizInfo[0].answerChoice[3];
+
+    //(for문)
+    // for( i=0; i&lt;quizInfo[0].answerChoice.length; i++){
+    //     quizChoice[i].textContent = quizInfo[0].answerChoice[i];
+    // }
+
+    //(forEach문)
+    quizChoice.forEach((el, i) => {
+        quizChoice[i].textContent = quizInfo[0].answerChoice[i];
+    });
+
+    //해설 숨기기
+    quizResult.style.display = "none";
+}
+updateQuiz();   //함수 안에 실행문을 작성했기 때문에, 함수를 실행하는 명령어를 적어줍니다.
+</code></pre>
+            </div>
+            <h3 class="t_tit2">정답 확인</h3>
+            <p class="t_desc">
+                정답 확인하기 버튼을 누르면 버튼이 사라지고, 정답/오답의 여부를 알려주는 알림을 띄웁니다.
+                그리고 강아지에게 클래스를 추가하여 웃거나 울상인 상태로 보이도록 합니다.
+                오답인 경우 해설을 보여주는 스크립트입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">//정답 확인
+function answerQuiz(){
+    //사용자 선택 정답 == 문제 정답 인지 확인
+    //사용자가 클릭한 input --> checked 속성으로 확인.
+    
+    for( let i=0;i&lt;quizSelect.length; i++){
+        if(quizSelect[i].checked == true){  //보기에 체크가 된 상태임을 확인
+            //확인버튼 숨기기
+            quizConfilm.style.display = "none";
+
+            //체크된 번호 == 정답 번호 임을 확인
+            if(quizSelect[i].value == quizInfo[0].answerResult){    //각 보기의 번호에 value값을 지정해 놓고 정답과 비교할 때 활용합니다
+                //alert("정답");
+                quizView.classList.add("like");
+            } else {
+                //alert("오답");
+                quizView.classList.add("dislike");
+                quizResult.style.display = "block";
+            }
+        }
+    }
+}
+
+//정답 클릭
+quizConfilm.addEventListener("click", answerQuiz);
+//addEventListener의 메소드 안에 원래 함수가 들어가야 하지만, 함수를 미리 지정해놓았을 경우엔 함수명을 적으면 해당 함수가 실행됩니다.
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

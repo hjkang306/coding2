@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+       <div class="document">
+            <h2 class="t_tit">미디어쿼리(media query)</h2>
+            <p class="t_desc2">
+                미디어쿼리는 뷰포트의 해상도에 따라 CSS를 분기시키는 기법이며, <i>반응형 프로젝트에서 반드시 필요한 기법</i>입니다.
+            </p>
+            <h3 class="t_tit2">▶ &lt;link ~ media=""&gt;</h3>
+            <div class="t_box">
+               &lt;<i>link</i> rel="stylesheet" type="text/css" <i>media=</i>"all and (min width: 1000px)" href="style_pc.css"&gt;
+            </div>
+            <p class="t_desc">
+                최소 가로폭이 1000px, 즉 1000px 보다 넓은 해상도일 때에 style_pc.css를 연결한다는 뜻입니다.
+            </p>
+            <h3 class="t_tit3">> <i>팁!</i></h3>
+            <p class="t_desc">
+                태블릿이나 모바일 기기마다 가로폭이 다른데, 크롬 브라우저에서 개발자 도구를 열고 <i>Toggle device Toolbar</i>를 누르면
+                기기마다의 해상도도 확인할 수 있고 기기 모델도 추가할 수 있습니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <colgroup>
+                        <col style="width: 34%">
+                        <col style="width: 33%">
+                        <col style="width: 33%">
+                    </colgroup>
+                    <tr>
+                        <th class="ce">모바일 기기</th>
+                        <th class="ce">가로</th>
+                        <th class="ce">세로</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">iPhone X</td>
+                        <td class="ce">375</td>
+                        <td class="ce">812</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">iPhone 6,7,8</td>
+                        <td class="ce">375</td>
+                        <td class="ce">667</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">iPhone 6,7,8 plus</td>
+                        <td class="ce">414</td>
+                        <td class="ce">736</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">iPhone 5</td>
+                        <td class="ce">320</td>
+                        <td class="ce">568</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">Galaxy S5, S8</td>
+                        <td class="ce">360</td>
+                        <td class="ce">640</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">Galaxy Note 8</td>
+                        <td class="ce">360</td>
+                        <td class="ce">640</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">iPad Pro</td>
+                        <td class="ce">1024</td>
+                        <td class="ce">1366</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+            
+            <h3 class="t_tit2">▶ @media</h3>
+            <p class="t_desc">
+                처음 로딩할 때 성능이 저하되지 않도록 CSS 파일을 하나로 만들어서 <i>CSS 내부에서 조건에 따라 분기</i>시키는 일반적인 형태의 반응형 웹 CSS입니다.
+                <i>all은 Media Type</i>를 나타냅니다. and 전, 후에 띄어 씁니다.
+            </p>
+            <div class="t_box">
+               <i>@media</i> all and (min-width: 1000px) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;모든 기기에서 해상도가 최고 1000px 인 경우 적용할 속성들…<br>
+               }
+            </div>
+            <h3 class="t_tit3">> <i>팁!</i></h3>
+            <p class="t_desc">
+                작은 장치에서 페이지를 더 빠르게 표시되게 하려면, 모바일 우선으로 CSS를 설계합니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th class="ce">Media Type</th>
+                        <th class="ce">설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">all</td>
+                        <td>모든 미디어 장치에 사용(기본값)</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">print</td>
+                        <td>프린터에 사용</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">screen</td>
+                        <td>PC, 태블릿, 스마트폰에 사용</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">speech</td>
+                        <td>스크린리더기가 페이지를 읽는데 사용</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h3 class="t_tit3">[ 예제 ]</h3>
+            <p class="t_desc">
+                미디어쿼리를 이용하여 브라우저의 방향에 따라 다른 레이아웃을 제공할 수 있습니다.<br>
+                ▼ 다음은 모바일 기기를 세워 세로가 가로보다 긴 방향이 되면 배경색을 하늘색으로 변경하는 미디어쿼리입니다.
+            </p>
+            <div class="t_box">
+                @media only screen and (orientation: <i>portrait</i>) {<br>
+                 &nbsp;&nbsp;&nbsp;&nbsp;body { background: skyblue; }<br>
+                }
+            </div>
+            <p class="t_desc">
+                ▼ 다음은 모바일 기기를 눕혀 가로가 세로보다 긴 방향이 되면 배경색을 연두색으로 변경하는 미디어쿼리입니다.
+            </p>
+            <div class="t_box">
+                @media only screen and (orientation: <i>landscape</i>) {<br>
+                 &nbsp;&nbsp;&nbsp;&nbsp;body { background: lightgreen; }<br>
+                }
+            </div>
+            <p class="t_desc">
+                <i>쉼표로 구분하여 조건을 추가</i>할 수도 있습니다.<br>
+                ▼ 다음은 가로가 600px에서 900px 사이일 때, 그리고 1100px 이상일 떄에만 글자색을 red로 변경하는 미디어쿼리입니다.
+            </p>
+            <div class="t_box">
+                @media screen and (max-width: 900px) and (min-width: 600px), (min-width: 1100px) {<br>
+                 &nbsp;&nbsp;&nbsp;&nbsp;body { color: red; }<br>
+                }
+            </div>
+            <p class="t_desc">
+               ▼ 다음은 미디어쿼리를 활용할 수 있는 기기 해상도에 따른 반응형 웹 디자인의 예시입니다.
+            </p>
+            <div class="t_iframe" style="min-height: 700px; padding-top: 0;">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FhsWrKmBarYKtxvtNshQvLh%2Fstudy%3Fnode-id%3D67%253A2" allowfullscreen></iframe>
+            </div>
+
+            <hr>
+
+            <h3 class="t_tit2">▶ media query를 흉내내는 script</h3>
+            <div class="t_box">
+               function initLayout() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var widthWin = $<i>(window).width()</i>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>if (widthWin &lt; 1000) $("body").addClass("mob").removeClass("pc")</i>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;else $("body").removeClass("mob").addClass("pc");<br>
+               }
+            </div>
+            <p class="t_desc">
+                → 위의 스크립트는 창의 가로 크기를 재고 1000px 보다 좁으면 body에 mob 클래스를 붙이고 pc 클래스는 제거하고,
+                1000px 이상이면 body에 pc 클래스를 붙이고, mob 클래스는 제거하는 스크립트입니다.
+            </p>
+            <div class="t_box">
+                $(window)<i>.resize</i>(function() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;initLayout();<br>
+                });
+            </div>
+            <p class="t_desc">
+                → 미리 만들어 둔 스크립트를 창 크기가 바귈 때마다 실행합니다.
+            </p>
+            <div class="t_box">
+                …<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;body.mob { max-width: 720px }<br>
+                …
+            </div>
+            <p class="t_desc">
+                → css에서 body.mob에 속성을 추가하면 모바일일 때의 속성이 등록되는 것입니다.
+            </p>
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

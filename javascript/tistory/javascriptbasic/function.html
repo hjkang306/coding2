@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+       <div class="document">
+            <h2 class="t_tit">함수의 유형</h2>
+            <p class="t_desc">
+                다양한 함수의 유형을 익혀두어 효율적으로 자바스크립트를 작성하도록 합시다!
+            </p>
+
+            <h3 class="t_tit2">01. 선언적 함수</h3>
+            <p class="t_desc2">
+                선언적 함수란 함수를 선언하고 호출하여 함수를 실행하는 함수입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">function func() {
+    document.write("함수가 실행되었습니다.");
+}
+func();     //함수는 실행문이 있어야 실행된다.
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">02. 익명 함수</h3>
+            <p class="t_desc2">익명 함수란 변수에 함수 데이터를 저장하여 변수를 마치 함수처럼 사용합니다. 따라서, 변수를 먼저 선언한 이후에 함수를 호출해야 합니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">const func = function() {   //변수 안에 함수가 있으며, 함수는 이름이 없기 때문에 익명함수라고 함. 변수의 이름을 실행 함수처럼 씀. (const가 아닌 let이나 var로 변수를 선언해도 된다.)
+    document.write("함수가 실행되었습니다.");
+}
+func();
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">03. 매개변수 함수</h3>
+            <p class="t_desc2">함수를 호출할 때 전달하는 함수를 "매개변수"라고 합니다. 매개변수가 있는 함수를 매개변수 함수라고 합니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">//let str 함수를 원래 선언해야 하지만 생략이 가능함.
+function func(str){     //문자열이 들어간다는 의미에서 str을 넣어줌
+    document.write(str);
+}
+func("함수가 실행되었습니다.");
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">04. 리턴값 함수</h3>
+            <p class="t_desc2">return은 함수를 통해 처리된 결과를 반환시켜주는 명령어입니다. 리턴값 함수는 반환된 결과를 출력하는 함수입니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function func(){
+    const str = "함수가 실행되었습니다.";
+    return str;
+}
+document.write(func()); //return으로 반환된 결과를 출력함.
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">05. 화살표 함수 : 선언적 함수</h3>
+            <p class="t_desc2">화살표 함수는 함수 코드의 function을 생략하고 =과 =>(화살표)를 사용해 함수를 표현합니다. 다음은 선언적 함수를 화살표 함수로 바꾼 예시입니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">//원형
+function func() {
+    document.write("함수가 실행되었습니다.");
+}
+func();
+
+//화살표 함수
+func = () => {  //function을 없애고 =과 화살표로 형태를 바꿈.
+    document.write("함수가 실행되었습니다.");
+}
+func();
+
+//축약형 : 실행문이 하나일 경우, 중괄호도 생략하여 축약할 수 있습니다.
+func = () => document.write("함수가 실행되었습니다.");
+func();
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">06. 화살표 함수 : 익명 함수</h3>
+            <p class="t_desc2">화살표 함수는 함수 코드의 function을 생략하고 =과 =>(화살표)를 사용해 함수를 표현합니다. 다음은 익명 함수를 화살표 함수로 바꾼 예시입니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">//원형
+const func = function() {
+    document.write("함수가 실행되었습니다.");
+}
+func();
+
+//화살표 함수
+const func = () => {
+    document.write("함수가 실행되었습니다.");
+}
+func();
+
+//축약형
+const func = () => document.write("함수가 실행되었습니다.");
+func();
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">07. 화살표 함수 : 매개변수 함수</h3>
+            <p class="t_desc2">화살표 함수는 함수 코드의 function을 생략하고 =과 =>(화살표)를 사용해 함수를 표현합니다. 다음은 매개변수 함수를 화살표 함수로 바꾼 예시입니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">//원형
+function func(str){
+    document.write(str);
+}
+func("함수가 실행되었습니다.");
+
+//화상표 함수
+func = (str) => {
+    document.write(str);
+}
+func("함수가 실행되었습니다.");
+
+//축약형
+func = (str) => document.write(str);
+func("함수가 실행되었습니다.");
+
+//축약형2 : 변수가 하나일 때에는 ()도 생략이 가능함.
+func = str => document.write(str);
+func("함수가 실행되었습니다.");
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">08. 화살표 함수 : 리턴값 함수</h3>
+            <p class="t_desc2">화살표 함수는 함수 코드의 function을 생략하고 =과 =>(화살표)를 사용해 함수를 표현합니다. 다음은 리턴값 함수를 화살표 함수로 바꾼 예시입니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">// 원형
+function func(){
+    const str = "함수가 실행되었습니다.";
+    return str;
+}
+document.write(func());
+
+//화살표함수 (실행문이 두개 이상이기 때문에 중괄호의 생략이 불가능하다.)
+func = () => {
+    const str = "함수가 실행되었습니다.";
+    return str;
+}
+document.write(func());
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">09. 화살표 함수 : 익명 함수 + 매개변수 + 리턴값</h3>
+            <p class="t_desc2">화살표 함수는 다양한 함수를 섞어서 표현할 수도 있습니다. 다음은 익명함수와 매개변수, 리턴값 함수가 섞인 예시입니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">const func = (str) => { //익명함수이기 때문에 변수부터 선언함. 매개변수와 섞여있기 때문에 괄호 안에 매개변수가 들어간다.
+    return str; //결과를 의미하는 return. 리턴값 함수와 섞여있다.
+}
+document.write(func("함수가 실행습니다."));    //리턴값 함수와 매개변수 함수가 섞여있다.
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">10. 화살표 함수 : 익명 함수 + 매개변수 + 리턴값 + 괄호생략</h3>
+            <p class="t_desc2">화살표 함수는 다양한 함수를 섞어서 표현할 수도 있습니다. 섞인 함수도 매개변수가 하나일 경우, 괄호()까지 생략할 수 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">const func = str => {
+    return str;
+}
+document.write(func("함수가 실행되었습니다."));
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">11. 화살표 함수 : 익명 함수 + 매개변수 + 리턴값 + 괄호생략 + 리턴생략</h3>
+            <p class="t_desc2">화살표 함수는 다양한 함수를 섞어서 표현할 수도 있습니다. 실행문이 리턴 하나인 경우, 리턴도 생략할 수 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">const func = str => str;
+document.write(func("함수가 실행되었습니다."));
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">12. 화살표 함수 : 선언적 함수 + 매개변수 + 리턴값 + 괄호생략 + 리턴생략</h3>
+            <p class="t_desc2">화살표 함수는 다양한 함수를 섞어서 표현할 수도 있습니다. 선언적 함수는 변수의 선언이 필요 없어 더 간단히 적을 수 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">func = str => str;  //선언적 함수는 변수의 선언이 필요없음
+document.write(func("함수가 실행되었습니다."));
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">13. 함수 유형 : 함수와 매개변수를 이용한 형태</h3>
+            <p class="t_desc2">함수와 매개변수를 활용해 함수를 재활용 할 수 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function func(num, str1, str2){
+    document.write(num + ". " + str1 + "가 " + str2 + "되었습니다.");
+}
+func("1", "함수", "실행");
+func("2", "자바스크립트", "실행");
+func("3", "제이쿼리", "실행");
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">14. 함수 유형 : 함수와 변수를 이용한 형태</h3>
+            <p class="t_desc2">함수와 변수를 이용해 함수를 재활용 할 수 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function func(num, str1, str2){
+    document.write(num + ". " + str1 + "가 " + str2 + "되었습니다.");
+}
+const youNum1 = 1;
+const youNum2 = 2;
+const youNum3 = 3;
+const youStr1 = "함수";
+const youStr2 = "자바스크립트";
+const youStr3 = "제이쿼리";
+const youStr4 = "실행";
+
+func(youNum1, youStr1, youStr4);
+func(youNum2, youStr2, youStr4);
+func(youNum3, youStr3, youStr4);
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">15. 함수 유형 : 함수와 배열, 객체를 이용한 형태</h3>
+            <p class="t_desc2">함수와 배열, 객체를 이용해 함수를 재활용 할 수 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function func(num, str1, str2){
+    document.write(num + ". " + str1 + "가 " + str2 + "되었습니다.");
+}
+const info = [
+    {
+        num : "1",
+        name : "함수",
+        com : "실행"
+    },
+    {
+        num : "2",
+        name : "자바스크립트",
+        com : "실행"
+    },
+    {
+        num : "3",
+        name : "제이쿼리",
+        com : "실행"
+    }
+];
+func(info[0].num, info[0].name, info[0].com);
+func(info[1].num, info[1].name, info[1].com);
+func(info[2].num, info[2].name, info[2].com);
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">16. 함수 유형 : 객체 안에 변수와 함수를 이용한 형태</h3>
+            <p class="t_desc2">객체 안에 변수와 함수를 저장할 수 있지만, 함수의 재활용은 안되는 형태입니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">
+const info = {
+    num1 : 1,
+    name1 : "함수",
+    word1 : "실행",
+
+    num2 : 2,
+    name2 : "자바스크립트",
+    word2 : "실행",
+
+    num3 : 3,
+    name3 : "제이쿼리",
+    word3 : "실행",
+
+    result1 : function(){
+        document.write(info.num1 + ". " + info.name1 + "가 " + info.word1 + "되었습니다.");
+    },
+    result2 : function(){
+        document.write(info.num2 + ". " + info.name2 + "가 " + info.word2 + "되었습니다.");
+    },
+    result3 : function(){
+        document.write(info.num3 + ". " + info.name3 + "가 " + info.word3 + "되었습니다.");
+    }
+}
+
+info.result1();
+info.result2();
+info.result3();
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">17. 함수 유형 : 객체 생성자 함수</h3>
+            <p class="t_desc2">this를 사용해 함수를 재활용 할 수 있도록 한 현태입니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function func(num, name, word){
+    this.num = num; //const 생략하고 this 사용함. 변수를 생성했다고 보면 됨. 자동으로 변수 생성해주는 느낌
+    this.name = name;
+    this.word = word;
+
+    this.result = function(){
+        document.write(this.num + ". " + this.name + "가 " + this.word + "되었습니다.");
+    }
+}
+
+//인스턴스 생성 //인스턴스를 꼭 생성해 주어야 실행이 된다.
+const info1 = new func("1", "함수", "실행");
+const info2 = new func("2", "자바스크립트", "실행");
+const info3 = new func("3", "제이쿼리", "실행");
+
+//실행
+info1.result();
+info2.result();
+info3.result();
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">18. 함수 유형 : 프로트타입 함수</h3>
+            <p class="t_desc2">사용하지 않는 함수가 메모리를 차지하는 것을 방지하기 위해, 함수를 바깥에 작성한 형태입니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function func(num, name, word){
+    this.num = num;
+    this.name = name;
+    this.word = word;
+}
+
+//쓸데 없는 함수도 실행되어 메모리를 차지하는 것을 방지하기 위해 함수를 밖으로 꺼냄
+func.prototype.result = function(){
+    document.write(this.num + ". " + this.name + "가 " + this.word + "되었습니다.");
+}
+
+//인스턴스 생성
+const info1 = new func("1", "함수", "실행");
+const info2 = new func("2", "자바스크립트", "실행");
+const info3 = new func("3", "제이쿼리", "실행");
+
+//실행
+info1.result();
+info2.result();
+info3.result();
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">19. 함수 유형 : 객체 리터럴 함수</h3>
+            <p class="t_desc2">다수의 함수를 객체 안에 저장해서 원하는 함수만 실행할 수 있도록 한 형태입니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">
+function func(num, name, word){
+    this.num = num;
+    this.name = name;
+    this.word = word;
+}
+
+func.prototype = {  //다수의 함수를 객체 안에 저장해서 원하는 함수만 실행시킬 수 있게 함
+    result1 : function(){
+        document.write(this.num + ". " + this.name + "가 " + this.word + "되었습니다.");
+    },
+    result2 : function(){
+        document.write(this.num + ". " + this.name + "가 " + this.word + "되었습니다.");
+    },
+    result3 : function(){
+        document.write(this.num + ". " + this.name + "가 " + this.word + "되었습니다.");
+    }
+}
+
+//인스턴스 생성
+const info1 = new func("1", "함수", "실행");
+const info2 = new func("2", "자바스크립트", "실행");
+const info3 = new func("3", "제이쿼리", "실행");
+
+//실행
+info1.result1();
+info2.result2();
+info3.result3();
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

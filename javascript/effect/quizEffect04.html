@@ -103,20 +103,145 @@
                         <div class="tabs">
                             <div class="active">Javascript</div>
                             <div>HTML</div>
-                            <div>CSS</div>
                         </div>
                     </div>
                     <div class="cont">
                         <div class="active">
-        <pre><code class="languige-js">
+        <pre><code class="languige-js">//선택자
+    const quizType = document.querySelector(".quiz__type");                  //퀴즈 종류
+    const quizNumber = document.querySelector(".quiz__question .number");    //퀴즈 번호
+    const quizAsk = document.querySelector(".quiz__question .ask");          //퀴즈 질문
+    const quizConfilm = document.querySelector(".quiz__answer .confilm");    //정답 확인 버튼
+    const quizResult = document.querySelector(".quiz__answer .result");      //정답 결과
+    const quizView = document.querySelector(".quiz__view");                  //강아지
+    const quizSelects = document.querySelector(".quiz__selects");            //객관식 보기들
+    const quizChoice = quizSelects.querySelectorAll(".choice");             //객관식 보기
+    const quizSelect = quizSelects.querySelectorAll(".select");             //객관식 보기 선택란
+    //문서가 아닌 quizSelects 안에서 찾도록 하여 더 효율적으로 작동하도록 함.
+
+    //문제정보
+    const quizInfo = [
+        {
+            answerType : "웹디자인기능사 2022년 1회",
+            answerNum : "1",
+            answerAsk : "다음의 HTML 태그 중 종료 태그가 없는 것은?",
+            answerChoice : ["&lt;HTML>", "&lt;BODY>", "&lt;HR>", "&lt;DIV>"],
+            answerResult : "3",
+            answerEx : "&lt;HR> 태그는 종료 태그가 없습니다." 
+        }
+    ]
+
+    //문제 출력
+    function updateQuiz(){
+        quizType.textContent = quizInfo[0].answerType;
+        quizNumber.textContent = quizInfo[0].answerNum + ". ";
+        quizAsk.textContent = quizInfo[0].answerAsk;
+        quizResult.textContent = quizInfo[0].answerEx;
+
+        //보기 출력(반복)
+        // quizChoice[0].textContent = quizInfo[0].answerChoice[0];
+        // quizChoice[1].textContent = quizInfo[0].answerChoice[1];
+        // quizChoice[2].textContent = quizInfo[0].answerChoice[2];
+        // quizChoice[3].textContent = quizInfo[0].answerChoice[3];
+
+        //(for문)
+        // for( i=0; i&lt;quizInfo[0].answerChoice.length; i++){
+        //     quizChoice[i].textContent = quizInfo[0].answerChoice[i];
+        // }
+
+        //(forEach문)
+        quizChoice.forEach((el, i) => {
+            quizChoice[i].textContent = quizInfo[0].answerChoice[i];
+        });
+
+        //해설 숨기기
+        quizResult.style.display = "none";
+    }
+    updateQuiz();
+
+    //정답확인
+    function answerQuiz(){
+        //사용자 선택 정답 == 문제 정답 인지 확인
+        //사용자가 클릭한 input --> checked 속성으로 확인.
+        
+        for( let i=0;i&lt;quizSelect.length; i++){
+            if(quizSelect[i].checked == true){  //보기에 체크가 된 상태
+                //확인버튼 숨기기
+                quizConfilm.style.display = "none";
+
+                //체크된 번호 == 정답 번호
+                if(quizSelect[i].value == quizInfo[0].answerResult){
+                    //alert("정답");
+                    quizView.classList.add("like");
+                } else {
+                    //alert("오답");
+                    quizView.classList.add("dislike");
+                    quizResult.style.display = "block";
+                }
+            }
+        }
+    }
+
+    //정답 클릭
+    quizConfilm.addEventListener("click", answerQuiz);
         </code></pre>
                         </div>
                         <div>
-        <pre><code class="languige-html">
-        </code></pre>
-                        </div>
-                        <div>
-        <pre><code class="languige-css">
+        <pre><code class="languige-html">&lt;div class="quiz__wrap">
+    &lt;div class="quiz">
+        &lt;span class="quiz__type">&lt;/span>
+        &lt;h2 class="quiz__question">
+            &lt;span class="number">&lt;/span>
+            &lt;div class="ask">&lt;/div>
+        &lt;/h2>
+        &lt;div class="quiz__view">
+            &lt;div class="true">정답입니다!&lt;/div>
+            &lt;div class="false">틀렸습니다!&lt;/div>
+            &lt;div class="dog">
+                &lt;div class="head">
+                    &lt;div class="ears">&lt;/div>
+                    &lt;div class="face">&lt;/div>
+                    &lt;div class="eyes">
+                        &lt;div class="teardrop">&lt;/div>
+                    &lt;/div>
+                    &lt;div class="nose">&lt;/div>
+                    &lt;div class="mouth">
+                        &lt;div class="tongue">&lt;/div>
+                    &lt;/div>
+                    &lt;div class="chin">&lt;/div>
+                &lt;/div>
+                &lt;div class="body">
+                    &lt;div class="tail">&lt;/div>
+                    &lt;div class="legs">&lt;/div>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="quiz__answer">
+            &lt;div class="quiz__selects">
+                &lt;label for="select1">
+                    &lt;input type="radio" id="select1" class="select" name="select" value="1">
+                    &lt;span class="choice">&lt;/span>
+                &lt;/label>
+                &lt;label for="select2">
+                    &lt;input type="radio" id="select2" class="select" name="select" value="2">
+                    &lt;span class="choice">&lt;/span>
+                &lt;/label>
+                &lt;label for="select3">
+                    &lt;input type="radio" id="select3" class="select" name="select" value="3">
+                    &lt;span class="choice">&lt;/span>
+                &lt;/label>
+                &lt;label for="select4">
+                    &lt;input type="radio" id="select4" class="select" name="select" value="4">
+                    &lt;span class="choice">&lt;/span>
+                &lt;/label>
+            &lt;/div>
+
+            &lt;button class="confilm">정답 확인하기&lt;/button>
+            &lt;div class="result">&lt;/div>
+        &lt;/div>
+    &lt;/div>
+    &lt;!-- //quiz1 -->
+&lt;/div>
         </code></pre>
                         </div>
                     </div>
@@ -250,10 +375,7 @@
 
         //정답 클릭
         quizConfilm.addEventListener("click", answerQuiz);
-        
-        
-
-        </script>
+    </script>
 </body>
 
 </html>

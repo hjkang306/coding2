@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기</h2>
+            <p class="t_desc2">
+                사이트를 구성하는 방법에는 다양한 유형이 있습니다. 다양한 유형들을 익혀놓으면, 사이트를 만들 때 디자인적인 요소도 챙길 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">카드 유형03</h3>
+            <p class="t_desc">
+                카드 유형의 사이트는 콘텐츠를 카드의 형태로 나열합니다. 카드를 어떤 모습으로, 어떻게 배치하냐에 따라
+                같은 카드 유형도 다양한 디자인으로 사이트를 구성할 수 있습니다. 그 중 세번째 디자인입니다. 세번째 디자인은 세개의 카드를 간격을 두어 배치하였습니다. 카드 사이엔 라인을 그려 구분해 주었습니다.
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpakv3MmuDJszSsl4w0gU3Z%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D31%253A275" allowfullscreen></iframe>
+            </div>
+            <h3 class="t_tit2">디자인 하기</h3>
+            <p class="t_desc">
+                먼저, 그리드를 나누어 각 구역과 텍스트를 배치하여 전체적인 모습을 만들어 봅니다. 카드 유형과 같이 중복되는 디자인을 배치하게 될 경우, 카드 하나를 먼저 디자인한 뒤 <i>컴포넌트로 만들어 작업</i>하면 간단합니다. <i>원본 컴포넌트를 수정하면 전체의 수정이 가능</i>하며, 각각의 컴포넌트 복제들 따로 수정할 수도 있습니다.
+            </p>
+            <h3 class="t_tit2">HTML 작성하기</h3>
+            <p class="t_desc">
+                그 다음, 만들어 둔 디자인을 보며 시멘틱 태그를 활용해 구역에 맞는 태그와 텍스를 작성해 줍니다.
+                한번에 다 만들기 보다는 큰 요소부터 하나씩 만들면서 css를 적용해, 중간중간 확인하는 편이 좋습니다.
+            </p>
+            <h4 class="t_tit3"><i>> 웹 접근성 향상 팁!</i></h4>
+            <div class="t_desc2">
+                *콘텐츠 영역에 스크린리더가 읽어 정보를 제공할 제목이 없다면, <i>blind효과를 사용하여 보이지 않는 제목을 작성</i>해 줍니다.<br>
+                *내용이 있는 이미지는 img태그를 사용합니다. <i>alt 태그는 꼭</i> 적어줍니다.<br>
+                내용과 관련이 없는 이미지로<br>
+                1. <i>svg파일</i>을 활용하게 된다면, 웹 접근성 향상을 위해 <i>aria-hidden="true"속성</i>을 넣어줍니다. 해당 속성을 넣으면 스크린리더 프로그램이 <i>내용과 관련이 없는 svg파일을 읽지 않고 지나갑니다</i>.<br>
+                2. <i>background-image</i>를 활용하여 css를 통해 이미지를 넣을 수도 있습니다.<br>
+                위의 두 경우엔 css에서 <i>ir효과</i>를 설정하여 alt를 대신할 이미지 대체 텍스트를 설정해 줍니다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="cardType03" class="card__wrap score section"&gt;
+    &lt;h2 class="blind"&gt;샐러드의 세계&lt;/h2&gt;
+    &lt;div class="card__inner container"&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card3_bg01.jpg" alt="두부 구이 샐러드 사진"&gt;
+                &lt;figcaption&gt;Tofu salad&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__contents"&gt;
+                &lt;h3&gt;맛있는 샐러드란 무엇인가?&lt;br&gt;두부 구이 샐러드&lt;/h3&gt;
+                &lt;p&gt;두부 구이 샐러드는 단백질과 식이섬유를 동시에 섭취할 있는 샐러드이다. 식물성 단백질을 섭취함으로 부담스럽지 않은 담백한 식사를 즐길 수 있다.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;식품연구가&lt;em&gt;조니&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card3_people01.jpg" alt="식품연구가 조니씨의 사진"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card3_bg02.jpg" alt="올리브 찹 샐러드 사진"&gt;
+                &lt;figcaption&gt;Olive salad&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__contents"&gt;
+                &lt;h3&gt;맛있는 샐러드란 무엇인가?&lt;br&gt;올리브 찹 샐러드&lt;/h3&gt;
+                &lt;p&gt;올리브 찹 샐러드는 다진 치커리와 양파, 당근에 먹기 좋게 썬 올리브를 올려 마무리한 샐러드이다. 특유의 감칠맛이 있는 올리브 덕분에 물리지 않고 많은 채소를 해치울 수 있다.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;시식 평론가&lt;em&gt;제니&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card3_people02.jpg" alt="시식 평론가 제니씨의 사진"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card3_bg03.jpg" alt="계란 시금치 샐러드 사진"&gt;
+                &lt;figcaption&gt;Egg salad&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__contents"&gt;
+                &lt;h3&gt;맛있는 샐러드란 무엇인가?&lt;br&gt;계란 시금치 샐러드&lt;/h3&gt;
+                &lt;p&gt;시금치는 비타민c가 많이 함유되어 있어, 요즘같이 면역력이 중요한 시기에 섭취하면 좋은 채소이다. 시금치를 건강하게 섭취하기 위해 계란을 곁들여 샐러드로 먹어보자.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;베스트셀러 작가&lt;em&gt;셀리&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card3_people03.jpg" alt="베스트셀러 작가 셀리씨의 사진"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">CSS 작성하기</h3>
+            <p class="t_desc">
+                만들어 둔 디자인을 보며, 각 요소의 CSS를 설정해줍니다. 최종 완성 후 디자인과 비교하며 다른 점을 수정해줍니다.
+                요소를 배치하면서 제대로 css가 적용되는지 확인하고 싶다면, 해당 요소에 배경색을 지정해 확인하도록 합니다.
+            </p>
+            <h4 class="t_tit3"><i>> 텍스트 줄임효과 팁!</i></h4>
+            <div class="t_desc2">
+                텍스트가 길어진 경우, <i>말줄임표(…)로 텍스트 끄트머리를 줄여주는 효과</i>를 낼 수 있는 css작성법입니다. 해당 효과를 이용하면 텍스트를 더욱 깔끔하게 표현할 수 있습니다.
+            </div>
+            <div class="t_box">
+                <i>*n 줄만 남기고 줄이는 효과*</i><br>
+                overflow: hidden;<br>
+                text-overflow: ellipsis;<br>
+                display: -webkit-box;<br>
+                -webkit-line-clamp: <i>n</i>;<br>
+                -webkit-box-orient: vertical;
+            </div>
+            <h4 class="t_tit3"><i>> blind효과란?</i></h4>
+            <div class="t_desc2">
+                blind 효과는 웹 접근성을 높이기 위해, <i>제목 등 콘텐츠에 대해 알 수 있는 정보를</i> 스크린리더가 읽을 수 있도록 작성한 뒤 <i>사용자의 눈에는 보이지 않도록</i> 하는 css작성법입니다. 웹 접근성 향상을 위해 적극 활용하도록 합니다.
+            </div>
+            <div class="t_box">
+                <i>*css에서 blind 효과 주는 법*</i><br>
+                .blind {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;position:absolute;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;clip: rect(0 0 0 0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;width: 1px;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;height: 1px;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;margin: -1px;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden;<br>
+                }
+            </div>
+            <div class="t_code">
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/score/SCoreDream.css');
+
+.score {
+    font-family: 'SCoreDream';
+    font-weight: 300;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+img {
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+.section {
+    padding: 120px 0;
+}
+.section > h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section > p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+/* blind */
+/* blind 효과는 웹 접근성을 높이기 위해, 제목 등 콘텐츠에 대해 알 수 있는 정보를 스크린리더가 읽을 수 있도록 작성한 뒤 사용자의 눈에는 보이지 않도록 하는 css작성법입니다. */
+.blind {
+    position:absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+/* cardType03 */
+body {
+    background-color: #2254c3;
+}
+.card__inner {
+    display: flex;
+}
+.card__inner .card {
+    padding: 26px;
+    width: 33.3333%;
+    background-color: #fff;
+}
+.card__inner .card:nth-child(2) {
+    border-right: 1px solid #eee;
+    border-left: 1px solid #eee;
+}
+.card__header {
+    position: relative;
+}
+.card__header img {
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+.card__header figcaption {
+    position: absolute;
+    right: 10px; 
+    top: 10px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    background-color: #FFD217;
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+}
+.card__contents h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    /* 텍스트의 두 줄 효과*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}
+.card__contents p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    /* 텍스트의 세 줄 효과*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+
+.card__footer {
+    display: flex;
+    justify-content: flex-end;  /* 콘텐츠가 끝에서부터 정렬 */
+}
+.card__footer h4 {
+    text-align: right;
+    color: #dd2a2a;
+}
+.card__footer em {
+    display: block; /* 줄바꿈을 일으키기 위해 inline구조인 em태그를 block구조로 바꿔줌 */
+    color: #666;
+    font-style: normal;
+}
+.card__footer span {
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border-radius: 50%;
+    overflow: hidden;       /* 빠져나가는 이미지를 숨기기 위해 작성 */
+    display: block;     /* display: flex;는 블록을 정렬해주는 기능이며 span태그는 inline구조이기 때문에, span태그를 block으로 바꿔준다. */
+    margin-left: 10px;
+    margin-top: 3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+</code></pre>
+            </div>
+            <div class="t_iframe" style="min-height: 980px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/site/cardType/cardType03.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/site/cardType/cardType03.html">원본 소스 보기</a>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/site/cardType/cardType03.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

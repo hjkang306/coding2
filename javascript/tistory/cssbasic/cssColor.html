@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+       <div class="document">
+            <h2 class="t_tit">CSS 색상 표현</h2>
+            <p class="t_desc2">
+                css에서 색상을 표현하는 방법에는 여러가지가 있습니다. 각 방법을 알아두었다가, 유용하게 사용하도록 합시다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th class="ce">표현법</th>
+                        <th class="ce">설명</th>
+                        <th class="ce">작성법</th>
+                        <th class="ce">예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">주요 색상 이름</td>
+                        <td>주요 색상 이름을 작성한다.</td>
+                        <td>red, white, blue, black, …</td>
+                        <td>color: white;</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">16진수 표기<br>(HEX 코드)</td>
+                        <td>
+                            rgb의 농도를 00~ff로 표현하는 HEX 코드로 작성한다.<br>
+                            00에 가까울수록 밝고, ff에 가까울수록 어둡다.
+                        </td>
+                        <td>#000000 ~ #ffffff</td>
+                        <td>color: #fff;</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">RGB 표기</td>
+                        <td>red, green, blue의 수치를 0~255까지 표기하여 작성한다.</td>
+                        <td>rgb(0, 0, 0) ~ rgb(255 ,255, 255)</td>
+                        <td>color: rgb(0, 0, 0);</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">RGBA 표기</td>
+                        <td>
+                            RGB와 같으나, 투명도 수치가 포함되어 있다.<br>
+                            0.0 ~ 1.0까지 표기가 가능하고, 소숫점은 생략 가능하다.<br>
+                            0에 가까울 수록 투명하다.
+                        </td>
+                        <td>rgba(0, 0, 0, 0.0) ~ rgba(255 ,255, 255, 1.0)</td>
+                        <td>color: rgb(0, 0, 0, 0.3);</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">HSL 표기</td>
+                        <td>
+                            색상, 채도, 밝기를 뜻하는 hsl의 수치로 표현하는 방법.<br>
+                            색상코드는 0 ~ 360까지이며, 밝기는 100%에 가까울수록 밝아진다.
+                        </td>
+                        <td>hsl(0, 0%, 0%) ~ hsl(360 ,100%, 100%)</td>
+                        <td>color: rgb(0, 0%, 100%);</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">HSLA 표기</td>
+                        <td>
+                            HSL과 같으나, 투명도 수치가 포함되어 있다.<br>
+                            0.0 ~ 1.0까지 표기가 가능하고, 소숫점은 생략 가능하다.<br>
+                            0에 가까울 수록 투명하다.
+                        </td>
+                        <td>hsla(0, 0%, 0%, 0.0) ~ hsla(360 ,100%, 100%, 1.0)</td>
+                        <td>color: rgb(0, 0%, 100%, 0.3);</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">슬라이드 효과 만들기</h2>
+            <p class="t_desc2">
+                이미지 슬라이드 효과를 만드는 방법을 익혀봅시다. 슬라이드는 다양한 방식으로 줄 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">슬라이드 효과 : 좌로 움직이기</h3>
+            <p class="t_desc">
+                슬라이드 효과는 다수의 이미지가 있을 때, 시간이 지날 때 한장씩 슬라이드 되며 보여지도록 한 효과입니다.
+                이번 슬라이드 효과는 이미지가 좌우로 넘어가며 보여집니다.
+            </p>
+            <h3 class="t_tit2">HTML 코드</h3>
+            <p class="t_desc">
+                슬라이드 할 이미지 각각에 slider 클래스를 주고,
+                각 이미지를 감싼 slider__inner와 또 한번 감싼 slider__img를 또 감싼 slider__wrap을 만들었습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="slider__wrap"&gt;
+    &lt;div class="slider__img"&gt;
+        &lt;div class="slider__inner"&gt;
+            &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg06-min.jpg" alt="이미지6"&gt;&lt;/div&gt;
+            &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg07-min.jpg" alt="이미지7"&gt;&lt;/div&gt;
+            &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg08-min.jpg" alt="이미지8"&gt;&lt;/div&gt;
+            &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg09-min.jpg" alt="이미지9"&gt;&lt;/div&gt;
+            &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg10-min.jpg" alt="이미지10"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">CSS 코드</h3>
+            <p class="t_desc">
+                각 이미지에 바로 위 부모요소를 기준으로 포지션을 주어, 위치를 이동시킬 수 있도록 하였습니다.
+                또한 이미지가 순서대로 위치할 수 있도록 <i>z-index로 z축 상의 위치를 조정</i>해주었습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">.slider__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider__img {
+    position: relative;
+    width: 800px;
+    height: 450px;
+}
+.slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.slider::before {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    padding: 5px 10px;
+}
+.slider:nth-child(1)::before {content: '이미지1';}
+.slider:nth-child(2)::before {content: '이미지2';}
+.slider:nth-child(3)::before {content: '이미지3';}
+.slider:nth-child(4)::before {content: '이미지4';}
+.slider:nth-child(5)::before {content: '이미지5';}
+.slider:nth-child(1) {z-index: 5;}
+.slider:nth-child(2) {z-index: 4;}
+.slider:nth-child(3) {z-index: 3;}
+.slider:nth-child(4) {z-index: 2;}
+.slider:nth-child(5) {z-index: 1;}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">사진 움직이기</h3>
+            <p class="t_desc">
+                전체 이미지를 감싼 <i>slider__inner를 좌로 이동</i>시켜, 사진이 좌로 넘어가는 듯한 효과를 주었습니다.
+                애니메이션을 주는 방법으로 <i>javascript, GSAP, jQuery</i>를 이용해 보았습니다.
+                각각의 작성법을 잘 알아두었다가 적절하게 사용해 봅시다!
+            </p>
+            <details>
+                <summary>Javascript를 이용하기</summary>
+                <p class="t_box">
+                    자바스크립트를 작성해 전체 이미지를 감싼 slider__inner를 좌로 이동시켜, 사진이 좌로 넘어가는 듯한 효과를 주었습니다.<br>
+                    <i>setsetInterval()</i> 메소드를 이용하면 <i>n초에 한번씩 실행문이 작동</i>되도록 할 수 있습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-js">const sliderInner = document.querySelector(".slider__inner");
+const slider = document.querySelectorAll(".slider");
+let currentIndex = 0;
+
+sliderInner.style.transition = "all 0.6s"
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % slider.length;
+
+    sliderInner.style.transform = "translateX("+ -800  * currentIndex + "px)";
+},2000);
+</code></pre>
+                </div>
+            </details>
+            <details>
+                <summary>GSAP를 이용하기</summary>
+                <p class="t_box">
+                    GSAP를 작성해 전체 이미지를 감싼 slider__inner를 좌로 이동시켜, 사진이 좌로 넘어가는 듯한 효과를 주었습니다.<br>
+                    GSAP를 사용하려면 cdn을 연결해주어야 하며, <i>gsap.to</i> 를 이용하면 <i>GSAP</i>로 애니메이션을 만들 수 있습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-js">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js">&lt;/script>
+&lt;script>
+    const slider = document.querySelectorAll(".slider");
+    let currentIndex = 0;
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % slider.length;
+
+        gsap.to(".slider__inner", {
+            duration : 0.6, //애니메이션 변화를 0.6초 동안
+            x : -800 * currentIndex //x축으로 이동
+        });
+    },2000);
+&lt;/script>
+</code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>jQuery를 이용하기</summary>
+                <p class="t_box">
+                    제이쿼리를 작성해 전체 이미지를 감싼 slider__inner를 좌로 이동시켜, 사진이 좌로 넘어가는 듯한 효과를 주었습니다.<br>
+                    제이쿼리 또한 사용하려면 cdn을 연결해주어야 하며, <i>animate</i>와 <i>css 속성을 변경하는 방식으로</i>애니메이션을 줄 수 있습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-js">&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">&lt;/script>
+&lt;script>
+    let currentIndex = 0;
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % $(".slider").length;
+        
+        //제이쿼리는 css의 속성을 변경하는 방식으로 애니메이션을 줄 수 있습니다.
+        $(".slider__inner").css("position", "relative");
+        $(".slider__inner").animate({left : -800 * currentIndex}, 600)
+    },2000);
+&lt;/script>
+</code></pre>
+                </div>
+            </details><br>
+            
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/sliderEffect02.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/javascript/effect/sliderEffect02.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

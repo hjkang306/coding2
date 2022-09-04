@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기</h2>
+            <p class="t_desc2">
+                사이트를 구성하는 방법에는 다양한 유형이 있습니다. 다양한 유형들을 익혀놓으면, 사이트를 만들 때 디자인적인 요소도 챙길 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">텍스트 유형03</h3>
+            <p class="t_desc">
+                텍스트 유형의 사이트는 텍스트를 주요 콘텐츠로 배치하고, 콘텐츠는 제목과 본문으로 구성해 이미지 없이 내용을 전달하는 유형입니다.
+                같은 텍스트 유형도 다양한 디자인으로 사이트를 구성할 수 있습니다. 그 중 세번째 디자인입니다.
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpakv3MmuDJszSsl4w0gU3Z%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1322%253A1712" allowfullscreen></iframe>
+            </div>
+            <h3 class="t_tit2">디자인 하기</h3>
+            <p class="t_desc">
+                먼저, 그리드를 나누어 각 구역과 텍스트를 배치하여 전체적인 모습을 만들어 봅니다.
+            </p>
+            <h3 class="t_tit2">HTML 작성하기</h3>
+            <p class="t_desc">
+                그 다음, 만들어 둔 디자인을 보며 시멘틱 태그를 활용해 구역에 맞는 태그와 텍스트를 작성해 줍니다.
+                한번에 다 만들기 보다는 큰 요소부터 하나씩 만들면서 css를 적용해, 중간중간 확인하는 편이 좋습니다.
+                내용이 없는 div박스라도, 웹 표준을 준수하기 위해 간단한 설명을 적어주는 것이 좋습니다.
+            </p>
+            <details>
+                <summary>HTML 코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-html">&lt;div class="container textType section font">
+    &lt;h2 class="tit">계절 연상 노래 🌞&lt;/h2>
+    &lt;p class="subtit">우리나라의 각 계절을 겪으며 드는 노래의 가사를 적어보았습니다!&lt;/p>
+    &lt;div class="text__box">
+        &lt;article class="text">
+            &lt;p class="textDesc">우리에게 봄이 온다면, 따스한 하늘이 우리를 감싸면. 그날이 온다면, 나는 너의 무릎에 누워 꿈을 꿀 거야. 어둠에 취한 사람들이 (하나 둘 정신을 잃어도) 새벽 내내 흘린 눈물이 (모두 모여 바다 되어도). 다같이 만세를 불러, 나비가 날아들 때. 꽃망울이 수줍게 문을 열어줄때, 만세를 불러 슬픔이 녹아내릴 때. 손을 맞잡고 (손을 맞잡고) 봄이 온다면.…&lt;/p>
+            &lt;div class="artist">
+                &lt;div class="icon ir">아이콘&lt;/div>
+                &lt;div class="right">
+                    &lt;h3 class="textTit">&lt;em>안예은&lt;/em> 싱어송라이터&lt;/h3>
+                    &lt;div class="heart__inner">
+                        &lt;div class="heart ir">하트&lt;/div>
+                        &lt;div class="heart ir">하트&lt;/div>
+                        &lt;div class="heart ir">하트&lt;/div>
+                        &lt;div class="heart ir">하트&lt;/div>
+                        &lt;div class="heart ir">하트&lt;/div>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div>
+            &lt;span class="more">&lt;a href="#">자세히 보기&lt;/a>&lt;/span>
+        &lt;/article>
+        &lt;article class="text">
+            &lt;p class="textDesc">처절한 저 매미의 노래가, 이 길을 가득 채워. 희미해진 이 여름의 끝자락에 아스라이  서서. 너와 나 새겨진  파란 하늘 곧 붉게 변해가리. 우리 함께 이 여름 상냥한 미소 맘에&lt;br>난 매일 밤 이 여름 되새길거야. 너도 나와 같은 마음이라면, 기억해. 기억해.…&lt;/p>
+            &lt;div class="artist">
+                &lt;div class="icon ir">아이콘&lt;/div>
+                &lt;div class="right">
+                    &lt;h3 class="textTit">&lt;em>아디오스오디오&lt;/em> 인디 락밴드&lt;/h3>
+                    &lt;div class="heart__inner">
+                        &lt;div class="heart ir">하트&lt;/div>
+                        &lt;div class="heart ir">하트&lt;/div>
+                        &lt;div class="heart ir">하트&lt;/div>
+                        &lt;div class="heart ir">하트&lt;/div>
+                        &lt;div class="heart ir">노란 하트&lt;/div>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div>
+            &lt;span class="more">&lt;a href="#">자세히 보기&lt;/a>&lt;/span>
+        &lt;/article>
+        &lt;article class="text">
+            &lt;p class="textDesc">너는 어느 얼굴 없는 소설가의 문학 첫 문장. 아니 그걸론 부족한데, 너는 어느 이름 없는 소설가의 마지막 문장. 안돼 이것도 부족한데. 너는 나의 수레바퀴 아래서. 너는 나의 호밀밭의 파수꾼. 너는 나의 헤밍웨이 요조, 나는 너를 나는 너를. 계속 읽고 싶어, 닳아 없어질 때까지. 계속 읽고 싶어, 헤져 찢어질 때까지.…&lt;/p>
+            &lt;div class="artist">
+                &lt;div class="icon ir">아이콘&lt;/div>
+                &lt;div class="right">
+                    &lt;h3 class="textTit">&lt;em>박소은&lt;/em> 싱어송라이터&lt;/h3>
+                    &lt;div class="heart__inner">
+                        &lt;div class="heart ir">하트&lt;/div>
+                        &lt;div class="heart ir">하트&lt;/div>
+                        &lt;div class="heart ir">하트&lt;/div>
+                        &lt;div class="heart ir">하트&lt;/div>
+                        &lt;div class="heart ir">하트&lt;/div>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div>
+            &lt;span class="more">&lt;a href="#">자세히 보기&lt;/a>&lt;/span>
+        &lt;/article>
+    &lt;/div>
+&lt;/div>
+</code></pre>
+                </div>
+            </details>
+
+            <h3 class="t_tit2">CSS 작성하기</h3>
+            <p class="t_desc">
+                만들어 둔 디자인을 보며, 각 요소의 CSS를 설정해줍니다. 최종 완성 후 디자인과 비교하며 다른 점을 수정해줍니다.
+                요소를 배치하면서 제대로 css가 적용되는지 확인하고 싶다면, 해당 요소에 배경색을 지정해 확인하도록 합니다.
+                아이콘은 이미지 스트라이프 기법으로 넣었습니다.
+            </p>
+            <details>
+                <summary>CSS 코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+.font {
+    font-family: 'NexonLv1Gothic';
+    font-weight: 400;
+}
+
+/* ir 효과(이미지 대체 효과 == alt) */
+.ir {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+/* common */
+.container {
+    width: 1160px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+
+.section {
+    padding: 120px 0;
+}
+
+.section>h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section>p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+/* main */
+body {
+    background: #F6F8FD;
+}
+.text__box {
+    display: flex;
+}
+.text {
+    width: 373px;
+    height: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    background: #fff;
+    box-sizing: border-box;
+}
+.text:nth-child(2) {
+    margin: 0 20px;
+}
+.textDesc {
+    height: 176px;
+    font-size: 16px;
+    line-height: 140%;
+    margin-bottom: 20px;
+}
+.artist {
+    display: flex;
+    padding: 24px 0;
+    margin-bottom: 20px;
+    border-top: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+}
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: url(img/iconsplite3.svg) no-repeat;
+}
+.text:nth-child(1) .icon {
+    background-color: #FFBDBD;
+    background-position: 16px 15px;
+}
+.text:nth-child(2) .icon {
+    background-color: #A8DAFF;
+    background-position: -35px 15px;
+}
+.text:nth-child(3) .icon {
+    background-color: #DAFFBD;
+    background-position: -85px 15px;
+}
+.textTit {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+}
+.textTit em {
+    font-style: normal;
+    font-size: 24px;
+    color: #000;
+}
+.heart__inner {
+   display: flex;
+}
+.heart {
+    width: 16.5px;
+    height: 15px;
+    background: url(img/iconsplite3.svg) no-repeat;
+    background-position-x: -150px;
+    margin-right: 5px;
+}
+.text:nth-child(2) .heart:nth-child(5) {
+    background-position-x: -200px;
+}
+.more {
+    margin-left: 106px;
+}
+.more a {
+    padding: 5px 15px;
+    background: #415FFF;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 14px;
+}
+</code></pre>
+                </div>
+            </details>
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/site/textType/textType03.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/site/textType/textType03.html">원본 소스 보기</a>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/site/textType/textType03.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <style>
+                pre code.hljs {
+                    margin-bottom: 0;
+                    margin: -9px;
+                }
+            </style>
+            <h2 class="t_tit">jQuery 속성 관련 메서드 알아보기</h2>
+            <p class="t_desc2">
+                제이쿼리의 메서드 중에서 속성과 관련된 메서드 들을 알아봅니다.<br>
+                속성 관련 메서드에는 <i>attr(), prop()</i> 메서드가 있습니다.
+            </p>
+            <h3 class="t_tit2">> attr() 메서드</h3>
+            <p class="t_desc">
+                attr() 메서드는 html의 속성(attribute)에 관련된 메서드이며,
+                 선택한 요소의 속성을 선택, 생성, 변경할 수 있습니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th class="ce">실행 분류</th>
+                        <th class="ce">형식</th>
+                        <th class="ce">예시</th>
+                        <th class="ce">예제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">취득</td>
+                        <td>$("<i>요소</i>").attr("<i>속성</i>");</td>
+                        <td class="t_code">
+<pre><code class="language-js">$("a").attr("href");
+</code></pre>
+                        </td>
+                        <td class="ce" rowspan="4"><a href="https://codepen.io/hjkang306/pen/PoeoLYm">보러<br>가기</a></td>
+                    </tr>
+                    <tr>
+                        <td class="ce">생성</td>
+                        <td>$("<i>요소</i>").attr("<i>속성</i>","<i>내용</i>");</td>
+                        <td class="t_code">
+<pre><code class="language-js">$("a").attr("href","#").attr("target","_blank");
+</code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">변경</td>
+                        <td>$("<i>요소</i>").attr({<i>기존 속성: "내용"</i>, <i>바꿀 속성: "내용"</i>});</td>
+                        <td class="t_code">
+<pre><code class="language-js">$("a").attr({a: "#", target: "_blank"});
+</code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>
+                            $("<i>요소</i>").attr(<i>"속성"</i>, function(index, att) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;return <i>"속성"</i>;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;⇒ 각 '요소'의 속성을 생성 및 변경합니다.<br>
+                            });<br><br>
+                            ⇒ index는 각 '요소'의 index 0, 1, 2<br>
+                            ⇒ att는 각 '요소'의 '속성'
+                        </td>
+                        <td class="t_code">
+<pre><code class="language-js">$("a").attr("title", function() {
+return "새창";
+});
+//…
+&lt;a href="#" target="_blank">a&lt;/a>
+&lt;a href="#" target="_blank">b&lt;/a>
+&lt;a href="#" target="_blank">c&lt;/a>
+</code></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="t_tit2">> prop() 메서드</h3>
+            <p class="t_desc">
+                prop() 메서드는 자바스크립트 property에 관련된 메서드이며,
+                 요소의 속성을 true, false로 제어할 수 있습니다.
+            </p>
+            <div class="t_box">
+                **예제 내용 중**<br>
+                $("input: checkbox").eq(0).<i>attr</i>("checked", "checked");<br>
+                $("input: checkbox").eq(1).<i>prop</i>("checked", <i>true</i>);<br>
+                ⇒ <i>attr()</i> 메서드는 checked 속성이 <i>요소에 추가</i>되는 반면,<br>
+                <i>prop()</i> 메서드의 true는 <i>자바스크립트의 프로퍼티로 처리</i>됩니다.
+            </div>
+            <div class="t_link">
+                <a href="https://codepen.io/hjkang306/pen/qBYBvKa">예제 보러가기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
