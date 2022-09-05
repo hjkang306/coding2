@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기</h2>
+            <p class="t_desc2">
+                사이트를 구성하는 방법에는 다양한 유형이 있습니다. 다양한 유형들을 익혀놓으면, 사이트를 만들 때 디자인적인 요소도 챙길 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">슬라이드 유형01</h3>
+            <p class="t_desc">
+                슬라이드 유형은 저번에 배운 슬라이드 이펙트를 바탕으로, 이미지가 슬라이드 되어 넘어가는 섹션 유형입니다.
+                여러장의 이미지를 보여주고 싶을 때 유용하며, 버튼을 눌러 이미지가 넘어가도록 할 수도 있습니다. 그러나, 스크립트에 대한 내용은 다음번에 배워보도록 하겠습니다.
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpakv3MmuDJszSsl4w0gU3Z%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1685%253A1751" allowfullscreen></iframe>
+            </div>
+            <h3 class="t_tit2">디자인 하기</h3>
+            <p class="t_desc">
+                슬라이드 되며 보일 이미지들을 고르고, 이미지를 넘길 버튼, 이미지 위에 놓일 텍스트 등을 구상합니다. 
+                글씨가 이미지에 묻혀 안보이는 상황이 발생하지 않도록 신경씁시다!
+            </p>
+            <h3 class="t_tit2">HTML 작성하기</h3>
+            <p class="t_desc">
+                그 다음, 만들어 둔 디자인을 보며 시멘틱 태그를 활용해 구역에 맞는 태그와 텍스트를 작성해 줍니다.
+                한번에 다 만들기 보다는 큰 요소부터 하나씩 만들면서 css를 적용해, 중간중간 확인하는 편이 좋습니다.
+            </p>
+            <details>
+                <summary>HTML 코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-html">&lt;footer id="footerType" class="footer__wrap nexon section gray">
+    &lt;h2 class="blind">푸터 영역&lt;/h2>
+    &lt;div class="footer__inner container">
+        &lt;div class="footer__menu">
+            &lt;div>
+                &lt;h3>사이트&lt;/h3>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">웹표준 사이트&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">반응형 사이트&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">패럴랙스 사이트&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">포트폴리오 사이트&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+            &lt;div>
+                &lt;h3>헤더 영역&lt;/h3>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">메뉴 유형01&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">메뉴 유형02&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+            &lt;div>
+                &lt;h3>슬라이드 영역&lt;/h3>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">슬라이드 유형01&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">슬라이드 유형02&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+            &lt;div>
+                &lt;h3>이미지 영역&lt;/h3>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">이미지 유형01&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">이미지 유형02&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">이미지/텍스트 유형01&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">이미지/텍스트 유형02&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">텍스트 유형01&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+            &lt;div>
+                &lt;h3>컨텍츠 영역&lt;/h3>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">카드 유형01&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">카드 유형02&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">카드 유형03&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+            &lt;div>
+                &lt;h3>푸터 영역&lt;/h3>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">푸터 메뉴 유형01&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">푸터 컨택트 유형02&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">푸터 이메일 유형03&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="footer__right">
+            2022 ChuckChuck. Portfolio is Power&lt;br>
+            All rights reserved.
+        &lt;/div>
+    &lt;/div>
+&lt;/footer>
+</code></pre>
+                </div>
+            </details>
+
+            <h3 class="t_tit2">CSS 작성하기</h3>
+            <p class="t_desc">
+                만들어 둔 디자인을 보며, 각 요소의 CSS를 설정해줍니다. 최종 완성 후 디자인과 비교하며 다른 점을 수정해줍니다.
+                리스트를 이용하면 리스트 꾸밈 요소가 기본적으로 붙게 됩니다. 리스트 꾸밈을 없애고 싶다면 <i>list-style: none;</i>을 설정해주도록 합시다.
+            </p>
+            <details>
+                <summary>CSS 코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-css">.nexon {
+    font-family: 'NexonLv1Gothic';
+    font-weight: 400;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+/* 블라인드 효과 */
+.blind {
+    position:absolute;
+    clip:rect(0 0 0 0);
+    width:1px;
+    height:1px;
+    margin:-1px;
+    overflow:hidden
+}
+
+/* 배경 */
+.gray {
+    background-color: #f5f5f5;
+}
+
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+
+/* 섹션 공통요소 */
+.section {
+    padding: 120px 0;
+}
+
+/* footerType */
+.footer__menu {
+    display: flex;
+    margin-bottom: 70px;
+}
+.footer__menu > div {
+    width: 16%;
+}
+.footer__menu h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.footer__menu li a {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    display: block;
+}
+.footer__right {
+    border-top: 1px solid #d9d9d9;
+    text-align: center;
+    padding-top: 40px;
+    color: #666;
+    line-height: 1.5;
+}
+</code></pre>
+                </div>
+            </details>
+            <div class="t_iframe" style="min-height: 200px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/site/footerType/footerType01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/site/footerType/footerType01.html">원본 소스 보기</a>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/site/footerType/footerType01.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
