@@ -5,8 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마우스 효과</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: radial-gradient(circle farthest-corner at top center, #b9ff8a, #d492ff);
+            box-sizing: border-box;
+        }
+        .intro_menu {
+            background: rgba(83, 0, 94, 0.3);
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    
+    <main>
+        <div class="intro_menu white">
+            <ul>
+                <li>01. 마우스 이펙트 : 1부터 100까지 출력하기<a href="mouseEffect01.html"> GO ⇒</a></li>
+            </ul>
+        </div>
+    </main>
+    <canvas id="webgl-canvas"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script>
+    </script>
 </body>
 </html>
