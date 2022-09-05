@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+       <div class="document">
+            <h2 class="t_tit">VScode 확장프로그램 Prettier</h2>
+            <p class="t_desc">
+                Prettier는 문서를 저장할 때, 코드의 정렬을 자동으로 맞춰주는 VScode 확장프로그램입니다.
+            </p>
+
+            <h3 class="t_tit2">1. Prettier 설치하기</h3>
+            <p class="t_desc2">
+                Extensions 탭에서 Prettier를 검색하여 <i>install</i> 합니다.
+            </p>
+            <h3 class="t_tit2">2. 옵션 셋팅 하기</h3>
+            <p class="t_desc2">
+                Manage > Settings(단축키: Ctrl+,) 탭에서 editor: format on save를 검색하여 <i>체크</i>합니다.<br>
+                이제 'Ctrl+S'로 정렬을 맞춰봅시다! 작동이 안되시나요? 그렇다면 3번으로 ⇩
+            </p>
+            <h3 class="t_tit2">3. json 셋팅 하기</h3>
+            <p class="t_desc2">
+                F1을 눌러 나온 검색 탭에서 json을 검색하여 open user setting 문서를 열어봅니다.<br>
+                <i>"editor.formatOnSave": 의 설정이 true</i>인지 확인합니다. 아니라면 true로 바꿔줍니다.<br>
+                이제 'Ctrl+S'로 정렬을 맞춰봅시다! 아직도 작동이 안되시나요? 그렇다면 4번으로 ⇩
+            </p>
+            <h3 class="t_tit2">4. json 셋팅 추가하기</h3>
+            <p class="t_desc2">
+                F1을 눌러 나온 검색 탭에서 json을 검색하여 open user setting 문서를 열어봅니다.<br>
+                "prettier.tabwidth": 4 와 "editor.formatOnSave": true의 사이에 아래의 코드를 붙여넣어 줍니다.<br>
+                이제 'Ctrl+S'로 정렬을 맞춰봅시다!
+            </p>
+            <div class="t_box">
+                "editor.defaultFormatter": "esbenp.prettier-vscode",<br>
+                "[typescriptreact]": {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"editor.defaultFormatter": "esbenp.prettier-vscode"<br>
+                },<br>
+                "[typescript]": {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"editor.defaultFormatter": "esbenp.prettier-vscode"<br>
+                }
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
