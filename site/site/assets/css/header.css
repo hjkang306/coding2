@@ -30,10 +30,14 @@
 .header__menu li {
     display: inline;
 }
+.header__menu li.active a {
+    background: #eee;
+}
 .header__menu li a {
     padding: 13px 30px;
     margin: 0 5px;
     transition: background-color 0.3s;
+    border-radius: 5px;
 }
 .header__menu li a:hover {
     background-color: #f1f1f1;

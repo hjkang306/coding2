@@ -46,11 +46,11 @@
                 <a href="#">web <em>site</em></a>
             </div>
             <nav class="header__menu">
-                <li><a href="#headerType">헤더 영역</a></li>
-                <li><a href="#sliderType">슬라이드 영역</a></li>
+                <li><a href="#imageType01">이미지 영역</a></li>
+                <li><a href="#imgTextType">이미지텍스트 영역</a></li>
+                <li><a href="#cardType">카드 영역</a></li>
                 <li><a href="#bannerType">배너 영역</a></li>
-                <li><a href="#">컨텐츠 영역</a></li>
-                <li><a href="#footerType">푸터 영역</a></li>
+                <li><a href="#textType">텍스트 영역</a></li>
             </nav>
             <div class="header__member">
                 <a href="#">로그인</a>
@@ -312,5 +312,31 @@
         </div>
     </footer>
     <!-- //footerType -->
+
+    <script>
+        window.addEventListener("scroll", ()=>{
+            let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+            // forEach
+            document.querySelectorAll("#mainType > section").forEach((element, index)=>{
+                if(scrollTop >= element.offsetTop){
+                    document.querySelectorAll(".header__menu li").forEach(li => {
+                        li.classList.remove("active");
+                    });
+                    document.querySelector(".header__menu li:nth-child("+(index+1)+")").classList.add("active");
+                }
+            });
+        });
+
+        //스크롤 이동
+        document.querySelectorAll(".header__menu li a").forEach(li => {
+            li.addEventListener("click", (e) => {
+                e.preventDefault();
+                document.querySelector(li.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth"
+                });
+            });
+        }); 
+    </script>
 </body>
 </html>
