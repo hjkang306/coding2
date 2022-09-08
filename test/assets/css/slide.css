@@ -1,0 +1,16 @@
+.slide__wrap {
+    margin-bottom: 30px;
+}
+.slide__inner {
+    overflow: hidden;
+    position: relative;
+}
+.slide__image {
+    width: 300%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.slide {
+    width: 1000px;
+    height: 389.81px;
+}

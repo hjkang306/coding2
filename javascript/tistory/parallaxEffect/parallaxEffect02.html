@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">패럴랙스 이펙트 2</h2>
+            <p class="t_desc2">
+                이번 패럴랙스 이펙트는 스크롤이 내려감에 따라, 사이드 메뉴의 점 모양에 변화가 생기는 효과입니다.
+                화면이 섹션에 들어가게 되면, 해당 섹션의 점이 활성상태가 됩니다.
+                또한, 점을 클릭하면 해당하는 섹션으로 스크롤을 이동할 수 있습니다.
+            </p>
+            <h3 class="t_tit2">HTML 코드</h3>
+            <p class="t_desc">
+                이번 패럴랙스 이펙트의 핵심이 되는 HTML의 부분입니다.
+                메뉴 글씨는 안보이게 처리하고, 점으로 표현하기 위해,
+                글씨는 span 태그로 감싸주었습니다.
+            </p>
+            <details>
+                <summary>HTML 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">&lt;nav id="parallax__dot">
+    &lt;ul>
+        &lt;li class="active">&lt;a href="#section01">&lt;span>메뉴1&lt;/span>&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#section02">&lt;span>메뉴2&lt;/span>&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#section03">&lt;span>메뉴3&lt;/span>&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#section04">&lt;span>메뉴4&lt;/span>&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#section05">&lt;span>메뉴5&lt;/span>&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#section06">&lt;span>메뉴6&lt;/span>&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#section07">&lt;span>메뉴7&lt;/span>&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#section08">&lt;span>메뉴8&lt;/span>&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#section09">&lt;span>메뉴9&lt;/span>&lt;/a>&lt;/li>
+    &lt;/ul>
+&lt;/nav>
+</code></pre>
+                </div>
+            </details>
+            <h3 class="t_tit2">스크립트 요약</h3>
+            <p class="t_desc">
+                1. 메뉴를 클릭했을 때 해당 섹션으로 이동하기 위해 기본 클릭 이벤트 효과를 없애주고,
+                스크롤 이동 스크립트를 작성합니다.
+                2. 스크롤 이벤트를 발생시키고 현재의 스크롤 값을 불러옵니다.
+                3. 스크롤 값에 따라 해당 섹션의 메뉴를 활성화 합니다.
+            </p>
+            <details>
+                <summary>전체 스크립트 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">document.querySelectorAll("#parallax__dot a").forEach(el => {
+    el.addEventListener("click", e => {
+        e.preventDefault();
+
+        document.querySelector(el.getAttribute("href")).scrollIntoView({behavior: "smooth"});
+    });
+});
+
+window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    document.querySelector("#parallax__info span").innerText = Math.floor(scrollTop);
+
+    document.querySelectorAll(".content__item").forEach((e, i) => {
+        if(scrollTop >= e.offsetTop -10){
+            document.querySelectorAll("#parallax__dot li").forEach(li => {
+                li.classList.remove("active");
+            });
+            document.querySelector("#parallax__dot li:nth-child("+ (i+1) +")").classList.add("active");
+        }
+    });
+});
+</code></pre>
+                </div>
+            </details>
+            <h3 class="t_tit2">스크립트 뜯어보기</h3>
+            <p class="t_desc2">
+                스크립트를 차근차근 뜯어보며 이해해 봅시다!
+            </p>
+            <p class="t_desc">
+                > 섹션 이동 스크립트 작성 01<br>
+                : 메뉴의 a태그인 점을 querySelectorAll을 이용해 모두 선택하여 forEach문을 작성합니다. 
+                여기서 el은 각각의 점을 의미합니다.
+            </p>
+            <div class="t_box">
+                ✔ <i>forEach문으로 작성하는 이유</i> <br>
+                점이 하나가 아닌 여러개이며, 각각의 점에 해당하는 실행문을 실행하기 위함입니다.<br>
+                forEach문은 요소의 갯수만큼 반복실행되어 각 요소가 실행문을 한번씩 실행할 수 있도록합니다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">document.querySelectorAll("#parallax__dot a").forEach(el => {});
+</code></pre>
+            </div>
+            <p class="t_desc">
+                > 섹션 이동 스크립트 작성 02<br>
+                : forEach문 안에 실행문을 작성합니다.<br>
+                ✔el(각 점)을 대상으로 <i>addEventListener()</i> 메서드로 "click" 이벤트를 발생시킵니다.<br>
+                ⇒ 점을 클릭했을 때, 작성된 함수가 실행됩니다.<br><br>
+
+                ✔<i>getAttribute("href")</i>을 이용해 href 속성을 불러와 선택합니다.<br>
+                ⇒이동하는 섹션에 대한 정보(아이디 값)를 가져오기 위함!<br><br>
+
+                ✔<i>scrollIntoView()</i>의 behavior: "smooth" 속성은 스크롤 되어 화면이 이동할 때, 
+                화면이 부드럽게 움직이도록 합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">el.addEventListener("click", e => {
+    e.preventDefault();
+
+    document.querySelector(el.getAttribute("href")).scrollIntoView({behavior: "smooth"});
+});
+</code></pre>
+            </div>
+            <p class="t_desc">
+                > 스크롤 이벤트 스크립트 작성 : 창(window)를 대상으로 scroll 이벤트를 발생시킵니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">window.addEventListener("scroll", () => {});
+</code></pre>
+            </div>
+            <p class="t_desc">
+                > 함수 실행문 작성하기 : 스크롤 값이 요소의 offset 값보다 크거나 같으면 스크롤이 해당 섹션에 도달하지 못한 것이므로, 메뉴의 클래스에서 active를 삭제합니다.<br>
+                 그리고 도달한 요소는 index+1 번째 li요소와 같으므로, 변수를 사용하여 해당 요소를 선택한 후, 클래스에 active를 추가해 활성화 시켜줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">document.querySelectorAll(".content__item").forEach((element, index)=>{
+    if(scrollTop >= element.offsetTop -3){
+        document.querySelectorAll("#parallax__nav li").forEach(li => {
+            li.classList.remove("active");
+        });
+        document.querySelector("#parallax__nav li:nth-child("+(index+1)+")").classList.add("active");
+    }
+});
+</code></pre>
+            </div>
+            <p class="t_desc">
+                > 함수 실행문 작성하기 : 앞서 선택한 span 태그 안에 scrollTop 값과 offsetTop 값을 넣어줍니다. Math.round() 메서드는 값을 반올림하여 줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">document.querySelector(".scroll span").innerText = Math.round(scrollTop);
+
+for(let i=1; i&lt;=9; i++){
+    document.querySelector(".offset"+i).innerText = document.getElementById("section0"+i).offsetTop+"px";
+}
+</code></pre>
+            </div>
+            <p class="t_desc">
+                > 메뉴 선택 이동 효과 주기 : 각 메뉴를 클릭했을 때, 해당 섹션으로 이동하도록 하는 스크립트입니다.<br>
+                <i>preventDefault()</i> 메서드는 요소를 클릭했을 때, 맨 위로 스크롤되는 이벤트가 발생하지 않도록 합니다.<br>
+                <i>scrollIntoView()</i> 메서드는 스크롤이 이동하는 동안의 움직임 효과를 설정할 수 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">document.querySelectorAll("#parallax__nav li a").forEach(li => {
+    li.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(li.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
+</code></pre>
+            </div>
+            <h3 class="t_tit2">> 완성 페이지 보기</h3>
+            <div class="t_iframe" style="min-height: 700px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/parallaxEffect01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/javascript/effect/parallaxEffect01.html">원본 소스 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

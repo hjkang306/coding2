@@ -1,0 +1,38 @@
+@import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+/* 스킵 메뉴 */
+#skip {
+    position: relative;
+    z-index: 100000;
+}
+#skip a {
+    background: #000;
+    color: #fff;
+    position: absolute;
+    padding: 20px 40px;
+    left: -400px;
+    top: 5px;
+}
+#skip a:active,
+#skip a:focus {
+    left: 5px;
+}
+
+/* 컨테이너 */
+.container {
+    width: 1000px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1000px;
+}
+
+/* 폰트 */
+.nexon {
+    font-family: 'NexonLv1Gothic';
+    font-weight: 400;
+}
+
+/* 배경 */
+.gray {
+    background-color: #222;
+}

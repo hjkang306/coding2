@@ -1,0 +1,67 @@
+#cardType {
+    margin-bottom: 50px;
+}
+#cardType h2 {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #666;
+    cursor: pointer;
+}
+#cardType h2.active {
+    color: #000;
+}
+.cardTit1 {
+    padding-right: 20px;
+    border-right: 4px solid #000;
+}
+.cardTit2 {
+    padding-left: 10px;
+}
+.card__wrap {}
+.card__inner {
+    display: flex;
+    justify-content: space-between;
+}
+.card {
+    width: 31%;
+    position: relative;
+}
+.card__num {
+    font-size: 16px;
+    display: inline-block;
+    padding: 12px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    line-height: 1.4;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.card img {
+    margin-bottom: 20px;
+}
+.food__name {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.food__info {
+    font-size: 16px;
+    color: #666;
+}
+.food__info em {
+    color: #000;
+    font-weight: 700;
+}
+.shoping {
+    width: 50px;
+    height: 50px;
+    background: url(../img/cart.svg) no-repeat center;
+    background-color: #f2f2f2;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

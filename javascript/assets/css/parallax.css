@@ -7,7 +7,6 @@
  * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: 'PyeongChang';
  }
  body {
@@ -28,23 +27,23 @@
     list-style: none;
  }
 /* scrollbar */
-::-webkit-scrollbar-track {
+.modal__box ::-webkit-scrollbar-track {
     background-color: #282b2e;
 }
 
-::-webkit-scrollbar
+.modal__box ::-webkit-scrollbar
 {
     width: 10px;
     height: 10px;
     background-color: #F5F5F5;
 }
 
-::-webkit-scrollbar-thumb
+.modal__box ::-webkit-scrollbar-thumb
 {
     background-color: #666;
     border-radius: 10px;
 }
-::-webkit-scrollbar-thumb:hover
+.modal__box ::-webkit-scrollbar-thumb:hover
 {
     background-color: #444;
 }

@@ -1,0 +1,23 @@
+.header__inner {
+    margin: 0 auto;
+    padding: 30px 0;
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.header__logo {
+    width: 120px;
+}
+.header__menu {
+    margin-top: 10px;
+}
+.header__menu ul li{
+    display: inline;
+}
+.header__menu ul li a{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    padding-left: 40px;
+}
