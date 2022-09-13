@@ -1,0 +1,112 @@
+.text__wrap {}
+.text__inner {
+    display: grid;
+    grid-template-areas: 
+        "title whale squid"
+        "jellyfish whale starfish"
+        "sunfish sunfish starfish"
+    ;
+    grid-template-columns: 33.333% 33.333% 33.333%;
+    grid-template-rows: 260px 260px 260px;
+}
+.text__inner h2 {
+    grid-area: title;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: left;
+}
+.text {
+    background: #1a4d89;
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+}
+.text.t1 {
+    grid-area: jellyfish;
+    margin-bottom: 20px;
+}
+.text.t2 {
+    grid-area: whale;
+    margin: 0 20px 20px;
+}
+.text.t3 {
+    grid-area: sunfish;
+    margin-right: 20px;
+}
+.text.t4 {
+    grid-area: squid;
+    margin-bottom: 20px;
+}
+.text.t5 {grid-area: starfish;}
+.text__title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.text__desc {
+    color: #fff;
+    font-size: 20px;
+    line-height: 1.4;
+    text-align: justify;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.t1 .text__desc {-webkit-line-clamp: 3;}
+.t2 .text__desc {-webkit-line-clamp: 12;}
+.t3 .text__desc {-webkit-line-clamp: 3;}
+.t4 .text__desc {-webkit-line-clamp: 3;}
+.t5 .text__desc {-webkit-line-clamp: 12;}
+.text__btn {
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    right: 85px;
+    bottom: 30px;
+    transition: all 0.3s;
+}
+.text__btn:hover {
+    right: 80px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+.text__btn::before {
+    content: '';
+    width: 40px;
+    height: 15px;
+    position: absolute;
+    bottom: 7px;
+    right: -50px;
+    background: url(../img/Arrow.svg) no-repeat center;
+}
+
+@media (max-width: 900px){
+    .text__inner {
+        display: grid;
+        grid-template-areas: 
+            "title"
+            "jellyfish"
+            "whale"
+            "sunfish"
+            "squid"
+            "starfish"
+        ;
+        grid-template-columns: 80vw;
+        grid-template-rows: 260px 260px 260px 260px 260px 260px;
+    }
+    .text.t1,
+    .text.t2,
+    .text.t3,
+    .text.t4,
+    .text.t5,
+    .text.t6
+    {
+        margin: 0 0 20px;
+    }
+    .t2 .text__desc {-webkit-line-clamp: 3;}
+    .t5 .text__desc {-webkit-line-clamp: 3;}
+}

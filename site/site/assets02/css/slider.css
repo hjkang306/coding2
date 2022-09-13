@@ -1,0 +1,38 @@
+.slider__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider__wrap h3 {
+    color: #fff;
+    font-size: 8vw;
+    font-weight: 900;
+    line-height: 1.4;
+    position: absolute;
+    top: 265px;
+    left: 20vw;
+    z-index: 10;
+}
+.slider__img {
+    position: relative;
+    width: 100vw;
+    height: 115vh;
+    overflow: hidden;
+    background: #eee;
+}
+.slider__inner {
+    display: flex;
+    flex-wrap: wrap;
+    width: 7680px;
+}
+.slider {
+    position: relative;
+    width: 1920px;
+    height: 1160px;
+}
+@media (max-width: 800px){
+    .slider__wrap h3 {
+        font-size: 15vw;
+        left: 15vw;
+    }
+}

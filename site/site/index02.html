@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이트 만들기1</title>
+
+    <!-- SEO -->
+    <meta name="author" content="코딩 척척학사">
+    <meta name="description" content="사이트 만들기 튜토리얼입니다.">
+    <meta name="keyword" content="사이트, 만들기, 튜토리얼, 코딩 척척학사">
+    <meta name="robots" content="all">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets02/css/reset.css">
+    <link rel="stylesheet" href="assets02/css/common.css">
+
+    <!-- CSS(섹션별) -->
+    <link rel="stylesheet" href="assets02/css/header.css">
+    <link rel="stylesheet" href="assets02/css/slider.css">
+    <link rel="stylesheet" href="assets02/css/imgText.css">
+    <link rel="stylesheet" href="assets02/css/image.css">
+    <link rel="stylesheet" href="assets02/css/card.css">
+    <link rel="stylesheet" href="assets02/css/text.css">
+    <link rel="stylesheet" href="assets02/css/banner.css">
+    <link rel="stylesheet" href="assets02/css/footer.css">
+</head>
+<body>
+    <div id="skip">
+        <a href="#headerType">헤더 영역 바로가기</a>
+        <a href="#sliderType">슬라이드 영역 바로가기</a>
+        <a href="#imgTextType">이미지/텍스트 영역 바로 가기</a>
+        <a href="#imageType01">이미지 영역 바로 가기</a>
+        <a href="#cardType">카드 영역 바로 가기</a>
+        <a href="#textType">텍스트 영역 바로 가기</a>
+        <a href="#bannerType">배너 영역 바로 가기</a>
+        <a href="#footerType">푸터 영역 바로 가기</a>
+    </div>
+    <!-- //skip -->
+
+    <header id="headerType" class="header__wrap font">
+        <div class="header__inner show">
+            <div class="header__logo">
+                <a href="#">WEB <em>SITE</em></a>
+            </div>
+            <nav class="header__menu">
+                <li class="active"><a href="#sliderType">Main</a></li>
+                <li><a href="#imgTextType">Intro</a></li>
+                <li><a href="#imageType01">Pictures</a></li>
+                <li><a href="#cardType">3 Times</a></li>
+                <li><a href="#textType">Animals</a></li>
+            </nav>
+            <div class="header__member">
+                <a href="#">로그인</a>
+            </div>
+        </div>
+    </header>
+    <!-- //headerType -->
+
+    <main id="mainType">
+
+        <section id="sliderType" class="slider__wrap">
+            <h2 class="blind">슬라이드 영역</h2>
+            <h3>SEA,<br>OCEAN,<br>PICTURES</h3>
+            <div class="slider__img">
+                <div class="slider__inner">
+                    <div class="slider"><img src="assets02/img/slide_bg01-min.jpg" alt="바다 이미지1"></div>
+                    <div class="slider"><img src="assets02/img/slide_bg02-min.jpg" alt="바다 이미지2"></div>
+                    <div class="slider"><img src="assets02/img/slide_bg03-min.jpg" alt="바다 이미지3"></div>
+                </div>
+            </div>
+        </section>
+        <!-- //sliderType-->
+
+        <section id="imgTextType" class="imgText__wrap font section">
+            <h2 class="blind">바다</h2>
+            <div class="imgText__inner container">
+                <img src="assets02/img/imagetxt_img-min.jpg" alt="파도치는 노을진 바다 이미지">
+                <div class="imgText__txt">
+                    <span>sea</span>
+                    <h3>바다</h3>
+                    <p>
+                        아름답게 물결치는 바다를 한참 바라본 적이 있나요? 저는 해변에 앉아 멍하니 바다를 바라보는 시간을 좋아합니다.<br><br>
+                        하얗게 부서지는 파도를 눈으로 감상하고, 시원하게 들려오는 소리를 듣고, 멀리서 불어오는 짠내를 맡으면 내가 바다를 정말 좋아하는구나. 하고 깨닫게 됩니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- //imgTextType-->
+
+        <section id="imageType01" class="image__wrap font section">
+            <h2>PICTURES</h2>
+            <p>다양한 바다의 모습을 담은 사진들</p>
+            <div class="img__inner top container">
+                <article class="image img1">
+                    <div class="image__info">
+                        <h3 class="image__tit">01<br><em>주황색</em></h3>
+                        <a class="image__btn" href="#">보기</a>
+                    </div>
+                </article>
+                <article class="image img2">
+                    <div class="image__info">
+                        <h3 class="image__tit">02<br><em>보라색</em></h3>
+                        <a class="image__btn" href="#">보기</a>
+                    </div>
+                </article>
+                <article class="image img3">
+                    <div class="image__info">
+                        <h3 class="image__tit">03<br><em>노란색</em></h3>
+                        <a class="image__btn" href="#">보기</a>
+                    </div>
+                </article>
+            </div>
+            <div class="img__inner middle container">
+                <article class="image img4">
+                    <div class="image__info">
+                        <h3 class="image__tit">04<br><em>청록색</em></h3>
+                        <a class="image__btn" href="#">보기</a>
+                    </div>
+                </article>
+                <article class="image img5">
+                    <div class="image__info">
+                        <h3 class="image__tit">05<br><em>옥색</em></h3>
+                        <a class="image__btn" href="#">보기</a>
+                    </div>
+                </article>
+                <article class="image img6">
+                    <div class="image__info">
+                        <h3 class="image__tit">06<br><em>파란색</em></h3>
+                        <a class="image__btn" href="#">보기</a>
+                    </div>
+                </article>
+            </div>
+            <div class="img__inner bottom container">
+                <article class="image img7">
+                    <div class="image__info">
+                        <h3 class="image__tit">07<br><em>가을의 풍경</em></h3>
+                        <a class="image__btn" href="#">보기</a>
+                    </div>
+                </article>
+                <article class="image img8">
+                    <div class="image__info">
+                        <h3 class="image__tit">08<br><em>외딴 섬</em></h3>
+                        <a class="image__btn" href="#">보기</a>
+                    </div>
+                </article>
+                <article class="image img9">
+                    <div class="image__info">
+                        <h3 class="image__tit">09<br><em>바위 틈</em></h3>
+                        <a class="image__btn" href="#">보기</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- //imageType-->
+
+        <section id="cardType" class="card__wrap font section">
+            <div class="container">
+                <h2>3 TIMES A DAY</h2>
+                <p>하루에 세번 보는 바다의 모습</p>
+                <div class="card__inner">
+                    <article class="card">
+                        <figure class="card__header">
+                            <img src="assets02/img/card_img01-min.jpg" alt="아침에 보는 바다 이미지">
+                        </figure>
+                        <div class="card__body">
+                            <h3 class="tit">아침에 보는 바다</h3>
+                            <p class="desc">아침에 보는 바다는 옅게 낀 물안개와 새벽 공기가 어우러져, 신비로운 분위기를 자아냅니다.</p>
+                            <a class="btn" href="#">보러 가기</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <figure class="card__header">
+                            <img src="assets02/img/card_img02-min.jpg" alt="오후에 보는 바다 이미지">
+                        </figure>
+                        <div class="card__body">
+                            <h3 class="tit">오후에 보는 바다</h3>
+                            <p class="desc">늦은 오후의 바다는 저물어 가는 해의 주황빛을 받아 아름답게 부서지는 파도를 볼 수 있습니다.</p>
+                            <a class="btn" href="#">보러 가기</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <figure class="card__header">
+                            <img src="assets02/img/card_img03-min.jpg" alt="밤 에 보는 바다 이미지">
+                        </figure>
+                        <div class="card__body">
+                            <h3 class="tit">밤에 보는 바다</h3>
+                            <p class="desc">밤에 보는 바다는 깜깜한 시야 속 달빛을 받은 파도 소리가 더욱 선명하게 들려옵니다.</p>
+                            <a class="btn" href="#">보러 가기</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- //cardType-->
+
+        <section id="textType" class="text__wrap font section">
+            <div class="text__inner container">
+                <h2>SEA,<br>OCEAN,<br>ANIMALS</h2>
+                <div class="text t1">
+                    <h3 class="text__title">JELLYFISH</h3>
+                    <p class="text__desc">자포동물문 해파리강, 히드라충강의 부유 세대를 통틀어 이르는 말. 몸은 한천질이고 삿갓 모양으로 생겼으며 갓 밑에는 많은 촉수가 늘어져 있고 그 가운데에 입이 있다. 촉수 표면에는 많은 자세포가 있는데, 그 속에 있는 독침으로 먹이를 쏜다.</p>
+                    <a class="text__btn" href="#">더보기</a>
+                </div>
+                <div class="text t2">
+                    <h3 class="text__title">WHALE</h3>
+                    <p class="text__desc">고래는 포유강 고래목에 속하는 동물을 통칭한다. 고래는 다시 크게 수염고래아목과 이빨고래아목으로 나눌 수 있다. 수염고래아목에 속하는 고래는 긴 수염이 달려있어서 물을 빨아들이고 난후 수염으로 거른 플랑크톤을 섭취하며, 이빨고래아목에 속하는 고래는 종류에 따라 작은 어류에서부터 큰 포유동물에 이르기까지 사냥해서 잡아먹는 특징이 있다. 고래목에는 현재까지 총 90여 종이 알려져 있다.</p>
+                    <a class="text__btn" href="#">더보기</a>
+                </div>
+                <div class="text t3">
+                    <h3 class="text__title">SUNFISH</h3>
+                    <p class="text__desc">개복칫과의 바닷물고기. 몸의 길이는 2~4미터이고 달걀 모양으로 납작하며, 등은 파란색이고 배는 잿빛 흰색이다. 살가죽이 두껍고 지느러미가 특이하여 꼬리가 없는 반쪽의 기형 물고기처럼 보인다. 한국, 태평양, 지중해 등지에 분포한다.</p>
+                    <a class="text__btn" href="#">더보기</a>
+                </div>
+                <div class="text t4">
+                    <h3 class="text__title">SQUID</h3>
+                    <p class="text__desc">연체동물문 두족강 갑오징어목과 살오징어목의 일부 종들을 통틀어 이르는 말. 머리 부분에 다섯 쌍의 다리가 있고, 그중 한 쌍의 촉완에 있는 빨판으로 먹이를 잡는다. 몸통의 끝에 지느러미가 있으며 적을 만나면 먹물을 토하고 달아난다. 참오징어, 물오징어, 쇠갑오징어, 귀꼴뚜기 따위가 있다.</p>
+                    <a class="text__btn" href="#">더보기</a>
+                </div>
+                <div class="text t5">
+                    <h3 class="text__title">STARFISH</h3>
+                    <p class="text__desc">불가사리강의 극피동물을 통틀어 이르는 말. 바닷속에서 완만한 생활을 하는데, 몸은 체반과 팔로 되어 있고 편평하며 별 모양 또는 오각형이다. 윗면은 석회질로 덮여 있고 알갱이 모양의 돌기나 가시가 빽빽이 나 있다. 입은 아래쪽 가운데에 있으며 항문은 등 쪽에 있고 등 쪽에 있는 피새로 호흡한다. 암수딴몸으로 자생력이 강하고 조개 따위를 잡아먹는다. 갓거리, 별불가사리 따위가 있다.</p>
+                    <a class="text__btn" href="#">더보기</a>
+                </div>
+            </div>
+        </section>
+        <!-- //textType-->
+        
+        <section id="bannerType" class="banner__wrap font section">
+            <h2 class="blind">배너 영역</h2>
+            <div class="banner__inner">
+                <h3 class="title">코딩 척척학사</h3>
+                <p class="desc">
+                    코딩을 공부하고 있습니다. 공부 내용은 티스토리에 작성되어 있습니다.<br>
+                    https://hjkang306.tistory.com
+                </p>
+                <a href="https://hjkang306.tistory.com/" title="티스토리 페이지로 이동">바로가기</a>
+            </div>
+        </section>
+        <!-- //bannerType-->
+
+    </main>
+    <!-- //mainType -->
+
+    <footer id="footerType" class="footer__wrap font section gray">
+        <h2 class="blind">푸터 영역</h2>
+        <div class="footer__inner container">
+            <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+            <div class="footer__right">
+                2022 ChuckChuck. SEA, OCEAN, PICTURES.<br>
+                All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <!-- //footerType -->
+
+    <script>
+        // menu show
+        {
+            let nowScroll = true;   //트리거 변수를 생성
+            let lastScroll = 0;
+    
+            function scrollProgress(){
+                nowScroll = true;
+    
+                setInterval(() => {
+                    if(nowScroll){
+                        nowScroll = false;
+                        hasScroll();
+                    }
+                }, 300);
+            }
+            
+            function hasScroll(){
+                let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+    
+                if(scrollTop < lastScroll){
+                    document.querySelector(".header__inner").classList.add("show");
+                } else {
+                    document.querySelector(".header__inner").classList.remove("show");
+                }
+                lastScroll = scrollTop;
+            }
+    
+            window.addEventListener("scroll", scrollProgress);
+        }
+        
+        //  menu click
+        {
+            document.querySelectorAll(".header__menu li a").forEach(el => {
+                el.addEventListener("click", e => {
+                    e.preventDefault();
+
+                    document.querySelector(el.getAttribute("href")).scrollIntoView({behavior: "smooth"});
+                });
+            });
+
+            window.addEventListener("scroll", () => {
+                let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+                document.querySelectorAll("#mainType > section").forEach((e, i) => {
+                    if(scrollTop >= e.offsetTop -10){
+                        document.querySelectorAll(".header__menu li").forEach(li => {
+                            li.classList.remove("active");
+                        });
+                        document.querySelector(".header__menu li:nth-child("+ (i+1) +")").classList.add("active");
+                    }
+                });
+            });
+        }
+
+        // slide
+        {
+            const sliderWrap = document.querySelector(".slider__wrap");
+            const sliderImg = document.querySelector(".slider__img");       //보여지는 영역
+            const sliderInner = document.querySelector(".slider__inner");   //움직이는 영역
+            const slider = document.querySelectorAll(".slider");            //각각의 이미지
+        
+            let currentIndex = 0;                                               //현재 보이는 이미지
+            let sliderCount = slider.length;                                    //이미지 갯수
+            let sliderWidth = sliderImg.offsetWidth;                            //이미지 가로값
+            let sliderclone = sliderInner.firstElementChild.cloneNode(true);    //첫번째 이미지 복사
+            sliderInner.appendChild(sliderclone);                               //첫번째 이미지를 마지막에 넣어줌
+        
+            function sliderEffect(){
+                currentIndex++;
+                sliderInner.style.transition = "all 0.6s"
+    
+                sliderInner.style.transform = "translateX(-"+ sliderWidth * currentIndex +"px)";
+    
+                //마지막 사진에 위치 했을 때
+                if(currentIndex == sliderCount){
+                    setTimeout(()=>{
+                        sliderInner.style.transition = "0s";
+                        sliderInner.style.transform = "translateX(0px)";
+                    },700);
+                    currentIndex = 0;
+                }
+            }
+            setInterval(sliderEffect, 3000);
+        }
+    </script>
+</body>
+</html>
