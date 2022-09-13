@@ -50,6 +50,7 @@
     }
     .imgText__inner img {
         margin-bottom: 20px;
+        margin-right: 0;
     }
     .imgText__txt {
         width: 70vw;
