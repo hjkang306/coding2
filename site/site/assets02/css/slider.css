@@ -23,7 +23,7 @@
 .slider__inner {
     display: flex;
     flex-wrap: wrap;
-    width: 7680px;
+    width: 400vw;
 }
 .slider {
     position: relative;
