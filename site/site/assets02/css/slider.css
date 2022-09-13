@@ -27,8 +27,8 @@
 }
 .slider {
     position: relative;
-    width: 1920px;
-    height: 1160px;
+    width: 100vw;
+    height: 115vh;
 }
 @media (max-width: 800px){
     .slider__wrap h3 {
