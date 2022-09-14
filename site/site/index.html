@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="assets/css/banner.css">
     <link rel="stylesheet" href="assets/css/text.css">
     <link rel="stylesheet" href="assets/css/footer.css">
+
+    <!-- swiper -->
+    <link rel="stylesheet" href="assets/css/swiper.css">
 </head>
 <body>
     <div id="skip">
@@ -39,6 +42,9 @@
         <a href="#footerType">푸터 영역 바로 가기</a>
     </div>
     <!-- //skip -->
+    <style>
+        #headerType {display: none;}
+    </style>
 
     <header id="headerType" class="header__wrap nexon">
         <div class="header__inner">
@@ -63,7 +69,7 @@
         <section id="sliderType" class="slider__wrap">
             <h2 class="blind">슬라이드 영역</h2>
             <div class="slider__innner">
-                <div class="slider">
+                <!-- <div class="slider">
                     <div class="slider__img">
                         <div class="desc">
                             <span>Journey</span>
@@ -89,6 +95,57 @@
                         <a href="#" class="play"><span class="ir">플레이</span></a>
                         <a href="#" class="stop"><span class="ir">정지</span></a>
                     </div>
+                </div> -->
+
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="desc">
+                            <span>Journey</span>
+                            <h3>The Blue Sea</h3>
+                            <p>
+                                보고 있으면 마음이 편안해지는 수평선과<br>
+                                푸른 물결을 감상해 볼까요?
+                            </p>
+                            <div class="btn">
+                                <a href="#">자세히 보기</a>
+                                <a href="#" class="black">사이트 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="desc">
+                            <span>Journey</span>
+                            <h3>The Blue Sea</h3>
+                            <p>
+                                보고 있으면 마음이 편안해지는 수평선과<br>
+                                푸른 물결을 감상해 볼까요?
+                            </p>
+                            <div class="btn">
+                                <a href="#">자세히 보기</a>
+                                <a href="#" class="black">사이트 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="desc">
+                            <span>Journey</span>
+                            <h3>The Blue Sea</h3>
+                            <p>
+                                보고 있으면 마음이 편안해지는 수평선과<br>
+                                푸른 물결을 감상해 볼까요?
+                            </p>
+                            <div class="btn">
+                                <a href="#">자세히 보기</a>
+                                <a href="#" class="black">사이트 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
             </div>
         </section>
@@ -139,16 +196,16 @@
         <!-- //imgTextType-->
 
         <section id="cardType" class="card__wrap nexon section">
-            <h2>바질 키우는 법 🌱</h2>
-            <p>바질 키우기 초보자를 위한 바질 키우기 강의입니다.</p>
+            <h2>하루에 세 번 보는 바다</h2>
+            <p>아침, 오후, 밤에 보는 바다의 각기 다른 모습입니다.</p>
             <div class="card__inner container">
                 <article class="card">
                     <figure class="card__header">
-                        <img src="assets/img/card_bg01.jpg" alt="바질 키우기 기초의 바질 잎 패턴 이미지">
+                        <img src="assets/img/card_bg01.jpg" alt="아침 바다 이미지">
                     </figure>
                     <div class="card__body">
-                        <h3 class="tit">바질 키우기 기초</h3>
-                        <p class="desc">바질은 초보자가 키우기 쉬운 허브인 편입니다. 과습을 잘 견디며, 햇빛은 많이 요구합니다.겨울에 실내에 들여서 키운다면 여러해 동안 키울 수도 있습니다. 오래 키운 바질은 줄기가 목질화됩니다.</p>
+                        <h3 class="tit">아침 바다 사진</h3>
+                        <p class="desc">아침의 바다는 물안개와 아침공기, 그리고 떠오르는 해의 노란 빛이 오묘한 분위기를 만들어냅니다. 아침 바다만의 독특한 분위기를 즐겨봅시다.</p>
                         <a class="btn" href="#">
                             더 자세히 보기
                             <span aria-hidden="true">
@@ -161,11 +218,11 @@
                 </article>
                 <article class="card">
                     <figure>
-                        <img src="assets/img/card_bg02.jpg" alt="바질 가지치기 기초의 바질 화분 이미지">
+                        <img src="assets/img/card_bg02.jpg" alt="오후 바다 이미지">
                     </figure>
                     <div class="card__body">
-                        <h3 class="tit">바질 가지치기 기초</h3>
-                        <p class="desc">바질을 풍성하게 키워 수확량을 올리고 싶다면, 바질이 Y자 형으로 자랄 수 있도록 바질의 성장속도에 맞춰 가지치기를 해주는 것이 좋습니다.</p>
+                        <h3 class="tit">오후 바다 사진</h3>
+                        <p class="desc">오후의 바다는 슬슬 저물기 시작하는 해가 하늘의 색과 바다의 색을 더욱 짙게 만들어줍니다. 따뜻하게 데워진 공기와 따뜻한 색감으로 물든 바다를 즐겨봅시다.</p>
                         <a class="btn" href="#">
                             더 자세히 보기
                             <span aria-hidden="true">
@@ -178,11 +235,11 @@
                 </article>
                 <article class="card">
                     <figure class="card__header">
-                        <img src="assets/img/card_bg03.jpg" alt="바질 뜯어먹기 기초의 손에 들린 바질 화분 이미지">
+                        <img src="assets/img/card_bg03.jpg" alt="해질녘 바다 이미지">
                     </figure>
                     <div class="card__body">
-                        <h3 class="tit">바질 뜯어먹기 기초</h3>
-                        <p class="desc">바질은 향이 좋고 맛도 좋아, 다양한 요리에 사용할 수 있습니다. 샐러드로 먹기도 하고 파스타에 향신료로 뿌려먹기도, 토마토와 함께 와인 안주로 먹기도 합니다.</p>
+                        <h3 class="tit">해질녘 바다 사진</h3>
+                        <p class="desc">해질녘의 바다는 저무는 해의 강렬한 붉은 빛이 바다와 하늘을 물들입니다. 눈이 부신듯 점점 어두워지는 하늘과 함께 다채롭게 빛나는 바다를 즐겨봅시다.</p>
                         <a class="btn" href="#">
                             더 자세히 보기
                             <span aria-hidden="true">
@@ -313,6 +370,22 @@
     </footer>
     <!-- //footerType -->
 
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script>
+        let swiper = new Swiper(".mySwiper", {
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 2000,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+            },
+        });
+    </script>
     <script>
         window.addEventListener("scroll", ()=>{
             let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
