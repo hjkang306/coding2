@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 반응형 만들기</h2>
+            <p class="t_desc2">
+                이번에는 앞서 공부한 사이트 유형들을 모두 합친 하나의 사이트를 만들고, 반응형으로 만들어보는 공부를 하였습니다.
+            </p>
+            <h3 class="t_tit2">HTML 코드</h3>
+            <p class="t_desc">
+                슬라이드 부분은 swiper라는 소스를 사용하여 간단히 만들어 보았습니다. swiper 사용법에 대한 설명은 아래쪽에서 자세히 알아봅시다!
+            </p>
+            <details>
+                <summary>HTML 보기 (스크롤 주의!)</summary>
+                <div class="t_code">
+<pre><code class="language-html">&lt;header id="headerType" class="header__wrap nexon">
+    &lt;div class="header__inner">
+        &lt;div class="header__logo">
+            &lt;a href="#">web &lt;em>site&lt;/em>&lt;/a>
+        &lt;/div>
+        &lt;nav class="header__menu">
+            &lt;li>&lt;a href="#imageType01">이미지 영역&lt;/a>&lt;/li>
+            &lt;li>&lt;a href="#imgTextType">이미지텍스트 영역&lt;/a>&lt;/li>
+            &lt;li>&lt;a href="#cardType">카드 영역&lt;/a>&lt;/li>
+            &lt;li>&lt;a href="#bannerType">배너 영역&lt;/a>&lt;/li>
+            &lt;li>&lt;a href="#textType">텍스트 영역&lt;/a>&lt;/li>
+        &lt;/nav>
+        &lt;div class="header__member">
+            &lt;a href="#">로그인&lt;/a>
+        &lt;/div>
+    &lt;/div>
+&lt;/header>
+&lt;!-- //headerType -->
+
+&lt;main id="mainType">
+    &lt;section id="sliderType" class="slider__wrap">
+        &lt;h2 class="blind">슬라이드 영역&lt;/h2>
+        &lt;div class="slider__innner">
+            &lt;!-- &lt;div class="slider">
+                &lt;div class="slider__img">
+                    &lt;div class="desc">
+                        &lt;span>Journey&lt;/span>
+                        &lt;h3>The Blue Sea&lt;/h3>
+                        &lt;p>
+                            보고 있으면 마음이 편안해지는 수평선과&lt;br>
+                            푸른 물결을 감상해 볼까요?
+                        &lt;/p>
+                        &lt;div class="btn">
+                            &lt;a href="#">자세히 보기&lt;/a>
+                            &lt;a href="#" class="black">사이트 보기&lt;/a>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;div class="slider__arrow">
+                    &lt;a href="#" class="left">&lt;span class="ir">이전 이미지&lt;/span>&lt;/a>
+                    &lt;a href="#" class="right">&lt;span class="ir">다음 이미지&lt;/span>&lt;/a>
+                &lt;/div>
+                &lt;div class="slider__dot">
+                    &lt;a href="#" class="dot active">&lt;span class="ir">1&lt;/span>&lt;/a>
+                    &lt;a href="#" class="dot">&lt;span class="ir">2&lt;/span>&lt;/a>
+                    &lt;a href="#" class="dot">&lt;span class="ir">3&lt;/span>&lt;/a>
+                    &lt;a href="#" class="play">&lt;span class="ir">플레이&lt;/span>&lt;/a>
+                    &lt;a href="#" class="stop">&lt;span class="ir">정지&lt;/span>&lt;/a>
+                &lt;/div>
+            &lt;/div> -->
+
+            &lt;!-- Swiper -->
+            &lt;div class="swiper mySwiper">
+                &lt;div class="swiper-wrapper">
+                &lt;div class="swiper-slide">
+                    &lt;div class="desc">
+                        &lt;span>Journey&lt;/span>
+                        &lt;h3>The Blue Sea&lt;/h3>
+                        &lt;p>
+                            보고 있으면 마음이 편안해지는 수평선과&lt;br>
+                            푸른 물결을 감상해 볼까요?
+                        &lt;/p>
+                        &lt;div class="btn">
+                            &lt;a href="#">자세히 보기&lt;/a>
+                            &lt;a href="#" class="black">사이트 보기&lt;/a>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;div class="swiper-slide">
+                    &lt;div class="desc">
+                        &lt;span>Journey&lt;/span>
+                        &lt;h3>The Blue Sea&lt;/h3>
+                        &lt;p>
+                            보고 있으면 마음이 편안해지는 수평선과&lt;br>
+                            푸른 물결을 감상해 볼까요?
+                        &lt;/p>
+                        &lt;div class="btn">
+                            &lt;a href="#">자세히 보기&lt;/a>
+                            &lt;a href="#" class="black">사이트 보기&lt;/a>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;div class="swiper-slide">
+                    &lt;div class="desc">
+                        &lt;span>Journey&lt;/span>
+                        &lt;h3>The Blue Sea&lt;/h3>
+                        &lt;p>
+                            보고 있으면 마음이 편안해지는 수평선과&lt;br>
+                            푸른 물결을 감상해 볼까요?
+                        &lt;/p>
+                        &lt;div class="btn">
+                            &lt;a href="#">자세히 보기&lt;/a>
+                            &lt;a href="#" class="black">사이트 보기&lt;/a>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;/div>
+                &lt;div class="swiper-pagination">&lt;/div>
+                &lt;div class="swiper-button-next">&lt;/div>
+                &lt;div class="swiper-button-prev">&lt;/div>
+            &lt;/div>
+        &lt;/div>
+    &lt;/section>
+    &lt;!-- //sliderType-->
+
+    &lt;section id="imageType01" class="image__wrap nexon section">
+        &lt;h2>잔잔하거나 거칠거나&lt;/h2>
+        &lt;p>바다의 두가지 모습을 알고 계시나요? 잔잔하거나 거칠거나, 바다의 두가지 면모&lt;/p>
+        &lt;div class="img__inner container">
+            &lt;article class="image img1">
+                    &lt;h3 class="image__tit">잔잔한 바다&lt;/h3>
+                    &lt;p class="image__desc">잔잔한 수면 아래로 산란되어 들어오는 햇빛을 보고 있자면 마음이 편안해 집니다. 천천히 움직이는 물살에 몸을 맡겨보세요.&lt;/p>
+                    &lt;a class="image__btn" href="#">자세히 보기&lt;/a>
+            &lt;/article>
+            &lt;article class="image img2">
+                    &lt;h3 class="image__tit">거친 파도의 바다&lt;/h3>
+                    &lt;p class="image__desc">비가 오거나 바람이 많이 부는 날이면, 바다의 물결은 거칠게 흔들립니다. 높이 솟아올라 내리치는 역동적인 바다를 감상해 보세요.&lt;/p>
+                    &lt;a class="image__btn" href="#">자세히 보기&lt;/a>
+            &lt;/article>
+        &lt;/div>
+    &lt;/section>
+    &lt;!-- //imageType-->
+
+    &lt;section id="imgTextType" class="imgText__wrap nexon section gray">
+        &lt;h2 class="blind">가깝고도 먼 바다&lt;/h2>
+        &lt;div class="imgText__inner container">
+            &lt;div class="imgText__txt">
+                &lt;span>이미지 텍스트 유형01&lt;/span>
+                &lt;h3>가깝고도 먼&lt;br>바다&lt;/h3>
+                &lt;p>바다를 멀리서 볼 때와 가까이서 볼 때의 차이는 아주 색다른 경험이 됩니다.&lt;/p>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">가까이서 본 파도&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">멀리서 본 파도&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">가까이서 본 해변&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">멀리서 본 해변&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">물 속에서의 바다&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">잔잔한 수평선&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+            &lt;div class="imgText__img img1">
+                &lt;a href="#">근접 사진 보기&lt;/a>
+            &lt;/div>
+            &lt;div class="imgText__img img2">
+                &lt;a href="#" class="blue">원거리 사진 보기&lt;/a>
+            &lt;/div>
+        &lt;/div>
+    &lt;/section>
+    &lt;!-- //imgTextType-->
+
+    &lt;section id="cardType" class="card__wrap nexon section">
+        &lt;h2>하루에 세 번 보는 바다&lt;/h2>
+        &lt;p>아침, 오후, 밤에 보는 바다의 각기 다른 모습입니다.&lt;/p>
+        &lt;div class="card__inner container">
+            &lt;article class="card">
+                &lt;figure class="card__header">
+                    &lt;img src="assets/img/card_bg01.jpg" alt="아침 바다 이미지">
+                &lt;/figure>
+                &lt;div class="card__body">
+                    &lt;h3 class="tit">아침 바다 사진&lt;/h3>
+                    &lt;p class="desc">아침의 바다는 물안개와 아침공기, 그리고 떠오르는 해의 노란 빛이 오묘한 분위기를 만들어냅니다. 아침 바다만의 독특한 분위기를 즐겨봅시다.&lt;/p>
+                    &lt;a class="btn" href="#">
+                        더 자세히 보기
+                        &lt;span aria-hidden="true">
+                            &lt;svg width="65" height="8" viewBox="0 0 65 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                &lt;path d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z" fill="black"/>
+                            &lt;/svg>
+                        &lt;/span>
+                    &lt;/a>
+                &lt;/div>
+            &lt;/article>
+            &lt;article class="card">
+                &lt;figure>
+                    &lt;img src="assets/img/card_bg02.jpg" alt="오후 바다 이미지">
+                &lt;/figure>
+                &lt;div class="card__body">
+                    &lt;h3 class="tit">오후 바다 사진&lt;/h3>
+                    &lt;p class="desc">오후의 바다는 슬슬 저물기 시작하는 해가 하늘의 색과 바다의 색을 더욱 짙게 만들어줍니다. 따뜻하게 데워진 공기와 따뜻한 색감으로 물든 바다를 즐겨봅시다.&lt;/p>
+                    &lt;a class="btn" href="#">
+                        더 자세히 보기
+                        &lt;span aria-hidden="true">
+                            &lt;svg width="65" height="8" viewBox="0 0 65 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                &lt;path d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z" fill="black"/>
+                            &lt;/svg>
+                        &lt;/span>
+                    &lt;/a>
+                &lt;/div>
+            &lt;/article>
+            &lt;article class="card">
+                &lt;figure class="card__header">
+                    &lt;img src="assets/img/card_bg03.jpg" alt="해질녘 바다 이미지">
+                &lt;/figure>
+                &lt;div class="card__body">
+                    &lt;h3 class="tit">해질녘 바다 사진&lt;/h3>
+                    &lt;p class="desc">해질녘의 바다는 저무는 해의 강렬한 붉은 빛이 바다와 하늘을 물들입니다. 눈이 부신듯 점점 어두워지는 하늘과 함께 다채롭게 빛나는 바다를 즐겨봅시다.&lt;/p>
+                    &lt;a class="btn" href="#">
+                        더 자세히 보기
+                        &lt;span aria-hidden="true">
+                            &lt;svg width="65" height="8" viewBox="0 0 65 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                &lt;path d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z" fill="black"/>
+                            &lt;/svg>
+                        &lt;/span>
+                    &lt;/a>
+                &lt;/div>
+            &lt;/article>
+        &lt;/div>
+    &lt;/section>
+    &lt;!-- //cardType-->
+    
+    &lt;section id="bannerType" class="banner__wrap nexon section">
+        &lt;h2 class="blind">배너 영역&lt;/h2>
+        &lt;div class="banner__inner">
+            &lt;h3 class="title">코딩 척척학사&lt;/h3>
+            &lt;p class="desc">
+                더 다양한 코딩 공부는 티스토리에 작성되어 있습니다.
+                &lt;a href="https://hjkang306.tistory.com/" title="티스토리 페이지로 이동">https://hjkang306.tistory.com&lt;/a>
+            &lt;/p>
+            &lt;span class="small">배너 유형01&lt;/span>
+        &lt;/div>
+    &lt;/section>
+    &lt;!-- //bannerType-->
+
+    &lt;section id="textType" class="text__wrap nexon section">
+        &lt;span>텍스트 유형01&lt;/span>
+        &lt;h2 class="mb70">바다의 좋은 점은 무엇일까요&lt;/h2>
+        &lt;div class="text__inner container">
+            &lt;div class="text t1">
+                &lt;h3 class="text__title">심신의 안정&lt;/h3>
+                &lt;p class="text__desc">바다를 보고 있으면 마음에 평화가 찾아옵니다. 심신의 안정을 원하는 여러분에게 바다 근처를 걷는 산책을 추천합니다.&lt;/p>
+                &lt;a class="text__btn" href="#">더보기&lt;/a>
+            &lt;/div>
+            &lt;div class="text t2">
+                &lt;h3 class="text__title">아름다운 풍경&lt;/h3>
+                &lt;p class="text__desc">바다의 아름다운 풍경은 많은 사람들이 알고 있습니다. 시시각각 변하는 모습과 박력있게 몰아치는 파도는 보고 있어도 계속 보고싶어 집니다.&lt;/p>
+                &lt;a class="text__btn" href="#">더보기&lt;/a>
+            &lt;/div>
+            &lt;div class="text t3">
+                &lt;h3 class="text__title">맛있는 수산자원&lt;/h3>
+                &lt;p class="text__desc">생선 좋아하시나요? 저는 생선을 좋아하는데요, 민물고기보다 특히 바다에서 나는 생선을 좋아하는 편입니다. 바다는 생선, 조개, 해조류 등 다양한 먹거리를 제공해줍니다.&lt;/p>
+                &lt;a class="text__btn" href="#">더보기&lt;/a>
+            &lt;/div>
+            &lt;div class="text t4">
+                &lt;h3 class="text__title">동물들의 터전&lt;/h3>
+                &lt;p class="text__desc">바다에는 정말 많은 생물이 살고 있습니다. 고래, 해파리, 생선, 불가사리 등등 말 그대로 물에 살고 있는 생물부터, 갈매기와 같이 바다 근처에 터를 잡는 생물들 까지요!&lt;/p>
+                &lt;a class="text__btn" href="#">더보기&lt;/a>
+            &lt;/div>
+            &lt;div class="text t5">
+                &lt;h3 class="text__title">빛과 소금&lt;/h3>
+                &lt;p class="text__desc">바다의 색이 파란색인 이유를 아시나요? 저는 모르는데요, 빛의 흡수와 반사와 관련되지 않았을까 싶습니다. 중요한건, 바다가 우리에게 소금을 준다는 것이죠!&lt;/p>
+                &lt;a class="text__btn" href="#">더보기&lt;/a>
+            &lt;/div>
+            &lt;div class="text t6">
+                &lt;h3 class="text__title">바다 그 자체&lt;/h3>
+                &lt;p class="text__desc">바다는 그 자체로도 존재 가치가 있습니다. 저는 진화론을 믿는 사람이기 때문에, 바다가 없었다면 우리는 존재하지 않았을 수도 있겠다는 생각이 듭니다.&lt;/p>
+                &lt;a class="text__btn" href="#">더보기&lt;/a>
+            &lt;/div>
+        &lt;/div>
+    &lt;/section>
+    &lt;!-- //textType-->
+
+&lt;/main>
+&lt;!-- //mainType -->
+
+&lt;footer id="footerType" class="footer__wrap nexon section gray">
+    &lt;h2 class="blind">푸터 영역&lt;/h2>
+    &lt;div class="footer__inner container">
+        &lt;div class="footer__menu">
+            &lt;div>
+                &lt;h3>사이트&lt;/h3>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">웹표준 사이트&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">반응형 사이트&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">패럴랙스 사이트&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">포트폴리오 사이트&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+            &lt;div>
+                &lt;h3>헤더 영역&lt;/h3>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">메뉴 유형01&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">메뉴 유형02&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+            &lt;div>
+                &lt;h3>슬라이드 영역&lt;/h3>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">슬라이드 유형01&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">슬라이드 유형02&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+            &lt;div>
+                &lt;h3>이미지 영역&lt;/h3>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">이미지 유형01&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">이미지 유형02&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">이미지/텍스트 유형01&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">이미지/텍스트 유형02&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">텍스트 유형01&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+            &lt;div>
+                &lt;h3>컨텐츠 영역&lt;/h3>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">카드 유형01&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">카드 유형02&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">카드 유형03&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+            &lt;div>
+                &lt;h3>푸터 영역&lt;/h3>
+                &lt;ul>
+                    &lt;li>&lt;a href="#">푸터 메뉴 유형01&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">푸터 컨택트 유형02&lt;/a>&lt;/li>
+                    &lt;li>&lt;a href="#">푸터 이메일 유형03&lt;/a>&lt;/li>
+                &lt;/ul>
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="footer__right">
+            2022 ChuckChuck. Portfolio is Power&lt;br>
+            All rights reserved.
+        &lt;/div>
+    &lt;/div>
+&lt;/footer>
+&lt;!-- //footerType -->
+</code></pre>
+                </div>
+            </details>
+
+            <hr>
+
+            <h3 class="t_tit2">영역별 반응형 적용하기</h3>
+            <p class="t_desc2">
+                영역별로 반응형을 적용하여봅시다! 반응형은 코드를 작성하는 틈틈히 확인을 해주는 것이 좋습니다^0^<br>
+                또한, 각 영역이 완성된 상태에서 반응형을 작업하다 보면 헷갈릴 수도 있으니, <i>작업하지 않는 영역은 display: none;</i>을 해 두었다가 작업할 때 보이게 하여 작업을 하면 도움이 됩니다.(꿀팁⭐)
+            </p><br>
+            <p class="t_desc">
+                🚩 슬라이드 영역<br>
+                : 슬라이드는 기존의 코딩을 주석 처리하고, swiper 소스를 이용하여 간단히 작성하는 방법을 공부해 보았습니다.
+            </p>
+            <details>
+                <summary>전체 CSS 보기 (스크롤 주의!)</summary>
+                <div class="t_code">
+<pre><code class="language-css">.slider__innner {
+    margin-top: 70px;
+}
+.slider {
+    position: relative;
+}
+.slider__img {
+    background: url(../img/slider_bg01.jpg) no-repeat center / cover;
+}
+.slider__img .desc {
+    width: 1160px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+.slider__img .desc span {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 1px 14px 0;
+    border-radius: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.slider__img .desc h3 {
+    font-size: 110px;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-left: -8px;
+}
+.slider__img .desc p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.35;
+    margin-bottom: 130px;
+}
+.slider__img .desc .btn a {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 11px 50px;
+    display: inline-block;
+}
+.slider__img .desc a.black {
+    background: #000;
+    color: #fff;
+}
+.slider__arrow a {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 56px;
+    background-image: url(../img/slider_icon.svg);
+    transform: translateY(-50%);
+}
+.slider__arrow .left {
+    left: 20px;
+}
+.slider__arrow .right {
+    right: 20px;
+    background-position-x: -50px;
+}
+.slider__dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 25px;
+}
+.slider__dot a {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/slider_icon.svg);
+    background-position: -20px -70px;
+}
+.slider__dot a.active {
+    background-position: 0 -70px;
+}
+.slider__dot a.play {
+    background-position: -40px -70px;
+}
+.slider__dot a.stop {
+    background-position: -60px -70px;
+}
+
+.swiper-slide {
+    background: url(../img/slider_bg01.jpg) no-repeat center / cover;
+}
+.swiper-slide:nth-child(2) {
+    background: url(../img/slider_bg02.jpg) no-repeat center / cover;
+}
+.swiper-slide:nth-child(3) {
+    background: url(../img/slider_bg03.jpg) no-repeat center / cover;
+}
+.swiper-slide .desc {
+    width: 1160px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    box-sizing: border-box;
+}
+.swiper-slide .desc span {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 1px 14px 0;
+    border-radius: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.swiper-slide .desc h3 {
+    font-size: 110px;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-left: -8px;
+}
+.swiper-slide .desc p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.35;
+    margin-bottom: 130px;
+}
+.swiper-slide .desc .btn a {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 11px 50px;
+    display: inline-block;
+}
+.swiper-slide .desc a.black {
+    background: #000;
+    color: #fff;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    width: 30px !important;
+    height: 56px !important;
+    background: url(../img/slider_icon.svg);
+}
+.swiper-button-next {
+    background-position-x: -50px;
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    opacity: 0;
+}
+.swiper-pagination-bullet {
+    width: 16px !important;
+    height: 16px !important;
+    background-image: url(../img/slider_icon.svg) !important;
+    background-position: -20px -70px !important;
+    background-color: transparent !important;
+    opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+    background-position: 0 -70px !important;
+}
+
+/* media */
+@media(max-width: 960px) {
+    .swiper-slide .desc {
+        width: 100%;
+        text-align: center;
+    }
+    .swiper-slide .desc h3 {
+        font-size: 70px;
+    }
+}
+@media(max-width: 600px) {
+    .swiper-slide .desc {
+        padding: 80px 0;
+    }
+    .swiper-slide .desc h3 {
+        font-size: 40px;
+    }
+    .swiper-slide .desc p {
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+    .swiper-slide .desc .btn a {
+        padding: 10px 25px;
+    }
+}
+</code></pre>
+                </div>
+            </details><br>
+            <div class="t_box">
+                ✔ <i>swiper ?</i> <br>
+                swiper는 슬라이드 이펙트를 간단히 작성할 수 있도록 공개된 소스입니다.
+                사이트에 가서 마음에 드는 슬라이드 유형을 고른 뒤, HTML과 script, css를 복사하여 형식에 맞게 작성하고 연결해 주면 됩니다.<br>
+                ☀ swiper에 적용시킨 css는 기존에 작성했던 css를 바탕으로, 색상이나, 아이콘 등을 변경해 주었습니다.
+            </div>
+            <details>
+                <summary>swiper CSS 보기 (스크롤 주의!)</summary>
+                <div class="t_code">
+<pre><code class="language-css">.swiper-slide {
+    background: url(../img/slider_bg01.jpg) no-repeat center / cover;
+}
+.swiper-slide:nth-child(2) {
+    background: url(../img/slider_bg02.jpg) no-repeat center / cover;
+}
+.swiper-slide:nth-child(3) {
+    background: url(../img/slider_bg03.jpg) no-repeat center / cover;
+}
+.swiper-slide .desc {
+    width: 1160px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    box-sizing: border-box;
+}
+.swiper-slide .desc span {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 1px 14px 0;
+    border-radius: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.swiper-slide .desc h3 {
+    font-size: 110px;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-left: -8px;
+}
+.swiper-slide .desc p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.35;
+    margin-bottom: 130px;
+}
+.swiper-slide .desc .btn a {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 11px 50px;
+    display: inline-block;
+}
+.swiper-slide .desc a.black {
+    background: #000;
+    color: #fff;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    width: 30px !important;
+    height: 56px !important;
+    background: url(../img/slider_icon.svg);
+}
+.swiper-button-next {
+    background-position-x: -50px;
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    opacity: 0;
+}
+.swiper-pagination-bullet {
+    width: 16px !important;
+    height: 16px !important;
+    background-image: url(../img/slider_icon.svg) !important;
+    background-position: -20px -70px !important;
+    background-color: transparent !important;
+    opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+    background-position: 0 -70px !important;
+}
+</code></pre>
+                </div>
+            </details><br>
+            <div class="t_box">
+                ✔ <i>반응형 만들기</i> <br>
+                화면의 사이즈가 작아지면, 전체 영역의 크기가 같이 작아질 수 있도록, width를 %, vw등의 상대적 단위로 설정해주면 좋습니다.
+                기존의 폰트 사이즈를 그대로 유지하면 모바일 환경에서는 글씨가 굉장히 커보일 수 있으니, 그 점에 유의하며 폰트 사이즈를 조정해 줍니다.<br><br>
+                ⇒ <i>전체 너비, 폰트 사이즈, 패딩, 마진 값 조정</i>
+            </div>
+            <div class="t_code">
+<pre><code class="language-css">/* media */
+@media(max-width: 960px) {
+    .swiper-slide .desc {
+        width: 100%;
+        text-align: center;
+    }
+    .swiper-slide .desc h3 {
+        font-size: 70px;
+    }
+}
+@media(max-width: 600px) {
+    .swiper-slide .desc {
+        padding: 80px 0;
+    }
+    .swiper-slide .desc h3 {
+        font-size: 40px;
+    }
+    .swiper-slide .desc p {
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+    .swiper-slide .desc .btn a {
+        padding: 10px 25px;
+    }
+}
+</code></pre>
+            </div>
+
+            <hr><br>
+
+            <p class="t_desc">
+                🚩 이미지 영역<br>
+                : 이미지 영역은 화면이 작아질 때, 너비가 같이 작아지다가 모바일 환경이 되면 가로로 정렬되던 이미지가 세로로 정렬되도록 하였습니다.
+            </p>
+            <div class="t_box">
+                ✔ <i>반응형 만들기</i> <br>
+                미디어 쿼리는 필요한 부분만 작성해도 됩니다. 간단하게 작성하고 싶다면, 최소한의 미디어쿼리를 작성해봅시다!
+                flex-direction: column;을 통해 좌우로 정렬된 flex를 상하로 정렬해 줍니다.<br><br>
+                ⇒ <i>이미지의 배열, 너비, 폰트 사이즈, 패딩, 마진 값 조정</i>
+            </div>
+            <div class="t_code">
+<pre><code class="language-css">@media (max-width: 600px){
+    .img__inner {
+        flex-direction: column;
+    }
+    .image {
+        width: 100%;
+        padding: 210px 20px 20px 20px;
+    }
+    .image:first-child {
+        margin-bottom: 20px;
+    }
+    .image__tit {
+        font-size: 24px;
+    }
+}
+</code></pre>
+            </div>
+
+            <hr><br>
+
+            <p class="t_desc">
+                🚩 이미지/텍스트 영역<br>
+                : 이미지 텍스트 영역은, 이미지와 텍스트가 함께 있기 때문에 이미지 영역보다는 신경써야 할 것이 많습니다. 
+                이미지의 사이즈와 폰트 사이즈, 버튼의 크기 등 다른 요소들과의 조화를 신경쓰며 작업해 봅시다!
+            </p>
+            <div class="t_box">
+                ✔ <i>반응형 만들기</i> <br>
+                화면의 너비가 작아지면 이미지가 너무 작아지거나, 글씨가 너무 작아지는 문제가 발생합니다.
+                사용자가 불편함을 느끼지 않도록 글씨나 버튼, 이미지의 크기를 고려해 배열을 바꿔줍니다.<br>
+                <i>포지션</i>을 준 요소가 있다면, 반응형을 작성하며 <i>위치가 어긋나게 보일 수 있으니 잊지 말고 조정</i>해줍시다!<br><br>
+                ⇒ <i>배열, 너비, 폰트 사이즈, 마진 값, 요소의 위치, 텍스트의 정렬 조정</i>
+            </div>
+            <div class="t_code">
+<pre><code class="language-css">@media (max-width: 960px){
+    .imgText__inner {
+        flex-wrap: wrap;
+    }
+    .imgText__inner h3 {
+        font-size: 40px;
+    }
+    .imgText__inner > div.imgText__txt {
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+    .imgText__txt p {
+        margin-bottom: 60px;
+    }
+    .imgText__inner > div.imgText__txt ul {
+        display: none;
+    }
+    .imgText__inner > div.imgText__img {
+        width: 49%;
+    }
+}
+@media (max-width: 600px){
+    .imgText__inner span {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    .imgText__inner h3 {
+        font-size: 30px;
+    }
+    .imgText__txt p {
+        margin-bottom: 50px;
+        font-size: 16px;
+    }
+    .imgText__inner > div.imgText__img {
+        width: 100%;
+        height: 200px;
+    }
+    .imgText__inner > div.imgText__img.img1 {
+        margin-bottom: 20px;
+    }
+    .imgText__img a {
+        left: 20px;
+        bottom: 20px;
+    }
+}
+</code></pre>
+            </div>
+
+            <hr><br>
+
+            <p class="t_desc">
+                🚩 카드 영역<br>
+                : 카드 영역도 보이는 카드의 갯수를 조절해주는 방식으로 간단히 작성할 수 있습니다.
+            </p>
+            <div class="t_box">
+                ✔ <i>반응형 만들기</i> <br>
+                화면의 너비가 작아지면, 원래는 3개가 나란히 정렬되어 보이던 카드를 두개만 보이도록 하고, 
+                모바일 환경에서는 두개의 카드가 위아래로 정렬되어 보이도록 하였습니다. 
+                카드 영역에서는 카드의 배열을 바꾸는 것으로 반응형을 간단히 할 수 있습니다.<br><br>
+                ⇒ <i>카드의 배열, 보이는 갯수, 너비, 폰트 사이즈, 패딩, 마진 값 조정</i>
+            </div>
+            <div class="t_code">
+<pre><code class="language-css">@media (max-width: 960px){
+    .card__inner {
+        flex-wrap: wrap;
+    }
+    .card {
+        width: 49%;
+    }
+    .card:last-child {
+        display: none;
+    }
+}
+@media (max-width: 600px){
+    .card {
+        width: 100%;
+    }
+    .card:first-child {
+        margin-bottom: 20px;
+    }
+    .card__body {
+        padding: 20px;
+    }
+    .card__body .desc {
+        font-size: 16px;
+    }
+}
+</code></pre>
+            </div>
+
+            <hr><br>
+
+            <p class="t_desc">
+                🚩 배너 영역<br>
+                : 배너 영역은 이미지에 짧은 텍스트가 올라간 단순한 형태이기 때문에 반응형이 간단합니다.
+            </p>
+            <div class="t_box">
+                ✔ <i>반응형 만들기</i> <br>
+                화면이 작아질 때 배너가 같이 작아질 수 있도록 너비를 조정하고, 작아진 화면에서 텍스트와 여백이 조화롭도록 조정해줍니다.<br><br>
+                ⇒ <i>폰트 사이즈, 패딩, 마진 값 조정</i>
+            </div>
+            <div class="t_code">
+<pre><code class="language-css">@media (max-width: 960px){
+    .banner__inner {
+        padding: 100px 0;
+    }
+}
+@media (max-width: 600px){
+    .banner__inner {
+        padding: 80px 0;
+    }
+    .banner__inner .title {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    .banner__inner .desc {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+}
+</code></pre>
+            </div>
+
+            <hr><br>
+
+            <p class="t_desc">
+                🚩 텍스트 영역<br>
+                : 텍스트 영역도 카트 영역과 비슷하게, 각각의 텍스트 덩어리(?)의 배열을 조정해주는 것으로 간단하게 반응형을 작성할 수 있습니다.
+            </p>
+            <div class="t_box">
+                ✔ <i>반응형 만들기</i> <br>
+                텍스트 영역은 텍스트가 주가 되기 때문에, 화면이 작아질 때의 폰트 사이즈가 너무 작거나 너무 크지 않도록 신경써줍시다!
+                또한, 모바일 환경에서는 :hover 효과가 적용되지 않을 수 있기 때문에 그 점도 유의하며 조정해줍니다.<br><br>
+                ⇒ <i>텍스트 너비, 배경 색상, 폰트 사이즈 조정</i>
+            </div>
+            <div class="t_code">
+<pre><code class="language-css">@media (max-width:960px){
+    .text {
+        width: 49%;
+        background: #f5f5f5;
+    }
+}
+@media (max-width:600px){
+    .text__title {
+        font-size: 20px;
+    }
+    .text__desc {
+        font-size: 16px;
+    }
+}
+@media (max-width:480px){
+    .text {
+        width: 100%;
+    }
+}
+</code></pre>
+            </div>
+
+            <hr><br>
+
+            <p class="t_desc">
+                🚩 푸터 영역<br>
+                : 푸터 영역은 반응형을 작성하기 위해선 많은 고민이 필요합니다. 결정하기가 어렵다면 화끈하게 삭제해버리는 경우도 있다는걸 기억하세요🔥
+            </p>
+            <div class="t_box">
+                ✔ <i>반응형 만들기</i> <br>
+                푸터 영역은 화면의 사이즈가 작아지면 사이트맵의 기능을 하는 링크들이 지저분해 보이기도 합니다…. 
+                이 링크들을 없앨지, 사용자 편의를 위해 예쁘게 잘 포장해 볼지는 많이 고민해봐야 합니다. 이번 시간엔 화끈하게 없애보았습니다.<br><br>
+                ⇒ <i>링크 안보이기, 패딩, 보더 값 조정</i>
+            </div>
+            <div class="t_code">
+<pre><code class="language-css">@media (max-width: 960px){
+    .footer__menu {
+        display: none;
+    }
+    .footer__right {
+        padding-top: 0;
+        border-top: 0;
+    }
+    .footer__wrap {
+        padding: 40px 0;
+    }
+}
+</code></pre>
+            </div>
+            <p class="t_desc2">
+                헤더 영역의 반응형과, 스크립트의 작성은 다음 시간에 공부합니다 모두 안녕~~~ ^0^
+            </p>
+
+            <h3 class="t_tit2">> 완성 페이지 보기</h3>
+            <div class="t_iframe" style="min-height: 700px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/site/site/index.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/site/site/index.html">원본 소스 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
