@@ -387,6 +387,7 @@
             },
             autoplay: {
                 delay: 5000,
+                disableOnInteraction: false,
             },
             pagination: {
                 el: '.swiper-pagination',
@@ -399,6 +400,7 @@
         const btnStart = document.querySelector(".swiper-button-play");
         const btnHam = document.querySelector(".header_ham");
         const btnMenu = document.querySelector(".header__menu");
+        const btnMenuList = document.querySelectorAll(".header__menu li a");
 
         btnStart.style.display = "none";
 
@@ -426,17 +428,19 @@
                 btnHam.classList.remove("active");
             }
         });
-    </script>
-    <script>
-    //스크롤 이동
-        document.querySelectorAll(".header__menu li a").forEach(li => {
+
+        //스크롤 이동
+        btnMenuList.forEach(li => {
             li.addEventListener("click", (e) => {
                 e.preventDefault();
                 document.querySelector(li.getAttribute("href")).scrollIntoView({
                     behavior: "smooth"
                 });
+                document.body.classList.remove("fixed");
+                btnMenu.classList.remove("active");
+                btnHam.classList.remove("active");
             });
-        }); 
+        });
     </script>
 </body>
 </html>

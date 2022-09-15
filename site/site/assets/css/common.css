@@ -87,7 +87,9 @@
     font-family: 'NexonLv1Gothic';
     font-weight: 400;
 }
-
+body {
+    overflow: overlay;
+}
 /* 배경 */
 .gray {
     background-color: #f5f5f5;
@@ -95,7 +97,7 @@
 /* fixed */
 .fixed {
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden;  
 }
 
 /* 간격 셋팅 */
