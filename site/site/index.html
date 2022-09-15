@@ -42,9 +42,6 @@
         <a href="#footerType">푸터 영역 바로 가기</a>
     </div>
     <!-- //skip -->
-    <style>
-        #headerType {display: none;}
-    </style>
 
     <header id="headerType" class="header__wrap nexon">
         <div class="header__inner">
@@ -52,14 +49,21 @@
                 <a href="#">web <em>site</em></a>
             </div>
             <nav class="header__menu">
-                <li><a href="#imageType01">이미지 영역</a></li>
-                <li><a href="#imgTextType">이미지텍스트 영역</a></li>
-                <li><a href="#cardType">카드 영역</a></li>
-                <li><a href="#bannerType">배너 영역</a></li>
-                <li><a href="#textType">텍스트 영역</a></li>
+                <ul>
+                    <li><a href="#imageType01">이미지 영역</a></li>
+                    <li><a href="#imgTextType">이미지텍스트</a></li>
+                    <li><a href="#cardType">카드 영역</a></li>
+                    <li><a href="#bannerType">배너 영역</a></li>
+                    <li><a href="#textType">텍스트 영역</a></li>
+                </ul>
             </nav>
             <div class="header__member">
                 <a href="#">로그인</a>
+            </div>
+            <div class="header_ham">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </header>
@@ -144,6 +148,10 @@
                     </div>
                     </div>
                     <div class="swiper-pagination"></div>
+                    <div class="swiper-button">
+                        <div class="swiper-button-play"><span class="ir">play</span></div>
+                        <div class="swiper-button-stop"><span class="ir">stop</span></div>
+                    </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
@@ -378,30 +386,49 @@
             prevEl: ".swiper-button-prev",
             },
             autoplay: {
-                delay: 2000,
+                delay: 5000,
             },
             pagination: {
                 el: '.swiper-pagination',
                 type: 'bullets',
+                clickable: true,
             },
+        });
+
+        const btnStop = document.querySelector(".swiper-button-stop");
+        const btnStart = document.querySelector(".swiper-button-play");
+        const btnHam = document.querySelector(".header_ham");
+        const btnMenu = document.querySelector(".header__menu");
+
+        btnStart.style.display = "none";
+
+        btnStop.addEventListener("click",()=>{
+            swiper.autoplay.stop();
+            btnStart.style.display = "block";
+            btnStop.style.display = "none";
+        });
+        btnStart.addEventListener("click",()=>{
+            swiper.autoplay.start();
+            btnStart.style.display = "none";
+            btnStop.style.display = "block";
+        });
+        btnHam.addEventListener("click",()=>{
+            btnHam.classList.toggle("active");
+            btnMenu.classList.toggle("active");
+            document.body.classList.toggle("fixed");
+        });
+
+        window.addEventListener("resize", () => {
+            let width = window.innerWidth;
+            if(width > 1300){
+                document.body.classList.remove("fixed");
+                btnMenu.classList.remove("active");
+                btnHam.classList.remove("active");
+            }
         });
     </script>
     <script>
-        window.addEventListener("scroll", ()=>{
-            let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
-
-            // forEach
-            document.querySelectorAll("#mainType > section").forEach((element, index)=>{
-                if(scrollTop >= element.offsetTop){
-                    document.querySelectorAll(".header__menu li").forEach(li => {
-                        li.classList.remove("active");
-                    });
-                    document.querySelector(".header__menu li:nth-child("+(index+1)+")").classList.add("active");
-                }
-            });
-        });
-
-        //스크롤 이동
+    //스크롤 이동
         document.querySelectorAll(".header__menu li a").forEach(li => {
             li.addEventListener("click", (e) => {
                 e.preventDefault();

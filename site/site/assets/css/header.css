@@ -30,17 +30,17 @@
 .header__menu li {
     display: inline;
 }
-.header__menu li.active a {
-    background: #eee;
-}
 .header__menu li a {
     padding: 13px 30px;
     margin: 0 5px;
     transition: background-color 0.3s;
-    border-radius: 5px;
 }
 .header__menu li a:hover {
     background-color: #f1f1f1;
+    border-radius: 5px;
+}
+.header__menu li.active a {
+    background-color: #bababa;
     border-radius: 5px;
 }
 .header__member {
@@ -57,4 +57,84 @@
 .header__member a:hover {
     background-color: #000;
     color: #fff;
+}
+.header_ham {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    display: none;
+    cursor: pointer;
+}
+.header_ham span {
+    display: block;
+    background: #000;
+    width: 30px;
+    height: 2px;
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-top: 5px;
+    transition: 0.25s margin 0.25s, 0.25s transform;
+}
+.header_ham span:nth-child(1) {
+    margin-top: 18px;
+}
+.header_ham.active span {
+    transition: 0.25s margin, 0.25s transform 0.25s;
+}
+.header_ham.active span:nth-child(1) {
+    margin-top: 25px;
+    margin-bottom: -7px;
+    transform: rotate(45deg);
+}
+.header_ham.active span:nth-child(2) {
+    transform: rotate(45deg);
+}
+.header_ham.active span:nth-child(3) {
+    margin-top: -2px;
+    transform: rotate(135deg);
+}
+
+/* media */
+@media (max-width: 1300px){
+    .header__menu {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: auto;
+    }
+    .header__member {
+        width: 50%;
+        margin-right: 50px;
+    }
+    .header__menu li {
+        display: block;
+    }
+    .header_ham {
+        display: block;
+    }
+    .header__menu {
+        position: fixed;
+        right: -100%;
+        top: 69px;
+        background: #fff;
+        width: 60%;
+        height: 100vh;
+        padding: 20px;
+        text-align: right;
+        transition: right 0.4s ease-in;
+    }
+    .header__menu ul li {
+        display: block;
+        margin: 20px;
+    }
+    .header__menu ul li a {
+        padding: 10px;
+        white-space: nowrap;
+    }
+    .header__menu.active {
+        right: 0;
+    }
 }
