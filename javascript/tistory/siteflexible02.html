@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 반응형 만들기</h2>
+            <p class="t_desc2">
+                이번에는 저번 시간에 빠트린 헤더 영역의 반응형을 공부해 보았습니다.
+            </p>
+            <h3 class="t_tit2">HTML 코드</h3>
+            <p class="t_desc">
+                헤더 영역의 메뉴 리스트들은 화면의 사이즈가 줄어들 때 깨지며 상황을 골치아프게 만들곤 합니다… 
+                헤더 유형은 그 메뉴 리스트들을 '햄버거 메뉴'를 통해 반응형 작업을 해보았습니다.
+            </p>
+            <details>
+                <summary>HTML 보기</summary>
+                <div class="t_code">
+<pre><code class="language-html">&lt;header id="headerType" class="header__wrap nexon">
+    &lt;div class="header__inner">
+        &lt;div class="header__logo">
+            &lt;a href="#">web &lt;em>site&lt;/em>&lt;/a>
+        &lt;/div>
+        &lt;nav class="header__menu">
+            &lt;ul>
+                &lt;li>&lt;a href="#imageType01">이미지 영역&lt;/a>&lt;/li>
+                &lt;li>&lt;a href="#imgTextType">이미지텍스트&lt;/a>&lt;/li>
+                &lt;li>&lt;a href="#cardType">카드 영역&lt;/a>&lt;/li>
+                &lt;li>&lt;a href="#bannerType">배너 영역&lt;/a>&lt;/li>
+                &lt;li>&lt;a href="#textType">텍스트 영역&lt;/a>&lt;/li>
+            &lt;/ul>
+        &lt;/nav>
+        &lt;div class="header__member">
+            &lt;a href="#">로그인&lt;/a>
+        &lt;/div>
+        &lt;div class="header_ham">
+            &lt;span>&lt;/span>
+            &lt;span>&lt;/span>
+            &lt;span>&lt;/span>
+        &lt;/div>
+    &lt;/div>
+&lt;/header>
+</code></pre>
+                </div>
+            </details>
+
+            <hr>
+
+            <h3 class="t_tit2">반응형 뜯어보기</h3>
+            <p class="t_desc2">
+                헤더 영역의 반응형 과정을 차근차근 뜯어보겠습니다!
+            </p>
+            <details>
+                <summary>전체 CSS 보기 (스크롤 주의!)</summary>
+                <div class="t_code">
+<pre><code class="language-css">.header__inner {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    background: #fff;
+}
+.header__logo {
+    width: 20%;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.header__logo em {
+    font-size: 18px;
+    font-weight: 400;
+}
+.header__menu {
+    width: 60%;
+    text-align: center;
+}
+.header__menu li {
+    display: inline;
+}
+.header__menu li a {
+    padding: 13px 30px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+.header__menu li a:hover {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+.header__menu li.active a {
+    background-color: #bababa;
+    border-radius: 5px;
+}
+.header__member {
+    width: 20%;
+    text-align: right;
+}
+.header__member a {
+    font-size: 16px;
+    border: 1px solid #000;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+.header__member a:hover {
+    background-color: #000;
+    color: #fff;
+}
+.header_ham {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    display: none;
+    cursor: pointer;
+}
+.header_ham span {
+    display: block;
+    background: #000;
+    width: 30px;
+    height: 2px;
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-top: 5px;
+    transition: 0.25s margin 0.25s, 0.25s transform;
+}
+.header_ham span:nth-child(1) {
+    margin-top: 18px;
+}
+.header_ham.active span {
+    transition: 0.25s margin, 0.25s transform 0.25s;
+}
+.header_ham.active span:nth-child(1) {
+    margin-top: 25px;
+    margin-bottom: -7px;
+    transform: rotate(45deg);
+}
+.header_ham.active span:nth-child(2) {
+    transform: rotate(45deg);
+}
+.header_ham.active span:nth-child(3) {
+    margin-top: -2px;
+    transform: rotate(135deg);
+}
+
+/* media */
+@media (max-width: 1300px){
+    .header__menu {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: auto;
+    }
+    .header__member {
+        width: 50%;
+        margin-right: 50px;
+    }
+    .header__menu li {
+        display: block;
+    }
+    .header_ham {
+        display: block;
+    }
+    .header__menu {
+        position: fixed;
+        right: -100%;
+        top: 69px;
+        background: #fff;
+        width: 60%;
+        height: 100vh;
+        padding: 20px;
+        text-align: right;
+        transition: right 0.4s ease-in;
+    }
+    .header__menu ul li {
+        display: block;
+        margin: 20px;
+    }
+    .header__menu ul li a {
+        padding: 10px;
+        white-space: nowrap;
+    }
+    .header__menu.active {
+        right: 0;
+    }
+}
+</code></pre>
+                </div>
+            </details><br>
+            <div class="t_box">
+                ✔ <i>swiper ?</i> <br>
+                swiper는 슬라이드 이펙트를 간단히 작성할 수 있도록 공개된 소스입니다.
+                사이트에 가서 마음에 드는 슬라이드 유형을 고른 뒤, HTML과 script, css를 복사하여 형식에 맞게 작성하고 연결해 주면 됩니다.<br>
+                ☀ swiper에 적용시킨 css는 기존에 작성했던 css를 바탕으로, 색상이나, 아이콘 등을 변경해 주었습니다.
+            </div>
+            <details>
+                <summary>swiper CSS 보기 (스크롤 주의!)</summary>
+                <div class="t_code">
+<pre><code class="language-css">.swiper-slide {
+    background: url(../img/slider_bg01.jpg) no-repeat center / cover;
+}
+.swiper-slide:nth-child(2) {
+    background: url(../img/slider_bg02.jpg) no-repeat center / cover;
+}
+.swiper-slide:nth-child(3) {
+    background: url(../img/slider_bg03.jpg) no-repeat center / cover;
+}
+.swiper-slide .desc {
+    width: 1160px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    box-sizing: border-box;
+}
+.swiper-slide .desc span {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 1px 14px 0;
+    border-radius: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.swiper-slide .desc h3 {
+    font-size: 110px;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-left: -8px;
+}
+.swiper-slide .desc p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.35;
+    margin-bottom: 130px;
+}
+.swiper-slide .desc .btn a {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 11px 50px;
+    display: inline-block;
+}
+.swiper-slide .desc a.black {
+    background: #000;
+    color: #fff;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    width: 30px !important;
+    height: 56px !important;
+    background: url(../img/slider_icon.svg);
+}
+.swiper-button-next {
+    background-position-x: -50px;
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    opacity: 0;
+}
+.swiper-pagination-bullet {
+    width: 16px !important;
+    height: 16px !important;
+    background-image: url(../img/slider_icon.svg) !important;
+    background-position: -20px -70px !important;
+    background-color: transparent !important;
+    opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+    background-position: 0 -70px !important;
+}
+</code></pre>
+                </div>
+            </details><br>
+            <p class="t_desc">
+                🚩 햄버거 메뉴<br>
+                : 왜 이름이 햄버거 메뉴일까요…? 저도 잘은 모르겠지만, 햄버거처럼 차곡차곡 겹쳐놓은 탭의 모양이 햄버거 같이 보여서가 아닐까요?
+            </p>
+            <div class="t_box">
+                ✔ <i>햄버거 버튼 만들기</i><br>
+                01. 먼저, 누르면 리스트가 튀어나올 햄버거 메뉴 버튼이 될 태그를 작성해 줍니다.<br>
+                02. css를 통해 햄버거 메뉴 버튼을 디자인해 줍니다.<br>
+                ⭐눈에 거슬리는 리스트는 옆으로 치워두고 작업하면 헷갈리지 않아요!
+            </div>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="header_ham">
+    &lt;span>&lt;/span>
+    &lt;span>&lt;/span>
+    &lt;span>&lt;/span>
+&lt;/div>
+</code></pre>
+            </div>
+            <div class="t_code">
+<pre><code class="language-css">.header_ham {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    display: none;
+    cursor: pointer;
+}
+.header_ham span {
+    display: block;
+    background: #000;
+    width: 30px;
+    height: 2px;
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-top: 5px;
+    transition: 0.25s margin 0.25s, 0.25s transform;
+}
+.header_ham span:nth-child(1) {
+    margin-top: 18px;
+}
+.header_ham.active span {
+    transition: 0.25s margin, 0.25s transform 0.25s;
+}
+.header_ham.active span:nth-child(1) {
+    margin-top: 25px;
+    margin-bottom: -7px;
+    transform: rotate(45deg);
+}
+.header_ham.active span:nth-child(2) {
+    transform: rotate(45deg);
+}
+.header_ham.active span:nth-child(3) {
+    margin-top: -2px;
+    transform: rotate(135deg);
+}
+</code></pre>
+            </div>
+            <div class="t_box">
+                ✔ <i>햄버거 클릭 스크립트 작성하기</i> <br>
+                먼저, 햄버거 메뉴가 나올 때 기능했으면 하는 것들을 생각해 봅니다.<br>
+                01. 메뉴 리스트 보이기<br>
+                02. 리스트가 보이는 동안 스크롤 안되게 하기<br>
+                03. 메뉴 리스트를 클릭하면 햄버거 메뉴가 닫히도록 하기<br>
+                04. 햄버거 메뉴가 닫히면 다시 스크롤 되도록 하기<br>
+                ⇒ <i>요소에 클래스를 추가, 삭제하는 것으로 제어하기!</i>
+            </div>
+            <details>
+                <summary>스크립트 전체 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">const btnHam = document.querySelector(".header_ham");
+const btnMenu = document.querySelector(".header__menu");
+const btnMenuList = document.querySelectorAll(".header__menu li a");
+
+btnHam.addEventListener("click",()=>{
+    btnHam.classList.toggle("active");
+    btnMenu.classList.toggle("active");
+    document.body.classList.toggle("fixed");
+});
+
+window.addEventListener("resize", () => {
+    let width = window.innerWidth;
+    if(width > 1300){
+        document.body.classList.remove("fixed");
+        btnMenu.classList.remove("active");
+        btnHam.classList.remove("active");
+    }
+});
+//스크롤 이동
+btnMenuList.forEach(li => {
+    li.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(li.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+        });
+        document.body.classList.remove("fixed");
+        btnMenu.classList.remove("active");
+        btnHam.classList.remove("active");
+    });
+});
+</code></pre>
+                </div>
+            </details>
+            <div class="t_box">
+                ✔ <i>선택자 만들기</i> <br>
+                햄버거 메뉴의 클릭을 제어하기 위한 btnHam, 메뉴 리스트의 숨김과 보임을 제어할 btnMenu, btnMenuList를 만들어 줍니다.<br>
+                - btnHam : 햄버거 메뉴 버튼를 의미합니다.<br>
+                - btnMenu : 헤더메뉴 전체를 의미합니다.<br>
+                - btnMenuList : 헤더 메뉴의 리스트. 즉, 메뉴 개별 요소를 의미합니다.(⭐복수 대산 선택은 querySelectorAll을 사용합니다!)
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">const btnHam = document.querySelector(".header_ham");
+const btnMenu = document.querySelector(".header__menu");
+const btnMenuList = document.querySelectorAll(".header__menu li a");
+</code></pre>
+            </div>
+            <div class="t_box">
+                ✔ <i>햄버거 메뉴 버튼의 클릭 제어하기</i> <br>
+                햄버거 메뉴 버튼을 클릭하면 햄버거 메뉴의 형태가 변하고. 헤더 메뉴 리스트가 나타나도록 합니다. 한번 더 클릭하면 그 반대가 되도록 합니다.<br>
+                toggle() 메서드를 이용해, 클릭을 하는 경우 active클래스를 btnHam에 추가하거나 제거합니다.(toggle() 메서드는 요소에 클래스가 있다면 제거, 없다면 추가시켜주는 메서드입니다.)<br><br>
+                - active 클래스가 추가되면, btnHam인 햄버거 메뉴 버튼은 형태가 변하고, btnMenu인 헤더 메뉴 리스트는 사용자에게 보이도록 나타나게 됩니다.<br>
+                - active 클래스가 삭제되면, btnHam인 햄버거 메뉴 버튼은 형태가 변하고, btnMenu인 헤더 메뉴 리스트는 사용자에게 보이지 않도록 사라집니다.<br><br>
+                body에는 스크롤이 움직이지 않도록 설정한 css인 fixed 클래스를 추가해 줍니다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">btnHam.addEventListener("click",()=>{
+    btnHam.classList.toggle("active");
+    btnMenu.classList.toggle("active");
+    document.body.classList.toggle("fixed");
+});
+</code></pre>
+            </div>
+            <div class="t_box">
+                ✔ <i>화면 리사이즈의 경우 제어하기</i> <br>
+                햄버거 메뉴 버튼이 활성된 상태에서 화면의 사이즈를 늘리면, 
+                햄버거 버튼은 사라지지만 메뉴가 사라지지 않는 문제를 해결합니다.<br>
+                반응형을 작성하며 햄버거 메뉴 버튼이 1300px 이하 환경에서 나타나도록 하였으므로, 
+                화면의 너비가 1300보다 커지게 되면 앞서 추가되었지만 삭제되지 않고 남아있던 클래스들을 삭제해 줍니다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">window.addEventListener("resize", () => {
+    let width = window.innerWidth;
+    if(width > 1300){
+        document.body.classList.remove("fixed");
+        btnMenu.classList.remove("active");
+        btnHam.classList.remove("active");
+    }
+});
+</code></pre>
+            </div>
+            <div class="t_box">
+                ✔ <i>메뉴 스크롤 이동 제어하기</i> <br>
+                헤더 메뉴 리스트의 각 메뉴를 클릭하면 해당 섹션으로 부드럽게 이동하면서, 햄버거 메뉴의 리스트가 사라지도록 합니다.<br>
+                또한, 스크롤 되지 않도록 고정하기 위해 추가한 fixed 클래스도 삭제해 줍니다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">//스크롤 이동
+btnMenuList.forEach(li => {
+    li.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(li.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+        });
+        document.body.classList.remove("fixed");
+        btnMenu.classList.remove("active");
+        btnHam.classList.remove("active");
+    });
+});
+</code></pre>
+            </div>
+            <div class="t_box">
+                ✔ <i>반응형 만들기</i> <br>
+                헤더 메뉴는 화면의 너비가 줄어들면 메뉴나 로고, 버튼 등이 겹치거나 줄바꿈이 일어나 레이아웃이 깨지게 됩니다.
+                깨짐이 일어나지 않도록 폰트 사이즈나, 리스트의 형태나 숨김 등을 조정하여 반응형을 작성해 줍시다!<br>
+                ⇒ <i>포지션, 헤더 메뉴 리스트의 정렬(모양), 요소의 디스플레이 유형,마진, 패딩, 애니메이션을 조정</i>
+            </div>
+            <details>
+                <summary>반응형 CSS 보기 (스크롤 주의!)</summary>
+                <div class="t_code">
+<pre><code class="language-css">/* media */
+@media (max-width: 1300px){
+    .header__menu {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: auto;
+    }
+    .header__member {
+        width: 50%;
+        margin-right: 50px;
+    }
+    .header__menu li {
+        display: block;
+    }
+    .header_ham {
+        display: block;
+    }
+    .header__menu {
+        position: fixed;
+        right: -100%;
+        top: 69px;
+        background: #fff;
+        width: 60%;
+        height: 100vh;
+        padding: 20px;
+        text-align: right;
+        transition: right 0.4s ease-in;
+    }
+    .header__menu ul li {
+        display: block;
+        margin: 20px;
+    }
+    .header__menu ul li a {
+        padding: 10px;
+        white-space: nowrap;
+    }
+    .header__menu.active {
+        right: 0;
+    }
+}
+</code></pre>
+                </div>
+            </details><br>
+
+            <h3 class="t_tit2">> 완성 페이지 보기</h3>
+            <div class="t_iframe" style="min-height: 700px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/site/site/index.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/site/site/index.html">원본 소스 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

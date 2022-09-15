@@ -642,6 +642,55 @@
                 </div>
             </details><br>
             <div class="t_box">
+                ✔ <i>swiper 스크립트 작성하기</i><br>
+                01. 먼저, 스와이퍼의 자바스크립트 파일을 다운로드 받아 src속성을 이용해 문서에 연결시켜 줍니다.<br>
+                02. 원하는 설정에 맞게 스와이퍼를 작동시킬 스크립트를 작성해 줍니다.<br>
+                -autoplay : 자동 넘김기능을 사용할 수 있습니다. delay는 n초마다 슬라이드를 넘기는 설정, disableOnInteraction: false는 슬라이드 임의 조작 후, 자동 넘김이 중지되는 현상을 막는 기능을 합니다.<br>
+                -pagination : 슬라이드 페이지를 하단에 시각적으로 나타냅니다. el: 나타낼 요소를 선택, type: 나타낼 모얌을 설정, clickable: 클릭 가능 여부를 설정할 수 있습니다.<br>
+                03. 멈춤 버튼과 재생 버튼을 선택하는 선택자를 만듭니다.<br>
+                04. 멈춤 버튼을 누르면 자동 넘김이 멈추고, 멈춤 버튼이 사라지며 재생 버튼이 보이도록 합니다.<br>
+                05. 재생 버튼을 누르면 자동 넘김이 시작되고, 재생 버튼이 사라지며 멈춤 버튼이 보이도록 합니다.
+                더 많은 명령어는 swiper 홈페이지에서 확인할 수 있습니다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-html">&lt;script src="assets/js/swiper-bundle.min.js">&lt;/script>
+</code></pre>
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">let swiper = new Swiper(".mySwiper", {
+    navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+    },
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+    },
+});
+
+const btnStop = document.querySelector(".swiper-button-stop");
+const btnStart = document.querySelector(".swiper-button-play");
+
+btnStart.style.display = "none";
+
+btnStop.addEventListener("click",()=>{
+    swiper.autoplay.stop();
+    btnStart.style.display = "block";
+    btnStop.style.display = "none";
+});
+btnStart.addEventListener("click",()=>{
+    swiper.autoplay.start();
+    btnStart.style.display = "none";
+    btnStop.style.display = "block";
+});
+</code></pre>
+            </div>
+            <div class="t_box">
                 ✔ <i>반응형 만들기</i> <br>
                 화면의 사이즈가 작아지면, 전체 영역의 크기가 같이 작아질 수 있도록, width를 %, vw등의 상대적 단위로 설정해주면 좋습니다.
                 기존의 폰트 사이즈를 그대로 유지하면 모바일 환경에서는 글씨가 굉장히 커보일 수 있으니, 그 점에 유의하며 폰트 사이즈를 조정해 줍니다.<br><br>
