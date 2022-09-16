@@ -213,16 +213,155 @@
                     </div>
                     <div class="cont">
                         <div class="active">
-<pre><code class="languige-js">
+<pre><code class="languige-js">window.addEventListener("mousemove", (event) => {
+    document.querySelector(".clientX").innerText = event.clientX;
+    document.querySelector(".clientY").innerText = event.clientY;
+    document.querySelector(".offsetX").innerText = event.offsetX;
+    document.querySelector(".offsetY").innerText = event.offsetY;
+    document.querySelector(".pageX").innerText = event.pageX;
+    document.querySelector(".pageY").innerText = event.pageY;
+    document.querySelector(".screenX").innerText = event.screenX;
+    document.querySelector(".screenY").innerText = event.screenY;
+});
+
+const cursor = document.querySelector(".mouse__cursor");
+
+window.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX - 25 + "px";
+    cursor.style.top = e.clientY - 25 + "px";
+});
+//getAttribute() => 속성을 가져오는 메서드
+document.querySelectorAll(".mouse__wrap span").forEach(span=>{
+    let attr = span.getAttribute("class");
+
+    span.addEventListener("mouseover", ()=>{
+        cursor.classList.add(attr);
+    });
+    span.addEventListener("mouseout", ()=>{
+        cursor.classList.remove(attr);
+    });
+});
 </code></pre>
                         </div>
                         <div>
-<pre><code class="languige-html">
+<pre><code class="languige-html">&lt;section id="mousetype">
+    &lt;div class="mouse__cursor">&lt;/div>
+    &lt;div class="mouse__wrap">
+        &lt;p>&lt;span class="style1">Resolve&lt;/span> to perform what your ought, perform &lt;span class="style2">without&lt;/span> fail what you &lt;span class="style3">resolve&lt;/span>.&lt;/p>
+        &lt;p>해야할 일은 &lt;span class="style4">과감히&lt;/span> 하라, &lt;span class="style5">결심한&lt;/span> 일은 &lt;span class="style6">반드시&lt;/span> 실행하라.&lt;/p>
+    &lt;/div>
+&lt;/section>
+
+&lt;div class="mouse__info">
+    &lt;ul>
+        &lt;li>clientX : &lt;span class="clientX">0&lt;/span> px&lt;/li>
+        &lt;li>clientY : &lt;span class="clientY">0&lt;/span> px&lt;/li>
+        &lt;li>offsetX : &lt;span class="offsetX">0&lt;/span> px&lt;/li>
+        &lt;li>offsetY : &lt;span class="offsetY">0&lt;/span> px&lt;/li>
+        &lt;li>pageX : &lt;span class="pageX">0&lt;/span> px&lt;/li>
+        &lt;li>pageY : &lt;span class="pageY">0&lt;/span> px&lt;/li>
+        &lt;li>screenX : &lt;span class="screenX">0&lt;/span> px&lt;/li>
+        &lt;li>screenY : &lt;span class="screenY">0&lt;/span> px&lt;/li>
+    &lt;/ul>
+&lt;/div>
 </code></pre>
                         </div>
                         <div>
-<pre><code class="languige-css">
-    
+<pre><code class="languige-css">.mouse__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    overflow: hidden;
+    cursor: none;
+}
+.mouse__wrap p {
+    font-size: 2vw;
+    line-height: 2;
+    font-weight: 300;
+}
+.mouse__wrap p:last-child {
+    font-size: 3vw;
+}
+.mouse__wrap p span {
+    border-bottom: 1px dashed orange;
+    color: orange;
+}
+@media (max-width: 800px){
+    .mouse__wrap p {
+        padding: 0 20px;
+        font-size: 24px;
+        line-height: 1.5;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .mouse__wrap p:last-child {
+        font-size: 40px;
+        line-height: 1.5;
+        text-align: center;
+        word-break: keep-all;
+    }
+}
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 3px solid #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    user-select: none;
+    pointer-events: none;
+    transition:
+        background-color 0.3s,
+        border-color 0.3s,
+        transform 0.6s,
+        border-radius 0.3s
+    ;
+}
+.mouse__cursor.style1 {
+    background-color: rgba(yellow, 0.3);
+    border-color: yellow;
+}
+.mouse__cursor.style2 {
+    background-color: rgba(purple, 0.3);
+    border-color: purple;
+    transform: scale(2) rotateY(720deg);
+}
+.mouse__cursor.style3 {
+    background-color: rgba(blue, 0.3);
+    border-color: blue;
+    transform: scale(1.5) rotateX(450deg);
+}
+.mouse__cursor.style4 {
+    background-color: rgba(green, 0.3);
+    border-color: green;
+    transform: scale(4);
+}
+.mouse__cursor.style5 {
+    background-color: rgba(red, 0.3);
+    border-color: red;
+    border-radius: 0;
+    transform: scale(1.5);
+    transform: skew(30deg);
+}
+.mouse__cursor.style6 {
+    background-color: rgba(cyan, 0.3);
+    border-color: cyan;
+    transform: scale(0.1);
+}
+.mouse__info {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+}  
 </code></pre>
                         </div>
                     </div>

@@ -12,37 +12,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap" rel="stylesheet">
         <style>
-            /* parallax__nav */
-            #parallax__nav {
-                position: fixed;
-                right: 20px;
-                top: -200px;
-                z-index: 2000;
-                background-color: rgba(0,0,0,0.4);
-                padding: 20px 30px;
-                border-radius: 50px;
-                transition: all .4s ease;
-            }
-            #parallax__nav.show {
-                top: 20px;
-            }
-            #parallax__nav li {
-                display: inline;
-                margin: 0 5px;
-            }
-            #parallax__nav li a {
-                display: inline-block;
-                height: 30px;
-                padding: 5px 20px;
-                text-align: center;
-                line-height: 30px;
-            }
-            #parallax__nav li.active a {
-                background-color: #fff;
-                color: #222;
-                border-radius: 20px;
-                box-sizing: content-box;
-            }
             /* parallax__cont */
             #parallax__cont {
                 max-width: 1600px;
@@ -141,115 +110,88 @@
                 margin-left: auto;
                 margin-right: -4vw;
             }
-            #parallax__info {
-                position: fixed;
-                left: 20px;
-                bottom: 20px;
-                z-index: 2000;
-                background-color: rgba(0,0,0,0.6);
-                color: #fff;
-                padding: 20px;
-                border-radius: 10px;
-            }
-            #parallax__info li, .scrollTop  {
-                line-height: 1.4;
-            }
             @media(max-width: 800px) {
                 #parallax__cont {
                     margin-top: 70vw;
                 }
-                #parallax__nav {
-                    padding: 10px;
-                    right: auto;
-                    left: 10px;
-                    top: -150px;
-                    transform: translateY(-50%);
-                    border-radius: 5px;
-                    background-color: rgba(0,0,0,0.8);
-                }
-                #parallax__nav.show {
-                    top: 50%
-                }
-                #parallax__nav li {
-                    display: block;
-                    margin: 5px;
-                }
-                #parallax__nav li a {
-                    font-size: 14px;
-                    padding: 5px;
-                    border-radius: 5px;
-                    height: auto;
-                    line-height: 1;
-                }
-                #parallax__nav li.active a {
-                    border-radius: 5px;
-                }
-                #parallax__info {
-                    left: 10px;
-                    bottom: 10px;
-                }
             }
-            #parallax__top {
-                position: fixed;
-                left: 50%;
-                bottom: -200px;
-                z-index: 10000;
-                transform: translate(-50%);
-                width: 40px;
-                height: 40px;
-                background: rgba(0,0,0,0.4);
-                text-align: center;
-                line-height: 40px;
-                color: #fff;
-                border-radius: 50%;
-                cursor: pointer;
-                transition: all 0.3s;
+
+            /* 한번에 나타나기 */
+            /* #contents > section {
+                opacity: 0;
+                transition: all 1s;
             }
-            #parallax__top.show {
-                bottom: 20px;
+            #contents > section.show {
+                opacity: 1;
+            } */
+
+            /* 개별적으로 나타나기 */
+            #contents > section .content__item__num {
+                opacity: 0;
+                transform: translateY(200px);
+                transition: all 1s 0.1s cubic-bezier(0, 0.84, 0.71, 1);
             }
-            #parallax__top:hover {
-                background: #fff;
-                color: #000;
+            #contents > section .content__item__title {
+                opacity: 0;
+                transform: translateX(-100px);
+                transition: all 1s 0.3s cubic-bezier(0, 0.84, 0.71, 1);
+            }
+            #contents > section .content__item__imgWrap {
+                opacity: 0;
+                transform: translateY(200px) rotate(30deg) skew(20deg);
+                transition: all 1s 0.6s cubic-bezier(0, 0.84, 0.71, 1);
+            }
+            #contents > section .content__item__desc {
+                opacity: 0;
+                transform: translateY(-200px);
+                transition: all 1s 0.9s cubic-bezier(0, 0.84, 0.71, 1);
+            }
+            #contents > section.show .content__item__num {
+                opacity: 0.07;
+                transform: translateY(0);
+            }
+            #contents > section.show .content__item__title {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            #contents > section.show .content__item__imgWrap {
+                opacity: 1;
+                transform: translateY(0) rotate(0) skew(0);
+            }
+            #contents > section.show .content__item__desc {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            #contents > section:nth-child(even) .content__item__title {
+                transform: translateX(100px);
+            }
+            #contents > section:nth-child(even).show .content__item__title {
+                transform: translateX(0);
+            }
+            #contents > section:nth-child(even) .content__item__imgWrap {
+                transform: translateY(200px) rotate(-30deg) skew(-20deg);
+            }
+            #contents > section:nth-child(even).show .content__item__imgWrap {
+                transform: translateY(0) rotate(0) skew(0);
             }
         </style>
     </head>
 
     <body>
         <header id="header">
-            <h1>Javascript Parallax Effect 03</h1>
-            <p>패럴랙스 이펙트 - 숨김 메뉴</p>
+            <h1>Javascript Parallax Effect 04</h1>
+            <p>패럴랙스 이펙트 - 나타나기</p>
             <ul>
                 <li><a href="parallaxEffect01.html">1</a></li>
                 <li><a href="parallaxEffect02.html">2</a></li>
-                <li class="active"><a href="parallaxEffect03.html">3</a></li>
-                <li><a href="parallaxEffect04.html">4</a></li>
+                <li><a href="parallaxEffect03.html">3</a></li>
+                <li class="active"><a href="parallaxEffect04.html">4</a></li>
                 <li><a href="parallaxEffect05.html">5</a></li>
                 <li><a href="parallaxEffect06.html">6</a></li>
                 <li><a href="parallaxEffect07.html">7</a></li>
             </ul>
         </header>
         <!-- header -->
-
-        <nav id="parallax__nav"  class="show">
-            <ul>
-                <li class="active"><a href="#section01">메뉴1</a></li>
-                <li><a href="#section02">메뉴2</a></li>
-                <li><a href="#section03">메뉴3</a></li>
-                <li><a href="#section04">메뉴4</a></li>
-                <li><a href="#section05">메뉴5</a></li>
-                <li><a href="#section06">메뉴6</a></li>
-                <li><a href="#section07">메뉴7</a></li>
-                <li><a href="#section08">메뉴8</a></li>
-                <li><a href="#section09">메뉴9</a></li>
-            </ul>
-        </nav>
-        <!-- parallax__nav -->
-
-        <div id="parallax__top">
-            Top
-        </div>
-        <!-- parallax__top -->
 
         <main id="parallax__cont">
             <div id="contents">
@@ -346,10 +288,6 @@
             </div>
         </main>
         <!-- main -->
-
-        <aside id="parallax__info">
-            <div class="scroll">scrollTop : <span>0</span>px</div>
-        </aside>
     
         <footer id="footer">
             <div class="modal__wrap">
@@ -417,269 +355,15 @@
                     </div>
                     <div class="cont">
                         <div class="active">
-<pre><code class="languige-js">let nowScroll = true;   //트리거 변수를 생성
-let lastScroll = 0;
-
-function scrollProgress(){
-    nowScroll = true;
-
-    setInterval(() => {
-        if(nowScroll){
-            nowScroll = false;
-            hasScroll();
-        }
-    }, 300);
-}
-
-function hasScroll(){
-    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
-    let topbtn = document.querySelector("#parallax__top");
-    document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
-
-    if(scrollTop &lt; lastScroll){
-        document.querySelector("#parallax__nav").classList.add("show");
-    } else {
-        document.querySelector("#parallax__nav").classList.remove("show");
-    }
-    lastScroll = scrollTop;
-
-    if(scrollTop >= document.body.scrollHeight - window.innerHeight){
-        topbtn.classList.add("show");
-    } else {
-        topbtn.classList.remove("show");
-    }
-
-    topbtn.addEventListener("click", ()=>{
-        window.scroll({top: 0, behavior: "smooth"});
-    });
-}
-
-window.addEventListener("scroll", scrollProgress);
+<pre><code class="languige-js">
 </code></pre>
                         </div>
                         <div>
-<pre><code class="languige-html">&lt;nav id="parallax__nav"  class="show">
-    &lt;ul>
-        &lt;li class="active">&lt;a href="#section01">메뉴1&lt;/a>&lt;/li>
-        &lt;li>&lt;a href="#section02">메뉴2&lt;/a>&lt;/li>
-        &lt;li>&lt;a href="#section03">메뉴3&lt;/a>&lt;/li>
-        &lt;li>&lt;a href="#section04">메뉴4&lt;/a>&lt;/li>
-        &lt;li>&lt;a href="#section05">메뉴5&lt;/a>&lt;/li>
-        &lt;li>&lt;a href="#section06">메뉴6&lt;/a>&lt;/li>
-        &lt;li>&lt;a href="#section07">메뉴7&lt;/a>&lt;/li>
-        &lt;li>&lt;a href="#section08">메뉴8&lt;/a>&lt;/li>
-        &lt;li>&lt;a href="#section09">메뉴9&lt;/a>&lt;/li>
-    &lt;/ul>
-&lt;/nav>
-&lt;!-- parallax__nav -->
-
-&lt;div id="parallax__top">
-    Top
-&lt;/div>
-&lt;!-- parallax__top -->
+<pre><code class="languige-html">
 </code></pre>
                         </div>
                         <div>
-<pre><code class="languige-css">/* parallax__nav */
-#parallax__nav {
-    position: fixed;
-    right: 20px;
-    top: -200px;
-    z-index: 2000;
-    background-color: rgba(0,0,0,0.4);
-    padding: 20px 30px;
-    border-radius: 50px;
-    transition: all .4s ease;
-}
-#parallax__nav.show {
-    top: 20px;
-}
-#parallax__nav li {
-    display: inline;
-    margin: 0 5px;
-}
-#parallax__nav li a {
-    display: inline-block;
-    height: 30px;
-    padding: 5px 20px;
-    text-align: center;
-    line-height: 30px;
-}
-#parallax__nav li.active a {
-    background-color: #fff;
-    color: #222;
-    border-radius: 20px;
-    box-sizing: content-box;
-}
-/* parallax__cont */
-#parallax__cont {
-    max-width: 1600px;
-    width: 98%;
-    margin: 0 auto;
-    /* background-color: rgba(255,255,255,0.1); */
-}
-.content__item {
-    width: 1000px;
-    max-width: 70vw;
-    margin: 30vw auto;
-    /* background-color: rgba(255,255,255,0.3); */
-    text-align: left;
-    margin-right: 0;
-    position: relative;
-    padding-top: 9vw;
-}
-.content__item:nth-child(even) {      /* 2n: n은 변수, even: 짝수만 선택 */
-    margin-left: 0;
-    text-align: right;
-}
-.content__item:nth-child(even) .content__item__num {
-    left: auto;  /*left 값 초기화 */
-    right: -5vw;
-}
-.content__item__num {
-    font-size: 35vw;
-    font-family: 'Lato';
-    font-weight: 100;
-    position: absolute;
-    left: -5vw;
-    top: -13vw;
-    opacity: 0.07;
-    z-index: -2;
-}
-.content__item__title {
-    font-weight: 400;
-    text-transform: capitalize;     /* 첫글자만 대문자 */
-}
-.content__item__imgWrap {
-    width: 100%;
-    padding-bottom: 56.25%;
-    background-color: #000;
-    position: relative;
-    overflow: hidden;
-    z-index: -1;
-}
-.content__item__img {
-    position: absolute;
-    background-image: url(../assets/img/effect_img10-min.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    width: 110%;
-    background-size: cover;
-    height: 110%;
-    left: -5%;
-    top: -5%;
-    filter: saturate(0%);
-    transition: all 1s;
-}
-.content__item:nth-child(1) .content__item__img {
-    background-image: url(../assets/img/effect_img10-min.jpg);
-}
-.content__item:nth-child(2) .content__item__img {
-    background-image: url(../assets/img/effect_img09-min.jpg);
-}
-.content__item:nth-child(3) .content__item__img {
-    background-image: url(../assets/img/effect_img08-min.jpg);
-}
-.content__item:nth-child(4) .content__item__img {
-    background-image: url(../assets/img/effect_img07-min.jpg);
-}
-.content__item:nth-child(5) .content__item__img {
-    background-image: url(../assets/img/effect_img06-min.jpg);
-}
-.content__item:nth-child(6) .content__item__img {
-    background-image: url(../assets/img/effect_img05-min.jpg);
-}
-.content__item:nth-child(7) .content__item__img {
-    background-image: url(../assets/img/effect_img04-min.jpg);
-}
-.content__item:nth-child(8) .content__item__img {
-    background-image: url(../assets/img/effect_img03-min.jpg);
-}
-.content__item:nth-child(9) .content__item__img {
-    background-image: url(../assets/img/effect_img02-min.jpg);
-}
-.content__item__desc {
-    font-size: 4vw;
-    line-height: 1.4;
-    margin-top: -5vw;
-    margin-left: -4vw;
-    word-break: keep-all;
-}
-.content__item:nth-child(even) .content__item__desc {
-    margin-left: auto;
-    margin-right: -4vw;
-}
-#parallax__info {
-    position: fixed;
-    left: 20px;
-    bottom: 20px;
-    z-index: 2000;
-    background-color: rgba(0,0,0,0.6);
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-}
-#parallax__info li, .scrollTop  {
-    line-height: 1.4;
-}
-@media(max-width: 800px) {
-    #parallax__cont {
-        margin-top: 70vw;
-    }
-    #parallax__nav {
-        padding: 10px;
-        right: auto;
-        left: 10px;
-        top: -150px;
-        transform: translateY(-50%);
-        border-radius: 5px;
-        background-color: rgba(0,0,0,0.8);
-    }
-    #parallax__nav.show {
-        top: 50%
-    }
-    #parallax__nav li {
-        display: block;
-        margin: 5px;
-    }
-    #parallax__nav li a {
-        font-size: 14px;
-        padding: 5px;
-        border-radius: 5px;
-        height: auto;
-        line-height: 1;
-    }
-    #parallax__nav li.active a {
-        border-radius: 5px;
-    }
-    #parallax__info {
-        left: 10px;
-        bottom: 10px;
-    }
-}
-#parallax__top {
-    position: fixed;
-    left: 50%;
-    bottom: -200px;
-    z-index: 10000;
-    transform: translate(-50%);
-    width: 40px;
-    height: 40px;
-    background: rgba(0,0,0,0.4);
-    text-align: center;
-    line-height: 40px;
-    color: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-#parallax__top.show {
-    bottom: 20px;
-}
-#parallax__top:hover {
-    background: #fff;
-    color: #000;
-}
+<pre><code class="languige-css">  
 </code></pre>
                         </div>
                     </div>
@@ -700,64 +384,20 @@ window.addEventListener("scroll", scrollProgress);
         <script src="../assets/js/common.js"></script>
         <script>hljs.highlightAll();</script>
         <script>
-            // window.addEventListener("scroll", ()=>{
-            //     let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+            //재귀함수 : 함수 안에 그 자기자신의 실행문이 또 있는 것
+           function scroll(){
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.screenY;
 
-            //     if(scrollTop > 0){
-            //         document.querySelector("#parallax__nav").classList.add("show");
-            //     } else {
-            //         document.querySelector("#parallax__nav").classList.remove("show");
-            //     }
-
-            // if(scrollTop >= 문서 전체 높이 - 현재 문서 높이){
-            //     document.querySelector("#parallax__top").classList.add("show");
-            // } else {
-            //     document.querySelector("#parallax__top").classList.remove("show");
-            // }
-            // console.log(maxScroll);
-
-            //     document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
-            // });
-
-            //03
-            let nowScroll = true;   //트리거 변수를 생성
-            let lastScroll = 0;
-
-            function scrollProgress(){
-                nowScroll = true;
-
-                setInterval(() => {
-                    if(nowScroll){
-                        nowScroll = false;
-                        hasScroll();
+                document.querySelectorAll(".content__item").forEach(item => {
+                    if(scrollTop > item.offsetTop - window.innerHeight/2){
+                        item.classList.add("show");
                     }
-                }, 300);
-            }
-            
-            function hasScroll(){
-                let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
-                let topbtn = document.querySelector("#parallax__top");
-                document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
-
-                if(scrollTop < lastScroll){
-                    document.querySelector("#parallax__nav").classList.add("show");
-                } else {
-                    document.querySelector("#parallax__nav").classList.remove("show");
-                }
-                lastScroll = scrollTop;
-
-                if(scrollTop >= document.body.scrollHeight - window.innerHeight){
-                    topbtn.classList.add("show");
-                } else {
-                    topbtn.classList.remove("show");
-                }
-
-                topbtn.addEventListener("click", ()=>{
-                    window.scroll({top: 0, behavior: "smooth"});
                 });
-            }
-
-            window.addEventListener("scroll", scrollProgress);
+                
+                requestAnimationFrame(scroll);
+                // 브라우저에 최적화 되어있는 스크롤 이벤트, 훨신 부드럽고 가볍다.
+           };
+           scroll();
         </script>
     </body>
 </html>
