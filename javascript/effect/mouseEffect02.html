@@ -178,16 +178,136 @@
                     </div>
                     <div class="cont">
                         <div class="active">
-<pre><code class="languige-js">
+<pre><code class="languige-js">window.addEventListener("mousemove", e => {
+    // 커서 좌표값 할당
+    // cursor.style.left = e.pageX -5 + "px";
+    // cursor.style.top = e.pageY -5 + "px";
+    // cursor2.style.left = e.pageX -15 + "px";
+    // cursor2.style.top = e.pageY -15 + "px";
+
+    // GSAP
+    gsap.to(cursor, {duration: 0.3, left: e.pageX -5, top: e.pageY -5});
+    gsap.to(cursor2, {duration: 0.8, left: e.pageX -15, top: e.pageY -15});
+
+    // 엣날형식 : 화살표 함수에서는 this가 안됩니다.
+    // span.forEach( function(){
+    //     this.addEventListener("mousseenter", function(){});
+    // });
+
+    // 오버효과
+    // mouseenter / mouseover / 이벤트 버블링(자식 요소에 이벤트 확산)
+    // 이벤트 요소에 자식 요소가 있으면 mouseenter를 사용합시다.
+
+    span.forEach(span => {
+        span.addEventListener("mouseenter", ()=>{
+            cursor.classList.add("active");
+            cursor2.classList.add("active");
+        });
+        span.addEventListener("mouseleave", ()=>{
+            cursor.classList.remove("active");
+            cursor2.classList.remove("active");
+        });
+    });
+    sourceBtn.forEach(btn => {
+        btn.addEventListener("mouseenter", ()=>{
+            cursor.classList.add("active");
+            cursor2.classList.add("active");
+        });
+        btn.addEventListener("mouseleave", ()=>{
+            cursor.classList.remove("active");
+            cursor2.classList.remove("active");
+        });
+    });
+});
 </code></pre>
                         </div>
                         <div>
-<pre><code class="languige-html">
+<pre><code class="languige-html">&lt;main id="main">
+    &lt;section id="mousetype">
+        &lt;div class="mouse__cursor">&lt;/div>
+        &lt;div class="mouse__cursor2">&lt;/div>
+
+        &lt;div class="mouse__wrap">
+            &lt;p>The &lt;span>future&lt;/span> depends on what We do in &lt;span>present&lt;/span>.&lt;/p>
+            &lt;p>&lt;span>미래&lt;/span>는 &lt;span>현재&lt;/span> 우리가 무엇을 하는가에 달려있다.&lt;/p>
+        &lt;/div>
+    &lt;/section>
+&lt;/main>
+&lt;!-- main -->
 </code></pre>
                         </div>
                         <div>
-<pre><code class="languige-css">
-    
+<pre><code class="languige-css">.mouse__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    overflow: hidden;
+    cursor: none;
+}
+.mouse__wrap p {
+    font-size: 2vw;
+    line-height: 2;
+    font-weight: 300;
+}
+.mouse__wrap p:last-child {
+    font-size: 3vw;
+}
+.mouse__wrap p span {
+    border-bottom: 1px dashed orange;
+    color: orange;
+}
+@media (max-width: 800px){
+    .mouse__wrap p {
+        padding: 0 20px;
+        font-size: 24px;
+        line-height: 1.5;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .mouse__wrap p:last-child {
+        font-size: 40px;
+        line-height: 1.5;
+        text-align: center;
+        word-break: keep-all;
+    }
+}
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    z-index: 9999;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.3s, opacity 0.2s;
+}
+.mouse__cursor2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    z-index: 9998;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.3s, opacity 0.2s;
+}
+.mouse__cursor.active {
+    transform: scale(0);
+}
+.mouse__cursor2.active {
+    transform: scale(10);
+    background: rgba(255,166,0,0.5);
+}
 </code></pre>
                         </div>
                     </div>

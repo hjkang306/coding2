@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">마우스 효과 만들기 1</h2>
+            <p class="t_desc2">
+                스크립트를 이용하여 마우스 커서를 따라다니는 효과나, 요소에 마우스가 올라갔을 때 마우스를 따라다니는 요소의 색이 변하거나 모양이 변하게 할 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">마우스 이펙트 : 마우스 따라다니기</h3>
+            <p class="t_desc">
+                이번 효과는 마우스를 따라다니는 원이 마우스 커서를 대신하며, 노란색 텍스트 위에 커서를 올리면 원의 모양이 변하거나 색이 변하는 효과입니다.
+            </p>
+            <h3 class="t_tit2">HTML 코드</h3>
+            <p class="t_desc">
+                기본 마우스 커서를 대신할 요소는 mouse__cursor 클래스를 주었습니다. mouse__wrap 안에는 p태그로 명언을 적고, span태그로 특정 단어를 감싸 강조해 주었습니다.
+                mouse__info는 커서의 위치에 대한 정보를 나타낼 예정입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="mousetype">
+    &lt;div class="mouse__cursor">&lt;/div>
+    &lt;div class="mouse__wrap">
+        &lt;p>&lt;span class="style1">Resolve&lt;/span> to perform what your ought, perform &lt;span class="style2">without&lt;/span> fail what you &lt;span class="style3">resolve&lt;/span>.&lt;/p>
+        &lt;p>해야할 일은 &lt;span class="style4">과감히&lt;/span> 하라, &lt;span class="style5">결심한&lt;/span> 일은 &lt;span class="style6">반드시&lt;/span> 실행하라.&lt;/p>
+    &lt;/div>
+&lt;/section>
+
+&lt;div class="mouse__info">
+    &lt;ul>
+        &lt;li>clientX : &lt;span class="clientX">0&lt;/span> px&lt;/li>
+        &lt;li>clientY : &lt;span class="clientY">0&lt;/span> px&lt;/li>
+        &lt;li>offsetX : &lt;span class="offsetX">0&lt;/span> px&lt;/li>
+        &lt;li>offsetY : &lt;span class="offsetY">0&lt;/span> px&lt;/li>
+        &lt;li>pageX : &lt;span class="pageX">0&lt;/span> px&lt;/li>
+        &lt;li>pageY : &lt;span class="pageY">0&lt;/span> px&lt;/li>
+        &lt;li>screenX : &lt;span class="screenX">0&lt;/span> px&lt;/li>
+        &lt;li>screenY : &lt;span class="screenY">0&lt;/span> px&lt;/li>
+    &lt;/ul>
+&lt;/div>
+</code></pre>
+            </div>
+            <h3 class="t_tit2">CSS 코드</h3>
+            <p class="t_desc">
+                mouse__cursor는 기존의 마우스 커서를 따라다녀야 하기 때문에, position: absolute;를 사용하여 위치를 잡아줍니다. 
+                이후에 스크립트를 이용해 top 값과 left 값의 변화를 주어 마우스를 따라다니는 것처럼 보이게 할 예정입니다.
+            </p>
+            <p class="t_box">
+                ✔transform의 속성 몇가지<br>
+                - scale : 확대 축소 (배율)<br>
+                - rotate : 회전<br>
+                - skew : 기울이기
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">.mouse__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    overflow: hidden;
+    cursor: none;
+}
+.mouse__wrap p {
+    font-size: 2vw;
+    line-height: 2;
+    font-weight: 300;
+}
+.mouse__wrap p:last-child {
+    font-size: 3vw;
+}
+.mouse__wrap p span {
+    border-bottom: 1px dashed orange;
+    color: orange;
+}
+@media (max-width: 800px){
+    .mouse__wrap p {
+        padding: 0 20px;
+        font-size: 24px;
+        line-height: 1.5;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .mouse__wrap p:last-child {
+        font-size: 40px;
+        line-height: 1.5;
+        text-align: center;
+        word-break: keep-all;
+    }
+}
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 3px solid #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    user-select: none;
+    pointer-events: none;
+    transition:
+        background-color 0.3s,
+        border-color 0.3s,
+        transform 0.6s,
+        border-radius 0.3s
+    ;
+}
+.mouse__cursor.style1 {
+    background-color: rgba(yellow, 0.3);
+    border-color: yellow;
+}
+.mouse__cursor.style2 {
+    background-color: rgba(purple, 0.3);
+    border-color: purple;
+    transform: scale(2) rotateY(720deg);
+}
+.mouse__cursor.style3 {
+    background-color: rgba(blue, 0.3);
+    border-color: blue;
+    transform: scale(1.5) rotateX(450deg);
+}
+.mouse__cursor.style4 {
+    background-color: rgba(green, 0.3);
+    border-color: green;
+    transform: scale(4);
+}
+.mouse__cursor.style5 {
+    background-color: rgba(red, 0.3);
+    border-color: red;
+    border-radius: 0;
+    transform: scale(1.5);
+    transform: skew(30deg);
+}
+.mouse__cursor.style6 {
+    background-color: rgba(cyan, 0.3);
+    border-color: cyan;
+    transform: scale(0.1);
+}
+.mouse__info {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">스크립트 작성하기</h3>
+            <p class="t_box">
+                01. 먼저 마우스 커서의 각 속성값을 구해 변수에 저장합니다.<br>
+                : addEventListener()의 "mousemove"속성을 이용하면, 마우스가 움직일 때 이벤트를 발생시킬 수 있습니다. 
+                여기서 (clientX,clientY), (pageX,pageY)의 값이 마우스 커서의 좌표값이 됩니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">window.addEventListener("mousemove", (event) => {
+    document.querySelector(".clientX").innerText = event.clientX;
+    document.querySelector(".clientY").innerText = event.clientY;
+    document.querySelector(".offsetX").innerText = event.offsetX;
+    document.querySelector(".offsetY").innerText = event.offsetY;
+    document.querySelector(".pageX").innerText = event.pageX;
+    document.querySelector(".pageY").innerText = event.pageY;
+    document.querySelector(".screenX").innerText = event.screenX;
+    document.querySelector(".screenY").innerText = event.screenY;
+});
+</code></pre>
+            </div><br>
+            <p class="t_box">
+                02. 새로 만들어준 마우스 커서의 위치를, 실제 마우스 커서의 위치로 이동시켜줍니다.<br>
+                : 각 값에 -25를 해주는 이유는 새로 만든 커서를 실제 커서가 중앙에 오도록 맞추기 위해, mouse__cursor의 너비의 반만큼 뺄셈 해 준 것입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor");
+        
+window.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX - 25 + "px";
+    cursor.style.top = e.clientY - 25 + "px";
+});
+</code></pre>
+            </div>
+            <p class="t_box">
+                03. 노란 글씨 위에 마우스가 올라가면 새 커서에 변화가 일어나도록 합니다.<br>
+                : getAttribute() 메서드를 이용해 클래스 정보를 불러오면, 각각의 클래스마다 실행문을 작성하지 않고 한번에 작성할 수 잇어 간단해집니다.
+                마우스가 요소에 올라가면 불러온 클래스명을 새 커서에 추가하고, 반대의 경우 제거하는 방법을 통해 새 커서의 형태에 변화를 일으킵니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">document.querySelectorAll(".mouse__wrap span").forEach(span=>{
+    let attr = span.getAttribute("class");
+
+    span.addEventListener("mouseover", ()=>{
+        cursor.classList.add(attr);
+    });
+    span.addEventListener("mouseout", ()=>{
+        cursor.classList.remove(attr);
+    });
+});
+</code></pre>
+            </div>
+            
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/mouseEffect01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/javascript/effect/mouseEffect01.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

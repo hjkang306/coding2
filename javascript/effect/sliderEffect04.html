@@ -362,10 +362,7 @@ sliderBtnNext.addEventListener("click", ()=>{
 
         // 왼쪽 버튼 클릭
         sliderBtnPrev.addEventListener("click", ()=>{
-            let prevIndex = (currentIndex -1) % sliderCount;
-            if (prevIndex == -1){
-                prevIndex = sliderCount-1;
-            }
+            let prevIndex = (currentIndex + sliderCount -1) % sliderCount;
             gotoSlider(prevIndex);
             // 4 3 2 1 0 4 3 2
             // 3 2 1 0 4 3 2 1
