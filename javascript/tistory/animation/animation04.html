@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">애니메이션 만들기</h2>
+            <p class="t_desc2">
+                css 애니메이션을 만들어 봅니다!
+            </p>
+
+            <h3 class="t_tit2">애니메이션 : 꾸물거리는 점</h3>
+            <p class="t_desc">
+                꾸물꾸물 거리는 것처럼 보이는 점을 만듭니다.
+            </p>
+            <h3 class="t_tit2">pug 코드 보기</h3>
+            <div class="t_code">
+<pre><code class="language-html">div.circle_wrap
+	-for (var x =1; x&lt;=12; x++)
+		div.row
+			-for (var y = 1; y&lt;=12; y++)
+				div.circle
+</code></pre>
+            </div>
+            <h3 class="t_tit2">Scss 코드 보기</h3>
+            <div class="t_code">
+<pre><code class="language-scss">@mixin center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+body {
+	@include center;
+	height: 100vh;
+	background-image: linear-gradient(45deg, #00dbde 0%, #fc00ff 100%)
+}
+.row {
+	display: flex;
+	.circle {
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: #fff;
+		transform-origin: top center;
+		animation: spin 1s linear infinite;
+		margin: 4px 10px;
+	}
+	
+}
+@keyframes spin {
+		0% {transform:scale(1.1) rotate(0deg)}
+		50% {transform:scale(0.2) rotate(180deg)}
+		100% {transform:scale(1.1) rotate(360deg)}
+}
+@for $i from 1 through 12 {
+		.row:nth-child(#{$i}) .circle {animation-delay: 100ms * $i}
+	}
+</code></pre>
+            </div>
+            <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="css,result" data-slug-hash="bGMWYKa" data-user="hjkang306" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/hjkang306/pen/bGMWYKa">
+            Untitled</a> by hjkang306 (<a href="https://codepen.io/hjkang306">@hjkang306</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

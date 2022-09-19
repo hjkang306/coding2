@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이트 만들기1</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+
+    <!-- 섹션별 -->
+    <link rel="stylesheet" href="assets03/css/header.css">
+    <link rel="stylesheet" href="assets03/css/slider.css">
+
+    <!-- swiper -->
+    <link rel="stylesheet" href="assets/css/swiper.css">
+</head>
+<body>
+
+    <header id="headerType" class="header__wrap nexon">
+        <div class="header__inner">
+            <div class="header__logo">
+                <a href="#">WEB site</a>
+            </div>
+            <nav class="header__menu">
+                <ul>
+                    <li><a href="#">헤더 영역</a></li>
+                    <li><a href="#">슬라이드 영역</a></li>
+                    <li><a href="#">이미지 영역</a></li>
+                    <li><a href="#">컨텐츠 영역</a></li>
+                    <li><a href="#">푸터 영역</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- //headerType -->
+
+    <main id="mainType">
+        <section id="sliderType" class="slider__wrap">
+            <h2 class="blind">슬라이드 영역</h2>
+            <div class="slider__innner">
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide sliderimg1">
+                            <div class="desc container">
+                                <h3>AMAIZING<br>CATUS</h3>
+                                <p>
+                                    가시 범벅인 선인장!<br>
+                                    어쩌다가 이렇게 된 걸까요?<br>
+                                    식물계의 까칠왕 선인장을 소개합니다!
+                                </p>
+                                <div class="btn">
+                                    <a href="#">더 알아보기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide sliderimg2">
+                            <div class="desc container">
+                                <h3>AMAIZING<br>CATUS</h3>
+                                <p>
+                                    가시 범벅인 선인장!<br>
+                                    어쩌다가 이렇게 된 걸까요?<br>
+                                    식물계의 까칠왕 선인장을 소개합니다!
+                                </p>
+                                <div class="btn">
+                                    <a href="#">더 알아보기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide sliderimg3">
+                            <div class="desc container">
+                                <h3>AMAIZING<br>CATUS</h3>
+                                <p>
+                                    가시 범벅인 선인장!<br>
+                                    어쩌다가 이렇게 된 걸까요?<br>
+                                    식물계의 까칠왕 선인장을 소개합니다!
+                                </p>
+                                <div class="btn">
+                                    <a href="#">더 알아보기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide sliderimg4">
+                            <div class="desc container">
+                                <h3>AMAIZING<br>CATUS</h3>
+                                <p>
+                                    가시 범벅인 선인장!<br>
+                                    어쩌다가 이렇게 된 걸까요?<br>
+                                    식물계의 까칠왕 선인장을 소개합니다!
+                                </p>
+                                <div class="btn">
+                                    <a href="#">더 알아보기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide sliderimg5">
+                            <div class="desc container">
+                                <h3>AMAIZING<br>CATUS</h3>
+                                <p>
+                                    가시 범벅인 선인장!<br>
+                                    어쩌다가 이렇게 된 걸까요?<br>
+                                    식물계의 까칠왕 선인장을 소개합니다!
+                                </p>
+                                <div class="btn">
+                                    <a href="#">더 알아보기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide sliderimg6">
+                            <div class="desc container">
+                                <h3>AMAIZING<br>CATUS</h3>
+                                <p>
+                                    가시 범벅인 선인장!<br>
+                                    어쩌다가 이렇게 된 걸까요?<br>
+                                    식물계의 까칠왕 선인장을 소개합니다!
+                                </p>
+                                <div class="btn">
+                                    <a href="#">더 알아보기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <!-- //sliderType-->
+    </main>
+    <!-- //mainType -->
+
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script>
+        let swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                type: 'bullets',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+</body>
+</html>

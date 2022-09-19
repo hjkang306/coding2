@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+       <div class="document">
+            <h2 class="t_tit">VScode에서 scss 사용하는 법</h2>
+            <p class="t_desc">
+                scss는 css를 좀 더 간단히 작성할 수 있는 언어입니다. vscode에서 scss를 작성하기 위해서는 몇가지 확장프로그램을 설치하고 셋팅해주어야 합니다.
+            </p>
+
+            <h3 class="t_tit2">1. Sass 설치하기</h3>
+            <p class="t_desc2">
+                Extensions 탭에서 Sass를 검색하여 <i>install</i> 합니다.
+            </p>
+            <h3 class="t_tit2">2. Live Sass Compiler 설치하기</h3>
+            <p class="t_desc2">
+                Extensions 탭에서 Live Sass Compiler를 검색하여 <i>install</i> 합니다.
+            </p>
+            <h3 class="t_tit2">3. scss파일 만들기</h3>
+            <p class="t_desc2">
+                파일의 확장자를 .scss로 하여 코드를 작성합니다.
+            </p>
+            <h3 class="t_tit2">4. Live Sass Compiler 실행하기</h3>
+            <p class="t_desc2">
+                vscode 화면 오른쪽 하단에 생긴 Watch Sass를 눌러 컴파일러를 실행시킵니다. 그러면 scss파일이 자동으로 css로 컴파일되어 파일이 생성됩니다.<br>
+                - *.min.css : css 축약파일<br>
+                - *.css : 컴파일된 css 파일
+            </p>
+            <h3 class="t_tit2">+ json 셋팅 추가하기(선택 요소)</h3>
+            <p class="t_desc2">
+                F1을 눌러 나온 검색 탭에서 json을 검색하여 open user setting 문서를 열어줍니다.<br>
+                만약에 css파일이 css라는 별도의 폴더에 생성되었으면 좋겠다면 다음과 같은 코드를 해당 문서에 추가해 줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-json">"liveSassCompile.settings.formats": [
+    {
+    "format": "expanded",
+    "extensionName": ".css",
+    "savePath": "~/../css/"
+    },
+    {
+    "format": "compressed",
+    "extensionName": ".min.css",
+    "savePath": "~/../css/"
+    }
+]
+</code></pre>
+            </div>
+            <p class="t_desc2">
+                컴파일이 실행되었을 때, css파일에 generateMap의 정보가 표기되는 것이 싫다면 다음의 코드를 추가해 줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-json">"liveSassCompile.settings.generateMap": false
+</code></pre>
+            </div>
+
+            <div class="t_link">
+                <a href="https://sass-lang.com/">Sass 공식 홈페이지</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
