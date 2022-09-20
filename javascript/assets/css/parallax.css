@@ -73,10 +73,12 @@
 }
 #header h1{
     display: inline-block;
-    font-family: 'Montserrat';
-    font-weight: 300;
     margin-bottom: 10px;
     border-bottom: 1px solid #fff;
+}
+#header h1 a {
+    font-family: 'Montserrat';
+    font-weight: 300;
 }
 #header p{
     margin-bottom: 10px;
