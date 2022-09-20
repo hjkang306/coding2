@@ -1,34 +1,3 @@
-<script>
-    let i = 0;
-    $("div.overout").mouseover(function(){
-      $("p:first",this).text("mouse over");
-      $("p:last",this).text(++i);
-    }).mouseout(function(){
-      $("p:first",this).text("mouse out");
-    });
-    
-    let n = 0;
-    $("div.enterleave").mouseenter(function(){
-      $("p:first",this).text("mouse enter");
-      $("p:last",this).text(++n);
-    }).mouseleave(function(){
-      $("p:first",this).text("mouse leave");
-    });
-</script>
-<script>
-   const overout = document.querySelector("div.overout");
-   const enterleave = document.querySelector("div.enterleave");
+<link rel="stylesheet" href="assets/css/parallaxTop.css">
 
-   overout.addEventListener("mouseover", ()=>{
-        document.querySelector("p:first",this).textContent = "mouse over";
-        document.querySelector("p:last",this).textContent = i++;
-    }).addEventListener("mouseout", ()=>{
-        document.querySelector("p:first",this).textContent = "mouse out";
-   });
-   enterleave.addEventListener("mouseenter", ()=>{
-        document.querySelector("p:first",this).textContent = "mouse enter";
-        document.querySelector("p:last",this).textContent = n++;
-    }).addEventListener("mouseleave", ()=>{
-        document.querySelector("p:first",this).textContent = "mouse leave";
-   });
-</script>
+<script src="assets/js/parallaxTop.js"></script>
