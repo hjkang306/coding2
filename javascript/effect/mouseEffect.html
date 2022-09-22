@@ -4,38 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마우스 효과</title>
-
+    <title>자바스크립트 : 데이터 불러오기</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <style>
-        body {
-            padding: 0;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            background: radial-gradient(circle farthest-corner at top center, #b9ff8a, #d492ff);
-            box-sizing: border-box;
-        }
-        .intro_menu {
-            background: rgba(83, 0, 94, 0.3);
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/dracula.css">
 </head>
 <body>
-    <main>
-        <div class="intro_menu white">
-            <ul>
-                <li>01. 마우스 이펙트 : 마우스 따라다니기<a href="mouseEffect01.html"> GO ⇒</a></li>
-                <li>02. 마우스 이펙트 : 마우스 따라다니기(GSAP)<a href="mouseEffect02.html"> GO ⇒</a></li>
-            </ul>
+    <header id="header">  
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="container">
+            <div class="main_menu">
+                <ul>
+                    <li>01. 마우스 이펙트 : 마우스 따라다니기<a href="../effect/mouseEffect01.html"> GO ⇒</a></a></li>
+                    <li>02. 마우스 이펙트 : 마우스 따라다니기(GSAP)<a href="../effect/mouseEffect02.html"> GO ⇒</a></a></li>
+                    <li>03. 마우스 이펙트 : 조명 효과<a href="../effect/mouseEffect03.html"> GO ⇒</a></a></li>
+                    <li>04. 마우스 이펙트 : 이미지 효과<a href="../effect/mouseEffect04.html"> GO ⇒</a></a></li>
+                </ul>
+            </div>
         </div>
     </main>
-    <canvas id="webgl-canvas"></canvas>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../assets/js/highlight.min.js"></script>
+    <script src="../assets/js/headerMenu02.js"></script>
     <script>
+        hljs.highlightAll();
+        
+        headerMenuIn();
+        const active = document.querySelectorAll(".header_nav ul li");
+        active[15].classList.add("active");
     </script>
 </body>
 </html>

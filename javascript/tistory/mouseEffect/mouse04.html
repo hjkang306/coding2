@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">마우스 효과 만들기 4</h2>
+            <p class="t_desc2">
+                스크립트를 이용하여 마우스 커서를 따라다니는 효과나, 요소에 마우스가 올라갔을 때 마우스를 따라다니는 요소의 색이 변하거나 모양이 변하게 할 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">마우스 이펙트 : 이미지 효과</h3>
+            <p class="t_desc">
+                마우스를 올리면 이미지가 조금씩 움직이고, 커지며 이질감을 주는 효과입니다. 저번에 패럴랙스에서 이질감을 주었던 효과와 비슷하다고 생각하시면 됩니다!
+            </p>
+            <h3 class="t_tit2">HTML 코드</h3>
+            <p class="t_desc">
+                이번에는 기본 마우스 커서를 대신할 요소로 .mouse__cursor 를 만들어 줍니다.
+                그리고 p태그에 명언을 적어주는 것까지는 저번 유형과 비슷하나, 이번에는 이미지를 넣었기 때문에 figure태그를 사용하였으며 커서의 위치값을 확인할 수 있도록 .mouse__info를 추가하였습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="mousetype">
+    &lt;div class="mouse__cursor">&lt;/div>
+    &lt;div class="mouse__wrap">
+        &lt;figure>
+            &lt;img src="../assets/img/effect_bg09-min.jpg" alt="이미지">
+            &lt;figcaption>
+                &lt;p>The most difficult thing is the decision to act, the rest is merely tenacity.&lt;/p>
+                &lt;p>가장 어려운 것은 행동하기로 결정하는 것이며, 나머지는 단지 끈기있게 하는 것이다.&lt;/p>
+            &lt;/figcaption>
+        &lt;/figure>
+    &lt;/div>
+&lt;/section>
+
+&lt;div class="mouse__info">
+    &lt;ul>
+        &lt;li>mousePageX : &lt;span class="mousePageX">0&lt;/span> px&lt;/li>
+        &lt;li>mousePageY : &lt;span class="mousePageY">0&lt;/span> px&lt;/li>
+        &lt;li>centerPageX : &lt;span class="centerPageX">0&lt;/span> px&lt;/li>
+        &lt;li>centerPageY : &lt;span class="centerPageY">0&lt;/span> px&lt;/li>
+    &lt;/ul>
+&lt;/div>
+</code></pre>
+            </div>
+            <h3 class="t_tit2">CSS 코드</h3>
+            <p class="t_desc">
+                mouse__cursor는 기존의 마우스 커서를 따라다녀야 하기 때문에, position: absolute;를 사용하여 위치를 잡아줍니다. 
+                이후에 스크립트를 이용해 top 값과 left 값의 변화를 주어 마우스를 따라다니는 것처럼 보이게 할 예정입니다.
+            </p>
+            <p class="t_box">
+                ✔point 속성 몇가지<br>
+                - object-fit: : background-size의 cover와 같은 속성으로 bg가 아닌 img에 cover를 적용할 수 있는 속성입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">.mouse__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    overflow: hidden;
+}
+.mouse__wrap figure {
+    width: 50vw;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    transition: transform 500ms ease;
+    cursor: none;
+}
+.mouse__wrap figure:hover {
+    transform: scale(1.025);
+}
+.mouse__wrap figure img {
+    position: absolute;
+    left: -5%;
+    top: -5%;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+}
+.mouse__wrap figure figcaption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 16px;
+    white-space: nowrap;
+    line-height: 1.4;
+    font-weight: 300;
+}
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1000;
+    user-select: none;
+    pointer-events: none;
+}
+
+.mouse__info {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">스크립트 작성하기</h3>
+            <details>
+                <summary>전체 스크립트 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor");
+const cursorRext = cursor.getBoundingClientRect();
+
+document.querySelector('.mouse__wrap figure').addEventListener("mousemove", (e)=>{
+    // 커서
+    gsap.to(cursor, {
+        duration: .5,
+        left: e.pageX - cursorRext.width/2,
+        top: e.pageY - cursorRext.height/2,
+    });
+
+    // 마우스 좌표 값
+    let mousePageX = e.pageX;
+    let mousePageY = e.pageY;
+
+    // 전체 가로
+    //window.innerWidth //1920 :브라우저 크기
+    //window.outerWidth //1920 : 브라우저 크기(스크롤바 여부에 달라짐 - 스크롤바 포함)
+    //window.screen.width //1920 : 화면 크기
+
+    // 마우스  좌표 값 가운데로 초기화
+    // 전체 길이/2 - 마우스 좌표값 ==0
+
+    let centerPageX = window.innerWidth/2 - mousePageX;
+    let centerPageY = window.innerHeight/2 - mousePageY;
+
+    // 이미지 움직이기
+    const imgMove = document.querySelector(".mouse__wrap figure img");
+    // imgMove.style.transform = "translate("+ centerPageX/20 +"px, "+ centerPageY/20 +"px)";
+
+    gsap.to(imgMove, {
+        duration: 0.3,
+        x: centerPageX/20,
+        y: centerPageY/20
+    })
+
+    // 출력
+    document.querySelector(".mousePageX").textContent = mousePageX;
+    document.querySelector(".mousePageY").textContent = mousePageY;
+    document.querySelector(".centerPageX").textContent = centerPageX;
+    document.querySelector(".centerPageY").textContent = centerPageY;
+});
+</code></pre>
+                </div>
+            </details>
+            <h3 class="t_tit2">01. 먼저, 스크립트를 작성할 대상이 되는 요소들의 선택자를 만들어 줍니다.</h3>
+            <div class="t_code">
+<pre><code class="language-js"> const cursor = document.querySelector(".mouse__cursor");
+const cursorRext = cursor.getBoundingClientRect();
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">02. 이미지를 대상으로, 마우스가 움직이는 경우의 이벤트를 발생시킵니다.</h3>
+            <p class="t_box">
+                : addEventListener()의 mousemove 속성을 이용합니다. 여기서 e는 마우스 커서를 의미합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">document.querySelector('.mouse__wrap figure').addEventListener("mousemove", e => {});
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">03. gsap를 이용해 cursor에 커서의 위치값을 지정해 줍니다.(애니메이션을 준다고 생각합니다.).</h3>
+            <p class="t_box">
+                : gsap.to( 요소, {애니메이션 값} );<br>
+                - duration : 애니메이션 지속시간<br>
+                - left : 왼쪽 좌표 값(이동 위치)<br>
+                - top : 위쪽 좌표 값(이동 위치)
+                -cursorRext.width/2<br>
+                : 커서가 중앙에 와야하기 때문에 전체 너비의 반을 빼줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">// 커서
+gsap.to(cursor, {
+    duration: .5,
+    left: e.pageX - cursorRext.width/2,
+    top: e.pageY - cursorRext.height/2,
+});
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">04. 마우스 좌표 값을 변수에 저장합니다.</h3>
+            <p class="t_box">
+                : pageX를 이용해서 커서의 X축 좌표값을, pageY를 이용해서 커서의 Y축 좌표값을 구해 변수에 저장합니다.
+                여기서 구한 값은 마우스의 좌표 값을 가운데로 초기화 하는 데에 사용됩니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">// 마우스 좌표 값
+let mousePageX = e.pageX;
+let mousePageY = e.pageY;
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">05. 이미지를 움직이기 위해, 이미지를 선택하는 선택자를 만들어 줍니다.</h3>
+            <p class="t_box">
+                : 자바스크립트만을 사용하여 작성하면, 아래의 주석처리된 코드를 작성하겠지만, 오늘은 gsap를 이용해 작성해 보았습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">// 이미지 움직이기
+const imgMove = document.querySelector(".mouse__wrap figure img");
+// imgMove.style.transform = "translate("+ centerPageX/20 +"px, "+ centerPageY/20 +"px)";
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">06. gsap를 이용해 이미지에 애니메이션 주기</h3>
+            <p class="t_box">
+                : gsap.to( 요소, {애니메이션 값} );<br>
+                - duration : 애니메이션 지속시간<br>
+                - left : 왼쪽 좌표 값(이동 위치)<br>
+                - top : 위쪽 좌표 값(이동 위치)
+                - centerPageX/20<br>
+                : 각 PageX, PageY 값을 20으로 나눈 값만큼 x, y축으로 움직이도록 하여 천천히 조금식 움직이는 것처럼 보이게 하였습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">gsap.to(imgMove, {
+    duration: 0.3,
+    x: centerPageX/20,
+    y: centerPageY/20
+})
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">06. mouse__info에 각 좌표값 넣기</h3>
+            <p class="t_box">
+                : textContent를 이용해 각 요소에 해당하는 값을 작성해 줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">// 출력
+document.querySelector(".mousePageX").textContent = mousePageX;
+document.querySelector(".mousePageY").textContent = mousePageY;
+document.querySelector(".centerPageX").textContent = centerPageX;
+document.querySelector(".centerPageY").textContent = centerPageY;
+</code></pre>
+            </div><br>
+            
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/mouseEffect04.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/javascript/effect/mouseEffect04.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

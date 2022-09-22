@@ -52,46 +52,30 @@
                 position: absolute;
                 left: 0;
                 top: 0;
-                width: 10px;
-                height: 10px;
-                z-index: 9999;
+                width: 200px;
+                height: 200px;
+                z-index: -1;
                 border-radius: 50%;
-                background: rgba(255,255,255,0.3);
-                user-select: none;
-                pointer-events: none;
-                transition: transform 0.3s, opacity 0.2s;
+                background-image: url(../assets/img/effect_bg03@2x-min.jpg);
+                background-size: cover;
+                background-position: center center;
+                background-attachment: fixed;
+                border: 5px solid #fff;
             }
-            .mouse__cursor2 {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 30px;
-                height: 30px;
-                z-index: 9998;
-                border-radius: 50%;
-                background: rgba(255,255,255,0.1);
-                user-select: none;
-                pointer-events: none;
-                transition: transform 0.3s, opacity 0.2s;
-            }
-            .mouse__cursor.active {
-                transform: scale(0);
-            }
-            .mouse__cursor2.active {
-                transform: scale(10);
-                background: rgba(255,166,0,0.5);
+            body::after {
+                background: rgba(0, 0, 0, 0.8);
             }
         </style>
     </head>
 
-    <body class="img08">
+    <body class="img03">
         <header id="header">
-            <h1><a href="mouseEffect.html">Javascript Mouse Effect 02</a></h1>
-            <p>마우스 이펙트 - 마우스 따라다니기(GSAP)</p>
+            <h1><a href="mouseEffect.html">Javascript Mouse Effect 03</a></h1>
+            <p>마우스 이펙트 - 조명 효과</p>
             <ul>
                 <li><a href="mouseEffect01.html">1</a></li>
-                <li class="active"><a href="mouseEffect02.html">2</a></li>
-                <li><a href="mouseEffect03.html">3</a></li>
+                <li><a href="mouseEffect02.html">2</a></li>
+                <li class="active"><a href="mouseEffect03.html">3</a></li>
                 <li><a href="mouseEffect04.html">4</a></li>
                 <li><a href="mouseEffect05.html">5</a></li>
                 <li><a href="mouseEffect06.html">6</a></li>
@@ -99,14 +83,13 @@
             </ul>
         </header>
         <!-- header -->
+
         <main id="main">
             <section id="mousetype">
                 <div class="mouse__cursor"></div>
-                <div class="mouse__cursor2"></div>
-
                 <div class="mouse__wrap">
-                    <p>The <span>future</span> depends on what We do in <span>present</span>.</p>
-                    <p><span>미래</span>는 <span>현재</span> 우리가 무엇을 하는가에 달려있다.</p>
+                    <p>Learn as if you will live forever, live like you will tomorrow.</p>
+                    <p>영원히 살 것처럼 배우고, 내일 죽을 것처럼 살아라.</p>
                 </div>
             </section>
         </main>
@@ -178,45 +161,30 @@
                     </div>
                     <div class="cont">
                         <div class="active">
-<pre><code class="languige-js">window.addEventListener("mousemove", e => {
-    // 커서 좌표값 할당
-    // cursor.style.left = e.pageX -5 + "px";
-    // cursor.style.top = e.pageY -5 + "px";
-    // cursor2.style.left = e.pageX -15 + "px";
-    // cursor2.style.top = e.pageY -15 + "px";
+<pre><code class="languige-js">const cursor = document.querySelector(".mouse__cursor");
 
-    // GSAP
-    gsap.to(cursor, {duration: 0.3, left: e.pageX -5, top: e.pageY -5});
-    gsap.to(cursor2, {duration: 0.8, left: e.pageX -15, top: e.pageY -15});
+// const circleW = cursor.offsetWidth; //200
+// const circleH = cursor.offsetHeight; //200
+// const circle2 = cursor.clientWidth; //190 : 보더값 제외
 
-    // 엣날형식 : 화살표 함수에서는 this가 안됩니다.
-    // span.forEach( function(){
-    //     this.addEventListener("mousseenter", function(){});
-    // });
+const circle = cursor.getBoundingClientRect();
+console.log(circle);
+// {
+//     x: 0,
+//     y: 0,
+//     width: 200,
+//     height: 200,
+//     top: 0,
+//     left: 0,
+//     bottom: 200,
+//     right: 200
+// }
 
-    // 오버효과
-    // mouseenter / mouseover / 이벤트 버블링(자식 요소에 이벤트 확산)
-    // 이벤트 요소에 자식 요소가 있으면 mouseenter를 사용합시다.
-
-    span.forEach(span => {
-        span.addEventListener("mouseenter", ()=>{
-            cursor.classList.add("active");
-            cursor2.classList.add("active");
-        });
-        span.addEventListener("mouseleave", ()=>{
-            cursor.classList.remove("active");
-            cursor2.classList.remove("active");
-        });
-    });
-    sourceBtn.forEach(btn => {
-        btn.addEventListener("mouseenter", ()=>{
-            cursor.classList.add("active");
-            cursor2.classList.add("active");
-        });
-        btn.addEventListener("mouseleave", ()=>{
-            cursor.classList.remove("active");
-            cursor2.classList.remove("active");
-        });
+window.addEventListener("mousemove", (e)=>{
+    gsap.to(cursor, {
+        duration: 0.3,
+        left: e.pageX - circle.width/2,
+        top: e.pageY - circle.height/2
     });
 });
 </code></pre>
@@ -225,11 +193,9 @@
 <pre><code class="languige-html">&lt;main id="main">
     &lt;section id="mousetype">
         &lt;div class="mouse__cursor">&lt;/div>
-        &lt;div class="mouse__cursor2">&lt;/div>
-
         &lt;div class="mouse__wrap">
-            &lt;p>The &lt;span>future&lt;/span> depends on what We do in &lt;span>present&lt;/span>.&lt;/p>
-            &lt;p>&lt;span>미래&lt;/span>는 &lt;span>현재&lt;/span> 우리가 무엇을 하는가에 달려있다.&lt;/p>
+            &lt;p>Learn as if you will live forever, live like you will tomorrow.&lt;/p>
+            &lt;p>영원히 살 것처럼 배우고, 내일 죽을 것처럼 살아라.&lt;/p>
         &lt;/div>
     &lt;/section>
 &lt;/main>
@@ -237,76 +203,19 @@
 </code></pre>
                         </div>
                         <div>
-<pre><code class="languige-css">.mouse__wrap {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #fff;
-    overflow: hidden;
-    cursor: none;
-}
-.mouse__wrap p {
-    font-size: 2vw;
-    line-height: 2;
-    font-weight: 300;
-}
-.mouse__wrap p:last-child {
-    font-size: 3vw;
-}
-.mouse__wrap p span {
-    border-bottom: 1px dashed orange;
-    color: orange;
-}
-@media (max-width: 800px){
-    .mouse__wrap p {
-        padding: 0 20px;
-        font-size: 24px;
-        line-height: 1.5;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .mouse__wrap p:last-child {
-        font-size: 40px;
-        line-height: 1.5;
-        text-align: center;
-        word-break: keep-all;
-    }
-}
-.mouse__cursor {
+<pre><code class="languige-css">.mouse__cursor {
     position: absolute;
     left: 0;
     top: 0;
-    width: 10px;
-    height: 10px;
-    z-index: 9999;
+    width: 200px;
+    height: 200px;
+    z-index: -1;
     border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    user-select: none;
-    pointer-events: none;
-    transition: transform 0.3s, opacity 0.2s;
-}
-.mouse__cursor2 {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 30px;
-    height: 30px;
-    z-index: 9998;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-    user-select: none;
-    pointer-events: none;
-    transition: transform 0.3s, opacity 0.2s;
-}
-.mouse__cursor.active {
-    transform: scale(0);
-}
-.mouse__cursor2.active {
-    transform: scale(10);
-    background: rgba(255,166,0,0.5);
+    background-image: url(../assets/img/effect_bg03@2x-min.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    border: 5px solid #fff;
 }
 </code></pre>
                         </div>
@@ -330,49 +239,29 @@
         <script>hljs.highlightAll();</script>
         <script>
             const cursor = document.querySelector(".mouse__cursor");
-            const cursor2 = document.querySelector(".mouse__cursor2");
-            const span = document.querySelectorAll(".mouse__wrap p span");
-            const sourceBtn = document.querySelectorAll(".modal__btn");
 
-            window.addEventListener("mousemove", e => {
-                // 커서 좌표값 할당
-                // cursor.style.left = e.pageX -5 + "px";
-                // cursor.style.top = e.pageY -5 + "px";
-                // cursor2.style.left = e.pageX -15 + "px";
-                // cursor2.style.top = e.pageY -15 + "px";
+            // const circleW = cursor.offsetWidth; //200
+            // const circleH = cursor.offsetHeight; //200
+            // const circle2 = cursor.clientWidth; //190 : 보더값 제외
 
-                // GSAP
-                gsap.to(cursor, {duration: 0.3, left: e.pageX -5, top: e.pageY -5});
-                gsap.to(cursor2, {duration: 0.8, left: e.pageX -15, top: e.pageY -15});
+            const circle = cursor.getBoundingClientRect();
+            console.log(circle);
+            // {
+            //     x: 0,
+            //     y: 0,
+            //     width: 200,
+            //     height: 200,
+            //     top: 0,
+            //     left: 0,
+            //     bottom: 200,
+            //     right: 200
+            // }
 
-                // 엣날형식 : 화살표 함수에서는 this가 안됩니다.
-                // span.forEach( function(){
-                //     this.addEventListener("mousseenter", function(){});
-                // });
-
-                // 오버효과
-                // mouseenter / mouseover / 이벤트 버블링(자식 요소에 이벤트 확산)
-                // 이벤트 요소에 자식 요소가 있으면 mouseenter를 사용합시다.
-
-                span.forEach(span => {
-                    span.addEventListener("mouseenter", ()=>{
-                        cursor.classList.add("active");
-                        cursor2.classList.add("active");
-                    });
-                    span.addEventListener("mouseleave", ()=>{
-                        cursor.classList.remove("active");
-                        cursor2.classList.remove("active");
-                    });
-                });
-                sourceBtn.forEach(btn => {
-                    btn.addEventListener("mouseenter", ()=>{
-                        cursor.classList.add("active");
-                        cursor2.classList.add("active");
-                    });
-                    btn.addEventListener("mouseleave", ()=>{
-                        cursor.classList.remove("active");
-                        cursor2.classList.remove("active");
-                    });
+            window.addEventListener("mousemove", (e)=>{
+                gsap.to(cursor, {
+                    duration: 0.3,
+                    left: e.pageX - circle.width/2,
+                    top: e.pageY - circle.height/2
                 });
             });
         </script>
