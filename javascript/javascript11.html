@@ -82,5 +82,18 @@
         const active = document.querySelectorAll(".header_nav ul li");
         active[10].classList.add("active");
     </script>
+    <script>
+        function func(){
+            let i = 10, hap = 0;
+            while(i > 1){
+                i--;
+                if( i % 3 == 1 ){
+                    hap += 1;
+                }
+            }
+            document.write(hap);
+        }
+        func();
+    </script>
 </body>
 </html>

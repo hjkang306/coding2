@@ -1,0 +1,16 @@
+#main {
+    width: 74%;
+}
+#slider {
+    width: 100%;
+    margin-bottom: 50px;
+}
+.slider__img {
+    width: 100%;
+    height: 406.39px;
+    overflow: hidden;
+}
+.slider__inner {
+    /* transform: translateY(0px); */
+}
+.slider {}

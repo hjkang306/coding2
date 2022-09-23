@@ -1,0 +1,31 @@
+#header {
+    width: 24%;
+}
+.headerLogo {
+    margin-bottom: 70px;
+}
+.headerLogo a {}
+.headerLogo a img {
+    width: 45%;
+}
+
+.nav {
+}
+.mainMenu {
+    font-size: 20px;
+    font-weight: 500;
+}
+.mainMenu > li {
+    margin-bottom: 20px;
+}
+.mainMenu > li > a {}
+.subMenu {
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+.subMenu > li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-top: 5px;
+}
+.subMenu > li > a {}

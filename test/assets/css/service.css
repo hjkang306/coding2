@@ -1,0 +1,49 @@
+#service {}
+.service__wrap {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.service__wrap h3 {
+    display: inline-block;
+    color: #ccc;
+    padding: 0 20px;
+    font-size: 24px;
+    font-weight: 700;
+}
+.service__wrap h3.active {
+    color: #000;
+}
+.fav {border-right: 4px solid #000;}
+
+.service__inner {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.service {
+    width: 16%;
+}
+.service__icon {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 10px;
+}
+.svc1 .service__icon {
+    background: url(../img/icon01.jpg) no-repeat center / cover;
+}
+.svc2 .service__icon {
+    background: url(../img/icon02.jpg) no-repeat center / cover;
+}
+.svc3 .service__icon {
+    background: url(../img/icon03.jpg) no-repeat center / cover;
+}
+.svc4 .service__icon {
+    background: url(../img/icon04.jpg) no-repeat center / cover;
+}
+.svc5 .service__icon {
+    background: url(../img/icon05.jpg) no-repeat center / cover;
+}
+.service__name {
+    font-size: 13px;
+    line-height: 1.4;
+}
