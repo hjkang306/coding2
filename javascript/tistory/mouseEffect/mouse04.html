@@ -175,7 +175,7 @@ document.querySelector('.mouse__wrap figure').addEventListener("mousemove", (e)=
             </details>
             <h3 class="t_tit2">01. 먼저, 스크립트를 작성할 대상이 되는 요소들의 선택자를 만들어 줍니다.</h3>
             <div class="t_code">
-<pre><code class="language-js"> const cursor = document.querySelector(".mouse__cursor");
+<pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor");
 const cursorRext = cursor.getBoundingClientRect();
 </code></pre>
             </div><br>
@@ -192,7 +192,7 @@ const cursorRext = cursor.getBoundingClientRect();
                 : gsap.to( 요소, {애니메이션 값} );<br>
                 - duration : 애니메이션 지속시간<br>
                 - left : 왼쪽 좌표 값(이동 위치)<br>
-                - top : 위쪽 좌표 값(이동 위치)
+                - top : 위쪽 좌표 값(이동 위치)<br>
                 -cursorRext.width/2<br>
                 : 커서가 중앙에 와야하기 때문에 전체 너비의 반을 빼줍니다.
             </p>
@@ -216,7 +216,22 @@ let mousePageX = e.pageX;
 let mousePageY = e.pageY;
 </code></pre>
             </div><br>
-            <h3 class="t_tit2">05. 이미지를 움직이기 위해, 이미지를 선택하는 선택자를 만들어 줍니다.</h3>
+            <h3 class="t_tit2">05. 마우스 좌표 값을 가운데로 초기화합니다.</h3>
+            <p class="t_box">
+                : window.innerWidth/2은 전체 너비의 반이므로, 그 값은 페이지 가로의 중앙을 나타냅니다.<br>
+                window.innerHeight/2은 전체 높이의 반이므로, 그 값은 페이지 세로의 중앙을 나타냅니다.<br>
+                만약 페이지가 전체화면인 상태로 정 중앙에 마우스 커서를 놓았다고 하면, <br>
+                window.innerWidth/2 - mousePageX의 값과 window.innerHeight/2 - mousePageY의 값은 0이 됩니다.<br>
+                즉, 중앙을 기준으로 커서의 위치가 바뀌며 mousePageX와 mousePageY의 값이 달라짐에 따라 centerPageX와 centerPageY의 값이 달라지게 됩니다.<br>
+                마우스 커서가 중앙보다 왼쪽, 위쪽에 위치하게 되면 centerPageX와 centerPageY의 값은 양수가 되고,<br>
+                그 반대의 경우에는 centerPageX와 centerPageY의 값이 음수가 됩니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">let centerPageX = window.innerWidth/2 - mousePageX;
+let centerPageY = window.innerHeight/2 - mousePageY;
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">06. 이미지를 움직이기 위해, 이미지를 선택하는 선택자를 만들어 줍니다.</h3>
             <p class="t_box">
                 : 자바스크립트만을 사용하여 작성하면, 아래의 주석처리된 코드를 작성하겠지만, 오늘은 gsap를 이용해 작성해 보았습니다.
             </p>
