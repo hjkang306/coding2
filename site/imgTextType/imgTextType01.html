@@ -125,28 +125,39 @@
             top: 9px;
             background: #666;
         }
+        .more {
+            display: inline-block;
+            font-size: 18px;
+            color: #fff;
+            background: #000;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
         .imgText__img {
             border-radius: 10px;
             position: relative;
         }
         .imgText__img a {
             position: absolute;
-            left: 30px;
-            bottom: 30px;
-            background-color: #7c2b39;
+            left: 140px;
+            bottom: 45%;
+            background-color: rgba(0,0,0,0.5);
             color: #fff;
             font-size: 18px;
-            padding: 10px 30px;
-            border-radius: 30px;
+            padding: 30px 20px;
+            border-radius: 50%;
             display: inline-block;
         }
-        .imgText__img a.blue {
-            background-color: #2b387c;
-        }
         .imgText__img.img1 {
+            margin-top: 50px;
             background: url(img/imgText_bg01.jpg) no-repeat center / cover;
         }
+        .imgText__img.img1 a {
+            display: none;
+        }
         .imgText__img.img2 {
+            margin-top: -30px;
+            border: 3px solid skyblue;
             background: url(img/imgText_bg02.jpg) no-repeat center / cover;
         }
     </style>
@@ -163,16 +174,14 @@
                     <li><a href="#">튜토리얼 사이트</a></li>
                     <li><a href="#">레퍼런스 사이트</a></li>
                     <li><a href="#">웹폰트 사이트</a></li>
-                    <li><a href="#">CSS 사이트</a></li>
-                    <li><a href="#">WebGL 사이트</a></li>
-                    <li><a href="#">Youtube 사이트</a></li>
                 </ul>
+                <a class="more" href="#">더 많은 유형 살펴보기</a>
             </div>
             <div class="imgText__img img1">
-                <a href="#">레퍼런스 사이트</a>
+                <a href="#">VIEW</a>
             </div>
             <div class="imgText__img img2">
-                <a href="#" class="blue">튜토리얼 사이트</a>
+                <a href="#">VIEW</a>
             </div>
         </div>
     </section>

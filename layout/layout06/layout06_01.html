@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        #header {
+            height: 100px;
+            background-color: #FFE0B2;
+        }
+        #banner {
+            height: 400px;
+            background-color: #FFB74D;
+        }
+        #main {
+            height: 480px;
+            background-color: #FFA726;
+            padding-top: 88px;
+            box-sizing: border-box;
+        }
+        .square__wrap {
+            width: 67%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .square {
+            width: 140px;
+            height: 140px;
+            border-radius: 20px;
+            background-color: #e96f3b;
+            margin: 10px;
+        }
+        #footer {
+            height: 100px;
+            background-color: #FF9800;
+        }
+
+        /* 미디어쿼리 */
+        @media (max-width: 1300px) {
+            #wrap {
+                width: 100%;
+            }
+            .square__wrap {
+                width: 650px;
+            }
+            .square:nth-child(9),
+            .square:nth-child(10) {
+                display: none;
+            }
+        }
+        @media (max-width: 768px) {
+            #banner {
+                height: 250px;
+            }
+            #main {
+                height: 750px;
+                padding-top: 140px;
+            }
+            .square__wrap {
+                width: 480px;
+            }
+            .square:nth-child(9) {
+                display: block;
+            }
+        }
+        @media (max-width: 480px) {
+            #main {
+                height: 950px;
+                padding-top: 75px;
+            }
+            .square__wrap {
+                width: 320px;
+            }
+            .square:nth-child(10) {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header"></div>
+        <div id="banner"></div>
+        <div id="main">
+            <div class="square__wrap">
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>
