@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+       <div class="document">
+            <h2 class="t_tit">배열 메서드</h2>
+            <p class="t_desc">배열 메서드를 이용하여 배열의 정보를 다양한 방법으로 불러올 수 있습니다.</p>
+            <h3 class="t_tit2">> unshift() / shift() 메서드</h3>
+            <p class="t_desc2">
+                unshift() 메서드는 배열 처음 요소에 추가, shift()메서드는 배열 처음 요소를 삭제합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const arrNum1 = [100, 200, 300, 400, 500];
+const arrNumUnshift = arrNum1.unshift(600);
+
+document.querySelector(".sample04_N1").innerHTML = "1";
+document.querySelector(".sample04_Q1").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample04_M1").innerHTML = "unshift(600)";
+document.querySelector(".sample04_P1").innerHTML = arrNumUnshift; //6
+document.querySelector(".sample04_A1").innerHTML = arrNum1;  //600,100,200,300,400,500
+
+const arrNum2 = [100, 200, 300, 400, 500];
+const arrNumShift = arrNum2.shift();
+
+document.querySelector(".sample04_N2").innerHTML = "1";
+document.querySelector(".sample04_Q2").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample04_M2").innerHTML = "shift()";
+document.querySelector(".sample04_P2").innerHTML = arrNumShift; //100
+document.querySelector(".sample04_A2").innerHTML = arrNum2;  //200,300,400,500
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">> reverse() / sort() 메서드</h3>
+            <p class="t_desc2">
+                reverse() 메서드는 순서를 반대로 정렬, sort() 메서드는 배열 요소를 정렬합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const arrNum1 = [400, 500, 300, 100, 500];
+const arrNumReverse = arrNum1.reverse();
+
+document.querySelector(".sample05_N1").innerHTML = "1";
+document.querySelector(".sample05_Q1").innerHTML = "[400, 500, 300, 100, 500]";
+document.querySelector(".sample05_M1").innerHTML = "reverse()";
+document.querySelector(".sample05_P1").innerHTML = arrNumReverse; //500,400,300,200,100
+
+const arrNum2 = [400, 500, 300, 100, 500];
+const arrNumSort2 = arrNum2.sort();
+
+document.querySelector(".sample05_N2").innerHTML = "2";
+document.querySelector(".sample05_Q2").innerHTML = "[400, 500, 300, 100, 500]";
+document.querySelector(".sample05_M2").innerHTML = "sort()";
+document.querySelector(".sample05_P2").innerHTML = arrNumSort2; //100,200,300,400,500
+
+const arrNum3 = [400, 500, 300, 100, 500];
+const arrNumSort3 = arrNum3.sort(function(a,b){return b-a});
+
+document.querySelector(".sample05_N3").innerHTML = "3";
+document.querySelector(".sample05_Q3").innerHTML = "[400, 500, 300, 100, 500]";
+document.querySelector(".sample05_M3").innerHTML = "sort(function(a,b){return b-a})";
+document.querySelector(".sample05_P3").innerHTML = arrNumSort3; //500,400,300,200,100
+
+const arrNum4 = [400, 500, 300, 100, 500];
+const arrNumSort4 = arrNum4.sort(function(a,b){return a-b});
+
+document.querySelector(".sample05_N4").innerHTML = "4";
+document.querySelector(".sample05_Q4").innerHTML = "[400, 500, 300, 100, 500]";
+document.querySelector(".sample05_M4").innerHTML = "sort(function(a,b){return a-b})";
+document.querySelector(".sample05_P4").innerHTML = arrNumSort4; //100,200,300,400,500
+
+const arrNum5 = ['c', 'b', 'e', 'd', 'a'];
+const arrNumSort5 = arrNum5.sort(function(a,b){return a.localeCompare(b)});
+
+document.querySelector(".sample05_N5").innerHTML = "5";
+document.querySelector(".sample05_Q5").innerHTML = "['c', 'b', 'e', 'd', 'a']";
+document.querySelector(".sample05_M5").innerHTML = "sort(function(a,b){return a.localeCompare(b)})";
+document.querySelector(".sample05_P5").innerHTML = arrNumSort5; //a,b,c,d,e
+
+const arrNum6 = ['c', 'b', 'e', 'd', 'a'];
+const arrNumSort6 = arrNum5.sort(function(a,b){return b.localeCompare(a)});
+
+document.querySelector(".sample05_N6").innerHTML = "6";
+document.querySelector(".sample05_Q6").innerHTML = "['c', 'b', 'e', 'd', 'a']";
+document.querySelector(".sample05_M6").innerHTML = "sort(function(a,b){return b.localeCompare(a)})";
+document.querySelector(".sample05_P6").innerHTML = arrNumSort6; //e,d,c,b,a
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">> concat() 메서드</h3>
+            <p class="t_desc2">
+                concat() 메서드는 배열 요소를 결합합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const arrNum1 = [100, 200, 300];
+const arrNum2 = [400, 500, 600];
+const arrConcat = arrNum1.concat(arrNum2);
+
+document.querySelector(".sample06_N1").innerHTML = "1";
+document.querySelector(".sample06_Q1").innerHTML = "[100, 200, 300], [400, 500, 600]";
+document.querySelector(".sample06_M1").innerHTML = "arrNum1.concat(arrNum2)";
+document.querySelector(".sample06_P1").innerHTML = arrConcat; //100,200,300,400,500,600
+
+const arrSpread = [...arrNum1, ...arrNum2];
+
+document.querySelector(".sample06_N2").innerHTML = "2";
+document.querySelector(".sample06_Q2").innerHTML = "[100, 200, 300], [400, 500, 600]";
+document.querySelector(".sample06_M2").innerHTML = "[...arrNum1, ...arrNum2]";
+document.querySelector(".sample06_P2").innerHTML = arrSpread; //100,200,300,400,500,600
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">> reduce() / reduceRight() 메서드</h3>
+            <p class="t_desc2">
+                reduce() 메서드는 배열 요소를 순서대로 합치고, reduceRight()메서드는 배열 요소를 반대로 합칩니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const arrNum1 = [100, 200, 300, 400, 500];
+const arrNumReduce1 = arrNum1.reduce(element => element);
+
+document.querySelector(".sample07_N1").innerHTML = "1";
+document.querySelector(".sample07_Q1").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample07_M1").innerHTML = "reduce(element => element)";
+document.querySelector(".sample07_P1").innerHTML = arrNumReduce1; //100
+
+const arrNum2 = [100, 200, 300, 400, 500];
+const arrNumReduce2 = arrNum1.reduce( (p,c) => p + c);
+
+document.querySelector(".sample07_N2").innerHTML = "2";
+document.querySelector(".sample07_Q2").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample07_M2").innerHTML = "reduce( (p,c) => p + c)";
+document.querySelector(".sample07_P2").innerHTML = arrNumReduce2; //1500
+
+const arrNum3 = [100, 200, 300, 400, 500];
+let sum = 0;
+
+for(let i=0; i&lt;arrNum1.length; i++){
+    sum += arrNum1[i];
+};
+document.querySelector(".sample07_N3").innerHTML = "3";
+document.querySelector(".sample07_Q3").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample07_M3").innerHTML = "for()";
+document.querySelector(".sample07_P3").innerHTML = sum; //1500
+
+const arrNum4 = [[100,200],[300,400]];
+const arrNumReduce4 = arrNum4.reduce((p,c) => p.concat(c));
+
+document.querySelector(".sample07_N4").innerHTML = "4";
+document.querySelector(".sample07_Q4").innerHTML = "[[100,200],[30,400]]";
+document.querySelector(".sample07_M4").innerHTML = "reduce((p,c) => p.concat(c))";
+document.querySelector(".sample07_P4").innerHTML = arrNumReduce4; //100,200,300,400
+
+const arrNum5 = ["javascript", "react", "vue"];
+const arrNumReduce5 = arrNum5.reduceRight((p,c) => p+c);
+
+document.querySelector(".sample07_N5").innerHTML = "4";
+document.querySelector(".sample07_Q5").innerHTML = '["javascript", "react", "vue"]';
+document.querySelector(".sample07_M5").innerHTML = "reduceRight((p,c) => p+c)";
+document.querySelector(".sample07_P5").innerHTML = arrNumReduce5; //vuereactjavascript
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">> slice() 메서드</h3>
+            <p class="t_desc2">
+                slice() 메서드는 배열 요소의 특정 값을 출력합니다. 원래 배열의 값 변화X
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const arrNum = [100, 200, 300, 400, 500];
+const result1 = arrNum.slice(2);
+
+document.querySelector(".sample08_N1").innerHTML = "1";
+document.querySelector(".sample08_Q1").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample08_M1").innerHTML = "slice(2)";
+document.querySelector(".sample08_P1").innerHTML = result1; //300,400,500
+
+const result2 = arrNum.slice(2, 3);
+
+document.querySelector(".sample08_N2").innerHTML = "2";
+document.querySelector(".sample08_Q2").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample08_M2").innerHTML = "slice(2, 3)";
+document.querySelector(".sample08_P2").innerHTML = result2; //300
+
+const result3 = arrNum.slice(2, 4);
+
+document.querySelector(".sample08_N3").innerHTML = "3";
+document.querySelector(".sample08_Q3").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample08_M3").innerHTML = "slice(2, 4)";
+document.querySelector(".sample08_P3").innerHTML = result3; //300,400
+
+const result4 = arrNum.slice(2, 5);
+
+document.querySelector(".sample08_N4").innerHTML = "4";
+document.querySelector(".sample08_Q4").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample08_M4").innerHTML = "slice(2, 5)";
+document.querySelector(".sample08_P4").innerHTML = result4; //300,400,500
+
+const result5 = arrNum.slice(-2);
+
+document.querySelector(".sample08_N5").innerHTML = "5";
+document.querySelector(".sample08_Q5").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample08_M5").innerHTML = "slice(-2)";
+document.querySelector(".sample08_P5").innerHTML = result5; //400,500
+
+const result6 = arrNum.slice(-2, 5);
+
+document.querySelector(".sample08_N6").innerHTML = "6";
+document.querySelector(".sample08_Q6").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample08_M6").innerHTML = "slice(-2, 5)";
+document.querySelector(".sample08_P6").innerHTML = result6; //400,500
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">> splice() 메서드</h3>
+            <p class="t_desc2">
+                splice() 메서드는 배열 요소를 다른 요소로 변경합니다. 원래 배열의 값 변화
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const arrNum = [100, 200, 300, 400, 500];
+const result = arrNum.splice(2);
+
+document.querySelector(".sample09_N1").innerHTML = "1";
+document.querySelector(".sample09_Q1").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample09_M1").innerHTML = "arrNum.splice(2)";
+document.querySelector(".sample09_P1").innerHTML = result;//300,400,500
+document.querySelector(".sample09_A1").innerHTML = arrNum;//100,200
+
+const arrNum2 = [100, 200, 300, 400, 500];
+const result2 = arrNum2.splice(2, 3);
+
+document.querySelector(".sample09_N2").innerHTML = "2";
+document.querySelector(".sample09_Q2").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample09_M2").innerHTML = "arrNum2.splice(2,3)";
+document.querySelector(".sample09_P2").innerHTML = result2;//300,400,500
+document.querySelector(".sample09_A2").innerHTML = arrNum2;//100,200
+
+const arrNum3 = [100, 200, 300, 400, 500];
+const result3 = arrNum3.splice(2, 3, 'javascript');
+
+document.querySelector(".sample09_N3").innerHTML = "3";
+document.querySelector(".sample09_Q3").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample09_M3").innerHTML = "arrNum3.splice(2,3, 'javascript')";
+document.querySelector(".sample09_P3").innerHTML = result3;//300,400,500
+document.querySelector(".sample09_A3").innerHTML = arrNum3;//100,200,javascript
+
+const arrNum4 = [100, 200, 300, 400, 500];
+const result4 = arrNum4.splice(1, 1, 'javascript');
+
+document.querySelector(".sample09_N4").innerHTML = "4";
+document.querySelector(".sample09_Q4").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample09_M4").innerHTML = "arrNum4.splice(1, 1, 'javascript')";
+document.querySelector(".sample09_P4").innerHTML = result4;//200
+document.querySelector(".sample09_A4").innerHTML = arrNum4;//100,javascript,300,400,500
+
+const arrNum5 = [100, 200, 300, 400, 500];
+const result5 = arrNum5.splice(1, 0, 'javascript');
+
+document.querySelector(".sample09_N5").innerHTML = "5";
+document.querySelector(".sample09_Q5").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample09_M5").innerHTML = "arrNum5.splice(1, 0, 'javascript')";
+document.querySelector(".sample09_P5").innerHTML = result5;//_
+document.querySelector(".sample09_A5").innerHTML = arrNum5;//100,javascript,200,300,400,500
+
+const arrNum6 = [100, 200, 300, 400, 500];
+const result6 = arrNum6.splice(0, 4, 'javascript');
+
+document.querySelector(".sample09_N6").innerHTML = "6";
+document.querySelector(".sample09_Q6").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample09_M6").innerHTML = "arrNum6.splice(0, 4, 'javascript')";
+document.querySelector(".sample09_P6").innerHTML = result6;//100,200,300,400
+document.querySelector(".sample09_A6").innerHTML = arrNum6;//javascript,500
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">> indexOf() / lastIndexOf() / includes() 메서드</h3>
+            <p class="t_desc2">
+                indexOf(), includes() 메서드는 배열 요소를 배열 요소를 검색하고, lastIndexOf() 메서드는 배열 요소를 뒤에서부터 검색합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const arrNum1 = [100, 200, 300, 400, 500];
+const arrIndex1 = arrNum1.indexOf(200);
+
+document.querySelector(".sample10_N1").innerHTML = "1";
+document.querySelector(".sample10_Q1").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample10_M1").innerHTML = "indexOf(200)";
+document.querySelector(".sample10_P1").innerHTML = arrIndex1; //1
+
+const arrNum2 = [100, 200, 300, 400, 500];
+const arrIndex2 = arrNum2.indexOf(300);
+
+document.querySelector(".sample10_N2").innerHTML = "2";
+document.querySelector(".sample10_Q2").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample10_M2").innerHTML = "indexOf(300)";
+document.querySelector(".sample10_P2").innerHTML = arrIndex2; //2
+
+const arrNum3 = [100, 200, 300, 400, 500];
+const arrIndex3 = arrNum3.indexOf(600);
+
+document.querySelector(".sample10_N3").innerHTML = "3";
+document.querySelector(".sample10_Q3").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample10_M3").innerHTML = "indexOf(600)";
+document.querySelector(".sample10_P3").innerHTML = arrIndex3; //-1
+
+const arrNum4 = [100, 200, 300, 400, 500];
+const arrIndex4 = arrNum4.lastIndexOf(200);
+
+document.querySelector(".sample10_N4").innerHTML = "4";
+document.querySelector(".sample10_Q4").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample10_M4").innerHTML = "lastIndexOf(200)";
+document.querySelector(".sample10_P4").innerHTML = arrIndex4; //1
+
+const arrNum5 = [100, 200, 300, 400, 200];
+const arrIndex5 = arrNum5.includes(200);
+
+document.querySelector(".sample10_N5").innerHTML = "5";
+document.querySelector(".sample10_Q5").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample10_M5").innerHTML = "includes(200)";
+document.querySelector(".sample10_P5").innerHTML = arrIndex5; //true
+
+const arrNum6 = [100, 200, 300, 400, 500];
+const arrIndex6 = arrNum5.includes(600);
+
+document.querySelector(".sample10_N6").innerHTML = "6";
+document.querySelector(".sample10_Q6").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample10_M6").innerHTML = "includes(600)";
+document.querySelector(".sample10_P6").innerHTML = arrIndex6; //false
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">> find() / findIndex() 메서드</h3>
+            <p class="t_desc2">
+                find(), findIndex() 메서드는 배열 요소에서 특정 값을 찾을 수 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const arrNum = [100, 200, 300, 400, 500];
+// const result = arrNum.find(function(element){
+//     return element === 300;
+// });
+//생략
+// const result = arrNum.find((element) => {
+//     return element === 300;
+// });
+//생략
+// const result = arrNum.find(element => {
+//     return element === 300;
+// });
+//생략
+const result = arrNum.find(e => e === 300);
+
+document.querySelector(".sample11_N1").innerHTML = "1";
+document.querySelector(".sample11_Q1").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample11_M1").innerHTML = "find(e => e === 300)";
+document.querySelector(".sample11_P1").innerHTML = result; //300
+
+const result2 = arrNum.find(e => e === 600);
+
+document.querySelector(".sample11_N2").innerHTML = "2";
+document.querySelector(".sample11_Q2").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample11_M2").innerHTML = "find(e => e === 300)";
+document.querySelector(".sample11_P2").innerHTML = result2; //undefined
+
+const arrText = ['javascript', 'jquery', 'react'];
+const result3 = arrText.find(el => el === 'javascript');
+
+document.querySelector(".sample11_N3").innerHTML = "3";
+document.querySelector(".sample11_Q3").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample11_M3").innerHTML = "find(el => el === 'javascript')";
+document.querySelector(".sample11_P3").innerHTML = result3; //javascript
+
+const result4 = arrText.findIndex(el => el === 'javascript');
+
+document.querySelector(".sample11_N4").innerHTML = "4";
+document.querySelector(".sample11_Q4").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample11_M4").innerHTML = "findIndex(el => el === 'javascript')";
+document.querySelector(".sample11_P4").innerHTML = result4; //0
+
+const result5 = arrText.findIndex(el => el === 'html');
+
+document.querySelector(".sample11_N5").innerHTML = "5";
+document.querySelector(".sample11_Q5").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample11_M5").innerHTML = "findIndex(el => el === 'html')";
+document.querySelector(".sample11_P5").innerHTML = result5; //-1
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">> filter() 메서드</h3>
+            <p class="t_desc2">
+                filter() 메서드는 배열 요소 값을 찾을 수 있습니다. (find와의 차이점은 조건식을 걸 수 있다는 점 => 활용성 UP)
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const arrNum = [100, 200, 300, 400, 500];
+const result = arrNum.filter(el => el === 300);
+
+document.querySelector(".sample12_N1").innerHTML = "1";
+document.querySelector(".sample12_Q1").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample12_M1").innerHTML = "filter(el => el === 300)";
+document.querySelector(".sample12_P1").innerHTML = result; //300
+
+const arrNum2 = [100, 200, 300, 400, 500];
+const result2 = arrNum2.filter(el => el === 600);
+
+document.querySelector(".sample12_N2").innerHTML = "2";
+document.querySelector(".sample12_Q2").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample12_M2").innerHTML = "filter(el => el === 600)";
+document.querySelector(".sample12_P2").innerHTML = result2; //_
+
+const arrNum3 = [100, 200, 300, 400, 500];
+const result3 = arrNum2.filter(el => el >= 300);
+
+document.querySelector(".sample12_N3").innerHTML = "3";
+document.querySelector(".sample12_Q3").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample12_M3").innerHTML = "filter(el => el >= 300)";
+document.querySelector(".sample12_P3").innerHTML = result3; //300,400,500
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">> map() 메서드</h3>
+            <p class="t_desc2">
+                map() 메서드는 배열 요소를 추출하여 새로운 배열로 만듭니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const arrNum = [100, 200, 300, 400, 500];
+const result = arrNum.map(el => el);
+
+document.querySelector(".sample13_N1").innerHTML = "1";
+document.querySelector(".sample13_Q1").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample13_M1").innerHTML = "map(el => el)";
+document.querySelector(".sample13_P1").innerHTML = result; //100,200,300,400,500
+
+const arrNum2 = [100, 200, 300, 400, 500];
+const result2 = arrNum2.map(el => el + 'j');
+
+document.querySelector(".sample13_N2").innerHTML = "2";
+document.querySelector(".sample13_Q2").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample13_M2").innerHTML = "map(el => el + 'j')";
+document.querySelector(".sample13_P2").innerHTML = result2; //100j,200j,300j,400j,500j
+
+const arrNum3 = [100, 200, 300, 400, 500];
+const result3 = arrNum3.map(el => el + 100);
+
+document.querySelector(".sample13_N3").innerHTML = "3";
+document.querySelector(".sample13_Q3").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample13_M3").innerHTML = "map(el => el + 100)";
+document.querySelector(".sample13_P3").innerHTML = result3; //200,300,400,500,600
+
+const arrNum4 = [{a: 100}, {a: 200}, {a: 300}];
+const result4 = arrNum4.map(el => el.a);
+
+document.querySelector(".sample13_N4").innerHTML = "4";
+document.querySelector(".sample13_Q4").innerHTML = "[{a: 100}, {b: 200}, {c: 300}]";
+document.querySelector(".sample13_M4").innerHTML = "map(el => el.a)";
+document.querySelector(".sample13_P4").innerHTML = result4; //100,200,300
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">> Array.from() 메서드</h3>
+            <p class="t_desc2">
+                Array.from() 메서드는 문자열을 하나씩 조개 배열로 만들어 줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const text = "javascript";
+const result = Array.from(text);
+// 문자열을 하나식 쪼개 배열로 만들어 줍니다.
+
+document.querySelector(".sample14_N1").innerHTML = "1";
+document.querySelector(".sample14_Q1").innerHTML = "javascript";
+document.querySelector(".sample14_M1").innerHTML = "Array.from(text)";
+document.querySelector(".sample14_P1").innerHTML = result; //j,a,v,a,s,c,r,i,p,t
+console.log(result);
+
+const text2 = "javascript";
+const result2 = Array.from(text2, el => el + '10');
+
+document.querySelector(".sample14_N2").innerHTML = "2";
+document.querySelector(".sample14_Q2").innerHTML = "javascript";
+document.querySelector(".sample14_M2").innerHTML = "Array.from(text2, el => el + '10')";
+document.querySelector(".sample14_P2").innerHTML = result2; //j10,a10,v10,a10,s10,c10,r10,i10,p10,t10
+console.log(result2);
+
+const text3 = "javascript";
+const result3 = [...text3].map(el => el);
+
+document.querySelector(".sample14_N3").innerHTML = "3";
+document.querySelector(".sample14_Q3").innerHTML = "javascript";
+document.querySelector(".sample14_M3").innerHTML = "[...text3].map(el => el)";
+document.querySelector(".sample14_P3").innerHTML = result3; //j,a,v,a,s,c,r,i,p,t
+console.log(result3);
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
