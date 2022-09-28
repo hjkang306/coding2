@@ -1214,7 +1214,7 @@ document.querySelector(".sample13_P4").innerHTML = result4; //100,200,300
 
                 <div id="sample14" class="sample">
                     <h3>14. 배열 메서드 : Array.from()</h3>
-                    <p>Array.from() 메서드는 문자열을 하나씩 조개 배열로 만들어 줍니다.</p>
+                    <p>Array.from() 메서드는 문자열을 하나씩 쪼개 배열로 만들어 줍니다.</p>
                     <div class="table">
                         <colgroup>
                             <col style="width: 5%"> <!-- 테이블의 열 너비를 설정 -->
@@ -1820,53 +1820,78 @@ console.log(result3);
 
 
         {
-            const number = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+            //const number = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
             //400
 
             //1
-            for(let i=0; i<number.length; i++){
-                if(number[i] == 400){
-                    //console.log(number[i]);
-                }
-            }
+            //for(let i=0; i<number.length; i++){
+            //    if(number[i] == 400){
+            //        //console.log(number[i]);
+            //    }
+            //}
             //2
-            const case2 = number.filter(e => e === 400);
+            //const case2 = number.filter(e => e === 400);
             //console.log(case2);
             //3
-            const case3 = number.find(el => el === 400);
+            //const case3 = number.find(el => el === 400);
             //console.log(case3);
             //4
-            const case4 = number.slice(3, 4);
+            //const case4 = number.slice(3, 4);
             //console.log(case4);
             //5
-            const case5 = number.splice(3, 1);
+            //const case5 = number.splice(3, 1);
             //console.log(case5);
 
             //400,500
-            const number2 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+            //const number2 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
             
             //1
-            for(let j=0; j<number2.length; j++){
-                if(number2[j]>300 && number2[j]<600){
-                    console.log(number2[j]);
+            //for(let j=0; j<number2.length; j++){
+            //    if(number2[j]>300 && number2[j]<600){
+            //        console.log(number2[j]);
+            //    }
+            //}
+            //2
+            //const case6 = number2.filter(ele => ele >300 && ele<600)
+            //console.log(case6);
+            //3
+            //const case7 = number2.slice(3, 5);
+            //console.log(case7);
+            //4
+            //const case8 = number2.splice(3, 2);
+            //console.log(case8);
+
+            
+            //b d f h k(짝수)
+            const num = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            
+            //01
+            for(let i=0; i<num.length; i++){
+                if(i % 2 == 1){
+                    //console.log(num[i]);
+                };
+            }
+
+            //02
+            for(let i2=1; i2<=num.length; i2++){
+                if(i2%2 == 1){
+                    //console.log(num.slice(i2, i2+1));
                 }
             }
-            //2
-            const case6 = number2.filter(ele => ele >300 && ele<600)
-            console.log(case6);
-            //3
-            const case7 = number2.slice(3, 5);
-            console.log(case7);
-            //4
-            const case8 = number2.splice(3, 2);
-            console.log(case8);
-            //5
-            // const case9 = [];
-            // case9[0] = number2.find(elem => elem === 500);
-            // case9[1] = number2.find(elem => elem === 400);
-            // console.log(...case9);
-            
+
+            //03
+            let alpha = num.filter(e => e == "b" || e =="d" || e =="f" || e =="h" || e =="k");
+            //console.log(alpha);
+
+            //04
+            const num2 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            let num3 = [];
+            for(let i3=1; i3<=num2.length; i3++){
+                num3 += num2.splice(i3,1);
+                //console.log(num2.splice(i3,1));
+            }
+            console.log(num3);
         }
     </script>
 </body>

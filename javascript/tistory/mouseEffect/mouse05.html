@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">마우스 효과 만들기 5</h2>
+            <p class="t_desc2">
+                스크립트를 이용하여 마우스 커서를 따라다니는 효과나, 요소에 마우스가 올라갔을 때 마우스를 따라다니는 요소의 색이 변하거나 모양이 변하게 할 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">마우스 이펙트 : 기울기 효과 글씨 반전 효과</h3>
+            <p class="t_desc">
+                마우스를 올리면 이미지가 기울며 움직입니다. 그리고 마우스를 올리면 글씨나 색상이 반전되어 나타나는 효과입니다.
+            </p>
+            <h3 class="t_tit2">HTML 코드</h3>
+            <p class="t_desc">
+                이번에는 기본 마우스 커서를 대신할 요소로 .mouse__cursor 를 만들어 줍니다.
+                또한, 마우스 커서의 위치나 정보를 알기 위해, .mouse__info 부분을 만들어주었습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;main id="main">
+    &lt;section id="mousetype">
+        &lt;div class="mouse__cursor">&lt;/div>
+        &lt;div class="mouse__wrap">
+            &lt;div class="mouse__img">
+                &lt;figure>
+                    &lt;img src="../assets/img/effect_bg10-min.jpg" alt="이미지">
+                &lt;/figure>
+                &lt;figcaption>
+                    &lt;p>Life is either a daring adventure or nothing at all.&lt;/p>
+                    &lt;p>생활은 과감한 모험이거나 아니면 아무것도 아니다. &lt;/p>
+                &lt;/figcaption>
+            &lt;/div>
+        &lt;/div>
+    &lt;/section>
+
+    &lt;div class="mouse__info">
+        &lt;ul>
+            &lt;li>mousePageX : &lt;span class="mousePageX">0&lt;/span> px&lt;/li>
+            &lt;li>mousePageY : &lt;span class="mousePageY">0&lt;/span> px&lt;/li>
+            &lt;li>caenterPageX : &lt;span class="caenterPageX">0&lt;/span> px&lt;/li>
+            &lt;li>caenterPageY : &lt;span class="caenterPageY">0&lt;/span> px&lt;/li>
+            &lt;li>maxPageX : &lt;span class="maxPageX">0&lt;/span> px&lt;/li>
+            &lt;li>maxPageY : &lt;span class="maxPageY">0&lt;/span> px&lt;/li>
+            &lt;li>maxPageY : &lt;span class="anglePageX">0&lt;/span> px&lt;/li>
+            &lt;li>maxPageY : &lt;span class="anglePageY">0&lt;/span> px&lt;/li>
+        &lt;/ul>
+    &lt;/div>
+&lt;/main>
+&lt;!-- main -->
+</code></pre>
+            </div>
+            <h3 class="t_tit2">CSS 코드</h3>
+            <p class="t_desc">
+                mouse__cursor는 기존의 마우스 커서를 따라다녀야 하기 때문에, position: absolute;를 사용하여 위치를 잡아줍니다. 
+                이후에 스크립트를 이용해 top 값과 left 값의 변화를 주어 마우스를 따라다니는 것처럼 보이게 할 예정입니다.
+                이전에 했던 유형들과 비슷하지만, 이미지에 3D 효과를 주기 위해 transform-style: preserve-3d 속성을 준 것이 큰 특징이라고 할 수 있습니다.
+            </p>
+            <p class="t_box">
+                ✔point 속성 몇가지<br>
+                - transform-style: <i>preserve-3d</i> : transform 효과를 3D 처럼 보일 수 있도록 해주는 속성입니다.<br>
+                - will-change: transform : 변화를 부드럽게 해준다고 합니다(티는 잘 안나는 듯 합니다..)<br>
+                - transform: translate3d( x, y, z) : 기존의 translate와는 달리 z축 방향의 변화까지 지정할 수 있습니다.<br>
+                - transform: perspective() : 원근감을 줄 수 있습니다.<br>
+                - mix-blend-mode: <i>difference</i> : 겹칠 때 색이 반전되어 보이게 해주는 속성입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">.mouse__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-display: column;
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    cursor: none;
+}
+.mouse__img {
+    transform: perspective(600px) rotateX(0deg) rotateY(0deg);
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: all 0.3s;
+}
+.mouse__img figcaption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 1vw;
+    line-height: 1.6;
+    transform: translate3d(-50%, -50%, 100px);
+    padding: 1vw;
+    white-space: nowrap;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+}
+.mouse__wrap figure {
+    width: 50vw;
+    position: relative;
+}
+.mouse__wrap figure::before {
+    content: '';
+    position: absolute;
+    left: 5%;
+    bottom: -30px;
+    width: 90%;
+    height: 40px;
+    background: url(../assets/img/effect_bg02-min.jpg) center no-repeat;
+    background-size: 100% 40%;
+    filter: blur(15px) grayscale(50%);
+    z-index: -1;
+}
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 1000;
+    pointer-events: none;
+    user-select: none;
+    mix-blend-mode: difference;
+}
+.mouse__info {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">스크립트 작성하기</h3>
+            <details>
+                <summary>전체 스크립트 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">const mouseMove = (e) => {
+    // 마우스 좌표값
+    let mousePageX = e.pageX;
+    let mousePageY = e.pageY;
+
+    // 마우스 좌표 기준점을 가운데로 변경
+    let centerPageX = window.innerWidth / 2 - mousePageX;
+    let centerPageY = window.innerHeight / 2 - mousePageY;
+
+    //최솟값은 -100 최댓값은 100 설정
+    let maxPageX = Math.max(-100, Math.min(100, centerPageX));
+    let maxPageY = Math.max(-200, Math.min(200, centerPageY));
+
+    // 각도 줄이는 설정
+    let anglePageX = maxPageX * 0.1;
+    let anglePageY = maxPageY * 0.1;
+
+    // 부드럽게 설정
+    let softPageX = 0, softPageY = 0;
+    softPageX = (anglePageX - softPageX) * 0.4;
+    softPageY = (anglePageY - softPageY) * 0.4;
+
+    // 이미지 움직이기
+    const imgMove = document.querySelector(".mouse__img");
+    imgMove.style.transform = "perspective(600px) rotateX(" + softPageY + "deg) rotateY(" + -softPageX + "deg)";
+    
+    // 커서
+    gsap.to(".mouse__cursor", { duration: .3, left: mousePageX-50, top: mousePageY-50})
+
+    // 마우스 좌표값 출력
+    document.querySelector(".mousePageX").textContent = Math.round(mousePageX);
+    document.querySelector(".mousePageY").textContent = Math.round(mousePageY);
+    document.querySelector(".centerPageX").textContent = Math.round(centerPageX);
+    document.querySelector(".centerPageY").textContent = Math.round(centerPageY);
+    document.querySelector(".maxPageX").textContent = Math.round(maxPageX);
+    document.querySelector(".maxPageY").textContent = Math.round(maxPageY);
+    document.querySelector(".anglePageX").textContent = Math.round(anglePageX);
+    document.querySelector(".anglePageY").textContent = Math.round(anglePageY);
+}
+window.addEventListener("mousemove", mouseMove);
+</code></pre>
+                </div>
+            </details>
+            <h3 class="t_tit2">01. 마우스가 움직일 경우 함수가 실행되도록 합니다.</h3>
+            <p class="t_desc">함수를 먼저 만들고 addEventListener의 mousemove 속성을 이용해, 이벤트가 발생할 경우 해당 함수가 실행되도록 합니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">const mouseMove = (e) => {}
+window.addEventListener("mousemove", mouseMove);
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">02. mouseMove 함수 실행문 작성 : 마우스의 좌표값을 구해줍니다.</h3>
+            <p class="t_box">
+                : 여기서 e는 마우스 커서를 의미합니다. pageX, pageY를 이용해 요소의 x, y 좌표를 구할 수 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">let mousePageX = e.pageX;
+let mousePageY = e.pageY;
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">03. mouseMove 함수 실행문 작성 : 마우스 좌표 기준점을 가운데로 변경해 줍니다.</h3>
+            <p class="t_desc">이미지가 중앙을 기준으로, 마우스 위치에 따라 움직일 수 있도록 합니다.</p>
+            <p class="t_box">
+                - window.innerWidth / 2 에서 마우스의 좌표값을 빼면 이론상으로는 0이 됩니다. 즉, 가운데가 원점이 됩니다.<br>
+                ⇒ 마우스커서가 중앙을 기준으로 왼쪽 위에 위치 = centerPageX의 값은 음수<br>
+                ⇒ 마우스커서가 중앙을 기준으로 오른쪽 아래에 위치 = centerPageY 값은 양수
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">let centerPageX = window.innerWidth / 2 - mousePageX;
+let centerPageY = window.innerHeight / 2 - mousePageY;
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">04. mouseMove 함수 실행문 작성 : 이미지가 움직이는 각도의 최솟값, 최댓값을 설정합니다.</h3>
+            <p class="t_desc">
+                : 단순하게 하자면 centerPageX, centerPageY의 값이 이미지가 움직이는 각도를 결정하는 값이 되지만, 
+                이렇게 하면 값이 큰 경우 이미지가 뒤집혀 버리거나 정신사납게 움직이게 됩니다. 그런 불상사를 막기 위해 최솟값과 최댓값을 설정해 줍니다.
+            </p>
+            <p class="t_box">
+                - Math.<i>min</i>(a, b) : a와 b 중 작은 값을 리턴합니다.
+                - Math.<i>max</i>(a, b) : a와 b 중 큰 값을 리턴합니다.
+                ⇒ Math.max(-100, Math.min(100, centerPageX))
+                : centerPageX와 100 중에 작은 값을 리턴하고, 리턴된 값과 -100 중 큰 값을 리턴합니다. 즉, 최댓값이 100, 최솟값이 -100으로 설정된 것입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">//최솟값은 -100 최댓값은 100 설정
+let maxPageX = Math.max(-100, Math.min(100, centerPageX));
+let maxPageY = Math.max(-200, Math.min(200, centerPageY));
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">05. mouseMove 함수 실행문 작성 : 각도를 한번 더 줄여 조정해 줍니다</h3>
+            <p class="t_box">
+                여전히 너무 크게 돌아가는 감이 있기 때문에, 0.1을 곱해 적당한 값으로 돌아가도록 합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">let anglePageX = maxPageX * 0.1;
+let anglePageY = maxPageY * 0.1;
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">06. mouseMove 함수 실행문 작성 : 부드럽게 움직이도록 설정해 줍니다.</h3>
+            <p class="t_box">
+                : 값의 변화가 크지는 않은 (거의 의미 없는)계산이지만, 계산 처리 속도의 텀을 줄 수 있어 움직임이 부드러워지게 됩니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">let softPageX = 0, softPageY = 0;
+softPageX = (anglePageX - softPageX) * 0.4;
+softPageY = (anglePageY - softPageY) * 0.4;
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">07. mouseMove 함수 실행문 작성 : 위에서 구한 값을 이용해 이미지를 움직여 줍니다.</h3>
+            <p class="t_box">
+                - perspective : 원근감을 줍니다.<br>
+                - rotateX : x축을 기준으로 회전합니다.<br>
+                - rotateY : y축을 기준으로 회전합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const imgMove = document.querySelector(".mouse__img");
+imgMove.style.transform = "perspective(600px) rotateX(" + softPageY + "deg) rotateY(" + -softPageX + "deg)";
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">08. mouseMove 함수 실행문 작성 : gsap를 이용하여 커서 움직이기</h3>
+            <p class="t_box">
+                : gsap를 이용하여 애니메이션을 작성합니다.<br>
+                - duration : 지속시간<br>
+                - left : 왼쪽에서의 위치<br>
+                - top : 위쪽에서의 위치
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">gsap.to(".mouse__cursor", { duration: .3, left: mousePageX-50, top: mousePageY-50});
+</code></pre>
+            </div><br>
+            <h3 class="t_tit2">09. mouseMove 함수 실행문 작성 : mouse__info에 각 좌표값 넣기</h3>
+            <p class="t_box">
+                : textContent를 이용해 각 요소에 해당하는 값을 작성해 줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">document.querySelector(".mousePageX").textContent = Math.round(mousePageX);
+document.querySelector(".mousePageY").textContent = Math.round(mousePageY);
+document.querySelector(".centerPageX").textContent = Math.round(centerPageX);
+document.querySelector(".centerPageY").textContent = Math.round(centerPageY);
+document.querySelector(".maxPageX").textContent = Math.round(maxPageX);
+document.querySelector(".maxPageY").textContent = Math.round(maxPageY);
+document.querySelector(".anglePageX").textContent = Math.round(anglePageX);
+document.querySelector(".anglePageY").textContent = Math.round(anglePageY);
+</code></pre>
+            </div><br>
+            
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/mouseEffect05.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/javascript/effect/mouseEffect05.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
