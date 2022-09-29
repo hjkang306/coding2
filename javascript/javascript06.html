@@ -1864,41 +1864,56 @@ console.log(result3);
 
             
             //b d f h k(짝수)
-            const num = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            //const num = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
             
             //01
-            for(let i=0; i<num.length; i++){
-                if(i % 2 == 1){
-                    //console.log(num[i]);
-                };
-            }
+            // for(let i=0; i<num.length; i++){
+            //     if(i % 2 == 1){
+            //         //console.log(num[i]);
+            //     };
+            // }
 
             //02
-            for(let i2=1; i2<=num.length; i2++){
-                if(i2%2 == 1){
-                    //console.log(num.slice(i2, i2+1));
-                }
-            }
+            // for(let i2=1; i2<=num.length; i2++){
+            //     if(i2%2 == 1){
+            //         //console.log(num.slice(i2, i2+1));
+            //     }
+            // }
 
             //03
-            let alpha = num.filter(e => e == "b" | e =="d" | e =="f" | e =="h" | e =="k");
+            //let alpha = num.filter(e => e == "b" | e =="d" | e =="f" | e =="h" | e =="k");
             //console.log(alpha);
 
             //04
             const num2 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
-            let num3 = [];
-            for(let i3=1; i3<=num2.length; i3++){
-                num3 += num2.splice(i3,1);
-                //console.log(num2.splice(i3,1));
-            }
-            //console.log(num3);
+            // let num3 = [];
+            // for(let i3=1; i3<=num2.length; i3++){
+            //     num3 += num2.splice(i3,1);
+            //     //console.log(num2.splice(i3,1));
+            // }
+            // //console.log(num3);
 
             
             //e, f 출력 (3가지) splice, slice 안됨
-            let case1 = num.filter(e => e == "e" | e =="f");
+            //01
+            const case1 = num2.filter(e => e == "e" || e =="f");
             console.log(case1);
-
-            let case2 = 0;
+            //02
+            for(i4=0; i4<=num2.length; i4++){
+                if(i4 == num2.length/2 || i4==(num2.length/2)-1){
+                    console.log(num2[i4]);
+                };
+            };
+            //03
+            num2.map( (el, index) => {
+                if(index == num2.length/2 || index == (num2.length/2)-1){
+                    console.log(el);
+                }
+            });
+            //04
+            let case4 = num2.join('').charAt((num2.length/2)-1);
+            case4 += num2.join('').charAt(num2.length/2);
+            console.log(case4);
         }
     </script>
 </body>
