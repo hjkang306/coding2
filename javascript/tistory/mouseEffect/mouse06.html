@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">마우스 효과 만들기 6</h2>
+            <p class="t_desc2">
+                스크립트를 이용하여 마우스 커서를 따라다니는 효과나, 요소에 마우스가 올라갔을 때 마우스를 따라다니는 요소의 색이 변하거나 모양이 변하게 할 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">마우스 이펙트 : 텍스트 효과</h3>
+            <p class="t_desc">
+                텍스트가 움직이며 왼쪽에서는 오렌지색, 오른쪽에서는 흰색으로 나타납니다.
+            </p>
+            <h3 class="t_tit2">HTML 코드</h3>
+            <p class="t_desc">
+                이미지와 텍스트를 .mouse__img와 .mouse__text로 구분하고 왼쪽 글씨는 .left에, 오른쪽 글씨는 .right에 작성하였습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;main id="main">
+    &lt;section id="mouseType">
+        &lt;div class="mouse__cursor">&lt;/div>
+        &lt;div class="mouse__wrap">
+            &lt;div class="mouse__img">
+                &lt;figure>
+                    &lt;img src="../assets/img/effect_bg10@2x-min.jpg" alt="이미지">
+                &lt;/figure>
+            &lt;/div>
+            &lt;div class="mouse__text">
+                &lt;div class="line">
+                    &lt;div class="left">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanSlow">Pain Past&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="right">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanSlow">Pain Past&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;div class="line">
+                    &lt;div class="left">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanFast">is pleasure&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="right">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanFast">is pleasure&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;div class="line">
+                    &lt;div class="left">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanSlow">지나간 고통은&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="right">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanSlow">지나간 고통은&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;div class="line">
+                    &lt;div class="left">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanFast">쾌락이다.&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="right">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanFast">쾌락이다.&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+    &lt;/section>
+&lt;/main>
+</code></pre>
+            </div>
+            <h3 class="t_tit2">CSS 코드</h3>
+            <p class="t_desc">
+                mouse__cursor는 기존의 마우스 커서를 따라다녀야 하기 때문에, position: absolute;를 사용하여 위치를 잡아줍니다. 
+                이후에 스크립트를 이용해 top 값과 left 값의 변화를 주어 마우스를 따라다니는 것처럼 보이게 할 예정입니다.
+                이전에 했던 유형들과 비슷하지만, 텍스트 효과를 주기 위해 transform: skew() 속성을 이용해 기울기를 주었고, overflow: hidden 속성을 이용해 각각의 구역에서 벗어나는 글씨는 사라지도록 하였습니다.
+                이를 통해 왼쪽과 오른쪽 구역에서 글씨 색이 달라지는 듯한 효과를 줄 수 있습니다.
+            </p>
+            <p class="t_box">
+                ✔point 속성 몇가지<br>
+                - transform: skew() : 기울기 변형을 줄 수 있습니다.<br>
+                - overflow: <i>hidden</i> : 해당 요소를 벗어나는 자식요소를 숨김처리 합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">.mouse__wrap {
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    cursor: none;
+}
+.mouse__img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+.mouse__text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -20%);
+    font-size: 3vw;
+    line-height: 1.5;
+    font-weight: 500;
+}
+.mouse__text .line {
+    width: 100%;
+    display: flex;
+}
+.mouse__text .line .left {
+    width: 50vw;
+    color: orange;
+    overflow: hidden;
+    transform: skew(0deg, -15deg);
+}
+.mouse__text .line .left .spanWrap {
+    width: 100vw;
+    text-align: center;
+}
+.mouse__text .line .right {
+    width: 50vw;
+    color: #fff;
+    overflow: hidden;
+    transform: skew(0deg, 15deg);
+}
+.mouse__text .line .right .spanWrap {
+    width: 100vw;
+    text-align: center;
+    transform: translateX(-50vw);
+}
+.mouse__text span {
+    display: inline-block;
+}
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    z-index: 9999;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.9);
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.3s;
+}
+.mouse__cursor.hover {
+    mix-blend-mode: difference;
+    transform: scale(5);
+}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">스크립트 작성하기</h3>
+            <details>
+                <summary>전체 스크립트 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">const mouseMove = (e) =>{ //마우스가 움직이는 경우에 실행시킬 함수 mouseMove를 작성합니다. 여기서 e는 마우스 커서를 의미합니다.
+    let positionSlow = (e.pageX - (window.innerWidth / 2)) * 0.1; // e.pageX를 통해 구한 커서의 x축 좌표값에서 (window.innerWidth / 2)를 빼 가운데를 기준으로 오차를 만듭니다. 이후 0.1을 곱해 오차의 값이 너무 크지 않도록 조정합니다.(너무 커서 줄이기 위해 곱함)
+    let positionFast = (e.pageX - (window.innerWidth / 2)) * 0.2; // 위와 같지만 조금 더 빠르게 움직이이도록 오차를 키웠습니다.(0.2곱)
+
+    gsap.to(".spanSlow", {duration: 0.4, x: positionSlow}); //gsap를 이용해 애니메이션을 주었습니다. (느리게 움직이는 글씨)
+    gsap.to(".spanFast", {duration: 0.4, x: -positionFast}); // 반대편으로 움직여야하기 때문에 -positionFast로 움직이도록 하였습니다.(빠르게 움직이는 글씨)
+    gsap.to(".mouse__cursor", {duration: 0.3, left: e.pageX - 5, top: e.pageY - 5}); // 새로 만든 커서가 마우스 커서를 따라 움직이도록 애니메이션을 주었습니다.
+};
+window.addEventListener("mousemove", mouseMove); // 마우스가 움직이는 mousemove이벤트가 발생할 때, mouseMove함수가 실행됩니다.
+
+//마우스 커서가 글씨 위에 올라가면 반전 효과 + 원이 다섯배 커지기
+// 여기는 간단하니까,, 설명 생략하겠습니다😆
+const text = document.querySelectorAll(".mouse__text .spanWrap span");
+const cursor = document.querySelector(".mouse__cursor");
+
+text.forEach(text => {
+    text.addEventListener("mouseenter", ()=>{
+        cursor.classList.add("hover");
+    });
+    text.addEventListener("mouseleave", ()=>{
+        cursor.classList.remove("hover");
+    });
+});
+</code></pre>
+                </div>
+            </details>
+            
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/mouseEffect06.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/javascript/effect/mouseEffect06.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

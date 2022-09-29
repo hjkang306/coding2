@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text type</title>
+
+    <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+        .font {
+            font-family: 'GmarketSans';
+            font-weight: 500;
+        }
+
+        /* ir 효과(이미지 대체 효과 == alt) */
+        .ir {
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+            display: flex;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section>p {
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 10px;
+            text-decoration-line: underline;
+        }
+
+        /* main */
+        .title__desc {
+            width: 374px;
+        }
+        .subtit {
+            display: inline-block;
+            font-size: 16px;
+            text-transform: uppercase;
+            padding: 3px 22px;
+            border-radius: 50px;
+            background: #FF4949;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .tit {
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .tit_desc {
+            width: 275px;
+            font-size: 18px;
+            line-height: 140%;
+            color: #333;
+        }
+        .text__box {
+            width: 374px;
+        }
+        .text__box.left {
+            margin: 0 20px;
+        }
+        .text {
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            background: url(img/iconsplite2.svg) no-repeat;
+        }
+        .text:nth-child(1) {
+            margin-bottom: 20px;
+        }
+        .left .text:nth-child(1) .icon {
+            background-color: #DAFBEB;
+            background-position: 13px 8px;
+        }
+        .left .text:nth-child(2) .icon {
+            background-color: #FDE2E2;
+            background-position: -86px 9px;
+        }
+        .right .text:nth-child(1) .icon {
+            background-color: #E8FFD6;
+            background-position: -39px 8px;
+        }
+        .right .text:nth-child(2) .icon {
+            background-color: #DADDFB;
+            background-position: -137px 10px;
+        }
+        .textTit {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .textDesc {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 140%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container textType section font">
+        <div class="title__desc">
+            <p class="subtit">4 seasons</p>
+            <h2 class="tit">우리나라의<br>사계절</h2>
+            <p class="tit_desc">
+                꽃 피는 봄부터 쪄죽는 여름을 지나 가을과 겨울에 이르기까지!<br>
+                우리나라의 사계절을 만나봅시다~
+            </p>
+        </div>
+        <div class="text__box left">
+            <article class="text">
+                    <div class="icon ir">아이콘</div>
+                    <h3 class="textTit">꽃 피는 봄</h3>
+                    <p class="textDesc">꽃이 피고 얼음과 눈이 녹고 새싹이 돋아나는 봄은 꽃가루 알러지의 계절이기도 합니다. 알러지가 있으신 분들은 조심하도록 합시다~</p>
+            </article>
+            <article class="text">
+                    <div class="icon ir">아이콘</div>
+                    <h3 class="textTit">낙엽 지는 가을</h3>
+                    <p class="textDesc">단군이 사기당한 바로 그 계절! 선선한 바람이 불고 화창하고 맑은 하늘, 놀러가기 딱 좋은 날씨가 이어지는 가을입니다. 평생 가을이면 좋겠어~</p>
+            </article>
+        </div>
+        <div class="text__box right">
+            <article class="text">
+                    <div class="icon ir">아이콘</div>
+                    <h3 class="textTit">쪄 죽는 여름</h3>
+                    <p class="textDesc">비가 내리고… 음악이 흐르면… 아무래도 여름하면 푹푹 찌는 더위와 습한 날씨, 그리고 비가 억수로 내리는 장마철이 떠오르네요.</p>
+            </article>
+            <article class="text">
+                    <div class="icon ir">아이콘</div>
+                    <h3 class="textTit">얼어 죽는 겨울</h3>
+                    <p class="textDesc">여름에 그렇게 덥더니 겨울엔 또 얼마나 추운지 두툼한 옷을 껴입고 김밥이 되어 돌아다녀도 찬바람이 쌩쌩 부는 계절입니다. 그래도 겨울 좋아.</p>
+            </article>
+        </div>
+    </div>
+</body>
+</html>

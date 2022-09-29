@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">패럴랙스 이펙트 6</h2>
+            <p class="t_desc2">
+                이번 패럴랙스 효과는 스크롤을 내리면 글씨가 하나씩 쭈루룩 나타나는 효과입니다. 한번 알아볼까요?
+            </p>
+            <h3 class="t_tit2">HTML 코드</h3>
+            <p class="t_desc">
+                이번 패럴랙스는 메뉴 없이 컨텐츠로만 구성하였으며, scrollTop 정보를 볼 수 있는 info를 추가해주었습니다.
+            </p>
+            <details>
+                <summary>HTML 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">&lt;main id="parallax__cont">
+    &lt;div id="contents">
+        &lt;section id="section01" class="content__item">
+            &lt;span class="content__item__num">01&lt;/span>
+            &lt;h2 class="content__item__title">section1&lt;/h2>
+            &lt;figure class="content__item__imgWrap">
+                &lt;div class="content__item__img">&lt;/div>
+            &lt;/figure>
+            &lt;p class="content__item__desc">질병은 입을 쫓아 들어가고 화근은 입을 좇아 나온다.&lt;/p>
+        &lt;/section>
+        &lt;!-- //section01 -->
+        .
+        .
+        .
+    &lt;/div>
+&lt;/main>
+&lt;!-- main -->
+
+&lt;aside id="parallax__info">
+    &lt;div class="scroll">scrollTop : &lt;span>0&lt;/span>px&lt;/div>
+&lt;/aside>
+&lt;!-- info -->
+</code></pre>
+                </div>
+            </details>
+            <h3 class="t_tit2">CSS 코드</h3>
+            <p class="t_desc">
+                이번 패럴랙스는 이전 유형과 css가 거의 동일합니다. 달라진 부분의 css를 보면, 하나씩 쪼개 저장한 span에 속성을 적용한 것을 알 수 있습니다. span에 show 클래스가 붙으면 나타나게 됩니다.
+            </p>
+            <details>
+                <summary>CSS 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">/* option */
+.split span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.3s cubic-bezier(0, 0.76, 0.45, 1.42);
+    min-width: 1vw;
+}
+.split span.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</code></pre>
+                </div>
+            </details>
+            <h3 class="t_tit2">스크립트 요약</h3>
+            <p class="t_desc">
+                1. 텍스트를 글자 하나씩 쪼개 span 태그 안에 출력합니다.<br>
+                2. 스크롤 값을 구해, 스크롤이 내려감에 따라 텍스트가 나타나도록 합니다.<br>
+                3. 각각의 span에 transition-delay를 점점 증가되도록 추가합니다.<br>
+                4. 스크롤 이벤트가 발생하면 해당 함수가 실행되도록 합니다.
+            </p>
+            <details>
+                <summary>전체 스크립트 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">// 글씨 쪼개기
+//let text = document.querySelector("#section01 .content__item__desc");
+// let splitText = text.innerText;
+// let splitWrap = splitText.split('').join('&lt;/span>&lt;span>');
+// text.innerHTML = "&lt;span>" + splitWrap + "&lt;/span>";
+
+// 글씨 쪼개기(다중이)
+let text = document.querySelectorAll(".content__item__desc");
+text.forEach( (e)=> {
+    let splitText = e.innerText;
+    let splitWrap = splitText.split('').join('&lt;/span>&lt;span aria-hidden="true">');
+    e.innerHTML = "&lt;span aria-hidden='true'>" + splitWrap + "&lt;/span>";
+    e.setAttribute("aria-label", splitText);
+});
+
+function scroll() {
+    let scrollTop = window.scrollY;
+
+    document.querySelector("#parallax__info .scroll").innerText = Math.round(scrollTop);
+
+    // CSS 클래스 추가 (단순 반복)
+    // document.querySelectorAll(".content__item").forEach( item => {
+    //     if(scrollTop >= item.offsetTop){
+    //         item.querySelector(".split").classList.add("show");
+    //     }
+    // });
+
+    document.querySelectorAll(".content__item").forEach(item => {
+        if(scrollTop >= item.offsetTop){
+            item.querySelectorAll(".split span").forEach((span, index) => {
+                span.classList.add("show");
+
+                span.style.transitionDelay = index + "00ms";
+            });
+        }
+    });
+    requestAnimationFrame(scroll);
+    
+    
+    //첫 번째 span --> 0.01s
+    //두 번째 span --> 0.02s
+    //세 번째 span --> 0.03s
+    //.split span:nth-child(39) {transition-delay: 2.0s;}
+}
+scroll();
+</code></pre>
+                </div>
+            </details>
+            <h3 class="t_tit2">스크립트 뜯어보기</h3>
+            <p class="t_desc2">
+                스크립트를 차근차근 뜯어보며 이해해 봅시다!(오늘은 말고 내일^0^)
+            </p>
+            <h3 class="t_tit2">> 완성 페이지 보기</h3>
+            <div class="t_iframe" style="min-height: 700px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/parallaxEffect06.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/javascript/effect/parallaxEffect06.html">원본 소스 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

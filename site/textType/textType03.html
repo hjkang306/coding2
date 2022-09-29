@@ -9,6 +9,12 @@
     <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
 
     <style>
+        /* font */
+        .nexon {
+            font-family: 'NexonLv1Gothic';
+            font-weight: 400;
+        }
+        /* reset */
         * {
             margin: 0;
             padding: 0;
@@ -31,9 +37,19 @@
         h6 {
             font-weight: normal;
         }
-        .font {
-            font-family: 'NexonLv1Gothic';
-            font-weight: 400;
+
+        em {
+            font-style: normal;
+        }
+
+        /* 블라인드 효과 */
+        .blind {
+            position:absolute;
+            clip:rect(0 0 0 0);
+            width:1px;
+            height:1px;
+            margin:-1px;
+            overflow:hidden
         }
 
         /* ir 효과(이미지 대체 효과 == alt) */
@@ -56,163 +72,176 @@
             padding: 120px 0;
         }
 
-        .section>h2 {
+        .section > h2 {
             font-size: 50px;
             line-height: 1;
             text-align: center;
             margin-bottom: 20px;
         }
 
-        .section>p {
+        .section > p {
             font-size: 22px;
             font-weight: 300;
             color: #666;
             text-align: center;
             margin-bottom: 70px;
         }
-
-        /* main */
-        body {
-            background: #F6F8FD;
+        .section > span {
+            display: block;
+            text-align: center;
+            font-size: 16px;
+            text-decoration: underline;
+            margin-bottom: 16px;
         }
-        .text__box {
+        .mb70 {
+            margin-bottom: 70px;
+        }
+        .skyBlue {
+            background-color: #f6f6fd;
+        }
+        /* textType */
+        .text__inner {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
-        .text {
-            width: 373px;
-            height: 400px;
-            padding: 30px;
-            border-radius: 10px;
+        .text__inner .text {
+            width: 32%;
             background: #fff;
+            padding: 30px;
             box-sizing: border-box;
+            border-radius: 10px;
         }
-        .text:nth-child(2) {
-            margin: 0 20px;
+        .text__desc {
+            font-size: 18px;
+            line-height: 1.5;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #f4f4f4;
+            font-weight: 300;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 7;
+            -webkit-box-orient: vertical;
+            min-height: 189px;
         }
-        .textDesc {
-            height: 176px;
-            font-size: 16px;
-            line-height: 140%;
-            margin-bottom: 20px;
+        .text__info {
+            padding: 25px 0 25px 63px;
+            border-bottom: 1px solid #f4f4f4;
+            margin-bottom: 30px;
         }
-        .artist {
-            display: flex;
-            padding: 24px 0;
-            margin-bottom: 20px;
-            border-top: 1px solid #EEEEEE;
-            border-bottom: 1px solid #EEEEEE;
+        .text__info h3 {
+            font-size: 26px;
+            margin-bottom: 5px;
+            position: relative;
+            padding-top: 1px;
         }
-        .icon {
-            width: 50px;
-            height: 50px;
+        .text__info h3::before {
+            content: '';
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
-            margin-right: 10px;
-            background: url(img/iconsplite3.svg) no-repeat;
+            position: absolute;
+            left: -63px;
+            top: 0;
+            background-position: center;
+            background-image: url("data:image/svg+xml,%3Csvg width='33' height='31' viewBox='0 0 33 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.0802 19.4233C19.8824 20.532 18.2581 21.1549 16.5645 21.1549C14.8709 21.1549 13.2466 20.532 12.0488 19.4233M11.7742 12.2851H11.7902M21.3548 12.2851H21.3708M30.9355 15.2421C30.9355 16.9895 30.5638 18.7199 29.8416 20.3343C29.1193 21.9487 28.0608 23.4156 26.7263 24.6513C25.3919 25.8869 23.8076 26.8671 22.064 27.5358C20.3205 28.2045 18.4517 28.5487 16.5645 28.5487C14.6773 28.5487 12.8085 28.2045 11.065 27.5358C9.32141 26.8671 7.73717 25.8869 6.4027 24.6513C5.06823 23.4156 4.00968 21.9487 3.28747 20.3343C2.56526 18.7199 2.19354 16.9895 2.19354 15.2421C2.19354 11.713 3.70762 8.32837 6.4027 5.8329C9.09778 3.33743 12.7531 1.93549 16.5645 1.93549C20.3759 1.93549 24.0312 3.33743 26.7263 5.8329C29.4214 8.32837 30.9355 11.713 30.9355 15.2421Z' stroke='%234857ec' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            background-repeat: no-repeat;
+            background-color: #dcdffb;
         }
-        .text:nth-child(1) .icon {
-            background-color: #FFBDBD;
-            background-position: 16px 15px;
+        .text__info h3.c1::before {
+            background-color: #dcdffb;
+            background-image: url("data:image/svg+xml,%3Csvg width='33' height='31' viewBox='0 0 33 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.0802 19.4233C19.8824 20.532 18.2581 21.1549 16.5645 21.1549C14.8709 21.1549 13.2466 20.532 12.0488 19.4233M11.7742 12.2851H11.7902M21.3548 12.2851H21.3708M30.9355 15.2421C30.9355 16.9895 30.5638 18.7199 29.8416 20.3343C29.1193 21.9487 28.0608 23.4156 26.7263 24.6513C25.3919 25.8869 23.8076 26.8671 22.064 27.5358C20.3205 28.2045 18.4517 28.5487 16.5645 28.5487C14.6773 28.5487 12.8085 28.2045 11.065 27.5358C9.32141 26.8671 7.73717 25.8869 6.4027 24.6513C5.06823 23.4156 4.00968 21.9487 3.28747 20.3343C2.56526 18.7199 2.19354 16.9895 2.19354 15.2421C2.19354 11.713 3.70762 8.32837 6.4027 5.8329C9.09778 3.33743 12.7531 1.93549 16.5645 1.93549C20.3759 1.93549 24.0312 3.33743 26.7263 5.8329C29.4214 8.32837 30.9355 11.713 30.9355 15.2421Z' stroke='%234857ec' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
-        .text:nth-child(2) .icon {
-            background-color: #A8DAFF;
-            background-position: -35px 15px;
+        .text__info h3.c2::before {
+            background-color: #FFE0E0;
+            background-image: url("data:image/svg+xml,%3Csvg width='33' height='31' viewBox='0 0 33 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.0802 19.4233C19.8824 20.532 18.2581 21.1549 16.5645 21.1549C14.8709 21.1549 13.2466 20.532 12.0488 19.4233M11.7742 12.2851H11.7902M21.3548 12.2851H21.3708M30.9355 15.2421C30.9355 16.9895 30.5638 18.7199 29.8416 20.3343C29.1193 21.9487 28.0608 23.4156 26.7263 24.6513C25.3919 25.8869 23.8076 26.8671 22.064 27.5358C20.3205 28.2045 18.4517 28.5487 16.5645 28.5487C14.6773 28.5487 12.8085 28.2045 11.065 27.5358C9.32141 26.8671 7.73717 25.8869 6.4027 24.6513C5.06823 23.4156 4.00968 21.9487 3.28747 20.3343C2.56526 18.7199 2.19354 16.9895 2.19354 15.2421C2.19354 11.713 3.70762 8.32837 6.4027 5.8329C9.09778 3.33743 12.7531 1.93549 16.5645 1.93549C20.3759 1.93549 24.0312 3.33743 26.7263 5.8329C29.4214 8.32837 30.9355 11.713 30.9355 15.2421Z' stroke='%23C66464' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
-        .text:nth-child(3) .icon {
-            background-color: #DAFFBD;
-            background-position: -85px 15px;
+        .text__info h3.c3::before {
+            background-color: #E8FFD6;
+            background-image: url("data:image/svg+xml,%3Csvg width='33' height='31' viewBox='0 0 33 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.0802 19.4233C19.8824 20.532 18.2581 21.1549 16.5645 21.1549C14.8709 21.1549 13.2466 20.532 12.0488 19.4233M11.7742 12.2851H11.7902M21.3548 12.2851H21.3708M30.9355 15.2421C30.9355 16.9895 30.5638 18.7199 29.8416 20.3343C29.1193 21.9487 28.0608 23.4156 26.7263 24.6513C25.3919 25.8869 23.8076 26.8671 22.064 27.5358C20.3205 28.2045 18.4517 28.5487 16.5645 28.5487C14.6773 28.5487 12.8085 28.2045 11.065 27.5358C9.32141 26.8671 7.73717 25.8869 6.4027 24.6513C5.06823 23.4156 4.00968 21.9487 3.28747 20.3343C2.56526 18.7199 2.19354 16.9895 2.19354 15.2421C2.19354 11.713 3.70762 8.32837 6.4027 5.8329C9.09778 3.33743 12.7531 1.93549 16.5645 1.93549C20.3759 1.93549 24.0312 3.33743 26.7263 5.8329C29.4214 8.32837 30.9355 11.713 30.9355 15.2421Z' stroke='%236AAF35' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
-        .textTit {
+        .text__info h3 em {
             font-size: 16px;
-            color: #666;
-            margin-bottom: 8px;
+            font-weight: 300;
         }
-        .textTit em {
-            font-style: normal;
-            font-size: 24px;
-            color: #000;
-        }
-        .heart__inner {
-           display: flex;
-        }
-        .heart {
-            width: 16.5px;
+        .text__info .star span {
+            width: 16px;
             height: 15px;
-            background: url(img/iconsplite3.svg) no-repeat;
-            background-position-x: -150px;
-            margin-right: 5px;
+            display: inline-block;
+            background: url(img/starN.svg);
         }
-        .text:nth-child(2) .heart:nth-child(5) {
-            background-position-x: -200px;
+        .text__info .star span.fill {
+            background: url(img/star.svg) no-repeat;
         }
-        .more {
-            margin-left: 106px;
+        .text_btn {
+            text-align: center;
         }
-        .more a {
-            padding: 5px 15px;
-            background: #415FFF;
-            border-radius: 20px;
+        .text_btn a {
+            background: #4857ec;
             color: #fff;
-            font-size: 14px;
+            display: inline-block;
+            border-radius: 50px;
+            padding: 10px 30px;
         }
     </style>
 </head>
 <body>
-    <div class="container textType section font">
-        <h2 class="tit">계절 연상 노래 🌞</h2>
-        <p class="subtit">우리나라의 각 계절을 겪으며 드는 노래의 가사를 적어보았습니다!</p>
-        <div class="text__box">
-            <article class="text">
-                <p class="textDesc">우리에게 봄이 온다면, 따스한 하늘이 우리를 감싸면. 그날이 온다면, 나는 너의 무릎에 누워 꿈을 꿀 거야. 어둠에 취한 사람들이 (하나 둘 정신을 잃어도) 새벽 내내 흘린 눈물이 (모두 모여 바다 되어도). 다같이 만세를 불러, 나비가 날아들 때. 꽃망울이 수줍게 문을 열어줄때, 만세를 불러 슬픔이 녹아내릴 때. 손을 맞잡고 (손을 맞잡고) 봄이 온다면.…</p>
-                <div class="artist">
-                    <div class="icon ir">아이콘</div>
-                    <div class="right">
-                        <h3 class="textTit"><em>안예은</em> 싱어송라이터</h3>
-                        <div class="heart__inner">
-                            <div class="heart ir">하트</div>
-                            <div class="heart ir">하트</div>
-                            <div class="heart ir">하트</div>
-                            <div class="heart ir">하트</div>
-                            <div class="heart ir">하트</div>
-                        </div>
+    <section id="textType" class="text__wrap nexon section skyBlue">
+        <h2>스터디 후기</h2>
+        <p>웹디자이너, 웹 퍼블리셔, 프론트앤드 개발자 멤버를 소개합니다.</p>
+        <div class="text__inner container">
+            <div class="text">
+                <p class="text__desc">불과 3달전만해도 여러 원인들로 인해 자존감이 밑바닥이였던 저에게 이 스터디는 너무 소중한 시간이었어요. 매일 마음속으로 울고싶다를 외쳤던 저였는데 이제는 조금이나마 이겨 낼 수 있을 것 같네요. 다음에 선생님 만났을 때는 많이 발전해있는 제가 되었으면 좋겠네요...</p>
+                <div class="text__info">
+                    <h3 class="c1">이태용 <em>웹스 24기</em></h3>
+                    <div class="star">
+                        <span class="fill"></span>
+                        <span class="fill"></span>
+                        <span class="fill"></span>
+                        <span class="fill"></span>
+                        <span class="fill"></span>
                     </div>
                 </div>
-                <span class="more"><a href="#">자세히 보기</a></span>
-            </article>
-            <article class="text">
-                <p class="textDesc">처절한 저 매미의 노래가, 이 길을 가득 채워. 희미해진 이 여름의 끝자락에 아스라이  서서. 너와 나 새겨진  파란 하늘 곧 붉게 변해가리. 우리 함께 이 여름 상냥한 미소 맘에<br>난 매일 밤 이 여름 되새길거야. 너도 나와 같은 마음이라면, 기억해. 기억해.…</p>
-                <div class="artist">
-                    <div class="icon ir">아이콘</div>
-                    <div class="right">
-                        <h3 class="textTit"><em>아디오스오디오</em> 인디 락밴드</h3>
-                        <div class="heart__inner">
-                            <div class="heart ir">하트</div>
-                            <div class="heart ir">하트</div>
-                            <div class="heart ir">하트</div>
-                            <div class="heart ir">하트</div>
-                            <div class="heart ir">노란 하트</div>
-                        </div>
+                <div class="text_btn">
+                    <a href="#">자세히 보기</a>
+                </div>
+            </div>
+            <div class="text">
+                <p class="text__desc">진심 학교나 학원보다 더 많이 배운거라고 생각하고, 무지하고 말안듣고 자존감바닥인 저를 팩폭도 해주시고, 버리지 않아주셔서 감사...합니다 쌤!!!!!!!!!!
+                   <br> 회사에서 잘리지않고,,, 존버하겠습니다!!!!!!!!!!!! </p>
+                <div class="text__info">
+                    <h3 class="c2">이희진 <em>웹스 24기</em></h3>
+                    <div class="star">
+                        <span class="fill"></span>
+                        <span class="fill"></span>
+                        <span class="fill"></span>
+                        <span class="fill"></span>
+                        <span></span>
                     </div>
                 </div>
-                <span class="more"><a href="#">자세히 보기</a></span>
-            </article>
-            <article class="text">
-                <p class="textDesc">너는 어느 얼굴 없는 소설가의 문학 첫 문장. 아니 그걸론 부족한데, 너는 어느 이름 없는 소설가의 마지막 문장. 안돼 이것도 부족한데. 너는 나의 수레바퀴 아래서. 너는 나의 호밀밭의 파수꾼. 너는 나의 헤밍웨이 요조, 나는 너를 나는 너를. 계속 읽고 싶어, 닳아 없어질 때까지. 계속 읽고 싶어, 헤져 찢어질 때까지.…</p>
-                <div class="artist">
-                    <div class="icon ir">아이콘</div>
-                    <div class="right">
-                        <h3 class="textTit"><em>박소은</em> 싱어송라이터</h3>
-                        <div class="heart__inner">
-                            <div class="heart ir">하트</div>
-                            <div class="heart ir">하트</div>
-                            <div class="heart ir">하트</div>
-                            <div class="heart ir">하트</div>
-                            <div class="heart ir">하트</div>
-                        </div>
+                <div class="text_btn">
+                    <a href="#">자세히 보기</a>
+                </div>
+            </div>
+            <div class="text">
+                <p class="text__desc">제가 게을러서 의도치않게 자꾸 말을 안듣는 학생이 되었었지만 정말 선생님 말씀 틀린거 하나도 없었다는거 잘 알고있습니다,,, ㅎㅎ 
+                    아 그리고 마지막 하고 싶은 말은 저 새벽 5~6시에 자는 ㄹㅇ올빼미형인간인데... 쌤이랑 두달 공부했다고.....</p>
+                <div class="text__info">
+                    <h3 class="c3">정승연 <em>웹스 24기</em></h3>
+                    <div class="star">
+                        <span class="fill"></span>
+                        <span class="fill"></span>
+                        <span class="fill"></span>
+                        <span class="fill"></span>
+                        <span class="fill"></span>
                     </div>
                 </div>
-                <span class="more"><a href="#">자세히 보기</a></span>
-            </article>
+                <div class="text_btn">
+                    <a href="#">자세히 보기</a>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </body>
 </html>

@@ -545,6 +545,17 @@ el.addEventListener("click", () => {
             findProperty(searchWord);
         });
 
+        //클릭하기
+        // searchList.addEventListener("click", (e)=>{
+        //     findProperty(e.target.innerText);
+        // });
+        searchBtn.forEach( span => {
+            span.addEventListener("click", ()=>{
+                const clickWord = span.innertext;
+                findProperty(clickWord);
+            });
+        });
+
         //속성 찾기
         function findProperty(searchData){
             const targetData = cssProperty.find((data) => data.name === searchData);
@@ -558,9 +569,6 @@ el.addEventListener("click", () => {
             }
         };
 
-        searchList.addEventListener("click", (e)=>{
-            findProperty(e.target.innerText);
-        });
     </script>
 
     <script src="../assets/js/highlight.min.js"></script>

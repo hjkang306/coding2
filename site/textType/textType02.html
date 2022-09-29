@@ -9,6 +9,12 @@
     <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
 
     <style>
+        /* font */
+        .gmarket {
+            font-family: 'GmarketSans';
+            font-weight: 500;
+        }
+        /* reset */
         * {
             margin: 0;
             padding: 0;
@@ -31,9 +37,15 @@
         h6 {
             font-weight: normal;
         }
-        .font {
-            font-family: 'GmarketSans';
-            font-weight: 500;
+
+        /* 블라인드 효과 */
+        .blind {
+            position:absolute;
+            clip:rect(0 0 0 0);
+            width:1px;
+            height:1px;
+            margin:-1px;
+            overflow:hidden
         }
 
         /* ir 효과(이미지 대체 효과 == alt) */
@@ -54,130 +66,143 @@
 
         .section {
             padding: 120px 0;
-            display: flex;
         }
 
-        .section>h2 {
+        .section > h2 {
             font-size: 50px;
             line-height: 1;
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: 20px;
         }
 
-        .section>p {
+        .section > p {
             font-size: 16px;
             color: #666;
             text-align: center;
             margin-bottom: 10px;
             text-decoration-line: underline;
         }
-
-        /* main */
-        .title__desc {
-            width: 374px;
-        }
-        .subtit {
-            display: inline-block;
+        .section > span {
+            display: block;
+            text-align: center;
             font-size: 16px;
-            text-transform: uppercase;
-            padding: 3px 22px;
+            text-decoration: underline;
+            margin-bottom: 16px;
+        }
+        .mb70 {
+            margin-bottom: 70px;
+        }
+        .skyBlue {
+            background-color: #f6f6fd;
+        }
+        /* textType */
+        .text__inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .text__title {
+            width: 33%;
+        }
+        .text__title span {
+            background: #f34;
+            font-size: 14px;
+            padding: 2px 20px;
             border-radius: 50px;
-            background: #FF4949;
+            text-transform: uppercase;
+            font-weight: 300;
             color: #fff;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            display: inline-block;
         }
-        .tit {
+        .text__title h3 {
             font-size: 50px;
-            font-weight: 700;
-            margin-bottom: 30px;
-        }
-        .tit_desc {
-            width: 275px;
-            font-size: 18px;
-            line-height: 140%;
-            color: #333;
-        }
-        .text__box {
-            width: 374px;
-        }
-        .text__box.left {
-            margin: 0 20px;
-        }
-        .text {
-            box-sizing: border-box;
-            padding: 20px;
-        }
-        .icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-            background: url(img/iconsplite2.svg) no-repeat;
-        }
-        .text:nth-child(1) {
+            font-weight: bold;
+            line-height: 1.2;
             margin-bottom: 20px;
         }
-        .left .text:nth-child(1) .icon {
-            background-color: #DAFBEB;
-            background-position: 13px 8px;
+        .text__title p {
+            font-size: 18px;
+            line-height: 1.5;
+            padding-right: 20%;
+            word-break: keep-all;
         }
-        .left .text:nth-child(2) .icon {
-            background-color: #FDE2E2;
-            background-position: -86px 9px;
+        .text__desc {
+            width: 66%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
-        .right .text:nth-child(1) .icon {
-            background-color: #E8FFD6;
-            background-position: -39px 8px;
+        .text__desc > div {
+            width: 48%;
+            margin-bottom: 4%;
         }
-        .right .text:nth-child(2) .icon {
-            background-color: #DADDFB;
-            background-position: -137px 10px;
-        }
-        .textTit {
+        .text__desc > div h4 {
             font-size: 24px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            position: relative;
+            padding-top: 75px;
         }
-        .textDesc {
-            font-size: 16px;
+        .text__desc>div h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: url(img/text_icon.svg);
+        }
+        .text__desc>div:nth-child(1) h4::before {
+            background-position: 0 0;
+        }
+        .text__desc>div:nth-child(2) h4::before {
+            background-position: -60px 0;
+        }
+        .text__desc>div:nth-child(3) h4::before {
+            background-position: -120px 0;
+        }
+        .text__desc>div:nth-child(4) h4::before {
+            background-position: -180px 0;
+        }
+        .text__desc>div p {
+            font-size: 18px;
+            line-height: 1.5;
             font-weight: 300;
-            line-height: 140%;
         }
     </style>
 </head>
 <body>
-    <div class="container textType section font">
-        <div class="title__desc">
-            <p class="subtit">4 seasons</p>
-            <h2 class="tit">우리나라의<br>사계절</h2>
-            <p class="tit_desc">
-                꽃 피는 봄부터 쪄죽는 여름을 지나 가을과 겨울에 이르기까지!<br>
-                우리나라의 사계절을 만나봅시다~
-            </p>
+    <section id="textType" class="text__wrap gmarket section skyBlue">
+        <h2 class="blind">프론트앤드 전문과정</h2>
+        <div class="text__inner container">
+            <div class="text__title">
+                <span>frontend</span>
+                <h3>프론트앤드<br>전문과정</h3>
+                <p>
+                    프론트앤드 개발자로 취업하기 위한
+                    전문 과정입니다.
+                    여러분들도 도전해보세요!
+                </p>
+            </div>
+            <div class="text__desc">
+                <div>
+                    <h4>웹 디자인</h4>
+                    <p>웹디자이너가 포함된 웹 및 멀티미디어 디자이너는 다른 직업과 비교하여 임금과 복리후생이 낮은 퍼블리싱은 웹 사이트를 제작할</p>
+                </div>
+                <div>
+                    <h4>프론트앤드 개발자</h4>
+                    <p>사이트와 상호작용하는 모든 부분에 대한 개발, 관리, 유지 보수를 하는 것 솔루션의 프로세스를 개발합니다.</p>
+                </div>
+                <div>
+                    <h4>웹 퍼블리셔</h4>
+                    <p>퍼블리싱은 웹 사이트를 제작할 때, 웹 디자이너가 디자인한 것을 웹 표준성과 접근성에 부합하도록 재정하였다.</p>
+                </div>
+                <div>
+                    <h4>백앤드 개발자</h4>
+                    <p>용어 자체에서 알 수 있듯이, 백엔드는 웹사이트나 웹 애플리케이션 또는 모바일 솔루션의 프로세스와 관련된입니다.</p>
+                </div>
+            </div>
         </div>
-        <div class="text__box left">
-            <article class="text">
-                    <div class="icon ir">아이콘</div>
-                    <h3 class="textTit">꽃 피는 봄</h3>
-                    <p class="textDesc">꽃이 피고 얼음과 눈이 녹고 새싹이 돋아나는 봄은 꽃가루 알러지의 계절이기도 합니다. 알러지가 있으신 분들은 조심하도록 합시다~</p>
-            </article>
-            <article class="text">
-                    <div class="icon ir">아이콘</div>
-                    <h3 class="textTit">낙엽 지는 가을</h3>
-                    <p class="textDesc">단군이 사기당한 바로 그 계절! 선선한 바람이 불고 화창하고 맑은 하늘, 놀러가기 딱 좋은 날씨가 이어지는 가을입니다. 평생 가을이면 좋겠어~</p>
-            </article>
-        </div>
-        <div class="text__box right">
-            <article class="text">
-                    <div class="icon ir">아이콘</div>
-                    <h3 class="textTit">쪄 죽는 여름</h3>
-                    <p class="textDesc">비가 내리고… 음악이 흐르면… 아무래도 여름하면 푹푹 찌는 더위와 습한 날씨, 그리고 비가 억수로 내리는 장마철이 떠오르네요.</p>
-            </article>
-            <article class="text">
-                    <div class="icon ir">아이콘</div>
-                    <h3 class="textTit">얼어 죽는 겨울</h3>
-                    <p class="textDesc">여름에 그렇게 덥더니 겨울엔 또 얼마나 추운지 두툼한 옷을 껴입고 김밥이 되어 돌아다녀도 찬바람이 쌩쌩 부는 계절입니다. 그래도 겨울 좋아.</p>
-            </article>
-        </div>
-    </div>
+    </section>
 </body>
 </html>
