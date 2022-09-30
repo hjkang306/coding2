@@ -27,6 +27,7 @@
     color: #999;
     line-height: 1;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 .left__top .title:first-child {
     padding-right: 10px;

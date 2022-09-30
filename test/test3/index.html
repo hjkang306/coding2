@@ -216,6 +216,7 @@
         const slider = document.querySelectorAll(".slider");
         const prev = document.querySelector(".arrow__prev");
         const next = document.querySelector(".arrow__next");
+        const title = document.querySelectorAll(".left__top .title");
         
         let currentindex = 0;
 
@@ -234,6 +235,11 @@
         function slide(index){
             sliderImg.style.transform = "translateX("+ 1000 * index +"px)";
         }
+        title.forEach((e)=>{
+            e.addEventListener("click", ()=>{
+                e.classList.add("active");
+            });
+        });
     </script>
 </body>
 </html>
