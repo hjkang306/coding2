@@ -1,0 +1,11 @@
+.container {
+    margin: 0 auto;
+    width: 1100px;
+}
+.section {
+    padding: 50px 0;
+}
+.font {
+    font-family: 'NanumGothic';
+    font-weight: 400;
+}

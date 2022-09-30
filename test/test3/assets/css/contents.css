@@ -1,0 +1,216 @@
+.contents__wrap {
+    width: 100%;
+}
+.contents__inner {
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* left */
+.left {
+    width: 29%;
+    height: 100%;
+}
+
+/* .left__top */
+.left__top {
+    margin-bottom: 20px;
+    padding: 20px;
+    position: relative;
+    border: 1px solid #ccc;
+}
+.left__top h3 {
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    color: #999;
+    line-height: 1;
+    margin-bottom: 30px;
+}
+.left__top .title:first-child {
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 3px solid #000;
+}
+.left__top .title.active {
+    color: #000;
+}
+.left__top ul li {
+    margin-bottom: 25px;
+    position: relative;
+}
+.left__top ul li a {
+    font-size: 12px;
+    color: #333;
+}
+.left__top ul li a::after {
+    content: '2019-01-31';
+    color: #999;
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+}
+.left__top .more {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 3px 5px 2px;
+    line-height: 1;
+    border: 1px solid #000;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+}
+
+/* .left__bottom */
+.left__bottom {
+    background-image: url(../img/card.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+.left__bottom h3 {
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+.left__bottom p {
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+.left__bottom a {
+    font-size: 14px;
+    color: #fff;
+    padding: 5px 30px 4px;
+    border: 1px solid #fff;
+}
+
+/* right */
+.right {
+    width: 69%;
+}
+
+/* right__top */
+.right__top {
+    margin-bottom: 20px;
+    position: relative;
+    padding: 20px 20px;
+    border: 1px solid #ccc;
+}
+.right__top h3 {
+    font-weight: 500;
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+.right__top ul li {
+    margin-bottom: 5px;
+}
+.right__top ul li .cat {
+    display: inline-block;
+    width: 100px;
+    height: 15px;
+    font-size: 10px;
+    text-align: center;
+    color: #fff;
+    background: #3174CF;
+    margin-right: 20px;
+}
+.right__top ul li a {
+    font-size: 12px;
+    color: #333;
+}
+.right__top ul li .date {
+    font-size: 12px;
+    color: #999;
+    float: right;
+}
+.right__top .more {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 3px 5px 2px;
+    line-height: 1;
+    border: 1px solid #000;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+}
+
+/* right__bottom */
+.right__bottom {
+    margin-bottom: 20px;
+    position: relative;
+    padding: 20px 20px;
+    border: 1px solid #ccc;
+}
+.right__bottom h3 {
+    font-weight: 500;
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+.right__bottom_list {
+    display: flex;
+}
+.right__bottom__L {
+    border-right: 1px solid #666;
+}
+.right__bottom__L ul li {
+    position: relative;
+    margin-bottom: 25px;
+}
+.right__bottom__L ul li a {
+    display: inline-block;
+    width: 90%;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.right__bottom__L ul li a::before {
+    content: '2019-01-15';
+    position: absolute;
+    color: #999;
+    left: 0;
+    bottom: -15px;
+}
+.right__bottom__R {
+    padding-left: 30px;
+}
+.right__bottom__R ul li {
+    position: relative;
+    margin-bottom: 25px;
+}
+.right__bottom__R ul li a {
+    display: inline-block;
+    width: 90%;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.right__bottom__R ul li a::before {
+    content: '2019-01-15';
+    position: absolute;
+    color: #999;
+    left: 0;
+    bottom: -15px;
+}
+.right__bottom .more {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 3px 5px 2px;
+    line-height: 1;
+    border: 1px solid #000;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+}

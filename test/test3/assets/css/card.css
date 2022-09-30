@@ -1,0 +1,63 @@
+.card__wrap {
+    width: 100%;
+    background: #F3F7F8;
+}
+.card__wrap h2 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+.card__inner {
+    display: flex;
+    justify-content: space-between;
+}
+.card {
+    width: 24%;
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+.card__dDay {
+    font-size: 14px;
+    color: #556F8C;
+    border: 1px solid #556F8C;
+    border-radius: 5px;
+    padding: 3px 5px;
+}
+.card__title {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.card__date1 {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.card__date1::before {
+    content: '사업기간';
+    background-color: #6792D3;
+    color: #fff;
+    padding: 3px 4px;
+    font-weight: 300;
+    font-size: 11px;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+.card__date2 {
+    color: #666;
+    font-size: 14px;
+}
+.card__date2::before {
+    content: '모집기간';
+    background-color: #6792D3;
+    color: #fff;
+    padding: 3px 4px;
+    font-weight: 300;
+    font-size: 11px;
+    margin-right: 5px;
+    border-radius: 2px;
+}

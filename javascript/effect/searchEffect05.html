@@ -569,7 +569,11 @@ searchClick.forEach(star => {
                 //console.log(star2);
                 let target = 0;
                 let filterList = '';
-                target = star.dataset.star;
+                //target = star.dataset.star;
+                target = star.innerText.search("☆");
+                if(target == -1){
+                    target=5;
+                }
                 filterList = cssProperty.filter(data => data.star == target || data.star >= star.innerText.charAt());
                 updateList(filterList);
                 
@@ -624,6 +628,17 @@ searchClick.forEach(star => {
                 tabCont[i].style.display = "block";
             });
         });
+        {
+            function func(){
+                let i, j = 0;
+
+                for( i=0; i<=8; i++){
+                    j +=i;
+                }
+                document.write(j+i);
+            }
+            func();
+        }
     </script>
 </body>
 
