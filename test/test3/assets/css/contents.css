@@ -37,8 +37,10 @@
 .left__top .title.active {
     color: #000;
 }
+.left__top ul {display: none;}
+.left__top ul.active {display: block;}
 .left__top ul li {
-    margin-bottom: 25px;
+    margin-bottom: 27px;
     position: relative;
 }
 .left__top ul li a {

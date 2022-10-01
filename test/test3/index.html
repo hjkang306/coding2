@@ -126,14 +126,20 @@
                     <div class="left__top">
                         <h3 class="title active">보도자료</h3>
                         <h3 class="title">언론기고</h3>
-                        <ul>
+                        <ul class="active">
                             <li>
-                                <a href="#">인관합동 현장중심 수출활력촉진단 기동</a>
+                                <a href="#">인관합동 현장중심 수출활력촉진단 기동1</a>
+                            </li>
+                            <li>
+                                <a href="#">인관합동 현장중심 수출활력촉진단 기동1</a>
                             </li>
                         </ul>
                         <ul>
                             <li>
-                                <a href="#">인관합동 현장중심 수출활력촉진단 기동</a>
+                                <a href="#">인관합동 현장중심 수출활력촉진단 기동2</a>
+                            </li>
+                            <li>
+                                <a href="#">인관합동 현장중심 수출활력촉진단 기동2</a>
                             </li>
                         </ul>
                         <div class="more"><a href="#">+</a></div>
@@ -159,7 +165,7 @@
                         <h3>KITA 통상정보</h3>
                         <div class="right__bottom_list">
                             <div class="right__bottom__L">
-                                <ul>
+                                <ul class="active">
                                     <li><a href="#">한미 통상 현안 사레분석집</a></li>
                                     <li><a href="#">[통상리포트] 킥오프된 브렉시트 후반전 : 향후 통어쩌구</a></li>
                                 </ul>
@@ -212,33 +218,54 @@
     <!-- footer -->
 
     <script>
-        const sliderImg = document.querySelector(".slider__img");
-        const slider = document.querySelectorAll(".slider");
+        const sliderInner = document.querySelector(".slider__inner"); //보여지는 영역
+        const sliderImg = document.querySelector(".slider__img"); //움직이는 영역
+        const slider = document.querySelectorAll(".slider");    //각 이미지
         const prev = document.querySelector(".arrow__prev");
         const next = document.querySelector(".arrow__next");
         const title = document.querySelectorAll(".left__top .title");
-        
-        let currentindex = 0;
+        const list = document.querySelectorAll(".left__top ul");
 
-        prev.addEventListener("click", ()=>{
-            let prevIndex = (currentindex + slider.length -1)%slider.length;
-            currentindex = prevIndex;
-            slide(prevIndex);
-            console.log(prevIndex);
-        });
-        next.addEventListener("click", ()=>{
-            let nextIndex = (currentindex + 1)%slider.length;
-            currentindex = nextIndex;
-            slide(nextIndex);
-            console.log(nextIndex);
-        });
-        function slide(index){
-            sliderImg.style.transform = "translateX("+ 1000 * index +"px)";
-        }
-        title.forEach((e)=>{
+        title.forEach((e, i)=>{
             e.addEventListener("click", ()=>{
+                event.preventDefault();
+
+                title.forEach( tit => {
+                    tit.classList.remove("active");
+                });
+                list.forEach( li => {
+                    li.classList.remove("active");
+                })
+                list[i].classList.add("active");
                 e.classList.add("active");
             });
+        });
+
+
+        let currentIndex = 0;                       //현재 이미지
+        let sliderCount = slider.length;            //이미지 갯수
+        let sliderWidth = sliderInner.offsetWidth;    //이미지 가로값
+
+        // 이미지 움직이는 영역
+        function gotoSlider(num){
+            sliderImg.style.transition = "all 400ms";
+            sliderImg.style.transform = "translateX("+ -sliderWidth * num + "px)";
+            currentIndex = num;
+        }
+
+        // 왼쪽 버튼 클릭
+        prev.addEventListener("click", ()=>{
+            let prevIndex = (currentIndex + sliderCount -1) % sliderCount;
+            gotoSlider(prevIndex);
+            // 4 3 2 1 0 4 3 2
+            // 3 2 1 0 4 3 2 1
+        });
+
+        // 오른쪽 버튼 클릭
+        next.addEventListener("click", ()=>{
+            let nextIndex = (currentIndex + 1) % sliderCount;
+            gotoSlider(nextIndex);
+            // 0,1,2,3,4
         });
     </script>
 </body>
