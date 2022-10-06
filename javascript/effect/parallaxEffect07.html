@@ -212,7 +212,7 @@
                     <figure class="content__item__imgWrap reveal">
                         <div class="content__item__img"></div>
                     </figure>
-                    <p class="content__item__desc reveal" data-delay="500"><span>질병은 입을 쫓아 들어가고 화근은 입을 좇아 나온다.</span></p>
+                    <p class="content__item__desc reveal" data-delay="500">질병은 입을 쫓아 들어가고 화근은 입을 좇아 나온다.</p>
                 </section>
                 <!-- //section01 -->
 
@@ -222,7 +222,7 @@
                     <figure class="content__item__imgWrap reveal reveal-RTL">
                         <div class="content__item__img"></div>
                     </figure>
-                    <p class="content__item__desc reveal reveal-RTL" data-delay="500"><span>지혜는 듣는 데서 오고 후회는 말하는 데서 온다.</span></p>
+                    <p class="content__item__desc reveal reveal-RTL" data-delay="500">지혜는 듣는 데서 오고 후회는 말하는 데서 온다.</p>
                 </section>
                 <!-- //section02 -->
                 
@@ -232,7 +232,7 @@
                     <figure class="content__item__imgWrap reveal reveal-TTB">
                         <div class="content__item__img"></div>
                     </figure>
-                    <p class="content__item__desc reveal reveal-TTB" data-delay="500"><span>모든 날 중 가장 완전히 잃어버린 날은 웃지 않는 날이다.</span></p>
+                    <p class="content__item__desc reveal reveal-TTB" data-delay="500">모든 날 중 가장 완전히 잃어버린 날은 웃지 않는 날이다.</p>
                 </section>
                 <!-- //section03 -->
                 
@@ -242,7 +242,7 @@
                     <figure class="content__item__imgWrap reveal reveal-BTT" data-delay="1500">
                         <div class="content__item__img"></div>
                     </figure>
-                    <p class="content__item__desc reveal reveal-BTT"><span>열의 없이 성취 된 위업이란 아직 하나도 없다.</span></p>
+                    <p class="content__item__desc reveal reveal-BTT">열의 없이 성취 된 위업이란 아직 하나도 없다.</p>
                 </section>
                 <!-- //section04 -->
                 
@@ -496,13 +496,15 @@
         <script>hljs.highlightAll();</script>
         <script>
             // reveal 클래스 자식에 글씨만 잇다면, 가상으로 span 태그를 만들어서 넣어주기
-            const descReveal = document.querySelectorAll(".content__item__desc.reveal");
-            console.log(descReveal);
-            // descReveal.forEach( el => {
-            //     let revealTxt = el.innerHTML;
-            //     clg(revealTxt);
-
-            // });
+            const descReveal = document.querySelectorAll("p.reveal");
+            // console.log(descReveal)
+            descReveal.forEach((el)=>{
+                let splitText = el.innerText;
+                // console.log(splitText)
+                if(splitText){
+                    el.innerHTML = '<span>' + splitText + '</span>';
+                }
+            })
 
 
             function scroll(){
