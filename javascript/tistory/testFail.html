@@ -223,24 +223,11 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shad
 <pre class="line-numbers"><code class="language-js">function q2() {
     const array = [10, 31, 1, 2, 3 ,4, 32];
     return array.sort();
+    // sort는 숫자의 크기순이 아닌, 첫번째(앞쪽) 숫자의 순서대로 정렬해줍니다.
+    // 1, 10, 2, 3, 31, 32 , 4 순으로 정렬됨
 }
 
 console.log(q2());
-</code></pre>
-        </div>
-    </div>
-
-    <hr>
-
-    <div id="sample3" class="sample">
-        <h2>03. 결괏값을 작성하시오.<span class="dot"></span></h2>
-        <div class="code">
-<pre class="line-numbers"><code class="language-js">function q3() {
-    const array = [10, 31, 1, 2, 3 ,4, 32];
-    return array.filter(x => String(x).length >= 2);
-}
-
-console.log(q3());
 </code></pre>
         </div>
     </div>
@@ -253,6 +240,10 @@ console.log(q3());
 <pre class="line-numbers"><code class="language-js">function q4() {
     const array = [10,20,30,40,50];
     return array.reduce((prev, curr) => prev += curr, 0) / array.length;
+    // ⇒ reduce(function(prev, curr){ prev = prev + curr;}, 0(초기값))
+    // ⇒ reduce는 prev에 초기값 또는 배열의 첫번째 자리 수가 들어가고, curr에 두번째 자리 수부터 순차적으로 들어가게 된다.
+    // ⇒ 이후 prev에는 해당 식의 리턴값이 들어가게 된다.
+    // ⇒ 150 / 5 = 30
 }
 
 console.log(q4());
@@ -262,27 +253,14 @@ console.log(q4());
 
     <hr>
 
-    <div id="sample5" class="sample">
-        <h2>05. 결괏값을 작성하시오.<span class="dot"></span></h2>
-        <div class="code">
-<pre class="line-numbers"><code class="language-js">function q5() {
-    return "abcdefghijklmnop".match(/[d-f]/g);
-}
-
-console.log(q5());
-</code></pre>
-        </div>
-    </div>
-
-    <hr>
-
     <div id="sample6" class="sample">
         <h2>06. 결괏값을 작성하시오.<span class="dot"></span></h2>
         <div class="code">
-<pre class="line-numbers"><code class="language-js">function q6(a,b,c,d) {
-    const array = [...arguments];
-    return array.reduceRight((prev, curr) => {
+<pre class="line-numbers"><code class="language-js">function q6(a,b,c,d) { // a=1, b=2, c=3, d=4
+    const array = [...arguments]; // 펼침연산자로 매개변수를 하나의 배열에 저장
+    return array.reduceRight((prev, curr) => { // reduceRight()은 배열의 요소를 뒤에서부터 거꾸로 합한다.
         return prev += curr;
+        // 4+3+2+1 = 10
     }, 0);
 }
 
@@ -298,9 +276,9 @@ console.log(q6(1,2,3,4));
         <div class="code">
 <pre class="line-numbers"><code class="language-js">function q7() {
     const str = "taraeaea";
-    return str.split('').map(word => {
-        if(word !== "a") return word;
-    }).join('');
+    return str.split('').map(word => { // 문자열을 하나씩 나눠 배열에 저장한 다음 각각의 문자를 word로 반복문 실행
+        if(word !== "a") return word; // 문자가 a가 아닌 경우에만 문자 반환
+    }).join(''); // 배열로 쪼개진 문자를 하나로 합침 ⇒ tree
 }
 
 console.log(q7());
@@ -310,57 +288,16 @@ console.log(q7());
 
     <hr>
 
-    <div id="sample8" class="sample">
-        <h2>08. 결괏값을 작성하시오.<span class="dot"></span></h2>
-        <div class="code">
-<pre class="line-numbers"><code class="language-js">function q8() {
-    let answer = 0;
-    const array = [1,2,3,4,5];
-    for(let i = 3; i &lt; 8; i++) {
-        if(array.includes(i) && 0) {
-            answer++;
-        }
-    }
-    return answer;
-}
-
-console.log(q8());
-</code></pre>
-        </div>
-    </div>
-
-    <hr>
-
-    <div id="sample9" class="sample">
-        <h2>09. 결괏값을 작성하시오.<span class="dot"></span></h2>
-        <div class="code">
-<pre class="line-numbers"><code class="language-js">function q9() {
-    const obj = {
-        a : "가",
-        b : "나",
-        c : "다",
-    };
-
-    const { c : one, b : two, a : three } = obj;
-    return one + two + three;
-}
-
-console.log(q9());
-</code></pre>
-        </div>
-    </div>
-    <hr>
-
     <div id="sample10" class="sample">
         <h2>10. 결괏값을 작성하시오.<span class="dot"></span></h2>
         <div class="code">
-<pre class="line-numbers"><code class="language-js">function q10(arr) {
-    let flag = false;
+<pre class="line-numbers"><code class="language-js">function q10(arr) { // arr = [2,6,8,14]
+    let flag = false; // 트리거 변수
     let n = 1;
-    while(!flag) {
-        n++;
+    while(!flag) { // flag의 반대 true ⇒ false, false ⇒ true. 즉, flag = false일 떄 반복문이 실행된다.
+        n++; // n = 2, 3, 4, … 
         for(let i = 1; i &lt; arr.length; i++) {
-            if((arr[0] * n) % arr[i] === 0) {
+            if((arr[0] * n) % arr[i] === 0) { // arr[0]=2, (2*n)%arr[i] 가 0일 때, flag가 true가 됨. 즉, (2*n)이 2의 배수이며, 6의 배수, 8의 배수, 14의 배수여야 한다. ⇒ 각 수의 최소공배수를 구하는 문제
                 flag = true;
             }
             else {
