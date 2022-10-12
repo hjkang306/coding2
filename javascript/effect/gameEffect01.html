@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../assets/css/bg.css">
+    <link rel="stylesheet" href="../assets/css/game.css">
+    <link rel="stylesheet" href="../assets/css/music.css">
+</head>
+<body>
+    <header id="header">
+        <h1>WEB CHUCKCHUCK WORLD</h1>
+        <div class="time"></div>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="mouse__cursor"></div>
+        <div class="icon_box">
+            <div class="icon icon1">
+                <img src="../assets/img/icon1.png" alt="뮤직">
+                <span>Music</span>
+            </div>
+            <div class="icon icon2">
+                <img src="../assets/img/icon2.png" alt="폴더">
+                <span>Folder1</span>
+            </div>
+            <div class="icon icon3">
+                <img src="../assets/img/icon3.png" alt="폴더">
+                <span>Folder2</span>
+            </div>
+            <div class="icon icon4">
+                <img src="../assets/img/icon4.png" alt="폴더">
+                <span>Folder3</span>
+            </div>
+            <div class="icon icon5">
+                <img src="../assets/img/icon5.png" alt="폴더">
+                <span>Folder4</span>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <div class="agent">agent</div>
+    </footer>
+    <!-- //footer -->
+
+    <!-- 뮤직 플레이어 -->
+    <div class="music__wrap">
+        <div class="music__inner">
+            <div class="music__header">
+                <div>xx</div>
+                <h2>Music Player</h2>
+                <div>xx</div>
+            </div>
+            <div class="music__contents">
+                <div class="music__view">
+                    <div class="img">
+                        <img src="../assets/img/music_img1.png" alt="이미지">
+                    </div>
+                    <div class="title">
+                        <h3>Retro Music Player</h3>
+                        <p>youtube music</p>
+                    </div>
+                </div>
+                <div class="music_control">
+                    <div class="progress">
+                        <div class="bar">
+                            <audio id="main-audio" src="../assets/audio/music_audio01.mp3"></audio>
+                        </div>
+                        <div class="timer">
+                            <div class="current">0:00</div>
+                            <div class="duration">4:00</div>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <i title="전체반복" class="repeat"></i>
+                        
+                        <i title="이전곡 재생" class="prev" id="control-prev"></i>
+                        <i title="재생" class="play" id="control-play"></i>
+                        <i title="다음곡 재생" class="next" id="control-next"></i>
+                        
+                        <i title="재생 목록" class="list"></i>
+                        <!-- <i title="한곡 반복" class="repeat_one"></i> -->
+                        <!-- <i title="랜덤 반복" class="shuffle"></i> -->
+                        <!-- <i title="정지" class="stop"></i> -->
+                    </div>
+                </div>
+            </div>
+            <div class="music__footer"></div>
+        </div>
+    </div>
+    <!-- //뮤직 플레이어 -->
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="../assets/js/music.js"></script>
+    <script>
+        // cursor
+        const cursor = document.querySelector(".mouse__cursor");
+            
+        window.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.clientX+ "px";
+            cursor.style.top = e.clientY+ "px";
+        });
+    </script>
+    <script>
+        $(".icon").draggable({
+            drag: function() {
+                $(".mouse__cursor").style
+            }
+        });
+        $(".music__wrap").draggable();
+
+        function printTime(){
+            const clock = document.querySelector(".time");
+            const now = new Date();
+            const nowTime = "TODAY IS~~~~ "+now.getFullYear() + "년 " + (now.getMonth()+1) + "월 " + now.getDate() + "일 "+now.getHours()+"시 "+now.getMinutes()+"분 "+now.getSeconds()+"초";
+
+            clock.innerText = nowTime;
+            setInterval("printTime()", 1000);
+        }
+        function printAgent(){
+            const agent = document.querySelector(".agent");
+            const os = navigator.userAgent.toLocaleLowerCase();
+
+            agent.innerHTML = os;
+            
+            if(os.indexOf("window") >= 0){
+                agent.innerText = "현재 윈도우를 사용하고 있으며, 화면크기는 "+screen.width +"*"+screen.height+"입니다.";
+                document.querySelector("body").classList.add("window");
+            } else if (os.indexOf("macintosh")>=0){
+                agent.innerText = "현재 맥을 사용하고 있으며, 화면크기는 "+screen.width +"*"+screen.height+"입니다.";
+                document.querySelector("body").classList.add("mac");
+            } else if (os.indexOf("iphone")>=0){
+                agent.innerText = "현재 아이폰을 사용하고 있으며, 화면크기는 "+screen.width +"*"+screen.height+"입니다.";
+                document.querySelector("body").classList.add("iphone");
+            } else if (os.indexOf("android")>=0){
+                agent.innerText = "현재 안드로이드폰을 사용하고 있으며, 화면크기는 "+screen.width +"*"+screen.height+"입니다.";
+                document.querySelector("body").classList.add("android");
+            }
+        }
+
+        window.onload = function(){
+            printTime();
+            printAgent();
+        }
+    </script>
+</body>
+</html>

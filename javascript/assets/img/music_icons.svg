@@ -1,0 +1,20 @@
+<svg width="540" height="60" viewBox="0 0 540 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20 40H16V8H20V12H24V18H28V22H32V26H28V30H24V36H20V40Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M80 8H70V40H80V8ZM98 8H88V40H98V8Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M140 8H130V40H140V8ZM158 8H148V40H158V8Z" fill="black"/>
+<rect x="139" y="8" width="10" height="32" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M192 8H196V40H192V8ZM216 8H212V12H208V18H204V22H200V26H204V32H208V36H212V40H216V8Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M252 8H256V12H260V16H264V20H268V28H264V32H260V36H256V40H252V8ZM276 8H272V40H276V8Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M332 4H328V8H332V12H308V16H304V26H308V16H332V20H328V24H332V20H336V16H340V12H336V8H332V4ZM312 40H316V44H320V40H316V36H340V32H344V22H340V32H316V28H320V24H316V28H312V32H308V36H312V40Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M392 4H388V8H392V12H368V16H364V26H368V16H392V20H388V24H392V20H396V16H400V12H396V8H392V4ZM372 40H376V44H380V40H376V36H400V32H404V22H400V32H376V28H380V24H376V28H372V32H368V36H372V40Z" fill="black"/>
+<rect x="390" y="32" width="4" height="4" fill="white"/>
+<rect x="388" y="32" width="4" height="4" fill="white"/>
+<rect x="385" y="32" width="4" height="4" fill="white"/>
+<rect x="388" y="28" width="4" height="4" fill="black"/>
+<rect x="386" y="30" width="4" height="4" fill="black"/>
+<rect x="388" y="32" width="4" height="4" fill="black"/>
+<rect x="388" y="36" width="4" height="4" fill="black"/>
+<rect x="388" y="39" width="4" height="4" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M440 26H452V18V10H456H464V18H456V26V30V34V38H440V34V30V26ZM444 30V34H452V30H444ZM424 34H436V38H424V34ZM436 26H424V30H436V26ZM424 18H448V22H424V18ZM448 10H424V14H448V10Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M516 10H512V14H516V18H504V22H500V34H484V38H500V34H504V22H516V26H512V30H516V26H520V22H524V18H520V14H516V10ZM484 18H496V22H484V18ZM524 38V34H508V38H524Z" fill="black"/>
+</svg>
