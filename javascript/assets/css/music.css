@@ -67,7 +67,7 @@
     border-radius: 5px;
 }
 .music_control .progress .bar {
-    width: 10%;
+    width: 0%;
     height: inherit;
     background: #37c3ff;
     border-radius: 5px;

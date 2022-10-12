@@ -70,9 +70,11 @@ const musicPlay = musicWrap.querySelector("#control-play");
 const musicPause = musicWrap.querySelector("#control-pause");
 const musicPrevBtn = musicWrap.querySelector("#control-prev");
 const musicNextBtn = musicWrap.querySelector("#control-next");
+const musicProgress = musicWrap.querySelector(".progress");
 const musicProgressBar = musicWrap.querySelector(".progress .bar");
 const musicProgressCurrent = musicWrap.querySelector(".progress .timer .current");
 const musicProgressDuratiuon = musicWrap.querySelector(".progress .timer .duration");
+const musicRepeat = musicWrap.querySelector("#control-repeat");
 
 let musicIndex = 1;
 
@@ -142,6 +144,14 @@ window.addEventListener("load", ()=>{
     loadMusic(musicIndex);
 });
 
+// 진행 버튼 클릭
+musicProgress.addEventListener("click", (e)=>{
+    let progressWidth = musicProgress.clientWidth; // 진행바의 전체 길이
+    let clickedOffsetX = e.offsetX; // 진행바를 기준으로 측정되는 클릭한 부분의 X좌표
+    let songduration = musicAudio.duration; //오디오 전체 길이. 위에 있지만 가져오기가 어려워서 새로 만들었음.
+    
+    musicAudio.currentTime = (clickedOffsetX / progressWidth) * songduration; //클릭 부분이 전체에서 차지하는 비율을 백분율로 표시
+});
 // 플레이 버튼 클릭
 musicPlay.addEventListener("click", ()=>{
     const isMusicPaused = musicWrap.classList.contains("paused"); //음악이 재생됨
