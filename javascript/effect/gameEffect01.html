@@ -29,11 +29,11 @@
                 <span>Folder1</span>
             </div>
             <div class="icon icon3">
-                <img src="../assets/img/icon3.png" alt="폴더">
+                <img src="../assets/img/icon4.png" alt="폴더">
                 <span>Folder2</span>
             </div>
             <div class="icon icon4">
-                <img src="../assets/img/icon4.png" alt="폴더">
+                <img src="../assets/img/icon3.png" alt="폴더">
                 <span>Folder3</span>
             </div>
             <div class="icon icon5">
@@ -78,20 +78,31 @@
                         </div>
                     </div>
                     <div class="control">
-                        <i title="전체반복" class="repeat" id="control-repeat"></i>
+                        <i title="전체 반복" class="repeat" id="control-repeat"></i>
                         
                         <i title="이전곡 재생" class="prev" id="control-prev"></i>
                         <i title="재생" class="play" id="control-play"></i>
                         <i title="다음곡 재생" class="next" id="control-next"></i>
                         
-                        <i title="재생 목록" class="list"></i>
+                        <i title="재생 목록" class="list" id="control-list"></i>
                         <!-- <i title="한곡 반복" class="repeat_one"></i> -->
                         <!-- <i title="랜덤 반복" class="shuffle"></i> -->
                         <!-- <i title="정지" class="stop"></i> -->
                     </div>
                 </div>
             </div>
-            <div class="music__footer"></div>
+            <div class="music__footer">
+                <div class="music__list">
+                    <h3><span class="list"></span>Music List</h3>
+                    <ul>
+                        <!-- <li>
+                            <strong>제목</strong>
+                            <em>아티스트</em>
+                            <span>재생시간</span>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     <!-- //뮤직 플레이어 -->
@@ -120,7 +131,17 @@
         function printTime(){
             const clock = document.querySelector(".time");
             const now = new Date();
-            const nowTime = "TODAY IS~~~~ "+now.getFullYear() + "년 " + (now.getMonth()+1) + "월 " + now.getDate() + "일 "+now.getHours()+"시 "+now.getMinutes()+"분 "+now.getSeconds()+"초";
+
+            let nowDate = now.getDate();
+            if (nowDate < 10) nowDate = `0${nowDate}`;
+            let nowHours = now.getHours();
+            if (nowHours > 12) {nowHours = `오후 ${now.getHours() - 12}`} else {`오전 ${now.getHours()}`};
+            let nowMinutes = now.getHours();
+            if (nowMinutes < 10) nowMinutes = `0${nowMinutes}`;
+            let nowSeconds = now.getSeconds();
+            if (nowSeconds < 10) nowSeconds = `0${nowSeconds}`;
+
+            const nowTime = "༼ つ ◕_◕ ༽つ TODAY IS~~~~ "+ now.getFullYear() + "년 " + (now.getMonth()+1) + "월 " + nowDate + "일 "+ nowHours +"시 "+ nowMinutes +"분 "+ nowSeconds +"초";
 
             clock.innerText = nowTime;
             setInterval("printTime()", 1000);

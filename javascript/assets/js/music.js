@@ -75,6 +75,9 @@ const musicProgressBar = musicWrap.querySelector(".progress .bar");
 const musicProgressCurrent = musicWrap.querySelector(".progress .timer .current");
 const musicProgressDuratiuon = musicWrap.querySelector(".progress .timer .duration");
 const musicRepeat = musicWrap.querySelector("#control-repeat");
+const musicListBtn = musicWrap.querySelector("#control-list");
+const musicList = musicWrap.querySelector(".music__list");
+const musicListUL = musicWrap.querySelector(".music__list ul");
 
 let musicIndex = 1;
 
@@ -140,8 +143,48 @@ musicAudio.addEventListener("timeupdate", e =>{
     musicProgressCurrent.innerText = `${currentMin}:${currentSec}`;
 });
 
-window.addEventListener("load", ()=>{
-    loadMusic(musicIndex);
+// 반복 버튼 클릭
+musicRepeat.addEventListener("click", ()=>{
+    let getAttr = musicRepeat.getAttribute("class");
+
+    switch(getAttr){
+        case "repeat" :
+            musicRepeat.setAttribute("class", "repeat_one");
+            musicRepeat.setAttribute("title", "한곡 반복");
+        break;
+        case "repeat_one" :
+            musicRepeat.setAttribute("class", "shuffle");
+            musicRepeat.setAttribute("title", "랜덤 반복");
+        break;
+        case "shuffle" :
+            musicRepeat.setAttribute("class", "repeat");
+            musicRepeat.setAttribute("title", "전체반복");
+        break;
+    }
+});
+
+// 오디오가 끝나면
+musicAudio.addEventListener("ended", ()=>{
+    let getAttr = musicRepeat.getAttribute("class");
+
+    switch(getAttr){
+        case "repeat" :
+            nextMusic();
+        break;
+        case "repeat_one" :
+            playMusic();
+        break;
+        case "shuffle" :
+            let randomIndex = Math.floor(Math.random() * allMusic.length + 1);   //랜덤한 인덱스를 생성함. Math.random()은 0~1 사이의 랜덤한 수를 출력
+            
+            do {
+                randomIndex = Math.floor(Math.random() * allMusic.length + 1);
+            } while (musicIndex == randomIndex) // 현재 재생된느 곡의 인덱스와 랜덤한 곡의 인덱스가 같으면 새로운 랜덤 인덱스를 생성
+            musicIndex = randomIndex;
+            loadMusic(musicIndex);
+            playMusic();
+        break;
+    }
 });
 
 // 진행 버튼 클릭
@@ -152,6 +195,25 @@ musicProgress.addEventListener("click", (e)=>{
     
     musicAudio.currentTime = (clickedOffsetX / progressWidth) * songduration; //클릭 부분이 전체에서 차지하는 비율을 백분율로 표시
 });
+
+// 뮤직 리스트 버튼 클릭
+musicListBtn.addEventListener("click", ()=>{
+    musicList.classList.add("show");
+});
+
+// 뮤직 리스트 구현하기
+for(let i=0; i<allMusic.length; i++){
+    let li = `
+        <li>
+            <strong>${allMusic[i].name}</strong>
+            <em>${allMusic[i].artist}</em>
+            <span>재생시간</span>
+        </li>
+    `;
+    musicListUL.innerHTML += li;
+}
+
+
 // 플레이 버튼 클릭
 musicPlay.addEventListener("click", ()=>{
     const isMusicPaused = musicWrap.classList.contains("paused"); //음악이 재생됨
@@ -166,4 +228,10 @@ musicPrevBtn.addEventListener("click", ()=>{
 //다음곡 버튼 클릭
 musicNextBtn.addEventListener("click", ()=>{
     nextMusic();
+});
+
+
+// 로드
+window.addEventListener("load", ()=>{
+    loadMusic(musicIndex);
 });
