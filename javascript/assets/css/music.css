@@ -114,6 +114,8 @@
 .music_control .control .stop {background-position: -120px 0;}
 .music_control .control .next {background-position: -240px 0;}
 .music_control .control .list {background-position: -420px 0;}
+.music_control .control .volume {background-position: -600px 0;}
+.music_control .control .volumeNo {background-position: -660px 0;}
 
 /* music__footer */
 .music__footer {

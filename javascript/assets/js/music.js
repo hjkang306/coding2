@@ -217,7 +217,7 @@ musicNextBtn.addEventListener("click", ()=>{
 
 // 뮤직 리스트 버튼 클릭
 musicListBtn.addEventListener("click", ()=>{
-    musicList.classList.add("show");
+    musicList.classList.toggle("show");
 });
 // 뮤직 리스트 닫기 버튼 클릭
 musicListClose.addEventListener("click", ()=>{

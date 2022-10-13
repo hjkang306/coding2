@@ -78,6 +78,9 @@
                         </div>
                     </div>
                     <div class="control">
+                        <i title="음량 조절" class="volume" id="control-volume"></i>
+                        <!-- <i title="음소거" class="volumeNo" id="control-volume"></i> -->
+                        
                         <i title="전체 반복" class="repeat" id="control-repeat"></i>
                         
                         <i title="이전곡 재생" class="prev" id="control-prev"></i>
@@ -144,8 +147,9 @@
             const nowTime = "༼ つ ◕_◕ ༽つ TODAY IS~~~~ "+ now.getFullYear() + "년 " + (now.getMonth()+1) + "월 " + nowDate + "일 "+ nowHours +"시 "+ nowMinutes +"분 "+ nowSeconds +"초";
 
             clock.innerText = nowTime;
-            setInterval("printTime()", 1000);
+            setTimeout("printTime()", 1000);
         }
+
         function printAgent(){
             const agent = document.querySelector(".agent");
             const os = navigator.userAgent.toLocaleLowerCase();
