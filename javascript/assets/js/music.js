@@ -1,13 +1,19 @@
 const allMusic = [
     {
-        name: "Addict (Instrumental)",
-        artist: "NEFFEX",
+        name: "Robots and Aliens",
+        artist: "Joel Cummins",
+        img: "music_img10",
+        audio: "music_audio10"
+    },
+    {
+        name: "Glass",
+        artist: "Anno Domini Beats",
         img: "music_img1",
         audio: "music_audio01"
     },
     {
-        name: "Chasing the Dragons",
-        artist: "Joel Cummins, Kris Myers, Andy Farag",
+        name: "Next Steps",
+        artist: "half.cool",
         img: "music_img2",
         audio: "music_audio02"
     },
@@ -30,8 +36,8 @@ const allMusic = [
         audio: "music_audio05"
     },
     {
-        name: "I Just Wanna Be Great",
-        artist: "NEFFEX",
+        name: "Read All Over",
+        artist: "Nathan Moore",
         img: "music_img6",
         audio: "music_audio06"
     },
@@ -52,12 +58,6 @@ const allMusic = [
         artist: "Chris Haugen",
         img: "music_img9",
         audio: "music_audio09"
-    },
-    {
-        name: "Resolve",
-        artist: "Joel Cummins",
-        img: "music_img10",
-        audio: "music_audio10"
     },
 ]
 
@@ -279,6 +279,38 @@ function clicked(el){
     playMusic();    //음악 재생
     playListMusic();    //음악 리스트 업데이트
 }
+
+// 볼륨 버튼 클릭
+const volumeBtn = document.querySelector(".music_control .control #control-volume");
+const volumeBar= document.querySelector(".music_control .control .volumeBar");
+const volumeBarSize= document.querySelector(".music_control .control .volumeBar .volumeSize");
+volumeBtn.addEventListener("click", ()=>{
+    volumeBar.classList.toggle("show");
+});
+// 볼륨 조절 (클릭한 만큼의 볼륨)
+musicAudio.volume = 0.5;
+volumeBar.addEventListener("click", (e)=>{
+    let volumeBarWidth = volumeBar.clientWidth; // 진행바의 전체 길이
+    let clickedOffsetX = e.offsetX; // 진행바를 기준으로 측정되는 클릭한 부분의 X좌표
+    let volume = musicAudio.volume;
+
+    musicAudio.volume = (clickedOffsetX / volumeBarWidth); //클릭 부분이 전체에서 차지하는 비율을 백분율로 표시
+    // alert(volume);
+    if(musicAudio.volume == 0){
+        volumeBtn.classList.add("mute");
+        volumeBtn.setAttribute("title", "음소거 됨");
+    } else {
+        volumeBtn.classList.remove("mute");
+        volumeBtn.setAttribute("title", "음량 조절");
+    }
+});
+// 볼륨이 바뀌면 볼륨바의 너비를 바꾸기
+musicAudio.addEventListener("volumechange", e =>{
+    const currentVolume = e.target.volume;
+    let volumeBarWidth = currentVolume * 100;
+
+    volumeBarSize.style.width = `${volumeBarWidth}%`;
+});
 
 
 // 로드

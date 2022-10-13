@@ -115,8 +115,25 @@
 .music_control .control .next {background-position: -240px 0;}
 .music_control .control .list {background-position: -420px 0;}
 .music_control .control .volume {background-position: -600px 0;}
-.music_control .control .volumeNo {background-position: -660px 0;}
+.music_control .control .volume.mute {background-position: -660px 0;}
 
+/* volume */
+.music_control .control .volumeBar {
+    width: 0;
+    height: 5px;
+    background: #000;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+.music_control .control .volumeBar.show {
+    width: 70px;
+}
+.music_control .control .volumeBar .volumeSize {
+    width: 50%;
+    height: inherit;
+    background: #37c3ff;
+    border-radius: 5px;
+}
 /* music__footer */
 .music__footer {
     background: #c7c8ce;
