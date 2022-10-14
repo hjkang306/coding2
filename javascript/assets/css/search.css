@@ -130,7 +130,7 @@ li {
     background-color: var(--htmlColor);
     color: #fff;
 }
-.search__list em {
+.search__list .line em {
     float: right;
     font-style: normal;
 }

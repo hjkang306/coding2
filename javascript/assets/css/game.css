@@ -45,15 +45,16 @@ body {
 }
 .icon {
     position: absolute;
-    left: 80px;
+    left: 200px;
     width: 80px;
     text-align: center;
 }
-.icon1 {top: 110px;}
-.icon2 {top: 220px;}
-.icon3 {top: 330px;}
-.icon4 {top: 440px;}
-.icon5 {top: 550px;}
+.icon1 {top: 150px;}
+.icon2 {top: 260px;}
+.icon3 {top: 370px;}
+.icon4 {top: 480px;}
+.icon5 {top: 590px;}
+.icon6 {top: auto; bottom: 200px; left: auto; right: 200px;}
 .icon img {
     width: 100%;
 }
@@ -79,5 +80,45 @@ body {
     height: 40px;
     user-select: none;
     pointer-events: none;
-    z-index: 1;
+    z-index: 100;
+}
+
+/* source */
+.SourceInner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 550px;
+    padding: 40px 5px 5px;
+    background-color: #000;
+    border-radius: 3px;
+    position: relative;
+}
+.SourceInner.show {display: block;}
+.SourceInner iframe {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.SourceInner .SourceClose {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 20;
+    color: #000;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 900;
+    text-align: center;
+    padding: 3px 9px 9px 11px;
+    border-radius: 5px;
+    background: #f9f9f9;
+    user-select: none;
+}
+.SourceInner .SourceClose:hover {
+    background: #ff00d0;
+    color: #fff;
 }

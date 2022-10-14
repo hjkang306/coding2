@@ -40,6 +40,10 @@
                 <img src="../assets/img/icon5.png" alt="폴더">
                 <span>Folder4</span>
             </div>
+            <div class="icon icon6">
+                <img src="../assets/img/icon6.png" alt="소스보기">
+                <span>Source</span>
+            </div>
         </div>
     </main>
     <!-- //main -->
@@ -111,10 +115,17 @@
     </div>
     <!-- //뮤직 플레이어 -->
 
+    <!-- 소스 보기 -->
+    <div class="SourceInner">
+        <iframe src="https://github1s.com/hjkang306/coding2/tree/main/javascript/effect" frameborder="0"></iframe>
+        <div class="SourceClose">x</div>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="../assets/js/music.js"></script>
+    <!-- 커서 -->
     <script>
         // cursor
         const cursor = document.querySelector(".mouse__cursor");
@@ -124,6 +135,8 @@
             cursor.style.top = e.clientY+ "px";
         });
     </script>
+
+    <!-- 아이콘 -->
     <script>
         $(".icon").draggable({
             drag: function() {
@@ -131,6 +144,7 @@
             }
         });
         $(".music__wrap").draggable();
+        $(".SourceInner").draggable();
 
         function printTime(){
             const clock = document.querySelector(".time");
@@ -176,6 +190,19 @@
             printTime();
             printAgent();
         }
+    </script>
+
+    <!-- 소스보기 -->
+    <script>
+        const SourceIcon = document.querySelector(".icon_box .icon6");
+        const SourceView = document.querySelector(".SourceInner");
+        const SourceCloseBtn = document.querySelector(".SourceInner .SourceClose");
+        SourceIcon.addEventListener("click",()=>{
+            SourceView.classList.add("show");
+        });
+        SourceCloseBtn.addEventListener("click", ()=>{
+            SourceView.classList.remove("show");
+        });
     </script>
 </body>
 </html>
