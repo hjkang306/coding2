@@ -316,8 +316,8 @@ li {
     position: fixed;
     right: 1vw;
     top: 1vw;
-    width: 30vw;
-    height: 30vw;
+    width: 40vw;
+    height: 40vw;
     z-index: 10000;
     align-items: center;
     justify-content: center;
@@ -332,7 +332,7 @@ li {
 }
 .search__result .result {
     margin-top: 30px;
-    font-size: 2vw;
+    font-size: 1.5vw;
     line-height: 1.4;
 }
 .search__result .restart {
