@@ -26,8 +26,8 @@
                 <span>Music</span>
             </div>
             <div class="icon icon2">
-                <img src="../assets/img/icon2.png" alt="폴더">
-                <span>Folder1</span>
+                <img src="../assets/img/icon2.png" alt="css 검색 게임">
+                <span>검색게임</span>
             </div>
             <div class="icon icon3">
                 <img src="../assets/img/icon4.png" alt="폴더">
@@ -440,6 +440,21 @@
         });
         SourceCloseBtn.addEventListener("click", ()=>{
             SourceView.classList.remove("show");
+        });
+    </script>
+
+    <!-- 클릭 이벤트 -->
+    <script>
+        const searchIcon = document.querySelector(".icon2");
+        const searchWrap = document.querySelector(".search__wrap");
+        const searchClose = document.querySelectorAll(".search__header div");
+        searchIcon.addEventListener("click", ()=>{
+            searchWrap.classList.add("show");
+        });
+        searchClose.forEach( e => {
+            e.addEventListener("click", ()=>{
+                searchWrap.classList.remove("show");
+            });
         });
     </script>
 </body>

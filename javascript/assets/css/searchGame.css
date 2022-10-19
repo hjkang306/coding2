@@ -2,6 +2,7 @@
     --htmlColor : #223547;
 }
 .search__wrap {
+    display: none;
     background: #333;
     width: 700px;
     height: 500px;
@@ -11,6 +12,9 @@
     top: 250px;
     left: 50%;
     transform: translateX(-50%);
+}
+.search__wrap.show {
+    display: block;
 }
 
 .search__header {
