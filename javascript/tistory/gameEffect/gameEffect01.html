@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">게임 이펙트 - 음악 플레이어</h2>
+            <p class="t_desc2">
+                지금까지 배운 css, javascript 지식을 총 출동하여 간단한 게임을 만들어 봅니다.
+            </p>
+
+            <h3 class="t_tit2">> 사이트 미리보기</h3>
+            <div class="t_iframe" style="min-height: 700px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/gameEffect01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/hjkang306/coding2/blob/main/javascript/effect/gameEffect01.html">원본 소스 보기</a>
+            </div>
+            <br>
+            <h3 class="t_tit2">자바스크립트</h3>
+            <p class="t_desc">
+                1. 먼저, 오디오에 대한 정보를 배열 속 객체 형식으로 저장합니다.<br>
+                2. 그리고 오디오, 클릭 이벤트를 발생시킬 버튼, html요소를 작성할 부분 등을 선택하는 선택자를 작성합니다.<br>
+                3. 오디오에 대한 정보를 반복문과 변수를 통해 작성합니다.<br>
+                4. 오디오의 재생, 반복 등에 대한 스크립트를 작성합니다.<br>
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const allMusic = [
+    {
+        name: "Robots and Aliens",
+        artist: "Joel Cummins",
+        img: "music_img10",
+        audio: "music_audio10"
+    },
+    {
+        name: "Glass",
+        artist: "Anno Domini Beats",
+        img: "music_img1",
+        audio: "music_audio01"
+    },
+    .
+    .
+    .
+    {
+        name: "Island Dream",
+        artist: "Chris Haugen",
+        img: "music_img9",
+        audio: "music_audio09"
+    },
+]
+
+const musicWrap = document.querySelector(".music__wrap");
+const musicView = musicWrap.querySelector(".music__view .img img");
+const musicName = musicWrap.querySelector(".music__view .title h3");
+const musicArtist = musicWrap.querySelector(".music__view .title p");
+const musicAudio = musicWrap.querySelector("#main-audio");
+const musicPlay = musicWrap.querySelector("#control-play");
+const musicPause = musicWrap.querySelector("#control-pause");
+const musicPrevBtn = musicWrap.querySelector("#control-prev");
+const musicNextBtn = musicWrap.querySelector("#control-next");
+const musicProgress = musicWrap.querySelector(".progress");
+const musicProgressBar = musicWrap.querySelector(".progress .bar");
+const musicProgressCurrent = musicWrap.querySelector(".progress .timer .current");
+const musicProgressDuratiuon = musicWrap.querySelector(".progress .timer .duration");
+const musicRepeat = musicWrap.querySelector("#control-repeat");
+const musicListBtn = musicWrap.querySelector("#control-list");
+const musicList = musicWrap.querySelector(".music__list");
+const musicListUL = musicWrap.querySelector(".music__list ul");
+const musicListClose = musicWrap.querySelector(".music__list h3 .close");
+
+let musicIndex = 1;
+
+// 음악 재생
+function loadMusic(num){
+    musicName.innerText = allMusic[num-1].name; // 음악 이름
+    musicArtist.innerText = allMusic[num-1].artist; // 음악 아티스트
+    musicView.src = "../assets/img/"+allMusic[num-1].img+".png";    //음악 사진
+    musicView.alt = allMusic[num-1].name;   //음악 alt태그
+    musicAudio.src = "../assets/audio/"+allMusic[num-1].audio+".mp3"; //음악의 오디오
+}
+
+// 재생
+function playMusic(){
+    musicAudio.play();
+    musicWrap.classList.add("paused");
+    musicPlay.setAttribute("class", "stop");
+    musicPlay.title = "정지"
+}
+
+// 정지
+function pauseMusic(){
+    musicAudio.pause();
+    musicWrap.classList.remove("paused");
+    musicPlay.setAttribute("class", "play");
+    musicPlay.title = "재생"
+}
+
+// 이전 곡 듣기
+function prevMusic(){
+    musicIndex == 1 ? musicIndex = allMusic.length : musicIndex--;
+    loadMusic(musicIndex);
+    playMusic()
+}
+
+// 다음 곡 듣기
+function nextMusic(){
+    musicIndex == allMusic.length ? musicIndex = 1 : musicIndex++;
+    loadMusic(musicIndex);
+    playMusic()
+}
+// 음악 진행 바
+musicAudio.addEventListener("timeupdate", e =>{
+    const currentTime = e.target.currentTime; //오디오의 현재 재생된 시간
+    const duration = e.target.duration; //오디오의 총 재생 시간
+    let progressWidth = (currentTime / duration) * 100;   //총 재생시간 중 현재 재생시간이 차지하는 비율을 백분율로 나타냄
+
+    musicProgressBar.style.width = `${progressWidth}%`;
+
+    // 전체시간
+    musicAudio.addEventListener("loadeddata", ()=>{
+        let audioDuration = musicAudio.duration;
+        let totalMin = Math.floor(audioDuration / 60); //전체 시간을 분 단위로 쪼개어 줌
+        let totalSec = Math.floor(audioDuration % 60); //전체 시간를 분단위로 쪼개어 남은 초를 저장
+        if (totalSec &lt; 10) totalSec = `0${totalSec}`; //초를 두자리로 표시함
+        musicProgressDuratiuon.innerText = `${totalMin}:${totalSec}`; //완성된 시간 문자열을 출력
+    });
+
+    // 진행시간
+    let currentMin = Math.floor(currentTime / 60);
+    let currentSec = Math.floor(currentTime % 60);
+    if(currentSec &lt; 10) currentSec = `0${currentSec}`;
+    musicProgressCurrent.innerText = `${currentMin}:${currentSec}`;
+});
+
+// 반복 버튼 클릭
+musicRepeat.addEventListener("click", ()=>{
+    let getAttr = musicRepeat.getAttribute("class");
+
+    switch(getAttr){
+        case "repeat" :
+            musicRepeat.setAttribute("class", "repeat_one");
+            musicRepeat.setAttribute("title", "한곡 반복");
+        break;
+        case "repeat_one" :
+            musicRepeat.setAttribute("class", "shuffle");
+            musicRepeat.setAttribute("title", "랜덤 반복");
+        break;
+        case "shuffle" :
+            musicRepeat.setAttribute("class", "repeat");
+            musicRepeat.setAttribute("title", "전체반복");
+        break;
+    }
+});
+
+// 오디오가 끝나면
+musicAudio.addEventListener("ended", ()=>{
+    let getAttr = musicRepeat.getAttribute("class");
+
+    switch(getAttr){
+        case "repeat" :
+            nextMusic();
+        break;
+        case "repeat_one" :
+            playMusic();
+        break;
+        case "shuffle" :
+            let randomIndex = Math.floor(Math.random() * allMusic.length + 1);   //랜덤한 인덱스를 생성함. Math.random()은 0~1 사이의 랜덤한 수를 출력
+            
+            do {
+                randomIndex = Math.floor(Math.random() * allMusic.length + 1);
+            } while (musicIndex == randomIndex) // 현재 재생된느 곡의 인덱스와 랜덤한 곡의 인덱스가 같으면 새로운 랜덤 인덱스를 생성
+            musicIndex = randomIndex;
+            loadMusic(musicIndex);
+            playMusic();
+        break;
+    }
+    playListMusic()
+});
+
+// 진행 버튼 클릭
+musicProgress.addEventListener("click", (e)=>{
+    let progressWidth = musicProgress.clientWidth; // 진행바의 전체 길이
+    let clickedOffsetX = e.offsetX; // 진행바를 기준으로 측정되는 클릭한 부분의 X좌표
+    let songduration = musicAudio.duration; //오디오 전체 길이. 위에 있지만 가져오기가 어려워서 새로 만들었음.
+    
+    musicAudio.currentTime = (clickedOffsetX / progressWidth) * songduration; //클릭 부분이 전체에서 차지하는 비율을 백분율로 표시
+});
+// 플레이 버튼 클릭
+musicPlay.addEventListener("click", ()=>{
+    const isMusicPaused = musicWrap.classList.contains("paused"); //음악이 재생됨
+    isMusicPaused ? pauseMusic() : playMusic();
+});
+
+// 이전곡 버튼 클릭
+musicPrevBtn.addEventListener("click", ()=>{
+    prevMusic();
+    playListMusic()
+});
+
+//다음곡 버튼 클릭
+musicNextBtn.addEventListener("click", ()=>{
+    nextMusic();
+    playListMusic()
+});
+
+// 뮤직 리스트 버튼 클릭
+musicListBtn.addEventListener("click", ()=>{
+    musicList.classList.toggle("show");
+});
+// 뮤직 리스트 닫기 버튼 클릭
+musicListClose.addEventListener("click", ()=>{
+    musicList.classList.remove("show");
+});
+
+// 뮤직 리스트 구현하기
+for(let i=0; i&lt;allMusic.length; i++){
+    let li = `
+        &lt;li data-index="${i+1}">
+            &lt;strong>${i+1}. ${allMusic[i].name}&lt;/strong>
+            &lt;em>${allMusic[i].artist}&lt;/em>
+            &lt;audio class="${allMusic[i].audio}" src="../assets/audio/${allMusic[i].audio}.mp3">&lt;/audio>
+            &lt;span class="audio-duration" id="${allMusic[i].audio}">재생시간&lt;/span>
+        &lt;/li>
+    `;
+    // musicListUL.innerHTML += li;
+    musicListUL.insertAdjacentHTML("beforeend", li);
+
+    //리스트에 음악 시간 불러오기
+    let liAudioDuration = musicListUL.querySelector(`#${allMusic[i].audio}`);    //리스트에서 시간을 표시할 부분의 선택자를 만듦
+    let liAudio = musicListUL.querySelector(`.${allMusic[i].audio}`);    // 리스트에서 오디오를 가져옴
+    liAudio.addEventListener("loadeddata", ()=>{
+        let audioDuration = liAudio.duration; //오디오 전체 길이
+        let totalMin = Math.floor(audioDuration / 60); //전체 길이를 분 단위로 쪼갬
+        let totalSec = Math.floor(audioDuration % 60); //초 계산
+        if(totalSec &lt; 10) totalSec = `0${totalSec}`; // 앞자리 0 추가
+        liAudioDuration.innerText = `${totalMin}:${totalSec}`; //문자열 출력
+        liAudioDuration.setAttribute("data-duration", `${totalMin}:${totalSec}`); //속성에 오디오 값을 기록
+    });
+}
+
+// 뮤직 리스트를 클릭하면 재생
+function playListMusic(){
+    const MusicListAll = musicListUL.querySelectorAll("li"); //뮤직 리스트 목록
+    for(let i=0; i&lt;MusicListAll.length; i++){
+        let audioTag = MusicListAll[i].querySelector(".audio-duration");
+
+        MusicListAll[i].setAttribute("onclick", "clicked(this)");
+
+        if(MusicListAll[i].classList.contains("playing")){
+            MusicListAll[i].classList.remove("playing"); // 해당 클래스가 존재하면 삭제
+            let adDuration = audioTag.getAttribute("data-duration");    //오디오 길이 값 가져오기
+            audioTag.textContent = adDuration;  //오디오의 길이값을 출력
+        }
+        if(MusicListAll[i].getAttribute("data-index") == musicIndex){
+            MusicListAll[i].classList.add("playing");   //playing 클래스 추가
+            audioTag.innerText = "재생 중"; // 재생 중일 경우 재생 중 텍스트를 추가
+        }
+    }
+}
+playListMusic()
+
+//뮤직리스트를 각 리스트를 클릭하면
+function clicked(el){
+    let getLiIndex = el.getAttribute("data-index"); //클릭한 리스트의 인덱스 값을 저장
+    musicIndex = getLiIndex;    //클릭한 인덱스 값을 뮤직 인덱스에 저장
+    loadMusic(musicIndex);  //해당 인덱스 음악 로드
+    playMusic();    //음악 재생
+    playListMusic();    //음악 리스트 업데이트
+}
+
+// 볼륨 버튼 클릭
+const volumeBtn = document.querySelector(".music_control .control #control-volume");
+const volumeBar= document.querySelector(".music_control .control .volumeBar");
+const volumeBarSize= document.querySelector(".music_control .control .volumeBar .volumeSize");
+volumeBtn.addEventListener("click", ()=>{
+    volumeBar.classList.toggle("show");
+});
+// 볼륨 조절 (클릭한 만큼의 볼륨)
+musicAudio.volume = 0.5;
+volumeBar.addEventListener("click", (e)=>{
+    let volumeBarWidth = volumeBar.clientWidth; // 진행바의 전체 길이
+    let clickedOffsetX = e.offsetX; // 진행바를 기준으로 측정되는 클릭한 부분의 X좌표
+    let volume = musicAudio.volume;
+
+    musicAudio.volume = (clickedOffsetX / volumeBarWidth); //클릭 부분이 전체에서 차지하는 비율을 백분율로 표시
+    // alert(volume);
+    if(musicAudio.volume == 0){
+        volumeBtn.classList.add("mute");
+        volumeBtn.setAttribute("title", "음소거 됨");
+    } else {
+        volumeBtn.classList.remove("mute");
+        volumeBtn.setAttribute("title", "음량 조절");
+    }
+});
+// 볼륨이 바뀌면 볼륨바의 너비를 바꾸기
+musicAudio.addEventListener("volumechange", e =>{
+    const currentVolume = e.target.volume;
+    let volumeBarWidth = currentVolume * 100;
+
+    volumeBarSize.style.width = `${volumeBarWidth}%`;
+});
+
+
+// 로드
+window.addEventListener("load", ()=>{
+    loadMusic(musicIndex);  //음악 재생
+    playListMusic() //리스트 초기화
+});
+</code></pre>
+            </div>
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_desc">
+                다음은 HTML 코드입니다. 아이콘은 i태그, 오디오는 audio 태그를 이용하여 넣었습니다.
+                주석 처리된 부분은 스크립트로 추가해 줄 부분이기 때문에, 먼저 작성 후 css로 형태를 잡은 후에 주석처리 하였습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="music__wrap">
+    &lt;div class="music__inner">
+        &lt;div class="music__header">
+            &lt;div>xx&lt;/div>
+            &lt;h2>Music Player&lt;/h2>
+            &lt;div>xx&lt;/div>
+        &lt;/div>
+        &lt;div class="music__contents">
+            &lt;div class="music__view">
+                &lt;div class="img">
+                    &lt;img src="../assets/img/music_img1.png" alt="이미지">
+                &lt;/div>
+                &lt;div class="title">
+                    &lt;h3>Retro Music Player&lt;/h3>
+                    &lt;p>youtube music&lt;/p>
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="music_control">
+                &lt;div class="progress">
+                    &lt;div class="bar">
+                        &lt;audio id="main-audio" src="../assets/audio/music_audio01.mp3">&lt;/audio>
+                    &lt;/div>
+                    &lt;div class="timer">
+                        &lt;div class="current">0:00&lt;/div>
+                        &lt;div class="duration">4:00&lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;div class="control">
+                    &lt;i title="음량 조절" class="volume" id="control-volume">&lt;/i>
+                    &lt;div class="volumeBar" aria-hidden="true">&lt;div class="volumeSize">&lt;/div>&lt;/div>
+                    &lt;!-- &lt;i title="음소거" class="volumeNo" id="control-volume">&lt;/i> -->
+                    
+                    &lt;i title="전체 반복" class="repeat" id="control-repeat">&lt;/i>
+                    
+                    &lt;i title="이전곡 재생" class="prev" id="control-prev">&lt;/i>
+                    &lt;i title="재생" class="play" id="control-play">&lt;/i>
+                    &lt;i title="다음곡 재생" class="next" id="control-next">&lt;/i>
+                    
+                    &lt;i title="재생 목록" class="list" id="control-list">&lt;/i>
+                    &lt;!-- &lt;i title="한곡 반복" class="repeat_one">&lt;/i> -->
+                    &lt;!-- &lt;i title="랜덤 반복" class="shuffle">&lt;/i> -->
+                    &lt;!-- &lt;i title="정지" class="stop">&lt;/i> -->
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="music__footer">
+            &lt;div class="music__list">
+                &lt;h3>&lt;span class="list">&lt;/span>Music List&lt;i class="close" title="리스트 닫기">&lt;/i>&lt;/h3>
+                &lt;ul>
+                    &lt;!-- &lt;li>
+                        &lt;strong>제목&lt;/strong>
+                        &lt;em>아티스트&lt;/em>
+                        &lt;span>재생시간&lt;/span>
+                    &lt;/li> -->
+                &lt;/ul>
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+&lt;/div>
+&lt;!-- //뮤직 플레이어 -->
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">슬라이드 효과 만들기</h2>
+            <p class="t_desc2">
+                이미지 슬라이드 효과를 만드는 방법을 익혀봅시다. 슬라이드는 다양한 방식으로 줄 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">슬라이드 효과 : 이미지 슬라이드(버튼, 닷메뉴, 무한)</h3>
+            <p class="t_desc">
+                이번 슬라이드 효과는 버튼을 누르면 이전이미지, 다음 이미지로 넘어가도록 스크립트를 작성하였습니다.
+                또한 이전 유형처럼 닷메뉴를 추가했으며, 이미지가 무한으로 넘어가는 기능도 추가하였습니다.
+            </p>
+            <h3 class="t_tit2">HTML 코드</h3>
+            <p class="t_desc">
+                슬라이드 할 이미지 각각에 slider 클래스를 주고,
+                각 이미지를 감싼 slider__inner와 또 한번 감싼 slider__img를 또 감싼 slider__wrap을 만들었습니다.
+                여기까지는 이전 유형과 같지만, 이번에는 슬라이드를 넘길 버튼이 필요하기 때문에, 
+                slider__img 클래스의 형제 요소로 slider__btn 클래스의 div박스를 만들어 각각의 클래스가 prev, next인 a태그로 버튼을 만들어 주었습니다.
+                또한, 닷메뉴를 만들기 위해 slider__dot을 만들고 dot들을 만들엇습니다. dot은 스크립트를 이용해 작성해줄 예정이기 때문에
+                스타일을 작성한 후 주석 처리 해주었습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;main id="main">
+    &lt;section id="sliderType01">
+        &lt;div class="slider__wrap">
+            &lt;div class="slider__img">
+                &lt;div class="slider__inner">
+                    &lt;div class="slider">&lt;img src="../assets/img/effect_img01-min.jpg" alt="이미지1">&lt;/div>
+                    &lt;div class="slider">&lt;img src="../assets/img/effect_img02-min.jpg" alt="이미지2">&lt;/div>
+                    &lt;div class="slider">&lt;img src="../assets/img/effect_img03-min.jpg" alt="이미지3">&lt;/div>
+                    &lt;div class="slider">&lt;img src="../assets/img/effect_img04-min.jpg" alt="이미지4">&lt;/div>
+                    &lt;div class="slider">&lt;img src="../assets/img/effect_img05-min.jpg" alt="이미지5">&lt;/div>
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="slider__btn">
+                &lt;a href="#" class="prev">prev&lt;/a>
+                &lt;a href="#" class="next">next&lt;/a>
+            &lt;/div>
+            &lt;div class="slider__dot">
+                &lt;!-- &lt;a href="#" class="dot active">&lt;/a>
+                &lt;a href="#" class="dot">&lt;/a>
+                &lt;a href="#" class="dot">&lt;/a>
+                &lt;a href="#" class="dot">&lt;/a>
+                &lt;a href="#" class="dot">&lt;/a> -->
+            &lt;/div>
+        &lt;/div>
+    &lt;/section>
+&lt;/main>
+&lt;!-- main -->
+</code></pre>
+            </div>
+            <h3 class="t_tit2">CSS 코드</h3>
+            <p class="t_desc">
+                이전 유형과 거의 동일하기 떄문에, dot 부분의 css만 작성하였습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">/* slider__dot */
+.slider__dot {
+    position: absolute;
+    left: 50%;
+    transform: translateY(-50%);
+    bottom: 20px;
+}
+.slider__dot .dot {
+    width: 20px;
+    height: 20px;
+    background: rgba(0,0,0,0.4);
+    display: inline-block;
+    border-radius: 50%;
+    text-indent: -9999px;
+    transition: all 0.3s;
+    margin: 3px;
+}
+.slider__dot .dot.active {
+    background: rgba(255, 255, 255, 0.9);
+}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">스크립트 작성하기</h3>
+            <p class="t_box">
+                이미지 슬라이드를 하는 스크립트는 선택자를 만든 후, 각 이미지의 가로값을 구해 그 수치만큼 이동시킨다는 점이
+                이전의 유형과 같습니다. 닷메뉴를 슬라이드 순서에 맞게 활성화시키는 것과, 
+                닷메뉴를 클릭하면 해당 슬라이드로 이동하는 점도 이전과 같으며 무한으로 넘어가는 기능이 추가되었습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
+const sliderImg = document.querySelector(".slider__img");       //보여지는 영역
+const sliderInner = document.querySelector(".slider__inner");   //움직이는 영역
+const slider = document.querySelectorAll(".slider");            //각각의 이미지
+const sliderDot = document.querySelector(".slider__dot");   //닷 메뉴
+const sliderBtn = document.querySelector(".slider__btn");   //슬라이드 버튼
+const sliderBtnPrev = document.querySelector(".slider__btn .prev");   //왼쪽 버튼
+const sliderBtnNext = document.querySelector(".slider__btn .next");   //오른쪽 버튼
+
+
+let currentIndex = 0,                           //현재 이미지의 인덱스
+    sliderLength = slider.length,               //슬라이드의 갯수
+    sliderWidth = slider[0].offsetWidth,        //슬라이드 이미지의 길이
+    sliderFirst = slider[0],                    //첫번째 슬라이드 이미지
+    sliderLast = slider[sliderLength-1],        //마지막 슬라이드 이미지
+    cloneFirst = sliderFirst.cloneNode(true),   //첫번째 이미지 복사
+    cloneLast = sliderLast.cloneNode(true),     //마지막 이미지 복사
+    dotIndex = "";
+
+sliderInner.appendChild(cloneFirst);    //appendChild : 마지막 자식 요소로 추가
+sliderInner.insertBefore(cloneLast, sliderFirst); //insertBefore( 추가 요소, 기준 요소) : 특정 요소의 앞에 추가
+
+function init(){
+    // 이미지 갯수만큼 닷메뉴 생기게
+    for(i=0; i&lt;sliderLength; i++){
+        dotIndex += `&lt;a href="#" class="dot">&lt;/a>`;
+    }
+    sliderDot.innerHTML = dotIndex;
+    sliderDot.firstElementChild.classList.add("active");
+}
+init();
+
+function gotoSlider(direction){ //이전버튼을 누른 경우 direction=-1, 다음버튼을 누른 경우 direction = 1
+    sliderInner.classList.add("transition");
+    sliderBtn.classList.add("disable");
+    posInitial = sliderInner.offsetLeft;    // 클론된 이미지가 붙어있어서 이미지를 왼쪽으로 이동해두었기 때문에 해당 값을 구해 계산에 넣어준다.
+    console.log(posInitial);
+    if(direction == -1){
+        sliderInner.style.left = (posInitial + sliderWidth) + "px";     // 앞에 클론된 이미지가 붙어있기 때문에 1번 이미지의 위치로 초기화(posInitial - sliderWidth)
+        currentIndex--;
+    } else if (direction == 1){
+        sliderInner.style.left = (posInitial - sliderWidth) + "px";
+        currentIndex++;
+    }
+
+}
+
+//이미지 슬라이드 순간이동 시키기
+function checkIndex(){
+    sliderInner.classList.remove("transition");
+
+    console.log(currentIndex);
+    //마지막 이미지에서 처음으로 이동
+    if(currentIndex == sliderLength){
+        sliderInner.style.left = -(1 * sliderWidth) + "px"
+        currentIndex = 0;
+    }
+    //처음 이미지에서 마지막으로 이동
+    if(currentIndex == -1){
+        sliderInner.style.left = -(sliderLength * sliderWidth) + "px"
+        currentIndex = sliderLength - 1;
+    }
+}
+
+sliderBtnPrev.addEventListener("click", ()=>{
+    gotoSlider(-1);
+    setTimeout(()=>{    // 슬라이드가 이동하는 동안 버튼을 누르지 못하도록 setTimeout을 통해 텀을 줌
+        sliderBtn.classList.remove("disable");
+    }, 300);
+});
+sliderBtnNext.addEventListener("click", ()=>{
+    gotoSlider(1);
+    setTimeout(()=>{
+        sliderBtn.classList.remove("disable");
+    }, 300);
+});
+sliderInner.addEventListener("transitionend", checkIndex);
+</code></pre>
+            </div>
+            
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/sliderEffect06.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/javascript/effect/sliderEffect06.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
