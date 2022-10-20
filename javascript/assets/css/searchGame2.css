@@ -1,5 +1,5 @@
 :root {
-    --htmlColor : #223547;
+    --htmlColor : rgb(51, 51, 51);
 }
 .search__wrap {
     display: none;
@@ -12,6 +12,7 @@
     top: 250px;
     left: 50%;
     transform: translateX(-50%);
+    position: relative;
 }
 .search__wrap.show {
     display: block;
@@ -67,7 +68,7 @@
     left: 50%; bottom: 0;
     transform: translateX(-50%);
     background: #223547;
-    width: 70%;
+    width: 60%;
     border-radius: 50px;
     font-size: 20px;
     border: 2px solid var(--htmlColor);
@@ -258,26 +259,28 @@
 
 /* search__result */
 .search__result {
-    position: fixed;
-    right: 1vw;
-    top: 1vw;
-    width: 40vw;
-    height: 40vw;
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    width: 420px;
+    height: 250px;
+    /* width: ;25vw
+    height: 14vw; */
     z-index: 10000;
-    transform: scale3d(0, 0, 0);
+    transform: translate(-50%, -50%) scale3d(0, 0, 0);
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
     background: #fff;
     border: 6px solid var(--htmlColor);
+    border-top: 20px solid var(--htmlColor);
 }
 .search__result.show {
     display: flex;
     animation: rubberBand 1s 0.6s ease forwards;
 }
 .search__result .result {
-    margin-top: 30px;
-    font-size: 1.3vw;
+    margin-top: 10px;
+    font-size: 18px;
     line-height: 1.4;
     margin-bottom: 30px;
 }
@@ -285,23 +288,24 @@
     background: var(--htmlColor);
     color: #fff;
     border: 0;
-    font-size: 20px;
+    font-size: 16px;
     padding: 10px 20px;
-    border-radius: 50px;
+    border-radius: 10px;
     cursor: pointer;
+    text-decoration: none;
 }
 .search__result .restart:hover {
     color: var(--htmlColor);
     background: #fff;
-    border: 1px solid var(--htmlColor);
+    border: 2px solid var(--htmlColor);
 }
 
 @keyframes rubberBand {
-    from {transform: scale3d(0, 0, 0);}
-    30% {transform: scale3d(1.25, 0.75, 1);}
-    40% {transform: scale3d(0.75, 1.25, 1);}
-    50% {transform: scale3d(1.15, 0.85, 1);}
-    65% {transform: scale3d(0.95, 1.05, 1);}
-    75% {transform: scale3d(1.05, 0.95, 1);}
-    to {transform: scale3d(1, 1, 1);}
+    from {transform: translate(-50%, -50%) scale3d(0, 0, 0);}
+    30% {transform: translate(-50%, -50%) scale3d(1.25, 0.75, 1);}
+    40% {transform: translate(-50%, -50%) scale3d(0.75, 1.25, 1);}
+    50% {transform: translate(-50%, -50%) scale3d(1.15, 0.85, 1);}
+    65% {transform: translate(-50%, -50%) scale3d(0.95, 1.05, 1);}
+    75% {transform: translate(-50%, -50%) scale3d(1.05, 0.95, 1);}
+    to {transform: translate(-50%, -50%) scale3d(1, 1, 1);}
 }

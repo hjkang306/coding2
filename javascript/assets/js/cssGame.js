@@ -531,7 +531,7 @@ const cssProperty = [ //all, animation, background, flex, grid, string, table
             searchResultWrap.classList.remove("show");
             timeReamining = 120;
             Score = 0;
-            searchScoreNow.innerText = "0";
+            searchCount.innerText = "0";
 
             searchAnswers.innerHTML = "";
             searchMissAnswers.innerHTML = "";
@@ -539,6 +539,7 @@ const cssProperty = [ //all, animation, background, flex, grid, string, table
             startQuiz();
         }, 1000);
     }
+
     
     //버튼 이벤트
     searchStart.addEventListener("click", startQuiz);
@@ -554,3 +555,22 @@ const cssProperty = [ //all, animation, background, flex, grid, string, table
         searchAudio.play();
     });
     searchRestart.addEventListener("click", restart);
+
+    // 서치게임
+    const searchClose2 = document.querySelectorAll(".search__header div");
+    searchClose2.addEventListener("click", ()=>{
+        searchResultWrap.classList.remove("show");
+        timeReamining = 120;
+        Score = 0;
+        searchCount.innerText = "0";
+
+        searchAnswers.innerHTML = "";
+        searchMissAnswers.innerHTML = "";
+
+        
+        searchAudio.pause();
+        searchAudioPlay.style.display = "none";
+        searchAudioStop.style.display = "block";
+
+        clearInterval(timeInterval);
+    });

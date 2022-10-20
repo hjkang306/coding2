@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">슬라이드 효과 만들기</h2>
+            <p class="t_desc2">
+                이미지 슬라이드 효과를 만드는 방법을 익혀봅시다. 슬라이드는 다양한 방식으로 줄 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">슬라이드 효과 : 이미지 슬라이드(버튼)</h3>
+            <p class="t_desc">
+                이번 슬라이드 효과는 버튼을 누르면 이전이미지, 다음 이미지로 넘어가도록 스크립트를 작성하였습니다.
+                많이 사용되는 효과이므로 잘 알아두엇다가 활용하도록 합시다.
+            </p>
+            <h3 class="t_tit2">HTML 코드</h3>
+            <p class="t_desc">
+                슬라이드 할 이미지 각각에 slider 클래스를 주고,
+                각 이미지를 감싼 slider__inner와 또 한번 감싼 slider__img를 또 감싼 slider__wrap을 만들었습니다.
+                여기까지는 이전 유형과 같지만, 이번에는 슬라이드를 넘길 버튼이 필요하기 때문에, 
+                slider__img 클래스의 형제 요소로 slider__btn 클래스의 div박스를 만들어 각각의 클래스가 prev, next인 a태그로 버튼을 만들어 주었습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="slider__wrap">
+    &lt;div class="slider__img">
+        &lt;div class="slider__inner">
+            &lt;div class="slider">&lt;img src="../assets/img/effect_img01-min.jpg" alt="이미지1">&lt;/div>
+            &lt;div class="slider">&lt;img src="../assets/img/effect_img02-min.jpg" alt="이미지2">&lt;/div>
+            &lt;div class="slider">&lt;img src="../assets/img/effect_img03-min.jpg" alt="이미지3">&lt;/div>
+            &lt;div class="slider">&lt;img src="../assets/img/effect_img04-min.jpg" alt="이미지4">&lt;/div>
+            &lt;div class="slider">&lt;img src="../assets/img/effect_img05-min.jpg" alt="이미지5">&lt;/div>
+        &lt;/div>
+    &lt;/div>
+    &lt;div class="slider__btn">
+        &lt;a href="#" class="prev">prev&lt;/a>
+        &lt;a href="#" class="next">next&lt;/a>
+    &lt;/div>
+&lt;/div>
+</code></pre>
+            </div>
+            <h3 class="t_tit2">CSS 코드</h3>
+            <p class="t_desc">
+                이전 유형과 같은 요소들의 css 코드는 동일하기 때문에 slider__btn과 관련된 css만 보여드리겠습니다. 
+                버튼은 포지션을 주어 슬라이더 양 끝 중앙에 오도록 하였고, 마우스가 올라간다면 클릭할 수 있는 버튼임을 알 수 있도록
+                마우스 오버시에 색상이 변하도록 하였습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">/* slider__btn */
+.slider__btn a {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(0,0,0,0.4);
+    text-align: center;
+    line-height: 50px;
+    transition: all 0.2s;
+    display: block;
+    color: #fff;
+    border-radius: 5px;
+}
+.slider__btn a:hover {
+    background: rgb(90, 141, 75);
+}
+.slider__btn a.prev {
+    left: 0;
+}
+.slider__btn a.next {
+    right: 0;
+}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">스크립트 작성하기</h3>
+            <p class="t_box">
+                01. 먼저 각각의 요소를 선택할 선택자를 만들어 줍니다.<br>
+                02. 현재의 이미지가 몇번째 이미지인지 알 수 있도록, 해당 정보를 저장할 변수를 만들어 줍니다.<br>
+                03. 저번 유형에서 했던 것처럼 슬라이드 효과를 주기위한 이미지 갯수와 이미지의 가로값을 구해 변수에 저장해 줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
+const sliderImg = document.querySelector(".slider__img");       //보여지는 영역
+const sliderInner = document.querySelector(".slider__inner");   //움직이는 영역
+const slider = document.querySelectorAll(".slider");            //각각의 이미지
+const sliderBtn = document.querySelector(".slider__btn");    
+const sliderBtnPrev = sliderBtn.querySelector(".prev");    
+const sliderBtnNext = sliderBtn.querySelector(".next");
+
+let currentIndex = 0;                       //현재 이미지
+let sliderCount = slider.length;            //이미지 갯수
+let sliderWidth = sliderImg.offsetWidth;    //이미지 가로값
+</code></pre>
+            </div><br>
+            <p class="t_box">
+                04. 버튼을 눌렀을 때, num이라는 매개변수를 받아 실행할 gotoSlider라는 함수를 작성해 줍니다.<br>
+                : style 속성을 이용해 슬라이더가 X축 -sliderWidth * num(왼쪽으로 슬라이드 이미지 너비만큼)의 좌표로 이동하도록 합니다.<br>
+                또한, 현재 이미지가 몇번째 이미지인지 알 수 있도록 currentIndex에 num값을 저장합니다.<br><br>
+
+                05. 오른쪽 버튼을 클릭하면 다음 이미지가 보여지도록 합니다.<br>
+                : 다음 이미지를 보여주기 위해서는 currentIndex에 +1을 하면 되지만, 0~4의 값만이 반복되어야 하므로 sliderCount로 나눈 나머지 값을 nextIndex에 저장합니다.<br>
+                이후 nextIndex 값을 매개변수로 gotoSlider 함수를 실행하면 이미지가 넘어가게 됩니다.<br><br>
+
+                06. 왼쪽 버튼을 클릭하면 이전 이미지가 보여지도록 합니다.<br>
+                : 이전 이미지를 보여주기 위해서는 currentIndex에 -1을 하면 되지만, -값과 0~4의 값만이 반복되어야 하므로 <br>
+                currentIndex에 sliderCount값을 더하고 -1을 한 값을 sliderCount로 나누어 prevIndex에 저장합니다. <br>
+                이후 prevIndex 값을 매개변수로 gotoSlider 함수를 실행하면 이미지가 넘어가게 됩니다.
+                 
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">// 이미지 움직이는 영역
+function gotoSlider(num){
+    sliderInner.style.transition = "all 400ms";
+    sliderInner.style.transform = "translateX("+ -sliderWidth * num + "px)";
+    currentIndex = num;
+}
+
+// 왼쪽 버튼 클릭
+sliderBtnPrev.addEventListener("click", ()=>{
+    let prevIndex = (currentIndex + sliderCount -1) % sliderCount;
+    gotoSlider(prevIndex);
+    // 4 3 2 1 0 4 3 2
+    // 3 2 1 0 4 3 2 1
+});
+
+// 오른쪽 버튼 클릭
+sliderBtnNext.addEventListener("click", ()=>{
+    let nextIndex = (currentIndex + 1) % sliderCount;
+    gotoSlider(nextIndex);
+    // 0,1,2,3,4
+});
+</code></pre>
+            </div>
+            
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0;">
+                <iframe src="https://hjkang306.github.io/coding2/javascript/effect/sliderEffect04.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://hjkang306.github.io/coding2/javascript/effect/sliderEffect04.html">원본 페이지 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hjkang306@naver.com">hjkang306@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

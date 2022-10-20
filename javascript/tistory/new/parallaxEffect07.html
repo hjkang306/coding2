@@ -16,10 +16,12 @@
             <h2 class="t_tit">패럴랙스 이펙트 7</h2>
             <p class="t_desc2">
                 이번 패럴랙스 효과는 스크롤을 내리면 가림막이 먼저 나타났다가 사라지며 글씨와 이미지가 나타나는 효과입니다.
+                이런 효과를 리빌효과라고 합니다.
             </p>
             <h3 class="t_tit2">HTML 코드</h3>
             <p class="t_desc">
                 이번 패럴랙스는 메뉴 없이 컨텐츠로만 구성하였으며, scrollTop 정보를 볼 수 있는 info를 추가해주었습니다.
+                이전 유형과 구조는 완전히 같습니다.
             </p>
             <details>
                 <summary>HTML 보기</summary>
@@ -133,13 +135,7 @@
 </code></pre>
                 </div>
             </details>
-            <h3 class="t_tit2">스크립트 요약</h3>
-            <p class="t_desc">
-                1. 텍스트를 글자 하나씩 쪼개 span 태그 안에 출력합니다.<br>
-                2. 스크롤 값을 구해, 스크롤이 내려감에 따라 텍스트가 나타나도록 합니다.<br>
-                3. 각각의 span에 transition-delay를 점점 증가되도록 추가합니다.<br>
-                4. 스크롤 이벤트가 발생하면 해당 함수가 실행되도록 합니다.
-            </p>
+            <h3 class="t_tit2">스크립트 보기</h3>
             <div class="t_code">
 <pre><code class="language-js">/ reveal 클래스 자식에 글씨만 잇다면, 가상으로 span 태그를 만들어서 넣어주기
 const descReveal = document.querySelectorAll("p.reveal");
@@ -148,7 +144,7 @@ descReveal.forEach((el)=>{
     let splitText = el.innerText;
     // console.log(splitText)
     if(splitText){
-        el.innerHTML = '<span>' + splitText + '</span>';
+        el.innerHTML = '&lt;span>' + splitText + '&lt;/span>';
     }
 })
 
