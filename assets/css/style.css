@@ -282,7 +282,7 @@
 .gridly .webstandard a {
 	color: #157ed3;
 	display: block;
-	border-bottom: 3px solid #a5d5fa;
+	border-bottom: 3px solid #00968789;
 	margin-right: 20px;
 } 
 .gridly .html5 a {
@@ -375,7 +375,43 @@
 
 .image-wrap:hover .hover-wrap, overlay-text-thumb {color: #fff;}
 
-
+/* bts */
+.image-wrap .hover-wrap a.bts {
+    background: #A92C76;
+    color: #fff;
+    width: auto;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    line-height: 1;
+    height: auto;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: 20px;
+}
+.image-wrap .hover-wrap a.bts:hover {
+    background: #8B1C5E;
+}
+.image-wrap .hover-wrap a.bts2 {
+    background: #A92C76;
+    background: #A92C76;
+    color: #fff;
+    width: auto;
+    left: 50%;
+    top: 54%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    line-height: 1;
+    height: auto;
+}
+.image-wrap .hover-wrap a.bts2:hover {
+    background: #8B1C5E;
+}
 
 
 /* 도넛 */
@@ -430,7 +466,6 @@
 	font-size: 14px;
 	line-height: 22px;
 	font-weight: 200px;
-
 	opacity: 1;
 	filter: alpha(opacity=100);
 }
